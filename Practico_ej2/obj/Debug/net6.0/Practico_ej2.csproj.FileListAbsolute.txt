@@ -1,0 +1,14 @@
+C:\Users\fedeg\source\repos\Practico_ej2\bin\Debug\net6.0\Practico_ej2.exe
+C:\Users\fedeg\source\repos\Practico_ej2\bin\Debug\net6.0\Practico_ej2.deps.json
+C:\Users\fedeg\source\repos\Practico_ej2\bin\Debug\net6.0\Practico_ej2.runtimeconfig.json
+C:\Users\fedeg\source\repos\Practico_ej2\bin\Debug\net6.0\Practico_ej2.dll
+C:\Users\fedeg\source\repos\Practico_ej2\bin\Debug\net6.0\Practico_ej2.pdb
+C:\Users\fedeg\source\repos\Practico_ej2\obj\Debug\net6.0\Practico_ej2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fedeg\source\repos\Practico_ej2\obj\Debug\net6.0\Practico_ej2.AssemblyInfoInputs.cache
+C:\Users\fedeg\source\repos\Practico_ej2\obj\Debug\net6.0\Practico_ej2.AssemblyInfo.cs
+C:\Users\fedeg\source\repos\Practico_ej2\obj\Debug\net6.0\Practico_ej2.csproj.CoreCompileInputs.cache
+C:\Users\fedeg\source\repos\Practico_ej2\obj\Debug\net6.0\Practico_ej2.dll
+C:\Users\fedeg\source\repos\Practico_ej2\obj\Debug\net6.0\refint\Practico_ej2.dll
+C:\Users\fedeg\source\repos\Practico_ej2\obj\Debug\net6.0\Practico_ej2.pdb
+C:\Users\fedeg\source\repos\Practico_ej2\obj\Debug\net6.0\Practico_ej2.genruntimeconfig.cache
+C:\Users\fedeg\source\repos\Practico_ej2\obj\Debug\net6.0\ref\Practico_ej2.dll
