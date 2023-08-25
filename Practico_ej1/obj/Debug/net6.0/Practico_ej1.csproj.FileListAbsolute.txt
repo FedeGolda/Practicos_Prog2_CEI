@@ -1,0 +1,14 @@
+C:\Users\Fede\source\repos\Practico_ej1\obj\Debug\net6.0\Practico_ej1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fede\source\repos\Practico_ej1\obj\Debug\net6.0\Practico_ej1.AssemblyInfoInputs.cache
+C:\Users\Fede\source\repos\Practico_ej1\obj\Debug\net6.0\Practico_ej1.AssemblyInfo.cs
+C:\Users\Fede\source\repos\Practico_ej1\obj\Debug\net6.0\Practico_ej1.csproj.CoreCompileInputs.cache
+C:\Users\Fede\source\repos\Practico_ej1\bin\Debug\net6.0\Practico_ej1.exe
+C:\Users\Fede\source\repos\Practico_ej1\bin\Debug\net6.0\Practico_ej1.deps.json
+C:\Users\Fede\source\repos\Practico_ej1\bin\Debug\net6.0\Practico_ej1.runtimeconfig.json
+C:\Users\Fede\source\repos\Practico_ej1\bin\Debug\net6.0\Practico_ej1.dll
+C:\Users\Fede\source\repos\Practico_ej1\bin\Debug\net6.0\Practico_ej1.pdb
+C:\Users\Fede\source\repos\Practico_ej1\obj\Debug\net6.0\Practico_ej1.dll
+C:\Users\Fede\source\repos\Practico_ej1\obj\Debug\net6.0\refint\Practico_ej1.dll
+C:\Users\Fede\source\repos\Practico_ej1\obj\Debug\net6.0\Practico_ej1.pdb
+C:\Users\Fede\source\repos\Practico_ej1\obj\Debug\net6.0\Practico_ej1.genruntimeconfig.cache
+C:\Users\Fede\source\repos\Practico_ej1\obj\Debug\net6.0\ref\Practico_ej1.dll
