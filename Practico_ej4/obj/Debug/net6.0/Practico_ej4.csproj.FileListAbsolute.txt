@@ -1,0 +1,14 @@
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Practico_ej4\bin\Debug\net6.0\Practico_ej4.exe
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Practico_ej4\bin\Debug\net6.0\Practico_ej4.deps.json
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Practico_ej4\bin\Debug\net6.0\Practico_ej4.runtimeconfig.json
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Practico_ej4\bin\Debug\net6.0\Practico_ej4.dll
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Practico_ej4\bin\Debug\net6.0\Practico_ej4.pdb
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Practico_ej4\obj\Debug\net6.0\Practico_ej4.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Practico_ej4\obj\Debug\net6.0\Practico_ej4.AssemblyInfoInputs.cache
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Practico_ej4\obj\Debug\net6.0\Practico_ej4.AssemblyInfo.cs
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Practico_ej4\obj\Debug\net6.0\Practico_ej4.csproj.CoreCompileInputs.cache
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Practico_ej4\obj\Debug\net6.0\Practico_ej4.dll
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Practico_ej4\obj\Debug\net6.0\refint\Practico_ej4.dll
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Practico_ej4\obj\Debug\net6.0\Practico_ej4.pdb
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Practico_ej4\obj\Debug\net6.0\Practico_ej4.genruntimeconfig.cache
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Practico_ej4\obj\Debug\net6.0\ref\Practico_ej4.dll
