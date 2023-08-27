@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using System;
+﻿using System;
 
 
 namespace Practico_ej1
@@ -14,18 +13,20 @@ namespace Practico_ej1
                 int mes = 0;
                 int anio = 0;
 
+                // Solicitar al usuario ingresar los valores de la fecha
+
                 Console.WriteLine("Ingrese Dia: ");
-                dia = Int32.Parse(Console.ReadLine());
+                dia = Int32.Parse(Console.ReadLine()); // Convertir la entrada del usuario a un valor numérico
 
                 Console.WriteLine("\nIngrese Mes: ");
-                mes = Int32.Parse(Console.ReadLine());
+                mes = Int32.Parse(Console.ReadLine()); // Convertir la entrada del usuario a un valor numérico
 
                 Console.WriteLine("\nIngrese Año: ");
-                anio = Int32.Parse(Console.ReadLine());
+                anio = Int32.Parse(Console.ReadLine()); // Convertir la entrada del usuario a un valor numérico
 
                 Console.Clear(); // Limpia la pantalla en la consola
 
-                if ((dia >= 1 && dia <= 31) && (mes >= 1 && mes <= 12) && anio > 0)
+                if ((dia >= 1 && dia <= 31) && (mes >= 1 && mes <= 12) && anio > 0) // Verificar si la fecha ingresada es válida
                 {
                     switch (mes)
                     {

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\Federico\\CEI\\PROGRAMACION 2\\Practicos\\Practicos_Prog2_CEI\\Practico_ej1\\Practico_ej1.csproj",
+      "projectUniqueName": "D:\\Documents\\Federico\\CEI\\PROGRAMACION 2\\Practicos\\Practicos_Prog2_CEI\\Practico\\Practico_ej1\\Practico_ej1.csproj",
       "projectName": "Practico_ej1",
-      "projectPath": "D:\\Documents\\Federico\\CEI\\PROGRAMACION 2\\Practicos\\Practicos_Prog2_CEI\\Practico_ej1\\Practico_ej1.csproj",
+      "projectPath": "D:\\Documents\\Federico\\CEI\\PROGRAMACION 2\\Practicos\\Practicos_Prog2_CEI\\Practico\\Practico_ej1\\Practico_ej1.csproj",
       "packagesPath": "C:\\Users\\fedeg\\.nuget\\packages\\",
-      "outputPath": "D:\\Documents\\Federico\\CEI\\PROGRAMACION 2\\Practicos\\Practicos_Prog2_CEI\\Practico_ej1\\obj\\",
+      "outputPath": "D:\\Documents\\Federico\\CEI\\PROGRAMACION 2\\Practicos\\Practicos_Prog2_CEI\\Practico\\Practico_ej1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
