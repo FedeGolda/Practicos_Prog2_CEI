@@ -8,12 +8,12 @@ namespace Practico1_ej3
 {
     namespace Practico1_ej3
     {
-        public class Vector
+        public class Vectores
         {
             private int[] x;
             private int[] y;
 
-            public Vector(int[] x, int[] y)
+            public Vectores(int[] x, int[] y)
             {
                 // Aquí podrías agregar validación para asegurarte de que los arreglos tengan la misma longitud.
                 this.x = x;
@@ -27,7 +27,7 @@ namespace Practico1_ej3
                 return vector1 + "\n" + vector2;
             }
 
-            public int[] SumaVectores(int[] x, int[] y)
+            public static int[] SumaVectores(int[] x, int[] y)
             {
                 int[] resultado = new int[x.Length];
 
@@ -39,7 +39,7 @@ namespace Practico1_ej3
                 return resultado;
             }
 
-            public string ImprimirResta(int[] x, int[] y)
+            public static string ImprimirResta(int[] x, int[] y)
             {
                 int[] resultado = new int[x.Length];
 

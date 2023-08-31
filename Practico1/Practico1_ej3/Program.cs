@@ -10,12 +10,10 @@ namespace Practico1_ej3
             int[] valoresX = { 1, 2, 3 };
             int[] valoresY = { 4, 5, 6 };
 
-            Vector vector = new Vector(valoresX, valoresY);
-
-            int[] suma = vector.SumaVectores(valoresX, valoresY);
+            int[] suma = Vectores.SumaVectores(valoresX, valoresY);
             Console.WriteLine("Suma: " + string.Join(", ", suma));
 
-            string resta = vector.ImprimirResta(valoresX, valoresY);
+            string resta = Vectores.ImprimirResta(valoresX, valoresY);
             Console.WriteLine(resta);
         }
     }
