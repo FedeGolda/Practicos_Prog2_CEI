@@ -27,9 +27,7 @@ namespace Practico1_ej3
                 return vector1 + "\n" + vector2;
             }
 
-            // Puedes agregar métodos para realizar operaciones con los vectores, como suma, resta, producto escalar, etc.
-
-            public int[] sumaVectores(int[] x, int[] y) 
+            public int[] SumaVectores(int[] x, int[] y)
             {
                 int[] resultado = new int[x.Length];
 
@@ -41,18 +39,17 @@ namespace Practico1_ej3
                 return resultado;
             }
 
-            public string imprimirResta(int[] x, int[] y)
+            public string ImprimirResta(int[] x, int[] y)
             {
                 int[] resultado = new int[x.Length];
 
-                for(int i = 0; i < x.Length; i++)
+                for (int i = 0; i < x.Length; i++)
                 {
                     resultado[i] = x[i] - y[i];
                 }
 
-                return "Resultado Resta: " + resultado;
+                return "Resultado Resta: " + string.Join(", ", resultado);
             }
-
         }
     }
 }
