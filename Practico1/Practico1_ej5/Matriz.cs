@@ -10,9 +10,13 @@ namespace Practico1_ej5
     {
         private int[,] matriz1;
         private int[,] matriz2;
+        private int x; // Filas
+        private int y; // Columnas
 
         public Matriz(int x, int y)
         {
+            this.x = x;
+            this.y = y;
             matriz1 = new int[x, y];
             matriz2 = new int[x, y];
         }
@@ -35,6 +39,20 @@ namespace Practico1_ej5
         public void SetMatriz2Value(int x, int y, int value)
         {
             matriz2[x, y] = value;
+        }
+
+        public int[,] SumarMatrices()
+        {
+            int[,] sumMatrix = new int[x, y];
+
+            for (int i = 0; i < x; i++)
+            {
+                for (int j = 0; j < y; j++)
+                {
+                    sumMatrix[i, j] = matriz1[i, j] + matriz2[i, j];
+                }
+            }
+            return sumMatrix;
         }
 
     }
