@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Practico1_ej5
 {
@@ -48,7 +49,7 @@ namespace Practico1_ej5
             }
 
             // Calcular la suma de las matrices
-            int[,] suma = matriz1.SumarMatrices();
+            int[,] suma = matriz1.SumarMatrices(matriz2); // Pasar matriz2 como argumento
 
             Console.WriteLine("\nSuma de las matrices:");
             for (int i = 0; i < x; i++)
@@ -59,6 +60,7 @@ namespace Practico1_ej5
                 }
                 Console.WriteLine(); // Nueva línea para la siguiente fila
             }
+            Console.WriteLine(); // Nueva línea para la siguiente fila
+            }
         }
     }
-}

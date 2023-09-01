@@ -41,7 +41,7 @@ namespace Practico1_ej5
             matriz2[x, y] = value;
         }
 
-        public int[,] SumarMatrices()
+        public int[,] SumarMatrices(Matriz otraMatriz)
         {
             int[,] sumMatrix = new int[x, y];
 
@@ -49,8 +49,8 @@ namespace Practico1_ej5
             {
                 for (int j = 0; j < y; j++)
                 {
-                    // Sumar los elementos correspondientes de matriz1 y matriz2
-                    sumMatrix[i, j] = GetMatriz1(i, j) + GetMatriz2(i, j);
+                    // Sumar los elementos correspondientes de matriz1 y la otra matriz
+                    sumMatrix[i, j] = GetMatriz1(i, j) + otraMatriz.GetMatriz2(i, j);
                 }
             }
             return sumMatrix;
