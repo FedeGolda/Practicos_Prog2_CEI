@@ -10,13 +10,7 @@ namespace Pracitco1_ej2
     {
         private string? nombre;
         private int edad;
-/*
-        public Alumno()
-        {
-            nombre = "Fede";
-            edad = 30;
-        }
-*/
+
         public Alumno(string infoNombre, int infoEdad)
         {
             nombre = infoNombre;
