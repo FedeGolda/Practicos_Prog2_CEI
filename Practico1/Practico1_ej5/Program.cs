@@ -12,27 +12,52 @@ namespace Practico1_ej5
             Matriz matriz1 = new Matriz(x, y);
             Matriz matriz2 = new Matriz(x, y);
 
+            // Crear una instancia de Random para generar valores aleatorios
+            Random rand = new Random();
 
-            // Configurar valores en las matrices matriz1 y matriz2
+            // Configurar valores aleatorios en las matrices matriz1 y matriz2
             for (int i = 0; i < x; i++)
             {
                 for (int j = 0; j < y; j++)
                 {
-                    matriz1.SetMatriz1Value(i, j, i + j);  // Ejemplo: Configurando valores en matriz1
-                    matriz2.SetMatriz2Value(i, j, i - j);  // Ejemplo: Configurando valores en matriz2
+                    matriz1.SetMatriz1Value(i, j, rand.Next(1, 10)); // Valores aleatorios entre 1 y 9
+                    matriz2.SetMatriz2Value(i, j, rand.Next(1, 10)); // Valores aleatorios entre 1 y 9
                 }
             }
 
-            // Calcular y mostrar la suma de las matrices
+            
+
+            Console.WriteLine("Matriz 1:");
+            for (int i = 0; i < x; i++)
+            {
+                for (int j = 0; j < y; j++)
+                {
+                    Console.Write(matriz1.GetMatriz1(i, j) + "\t");
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("\nMatriz 2:");
+            for (int i = 0; i < x; i++)
+            {
+                for (int j = 0; j < y; j++)
+                {
+                    Console.Write(matriz2.GetMatriz2(i, j) + "\t");
+                }
+                Console.WriteLine();
+            }
+
+            // Calcular la suma de las matrices
             int[,] suma = matriz1.SumarMatrices();
-            Console.WriteLine("Suma de las matrices:");
+
+            Console.WriteLine("\nSuma de las matrices:");
             for (int i = 0; i < x; i++)
             {
                 for (int j = 0; j < y; j++)
                 {
                     Console.Write(suma[i, j] + "\t");
                 }
-                Console.WriteLine();
+                Console.WriteLine(); // Nueva línea para la siguiente fila
             }
         }
     }

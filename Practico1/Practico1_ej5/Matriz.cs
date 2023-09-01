@@ -49,11 +49,11 @@ namespace Practico1_ej5
             {
                 for (int j = 0; j < y; j++)
                 {
-                    sumMatrix[i, j] = matriz1[i, j] + matriz2[i, j];
+                    // Sumar los elementos correspondientes de matriz1 y matriz2
+                    sumMatrix[i, j] = GetMatriz1(i, j) + GetMatriz2(i, j);
                 }
             }
             return sumMatrix;
         }
-
     }
 }
