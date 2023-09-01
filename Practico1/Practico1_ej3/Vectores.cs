@@ -20,6 +20,12 @@ namespace Practico1_ej3
                 this.y = y;
             }
 
+            public void SetVectores(int[] x, int[] y)
+            {
+                this.x = x;
+                this.y = y;
+            }
+
             public string GetVectores()
             {
                 string vector1 = "Vector1: " + string.Join(", ", x);
@@ -50,6 +56,24 @@ namespace Practico1_ej3
 
                 return "Resta: " + string.Join(", ", resultado);
             }
+
+            // 4- Intente ampliar el ejercicio anterior para que el código pueda calcular la distancia entre los puntos asociados a los vectores creados.
+
+            public static double calculoDistancia2vectores(int[] x, int[] y)
+            {
+                double sumaCuadrados = 0;
+
+                for (int i = 0; i < x.Length; i++)
+                {
+                    int diferencia = x[i] - y[i];
+                    sumaCuadrados += Math.Pow(diferencia, 2);
+                }
+
+                double distancia = Math.Sqrt(sumaCuadrados);
+                return distancia;
+            }
+                
+
         }
     }
 }
