@@ -1,5 +1,6 @@
 ﻿using System.Numerics;
 using System.Runtime.Intrinsics;
+using Practico1_ej3.Practico1_ej3;
 
 namespace Practico1_ej3
 {
@@ -7,8 +8,10 @@ namespace Practico1_ej3
     {
         static void Main(string[] args)
         {
-            int[] valoresX = { 1, 2, 3 };
-            int[] valoresY = { 4, 5, 6 };
+            int[] valoresX = { 1, 2 };
+            int[] valoresY = { 4, 5 };
+
+            Console.WriteLine("Valores actuales: " + valoresX, valoresY);
 
             int[] suma = Vectores.SumaVectores(valoresX, valoresY);
             Console.WriteLine("Suma: " + string.Join(", ", suma));

@@ -48,7 +48,7 @@ namespace Practico1_ej3
                     resultado[i] = x[i] - y[i];
                 }
 
-                return "Resultado Resta: " + string.Join(", ", resultado);
+                return "Resta: " + string.Join(", ", resultado);
             }
         }
     }
