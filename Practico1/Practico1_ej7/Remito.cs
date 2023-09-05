@@ -1,16 +1,18 @@
-﻿namespace Practico1_ej7
+﻿using System.Globalization;
+
+namespace Practico1_ej7
 {
     internal class Remito : Impresora
     {
         private int cantBultos;
-        private int fecha;
+        private DateTime fecha;
         private int numero;
 
 
         public Remito()
         {
             cantBultos = 10;
-            fecha = 20223;
+            fecha = DateTime.ParseExact("24/09/2023", "dd/MM/yyyy", CultureInfo.InvariantCulture); ;
             numero = 2;
         }
 
@@ -20,7 +22,7 @@
             return cantBultos;
         }
 
-        public int GetFecha()
+        public DateTime GetFecha()
         {
             return fecha;
         }
@@ -35,7 +37,7 @@
             this.cantBultos = cantBultos;
         }
 
-        public void SetFecha(int fecha)
+        public void SetFecha(DateTime fecha)
         {
             this.fecha = fecha;
         }

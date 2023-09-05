@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,26 +9,26 @@ namespace Practico1_ej7
 {
     internal class Factura : Impresora
     {
-        private int fecha;
+        private DateTime fecha;
         private int importe;
 
         public Factura()
         {
-            fecha = 051223;
+            fecha = DateTime.ParseExact("05/12/2023", "dd/MM/yyyy", CultureInfo.InvariantCulture);
             importe = 100;
         }
 
-        public string GetFecha()
+        public DateTime GetFecha()
         {
-            return "Fecha :" + fecha;
+            return fecha;
         }
 
-        public string GetImporte()
+        public int GetImporte()
         {
-            return "Importe: " + importe;
+            return importe;
         }
 
-        public void SetFecha(int fecha)
+        public void SetFecha(DateTime fecha)
         {
             this.fecha = fecha;
         }

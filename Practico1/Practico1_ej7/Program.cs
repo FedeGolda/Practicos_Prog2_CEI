@@ -1,11 +1,14 @@
-﻿namespace Practico1_ej7
+﻿using System.Security.Cryptography;
+
+namespace Practico1_ej7
 {
     internal class Program
     {
         static void Main(string[] args)
         {
             char choice;
-            Factura factura = new Factura(); // Crear una instancia de Factura
+            // Crear las instancias
+            Factura factura = new Factura(); 
             FacturaLuz facturaLuz = new FacturaLuz();
             ReciboSueldo reciboSueldo = new ReciboSueldo();
             Remito remito = new Remito();
@@ -14,13 +17,16 @@
             do
             {
                 Console.Clear(); // Limpiar la pantalla en cada iteración del bucle
-                Console.WriteLine("Menú Repetitivo");
-                Console.WriteLine("1. IMPRIMIR FACTURA");
-                Console.WriteLine("2. IMPRIMIR FACTURA LUZ");
-                Console.WriteLine("3. IMPRIMIR RECIBO SUELDO");
-                Console.WriteLine("4. IMPRIMIR REMITO");
-                Console.WriteLine("5. IMPRIMIR MUNICIPAL");
-                Console.WriteLine("6. SALIR");
+                Console.WriteLine("*************************************");
+                Console.WriteLine("*             MENU                  *");
+                Console.WriteLine("*************************************");
+                Console.WriteLine("* 1. IMPRIMIR FACTURA               *");
+                Console.WriteLine("* 2. IMPRIMIR FACTURA LUZ           *");
+                Console.WriteLine("* 3. IMPRIMIR RECIBO SUELDO         *");
+                Console.WriteLine("* 4. IMPRIMIR REMITO                *");
+                Console.WriteLine("* 5. IMPRIMIR MUNICIPAL             *");
+                Console.WriteLine("* 6. SALIR                          *");
+                Console.WriteLine("*************************************");
                 Console.Write("Seleccione una opción: ");
 
                 // Leer la tecla del usuario
@@ -30,7 +36,7 @@
                 switch (choice)
                 {
                     case '1':
-                        factura.Imprimir(); // Llama al método Imprimir de la clase Impresora
+                        factura.Imprimir(factura); // Llama al método Imprimir de la clase Impresora
                         break;
 
                     case '2':
@@ -51,9 +57,10 @@
 
                     case '6':
                         Console.WriteLine("\nCERRANDO PROGRAMA.....\n");
+                        Console.WriteLine("\nGRACIAS POR USAR EL PROGRAMA :D");
                         break;
                     default:
-                        Console.WriteLine("\nOpción no válida. Introduce una opción válida.");
+                        Console.WriteLine("\nOpción no válida. Introduce una opción válida entre 1 - 6.");
                         break;
                 }
 
