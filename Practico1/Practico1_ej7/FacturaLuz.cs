@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace Practico1_ej7
 {
-    internal class FacturaLuz
+    internal class FacturaLuz : Impresora
     {
         private int CodigoPago;
         private int importe;
+
+        public FacturaLuz()
+        {
+            CodigoPago = 1;
+            importe = 150;
+        }
 
         public int GetCodigoPago()
         { 

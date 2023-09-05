@@ -1,14 +1,23 @@
 ﻿namespace Practico1_ej7
 {
-    internal class Remito
+    internal class Remito : Impresora
     {
-        private int CantBultos;
+        private int cantBultos;
         private int fecha;
         private int numero;
 
+
+        public Remito()
+        {
+            cantBultos = 10;
+            fecha = 20223;
+            numero = 2;
+        }
+
+
         public int GetCantBultos()
         {
-            return CantBultos;
+            return cantBultos;
         }
 
         public int GetFecha()
@@ -23,7 +32,7 @@
 
         public void SetCantBultos(int cantBultos)
         {
-            CantBultos = cantBultos;
+            this.cantBultos = cantBultos;
         }
 
         public void SetFecha(int fecha)

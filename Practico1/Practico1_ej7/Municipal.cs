@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace Practico1_ej7
 {
-    internal class Municipal
+    internal class Municipal : Impresora
     {
         private int importe;
         private int partida;
+
+        public Municipal()
+        {
+            this.importe = 200;
+            this.partida = 2;
+        }
 
         public int GetImporte()
         { 

@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace Practico1_ej7
 {
-    internal class ReciboSueldo
+    internal class ReciboSueldo : Impresora
     {
         private int legajo;
         private int total;
+
+        public ReciboSueldo()
+        {
+            legajo = 12;
+            total = 250;
+        }
         public int GetLegajo()
         {
             return legajo;
