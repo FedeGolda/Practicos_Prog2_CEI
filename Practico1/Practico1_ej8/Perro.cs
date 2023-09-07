@@ -10,6 +10,7 @@ namespace Practico1_ej8
     {
         // Campos de clases o variables
         private string nombreIntegrante;
+        private string apodo;
 
         public Perro()
         {
