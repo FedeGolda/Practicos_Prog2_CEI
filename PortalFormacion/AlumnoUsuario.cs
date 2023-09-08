@@ -8,6 +8,8 @@ namespace PortalFormacion
 {
     internal class AlumnoUsuario : Usuario
     {
+
+
         protected string cursos;
 
         public AlumnoUsuario(int id, string nombre, string apellido) base : (id, nombre, apellido)

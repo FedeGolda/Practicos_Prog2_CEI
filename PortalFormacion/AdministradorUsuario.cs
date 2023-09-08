@@ -8,5 +8,14 @@ namespace PortalFormacion
 {
     internal class AdministradorUsuario : Usuario
     {
+        public AdministradorUsuario(int id, string nombre, string apellido, DateTime fechaAlta):base(id, nombre, apellido, fechaAlta)
+        {
+            
+        }
+
+        public void Gestionar()
+        {
+
+        }
     }
 }

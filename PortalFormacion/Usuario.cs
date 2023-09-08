@@ -14,12 +14,14 @@ namespace PortalFormacion
         protected int id;
         protected string nombre;
         protected string apellido;
+        protected DateTime fechaAlta;
 
-        public Usuario(int id, string nombre, string apellido)
+        public Usuario(int id, string nombre, string apellido, DateTime fechaAlta)
         {
             this.id = id;
             this.nombre = nombre;
             this.apellido = apellido;
+            this.fechaAlta = fechaAlta;
         }
 
         public int getId() 
@@ -37,6 +39,11 @@ namespace PortalFormacion
             return apellido;
         }
 
+        public DateTime getFechaAlta()
+        {
+            return fechaAlta;
+        }
+
         public void setId(int id)
         {
             this.id = id;
@@ -52,6 +59,10 @@ namespace PortalFormacion
             this.apellido = apellido;
         }
 
+        public void setFechaAlta(DateTime fechaAlta)
+        {
+            this.fechaAlta = fechaAlta;
+        }
 
         public void Login(string nombre, string apellido)
         {

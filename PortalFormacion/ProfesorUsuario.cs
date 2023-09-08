@@ -8,5 +8,6 @@ namespace PortalFormacion
 {
     internal class ProfesorUsuario : Usuario
     {
+        
     }
 }

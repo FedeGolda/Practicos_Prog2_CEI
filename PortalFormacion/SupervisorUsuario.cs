@@ -9,21 +9,17 @@ namespace PortalFormacion
 {
     internal class SupervisorUsuario : Usuario
     {
-        protected DateTime fechaAlta;
         protected int nroUsuario;
         protected int departa;
 
-        public SupervisorUsuario(int id, string nombre, string apellido) : base(id, nombre, apellido)
+        public SupervisorUsuario(int id, string nombre, string apellido, DateTime fechaAlta) : base(id, nombre, apellido, fechaAlta)
         {
             this.fechaAlta = fechaAlta;
             this.nroUsuario = nroUsuario;
             this.departa = departa;
         }
 
-        public DateTime getFechaAlta()
-        {
-            return fechaAlta;
-        }
+
 
         public int getNroUsuario()
         {
@@ -34,10 +30,7 @@ namespace PortalFormacion
         {
             return departa;
         }
-        public void setFechaAlta(DateTime fechaAlta)
-        {
-            this.fechaAlta = fechaAlta;
-        }
+
 
         public void setNroUsuario(int nroUsuario)
         {
