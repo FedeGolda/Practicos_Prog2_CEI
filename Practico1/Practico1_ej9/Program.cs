@@ -8,7 +8,7 @@
             Familia nuevo = new Familia("ninguno"); // Llama el constructor por defecto
             Gato gatoSimpson = new Gato(); // Llama al constructor por defecto
 
-            Perro perroSimpson = new Perro("Ayudante de Santa"); // Llaman al segundo constructor
+            Perro perroSimpson = new Perro("Ayudante de Santa", "Huesos"); // Llaman al segundo constructor
             Humano hijoSimpson = new Humano("Bart");
             Humano hijaSimpson = new Humano("Lisa");
 

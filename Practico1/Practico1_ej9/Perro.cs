@@ -11,11 +11,10 @@ namespace Practico1_ej9
         // Campos de clases o variables
         private string apodo;
 
-
-
-        public Perro(string nombrePerro):base(nombrePerro) // base busca el segundo constructor de la clase padre
+        // Constructor
+        public Perro(string nombrePerro, string apodo):base(nombrePerro) // base busca el segundo constructor de la clase padre
         {
-            // NO HAY CODIGO
+            this.apodo = apodo;
         }
 
         // Getters y Setters
