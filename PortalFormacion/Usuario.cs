@@ -8,6 +8,9 @@ namespace PortalFormacion
 {
     internal class Usuario
     {
+        // Definir una lista de AlumnoUsuario
+        private List<AlumnoUsuario> listaAlumnos = new List<AlumnoUsuario>();
+
         protected int id;
         protected string nombre;
         protected string apellido;
@@ -53,6 +56,11 @@ namespace PortalFormacion
         public void Login(string nombre, string apellido)
         {
             
+        }
+
+        public void Logout(string nombre, string apellido)
+        {
+
         }
 
     }

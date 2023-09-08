@@ -4,7 +4,15 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            // Lista para almacenar los alumnos registrados
+             List<AlumnoUsuario> listaAlumnos = new List<AlumnoUsuario>();
+
+            // Ejemplo de uso:
+            Alta("Juan", 20);
+            Alta("Maria", 22);
+            MostrarAlumnos();
+            Baja("Juan");
+            MostrarAlumnos();
         }
     }
 }
