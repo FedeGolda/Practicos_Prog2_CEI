@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Practico1_ej9
+{
+    internal class Perro : Familia
+    {
+        // Campos de clases o variables
+        private string apodo;
+
+
+
+        public Perro(string nombrePerro):base(nombrePerro) // base busca el segundo constructor de la clase padre
+        {
+            // NO HAY CODIGO
+        }
+
+        // Getters y Setters
+        public void setApodoPerro(string apodo)
+        {
+            this.apodo = apodo;
+        }
+        public string getApodoPerro()
+        {
+            return (this.apodo);
+        }
+
+        // Metodos de la clase
+        public void ladrar()
+        {
+            Console.WriteLine("Gua");
+        }
+    }
+}
