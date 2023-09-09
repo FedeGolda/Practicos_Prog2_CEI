@@ -77,7 +77,9 @@ namespace Practico_ej1
                         case 12:
                             Console.WriteLine($"{dia} de Diciembre de {anio}");
                             break;
+
                     }
+                    Console.ReadLine();
                 }
                 else
                 {
