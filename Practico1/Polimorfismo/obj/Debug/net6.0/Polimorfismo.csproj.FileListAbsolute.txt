@@ -1,0 +1,14 @@
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\Polimorfismo\bin\Debug\net6.0\Polimorfismo.exe
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\Polimorfismo\bin\Debug\net6.0\Polimorfismo.deps.json
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\Polimorfismo\bin\Debug\net6.0\Polimorfismo.runtimeconfig.json
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\Polimorfismo\bin\Debug\net6.0\Polimorfismo.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\Polimorfismo\bin\Debug\net6.0\Polimorfismo.pdb
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\Polimorfismo\obj\Debug\net6.0\Polimorfismo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\Polimorfismo\obj\Debug\net6.0\Polimorfismo.AssemblyInfoInputs.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\Polimorfismo\obj\Debug\net6.0\Polimorfismo.AssemblyInfo.cs
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\Polimorfismo\obj\Debug\net6.0\Polimorfismo.csproj.CoreCompileInputs.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\Polimorfismo\obj\Debug\net6.0\Polimorfismo.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\Polimorfismo\obj\Debug\net6.0\refint\Polimorfismo.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\Polimorfismo\obj\Debug\net6.0\Polimorfismo.pdb
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\Polimorfismo\obj\Debug\net6.0\Polimorfismo.genruntimeconfig.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\Polimorfismo\obj\Debug\net6.0\ref\Polimorfismo.dll
