@@ -9,7 +9,7 @@ namespace Practico1_ej9
     internal class Familia
     {
         // Campos de clases o variables
-        private string nombreIntegrante;
+        protected string nombreIntegrante;
 
         // Constructores
         public Familia()

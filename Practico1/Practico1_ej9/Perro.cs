@@ -12,7 +12,7 @@ namespace Practico1_ej9
         private string apodo;
 
         // Constructor
-        public Perro(string nombrePerro, string apodo):base(nombrePerro) // base busca el segundo constructor de la clase padre
+        public Perro(string nombrePerro, string apodo) : base(nombrePerro) // base busca el segundo constructor de la clase padre
         {
             this.apodo = apodo;
         }
@@ -31,6 +31,12 @@ namespace Practico1_ej9
         public void ladrar()
         {
             Console.WriteLine("Gua");
+        }
+
+        public void infoPrueba()
+        {
+            Console.WriteLine("mi nombre es: " + nombreIntegrante);
+            Console.WriteLine("mi nombre es: " + getInfo());
         }
     }
 }
