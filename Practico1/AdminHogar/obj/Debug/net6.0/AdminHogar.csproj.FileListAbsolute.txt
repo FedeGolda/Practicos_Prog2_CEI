@@ -1,0 +1,14 @@
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\AdminHogar\bin\Debug\net6.0\AdminHogar.exe
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\AdminHogar\bin\Debug\net6.0\AdminHogar.deps.json
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\AdminHogar\bin\Debug\net6.0\AdminHogar.runtimeconfig.json
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\AdminHogar\bin\Debug\net6.0\AdminHogar.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\AdminHogar\bin\Debug\net6.0\AdminHogar.pdb
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\AdminHogar\obj\Debug\net6.0\AdminHogar.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\AdminHogar\obj\Debug\net6.0\AdminHogar.AssemblyInfoInputs.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\AdminHogar\obj\Debug\net6.0\AdminHogar.AssemblyInfo.cs
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\AdminHogar\obj\Debug\net6.0\AdminHogar.csproj.CoreCompileInputs.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\AdminHogar\obj\Debug\net6.0\AdminHogar.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\AdminHogar\obj\Debug\net6.0\refint\AdminHogar.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\AdminHogar\obj\Debug\net6.0\AdminHogar.pdb
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\AdminHogar\obj\Debug\net6.0\AdminHogar.genruntimeconfig.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Practico1\AdminHogar\obj\Debug\net6.0\ref\AdminHogar.dll
