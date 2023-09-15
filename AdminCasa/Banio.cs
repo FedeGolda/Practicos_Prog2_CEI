@@ -8,7 +8,7 @@ namespace AdminCasa
 {
     internal class Banio : Casa
     {
-        private bool tieneDucha;
+        protected bool tieneDucha;
 
         public Banio(bool tieneDucha, int numero, int metros) : base(numero, metros)
         {
@@ -24,10 +24,17 @@ namespace AdminCasa
         {
             this.tieneDucha = tieneDucha;
         }
-
+        /*
         public override void Descripcion()
         {
-            Console.WriteLine("Tiene un baño con ducha: {0}", tieneDucha ? "Sí" : "No");
+            Console.WriteLine("Tiene un baño con ducha: " + tieneDucha);
         }
+        */
+        public override void Descripcion()
+        {
+            base.Descripcion(); // Llama al método Descripcion de la clase base para imprimir los datos comunes
+            Console.WriteLine($"Tiene un baño con ducha: {(tieneDucha ? "Sí" : "No")}");
+        }
+
     }
 }

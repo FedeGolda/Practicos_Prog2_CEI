@@ -8,7 +8,7 @@ namespace AdminCasa
 {
     internal class Cocina : Casa
     {
-        private bool tieneHorno;
+        protected bool tieneHorno;
 
         public Cocina(bool tieneHorno, int numero, int metros) : base(numero, metros)
         {
@@ -23,10 +23,17 @@ namespace AdminCasa
         {
             this.tieneHorno = tieneHorno;
         }
-
+        /*
         public override void Descripcion()
         {
-            Console.WriteLine("Tiene una cocina con horno: {0}", tieneHorno ? "Sí" : "No");
+            Console.WriteLine("Tiene una cocina con horno: " + tieneHorno);
         }
+        */
+        public override void Descripcion()
+        {
+            base.Descripcion(); // Llama al método Descripcion de la clase base para imprimir los datos comunes
+            Console.WriteLine($"Tiene una cocina con horno: {(tieneHorno ? "Sí" : "No")}");
+        }
+
     }
 }

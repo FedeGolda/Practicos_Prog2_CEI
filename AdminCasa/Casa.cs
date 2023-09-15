@@ -36,11 +36,18 @@ namespace AdminCasa
         {
             this.metrosCuadrados = metrosCuadrados;
         }
+        /*
+        public virtual void Descripcion()
+        {
+            Console.WriteLine("Esta es una casa con " + numeroHabitaciones + " y " + metrosCuadrados + "m2");
+        }
+        */
 
         public virtual void Descripcion()
         {
-            Console.WriteLine("Esta es una casa con {0} habitaciones y {1} metros cuadrados.", numeroHabitaciones, metrosCuadrados);
+            Console.WriteLine($"Esta es una casa con {numeroHabitaciones} habitaciones y {metrosCuadrados}m2");
         }
+
 
     }
 }

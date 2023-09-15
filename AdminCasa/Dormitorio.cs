@@ -8,7 +8,7 @@ namespace AdminCasa
 {
     internal class Dormitorio : Casa
     {
-        private int numeroCamas;
+        protected int numeroCamas;
         public Dormitorio(int numeroCamas, int numero, int metros) : base(numero, metros)
         {
             this.numeroCamas = numeroCamas;
@@ -23,11 +23,18 @@ namespace AdminCasa
         {
             this.numeroCamas = numeroCamas;
         }
-
+        /*
         public override void Descripcion()
         {
-            Console.WriteLine("Tiene {0} camas en el dormitorio.", numeroCamas);
+            Console.WriteLine("Tiene " + numeroCamas + "camas en el dormitorio.");
         }
+        */
+        public override void Descripcion()
+        {
+            base.Descripcion(); // Llama al método Descripcion de la clase base para imprimir los datos comunes
+            Console.WriteLine($"Tiene {numeroCamas} camas en el dormitorio.");
+        }
+
 
     }
 }
