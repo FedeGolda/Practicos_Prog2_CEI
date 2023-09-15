@@ -1,0 +1,14 @@
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\AdminCasa\bin\Debug\net6.0\AdminCasa.exe
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\AdminCasa\bin\Debug\net6.0\AdminCasa.deps.json
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\AdminCasa\bin\Debug\net6.0\AdminCasa.runtimeconfig.json
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\AdminCasa\bin\Debug\net6.0\AdminCasa.dll
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\AdminCasa\bin\Debug\net6.0\AdminCasa.pdb
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\AdminCasa\obj\Debug\net6.0\AdminCasa.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\AdminCasa\obj\Debug\net6.0\AdminCasa.AssemblyInfoInputs.cache
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\AdminCasa\obj\Debug\net6.0\AdminCasa.AssemblyInfo.cs
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\AdminCasa\obj\Debug\net6.0\AdminCasa.csproj.CoreCompileInputs.cache
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\AdminCasa\obj\Debug\net6.0\AdminCasa.dll
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\AdminCasa\obj\Debug\net6.0\refint\AdminCasa.dll
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\AdminCasa\obj\Debug\net6.0\AdminCasa.pdb
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\AdminCasa\obj\Debug\net6.0\AdminCasa.genruntimeconfig.cache
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\AdminCasa\obj\Debug\net6.0\ref\AdminCasa.dll
