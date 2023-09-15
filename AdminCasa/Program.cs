@@ -12,7 +12,7 @@ namespace AdminCasa
 
             do
             {
-                Console.Clear(); // Limpiar la pantalla en cada iteración del bucle
+                Console.Clear();
                 Console.WriteLine("         ADMINISTRACION CASAS        ");
                 Console.WriteLine("\n*************************************");
                 Console.WriteLine("*             MENU                  *");
@@ -41,10 +41,10 @@ namespace AdminCasa
                         metros = int.Parse(Console.ReadLine());
 
                         Console.WriteLine("¿Tiene ducha? (Sí/No):");
-                        bool tieneDucha = Console.ReadLine().Equals("Sí", StringComparison.OrdinalIgnoreCase);
+                        bool tieneDucha = Console.ReadLine().ToLower() == "sí";
 
                         Banio banio = new Banio(tieneDucha, numero, metros);
-                        casas.Add(banio); // Agregar el objeto Banio a la lista casas
+                        casas.Add(banio);
                         Console.WriteLine("Baño agregado con éxito.");
                         break;
 
@@ -59,9 +59,8 @@ namespace AdminCasa
                         int numeroCamas = int.Parse(Console.ReadLine());
 
                         Dormitorio dormitorio = new Dormitorio(numeroCamas, numero, metros);
-                        casas.Add(dormitorio); // Agregar el objeto Dormitorio a la lista casas
+                        casas.Add(dormitorio);
                         Console.WriteLine("Dormitorio agregado con éxito.");
-
                         break;
 
                     case '3':
@@ -72,12 +71,11 @@ namespace AdminCasa
                         metros = int.Parse(Console.ReadLine());
 
                         Console.WriteLine("¿Tiene horno? (Sí/No):");
-                        bool tieneHorno = Console.ReadLine().Equals("Sí", StringComparison.OrdinalIgnoreCase);
+                        bool tieneHorno = Console.ReadLine().ToLower() == "sí";
 
                         Cocina cocina = new Cocina(tieneHorno, numero, metros);
-                        casas.Add(cocina); // Agregar el objeto Cocina a la lista casas
+                        casas.Add(cocina);
                         Console.WriteLine("Cocina agregada con éxito.");
-
                         break;
 
                     case '4':
@@ -90,8 +88,8 @@ namespace AdminCasa
                         {
                             foreach (var casa in casas)
                             {
-                                casa.Descripcion(); // Llama al método Descripcion de cada objeto
-                                Console.WriteLine(); // Imprime una línea en blanco para separar las descripciones
+                                casa.Descripcion();
+                                Console.WriteLine();
                             }
                         }
                         break;
@@ -100,6 +98,7 @@ namespace AdminCasa
                         Console.WriteLine("\nCERRANDO PROGRAMA.....\n");
                         Console.WriteLine("\nGRACIAS POR USAR EL PROGRAMA :D");
                         break;
+
                     default:
                         Console.WriteLine("\nOpción no válida. Introduce una opción válida entre 1 - 5.");
                         break;
