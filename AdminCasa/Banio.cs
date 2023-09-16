@@ -24,17 +24,14 @@ namespace AdminCasa
         {
             this.tieneDucha = tieneDucha;
         }
-        /*
-        public override void Descripcion()
-        {
-            Console.WriteLine("Tiene un baño con ducha: " + tieneDucha);
-        }
-        */
-        public override void Descripcion()
-        {
-            base.Descripcion(); // Llama al método Descripcion de la clase base para imprimir los datos comunes
-            Console.WriteLine($"Tiene un baño con ducha: {(tieneDucha ? "Sí" : "No")}");
-        }
 
+        public override void Descripcion()
+        {
+            base.Descripcion();
+            Console.WriteLine("**********************************************");
+            Console.WriteLine($"\nTiene un baño con ducha: {(tieneDucha ? "Sí" : "No")}");
+            Console.WriteLine("**********************************************");
+        }
     }
+
 }

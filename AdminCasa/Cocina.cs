@@ -14,6 +14,7 @@ namespace AdminCasa
         {
             this.tieneHorno = tieneHorno;
         }
+
         public bool getTieneHorno()
         {
             return tieneHorno;
@@ -23,17 +24,13 @@ namespace AdminCasa
         {
             this.tieneHorno = tieneHorno;
         }
-        /*
-        public override void Descripcion()
-        {
-            Console.WriteLine("Tiene una cocina con horno: " + tieneHorno);
-        }
-        */
-        public override void Descripcion()
-        {
-            base.Descripcion(); // Llama al método Descripcion de la clase base para imprimir los datos comunes
-            Console.WriteLine($"Tiene una cocina con horno: {(tieneHorno ? "Sí" : "No")}");
-        }
 
+        public override void Descripcion()
+        {
+            base.Descripcion();
+            Console.WriteLine("**********************************************");
+            Console.WriteLine($"\nTiene una cocina con horno: {(tieneHorno ? "Sí" : "No")}");
+            Console.WriteLine("**********************************************");
+        }
     }
 }

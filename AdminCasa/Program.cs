@@ -43,10 +43,16 @@ namespace AdminCasa
                         Console.WriteLine("¿Tiene ducha? (Sí/No):");
                         bool tieneDucha = Console.ReadLine().ToLower() == "sí";
 
-                        Banio banio = new Banio(tieneDucha, numero, metros);
-                        casas.Add(banio);
+                        // Crear una nueva instancia de Casa
+                        Casa nuevaCasa1 = new Casa(0, 0); // Puedes inicializar con valores predeterminados
+                        nuevaCasa1.AgregarBanio(tieneDucha, numero, metros);
+
+                        // Agregar la casa a la lista de casas
+                        casas.Add(nuevaCasa1);
+
                         Console.WriteLine("Baño agregado con éxito.");
                         break;
+
 
                     case '2':
                         Console.WriteLine("\nIntroduce el número de habitaciones del dormitorio:");
@@ -58,10 +64,18 @@ namespace AdminCasa
                         Console.WriteLine("Introduce el número de camas en el dormitorio:");
                         int numeroCamas = int.Parse(Console.ReadLine());
 
-                        Dormitorio dormitorio = new Dormitorio(numeroCamas, numero, metros);
-                        casas.Add(dormitorio);
+                        // Crear una nueva instancia de Casa
+                        Casa nuevaCasa = new Casa(numero, metros);
+
+                        // Agregar el dormitorio a la casa
+                        nuevaCasa.AgregarDormitorio(numeroCamas, numero, metros);
+
+                        // Agregar la casa a la lista de casas
+                        casas.Add(nuevaCasa);
+
                         Console.WriteLine("Dormitorio agregado con éxito.");
                         break;
+
 
                     case '3':
                         Console.WriteLine("\nIntroduce el número de habitaciones de la cocina:");
@@ -73,16 +87,23 @@ namespace AdminCasa
                         Console.WriteLine("¿Tiene horno? (Sí/No):");
                         bool tieneHorno = Console.ReadLine().ToLower() == "sí";
 
-                        Cocina cocina = new Cocina(tieneHorno, numero, metros);
-                        casas.Add(cocina);
+                        // Crear una nueva instancia de Casa
+                        Casa nuevaCasa3 = new Casa(0, 0); // Puedes inicializar con valores predeterminados
+                        nuevaCasa3.AgregarCocina(tieneHorno, numero, metros);
+
+                        // Agregar la casa a la lista de casas
+                        casas.Add(nuevaCasa3);
+
                         Console.WriteLine("Cocina agregada con éxito.");
                         break;
 
+
                     case '4':
                         Console.WriteLine("\nDatos Guardados:");
+                        Console.WriteLine("\n**********************************************");
                         if (casas.Count == 0)
                         {
-                            Console.WriteLine("No hay datos guardados.");
+                            Console.WriteLine("*          No hay datos guardados.           *");
                         }
                         else
                         {
@@ -92,6 +113,7 @@ namespace AdminCasa
                                 Console.WriteLine();
                             }
                         }
+                        Console.WriteLine("**********************************************");
                         break;
 
                     case '5':
@@ -103,6 +125,8 @@ namespace AdminCasa
                         Console.WriteLine("\nOpción no válida. Introduce una opción válida entre 1 - 5.");
                         break;
                 }
+                Console.WriteLine("\nPulsa cualquier tecla para continuar...\n");
+                Console.ReadKey();
 
             } while (opcion != '5');
         }
