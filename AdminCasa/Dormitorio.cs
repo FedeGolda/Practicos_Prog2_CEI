@@ -32,9 +32,7 @@ namespace AdminCasa
         public override void Descripcion()
         {
             base.Descripcion(); // Llama al método Descripcion de la clase base para imprimir los datos comunes
-            Console.WriteLine("**********************************************");
             Console.WriteLine($"\nTiene {numeroCamas} camas en el dormitorio.");
-            Console.WriteLine("**********************************************");
         }
 
 

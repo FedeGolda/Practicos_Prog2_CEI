@@ -43,7 +43,7 @@ namespace AdminCasa
             this.metrosCuadrados = metrosCuadrados;
         }
 
-        public void AgregarBanio(bool tieneDucha, int numero, int metros)
+        public void AgregarBanio(string tieneDucha, int numero, int metros)
         {
             banios.Add(new Banio(tieneDucha, numero, metros));
         }
@@ -53,30 +53,35 @@ namespace AdminCasa
             dormitorios.Add(new Dormitorio(numeroCamas, numero, metros));
         }
 
-        public void AgregarCocina(bool tieneHorno, int numero, int metros)
+        public void AgregarCocina(string tieneHorno, int numero, int metros)
         {
             cocinas.Add(new Cocina(tieneHorno, numero, metros));
         }
 
         public virtual void Descripcion()
         {
+            Console.WriteLine("**********************************************");
             Console.WriteLine($"\nEsta es una casa con {numeroHabitaciones} habitaciones y {metrosCuadrados}m2");
             Console.WriteLine("\nBaños:");
             foreach (var banio in banios)
             {
                 banio.Descripcion();
             }
-            Console.WriteLine("Dormitorios:");
+            Console.WriteLine("**********************************************");
+            Console.WriteLine("\nDormitorios:");
             foreach (var dormitorio in dormitorios)
             {
                 dormitorio.Descripcion();
             }
+            Console.WriteLine("**********************************************");
             Console.WriteLine("\nCocinas:");
             foreach (var cocina in cocinas)
             {
                 cocina.Descripcion();
             }
+            Console.WriteLine("**********************************************");
         }
+
     }
 
 

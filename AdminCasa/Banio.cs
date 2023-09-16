@@ -8,19 +8,19 @@ namespace AdminCasa
 {
     internal class Banio : Casa
     {
-        protected bool tieneDucha;
+        protected string tieneDucha;
 
-        public Banio(bool tieneDucha, int numero, int metros) : base(numero, metros)
+        public Banio(string tieneDucha, int numero, int metros) : base(numero, metros)
         {
             this.tieneDucha = tieneDucha;
         }
 
-        public bool getTieneDucha()
+        public string getTieneDucha()
         {
             return tieneDucha;
         }
 
-        public void setTieneDucha(bool tieneDucha)
+        public void setTieneDucha(string tieneDucha)
         {
             this.tieneDucha = tieneDucha;
         }
@@ -28,9 +28,7 @@ namespace AdminCasa
         public override void Descripcion()
         {
             base.Descripcion();
-            Console.WriteLine("**********************************************");
-            Console.WriteLine($"\nTiene un baño con ducha: {(tieneDucha ? "Sí" : "No")}");
-            Console.WriteLine("**********************************************");
+            Console.WriteLine($"\nTiene un baño con ducha: " + tieneDucha);
         }
     }
 

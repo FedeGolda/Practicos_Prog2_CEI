@@ -8,19 +8,19 @@ namespace AdminCasa
 {
     internal class Cocina : Casa
     {
-        protected bool tieneHorno;
+        protected string tieneHorno;
 
-        public Cocina(bool tieneHorno, int numero, int metros) : base(numero, metros)
+        public Cocina(string tieneHorno, int numero, int metros) : base(numero, metros)
         {
             this.tieneHorno = tieneHorno;
         }
 
-        public bool getTieneHorno()
+        public string getTieneHorno()
         {
             return tieneHorno;
         }
 
-        public void setTieneHorno(bool tieneHorno)
+        public void setTieneHorno(string tieneHorno)
         {
             this.tieneHorno = tieneHorno;
         }
@@ -28,9 +28,7 @@ namespace AdminCasa
         public override void Descripcion()
         {
             base.Descripcion();
-            Console.WriteLine("**********************************************");
-            Console.WriteLine($"\nTiene una cocina con horno: {(tieneHorno ? "Sí" : "No")}");
-            Console.WriteLine("**********************************************");
+            Console.WriteLine($"\nTiene una cocina con horno: " + tieneHorno);
         }
     }
 }
