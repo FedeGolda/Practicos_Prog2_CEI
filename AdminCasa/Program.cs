@@ -1,10 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AdminCasa
 {
     internal class Program
     {
+        static void ClearConsole()
+        {
+            Console.Clear();
+
+            if (Console.BufferHeight < Console.WindowHeight)
+            {
+                Console.BufferHeight = Console.WindowHeight;
+            }
+        }
+
         static void Main(string[] args)
         {
             char opcion;
@@ -13,17 +24,17 @@ namespace AdminCasa
             do
             {
                 Console.Clear();
-                Console.WriteLine("         ADMINISTRACION CASAS        ");
-                Console.WriteLine("\n*************************************");
-                Console.WriteLine("*             MENU                  *");
-                Console.WriteLine("*************************************");
-                Console.WriteLine("* 1. AGREGAR BAÑO                   *");
-                Console.WriteLine("* 2. AGREGAR DORMITORIO             *");
-                Console.WriteLine("* 3. AGREGAR COCINA                 *");
-                Console.WriteLine("* 4. VER DATOS GUARDADOS            *");
-                Console.WriteLine("* 5. SALIR                          *");
-                Console.WriteLine("*************************************");
-                Console.Write("Seleccione una opción: ");
+                Console.WriteLine("\t         ADMINISTRACION CASAS        ");
+                Console.WriteLine("\n\t*************************************");
+                Console.WriteLine("\t*             MENU                  *");
+                Console.WriteLine("\t*************************************");
+                Console.WriteLine("\t* 1. AGREGAR BAÑO                   *");
+                Console.WriteLine("\t* 2. AGREGAR DORMITORIO             *");
+                Console.WriteLine("\t* 3. AGREGAR COCINA                 *");
+                Console.WriteLine("\t* 4. VER DATOS GUARDADOS            *");
+                Console.WriteLine("\t* 5. SALIR                          *");
+                Console.WriteLine("\t*************************************");
+                Console.Write("\tSeleccione una opción: ");
 
                 // Leer la tecla del usuario
                 opcion = Console.ReadKey().KeyChar;
@@ -34,33 +45,17 @@ namespace AdminCasa
                 switch (opcion)
                 {
                     case '1':
-                        Console.WriteLine("\nIngrese cantidad de Baños: ");
-                        string cantidadBaniosInput = Console.ReadLine();
-
-                        if (string.IsNullOrWhiteSpace(cantidadBaniosInput))
+                        Console.WriteLine("\n\nIngrese cantidad de Baños: ");
+                        if (!int.TryParse(Console.ReadLine(), out numero) || numero < 1)
                         {
-                            Console.WriteLine("Debe ingresar una cantidad válida para los baños.");
-                            break;
-                        }
-
-                        if (!int.TryParse(cantidadBaniosInput, out numero))
-                        {
-                            Console.WriteLine("Debe ingresar un valor numérico válido para los baños.");
+                            Console.WriteLine("Debe ingresar un número válido mayor que cero.");
                             break;
                         }
 
                         Console.WriteLine("Introduce los metros cuadrados del baño:");
-                        string metrosBaniosInput = Console.ReadLine();
-
-                        if (string.IsNullOrWhiteSpace(metrosBaniosInput))
+                        if (!int.TryParse(Console.ReadLine(), out metros) || metros < 1)
                         {
-                            Console.WriteLine("Debe ingresar una cantidad válida para los metros cuadrados del baño.");
-                            break;
-                        }
-
-                        if (!int.TryParse(metrosBaniosInput, out metros))
-                        {
-                            Console.WriteLine("Debe ingresar un valor numérico válido para los metros cuadrados del baño.");
+                            Console.WriteLine("Debe ingresar un número válido mayor que cero.");
                             break;
                         }
 
@@ -69,6 +64,8 @@ namespace AdminCasa
 
                         // Crear una nueva instancia de Casa
                         Casa nuevaCasa1 = new Casa(0, 0); // Puedes inicializar con valores predeterminados
+
+                        // Agregar el baño a la casa
                         nuevaCasa1.AgregarBanio(tieneDucha, numero, metros);
 
                         // Agregar la casa a la lista de casas
@@ -78,79 +75,55 @@ namespace AdminCasa
                         break;
 
                     case '2':
-                        Console.WriteLine("\nIntroduce el número de habitaciones del dormitorio:");
+                        Console.WriteLine("\n\nIntroduce el número de habitaciones del dormitorio:");
                         string cantidadHabitacionesInput = Console.ReadLine();
 
-                        if (string.IsNullOrWhiteSpace(cantidadHabitacionesInput))
+                        if (string.IsNullOrWhiteSpace(cantidadHabitacionesInput) || !int.TryParse(cantidadHabitacionesInput, out numero) || numero < 1)
                         {
-                            Console.WriteLine("Debe ingresar una cantidad válida para las habitaciones del dormitorio.");
-                            break;
-                        }
-
-                        if (!int.TryParse(cantidadHabitacionesInput, out numero))
-                        {
-                            Console.WriteLine("Debe ingresar un valor numérico válido para las habitaciones del dormitorio.");
+                            Console.WriteLine("Debe ingresar un número válido mayor que cero para las habitaciones del dormitorio.");
                             break;
                         }
 
                         Console.WriteLine("Introduce los metros cuadrados del dormitorio:");
                         string metrosDormitorioInput = Console.ReadLine();
 
-                        if (string.IsNullOrWhiteSpace(metrosDormitorioInput))
+                        if (string.IsNullOrWhiteSpace(metrosDormitorioInput) || !int.TryParse(metrosDormitorioInput, out metros) || metros < 1)
                         {
-                            Console.WriteLine("Debe ingresar una cantidad válida para los metros cuadrados del dormitorio.");
-                            break;
-                        }
-
-                        if (!int.TryParse(metrosDormitorioInput, out metros))
-                        {
-                            Console.WriteLine("Debe ingresar un valor numérico válido para los metros cuadrados del dormitorio.");
+                            Console.WriteLine("Debe ingresar un número válido mayor que cero para los metros cuadrados del dormitorio.");
                             break;
                         }
 
                         Console.WriteLine("Introduce el número de camas en el dormitorio:");
-                        int numeroCamas = int.Parse(Console.ReadLine());
+                        if (!int.TryParse(Console.ReadLine(), out int numeroCamas) || numeroCamas < 0)
+                        {
+                            Console.WriteLine("Debe ingresar un número válido no negativo para el número de camas en el dormitorio.");
+                            break;
+                        }
 
                         // Crear una nueva instancia de Casa
-                        Casa nuevaCasa = new Casa(numero, metros);
+                        Casa nuevaCasa2 = new Casa(numero, metros);
 
                         // Agregar el dormitorio a la casa
-                        nuevaCasa.AgregarDormitorio(numeroCamas, numero, metros);
+                        nuevaCasa2.AgregarDormitorio(numeroCamas, numero, metros);
 
                         // Agregar la casa a la lista de casas
-                        casas.Add(nuevaCasa);
+                        casas.Add(nuevaCasa2);
 
                         Console.WriteLine("Dormitorio agregado con éxito.");
                         break;
 
                     case '3':
-                        Console.WriteLine("\nIntroduce el número de habitaciones de la cocina:");
-                        string cantidadHabitacionesCocinaInput = Console.ReadLine();
-
-                        if (string.IsNullOrWhiteSpace(cantidadHabitacionesCocinaInput))
+                        Console.WriteLine("\n\nIntroduce el número de habitaciones de la cocina:");
+                        if (!int.TryParse(Console.ReadLine(), out numero) || numero < 1)
                         {
-                            Console.WriteLine("Debe ingresar una cantidad válida para las habitaciones de la cocina.");
-                            break;
-                        }
-
-                        if (!int.TryParse(cantidadHabitacionesCocinaInput, out numero))
-                        {
-                            Console.WriteLine("Debe ingresar un valor numérico válido para las habitaciones de la cocina.");
+                            Console.WriteLine("Debe ingresar un número válido mayor que cero.");
                             break;
                         }
 
                         Console.WriteLine("Introduce los metros cuadrados de la cocina:");
-                        string metrosCocinaInput = Console.ReadLine();
-
-                        if (string.IsNullOrWhiteSpace(metrosCocinaInput))
+                        if (!int.TryParse(Console.ReadLine(), out metros) || metros < 1)
                         {
-                            Console.WriteLine("Debe ingresar una cantidad válida para los metros cuadrados de la cocina.");
-                            break;
-                        }
-
-                        if (!int.TryParse(metrosCocinaInput, out metros))
-                        {
-                            Console.WriteLine("Debe ingresar un valor numérico válido para los metros cuadrados de la cocina.");
+                            Console.WriteLine("Debe ingresar un número válido mayor que cero.");
                             break;
                         }
 
@@ -159,6 +132,8 @@ namespace AdminCasa
 
                         // Crear una nueva instancia de Casa
                         Casa nuevaCasa3 = new Casa(0, 0); // Puedes inicializar con valores predeterminados
+
+                        // Agregar la cocina a la casa
                         nuevaCasa3.AgregarCocina(tieneHorno, numero, metros);
 
                         // Agregar la casa a la lista de casas
@@ -168,7 +143,7 @@ namespace AdminCasa
                         break;
 
                     case '4':
-                        Console.WriteLine("\nDatos Guardados:");
+                        Console.WriteLine("\n\nDatos Guardados:");
                         Console.WriteLine("**********************************************");
 
                         if (casas.Count == 0)
@@ -180,15 +155,18 @@ namespace AdminCasa
                             foreach (var casa in casas)
                             {
                                 casa.Descripcion();
-                                Console.WriteLine("**********************************************");
                             }
                         }
 
-                        Console.WriteLine("**********************************************");
+                        Console.WriteLine("\n**********************************************");
+                        break;
+
+                    case '5':
+                        Console.WriteLine("\n\nGRACIAS POR USAR EL PROGRAMA! :D");
                         break;
 
                     default:
-                        Console.WriteLine("\nOpción no válida. Introduce una opción válida entre 1 - 5.");
+                        Console.WriteLine("\n\nOpción no válida. Introduce una opción válida entre 1 - 5.");
                         break;
                 }
                 Console.WriteLine("\nPulsa cualquier tecla para continuar...\n");

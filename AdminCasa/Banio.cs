@@ -28,7 +28,7 @@ namespace AdminCasa
         public override void Descripcion()
         {
             base.Descripcion();
-            Console.WriteLine($"\nTiene un baño con ducha: " + tieneDucha);
+            Console.WriteLine($"\n¿Baño con ducha?: " + tieneDucha);
         }
     }
 

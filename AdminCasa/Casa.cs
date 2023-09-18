@@ -60,30 +60,41 @@ namespace AdminCasa
 
         public virtual void Descripcion()
         {
-            Console.WriteLine("**********************************************");
-            Console.WriteLine($"\nEsta es una casa con {numeroHabitaciones} habitaciones y {metrosCuadrados}m2");
-            Console.WriteLine("\nBaños:");
-            foreach (var banio in banios)
+            Console.WriteLine($"Esta es una casa con {numeroHabitaciones} habitaciones y {metrosCuadrados}m2");
+
+            // Verificar si hay baños y, si los hay, imprimir la información
+            if (banios.Any())
             {
-                banio.Descripcion();
+                Console.WriteLine("Baños:");
+                foreach (var banio in banios)
+                {
+                    banio.Descripcion();
+                }
             }
-            Console.WriteLine("**********************************************");
-            Console.WriteLine("\nDormitorios:");
-            foreach (var dormitorio in dormitorios)
+
+            // Verificar si hay dormitorios y, si los hay, imprimir la información
+            if (dormitorios.Any())
             {
-                dormitorio.Descripcion();
+                Console.WriteLine("Dormitorios:");
+                foreach (var dormitorio in dormitorios)
+                {
+                    dormitorio.Descripcion();
+                }
             }
-            Console.WriteLine("**********************************************");
-            Console.WriteLine("\nCocinas:");
-            foreach (var cocina in cocinas)
+
+            // Verificar si hay cocinas y, si las hay, imprimir la información
+            if (cocinas.Any())
             {
-                cocina.Descripcion();
+                Console.WriteLine("Cocinas:");
+                foreach (var cocina in cocinas)
+                {
+                    cocina.Descripcion();
+                }
             }
-            Console.WriteLine("**********************************************");
         }
 
+
+
     }
-
-
 
 }

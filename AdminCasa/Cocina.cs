@@ -28,7 +28,7 @@ namespace AdminCasa
         public override void Descripcion()
         {
             base.Descripcion();
-            Console.WriteLine($"\nTiene una cocina con horno: " + tieneHorno);
+            Console.WriteLine($"\n¿Cocina con horno?: " + tieneHorno);
         }
     }
 }
