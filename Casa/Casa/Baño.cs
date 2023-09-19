@@ -14,7 +14,7 @@ namespace Casa
         }
         public override double metrosPintura()
         {
-            
+            Console.WriteLine("NO PINTAR BAÑO PORQUE TIENE AZULEJOS");
             return 0;
         }
     }

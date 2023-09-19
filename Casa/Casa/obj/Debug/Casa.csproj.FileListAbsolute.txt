@@ -5,3 +5,10 @@ C:\Users\SUKABLYATS\Casa\Casa\obj\Debug\Casa.csproj.AssemblyReference.cache
 C:\Users\SUKABLYATS\Casa\Casa\obj\Debug\Casa.csproj.CoreCompileInputs.cache
 C:\Users\SUKABLYATS\Casa\Casa\obj\Debug\Casa.exe
 C:\Users\SUKABLYATS\Casa\Casa\obj\Debug\Casa.pdb
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Casa\Casa\bin\Debug\Casa.exe.config
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Casa\Casa\bin\Debug\Casa.exe
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Casa\Casa\bin\Debug\Casa.pdb
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Casa\Casa\obj\Debug\Casa.csproj.AssemblyReference.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Casa\Casa\obj\Debug\Casa.csproj.CoreCompileInputs.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Casa\Casa\obj\Debug\Casa.exe
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Casa\Casa\obj\Debug\Casa.pdb
