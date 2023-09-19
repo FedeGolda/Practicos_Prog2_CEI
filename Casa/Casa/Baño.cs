@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Clase Baño que hereda de Casa
+using System;
 
 namespace Casa
 {
-    internal class Baño:Casa
+    internal class Baño : Casa
     {
+        // Sobrescribir el método infoPintura para el baño
         public override void infoPintura()
         {
-            Console.WriteLine("esta habitacion tiene azulejos");
+            Console.WriteLine("* Esta habitación tiene azulejos");
         }
+
+        // Sobrescribir el método metrosPintura para el baño
         public override double metrosPintura()
         {
-            Console.WriteLine("NO PINTAR BAÑO PORQUE TIENE AZULEJOS");
+            Console.WriteLine("* NO PINTAR BAÑO PORQUE TIENE AZULEJOS");
             return 0;
         }
     }

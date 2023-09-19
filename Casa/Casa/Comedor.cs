@@ -9,18 +9,18 @@ namespace Casa
     internal class Comedor : Casa
     {
         // Atributo adicional para el comedor
-        private int capacidad;
+        private string horno;
 
         // Constructor
-        public Comedor(double ancho, double largo, double alto, string color, double alquiler, int capacidad) : base(ancho, largo, alto, color, alquiler)
+        public Comedor(double ancho, double largo, double alto, string color, string horno) : base(ancho, largo, alto, color)
         {
-            this.capacidad = capacidad;
+            this.horno = horno;
         }
 
         // Método para obtener la capacidad del comedor
-        public int getCapacidad()
+        public string getHorno()
         {
-            return this.capacidad;
+            return this.horno;
         }
     }
 }

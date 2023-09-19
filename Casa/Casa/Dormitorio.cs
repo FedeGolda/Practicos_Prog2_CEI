@@ -1,26 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Casa
+﻿namespace Casa
 {
-    internal class Dormitorio:Casa
+    internal class Dormitorio : Casa
     {
-        //atributos
+        // Atributo adicional para el tipo de cama en el dormitorio
         private string cama;
-        
-        //constructor 
-        public Dormitorio(double ancho, double largo, double alto, string color, double alquiler, string cama):base( ancho,  largo,  alto, color, alquiler)
+
+        // Constructor de Dormitorio que llama al constructor de Casa
+        public Dormitorio(double ancho, double largo, double alto, string color, string cama) : base(ancho, largo, alto, color)
         {
             this.cama = cama;
-        } 
-        
+        }
+
+        // Método para obtener el tipo de cama
         public string getCama()
         {
-            return this.cama; // no hace falta this
+            return this.cama;
         }
-        
     }
 }
