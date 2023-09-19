@@ -12,3 +12,10 @@ C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Casa\Casa\obj\Debug\Casa
 C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Casa\Casa\obj\Debug\Casa.csproj.CoreCompileInputs.cache
 C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Casa\Casa\obj\Debug\Casa.exe
 C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Casa\Casa\obj\Debug\Casa.pdb
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Casa\Casa\bin\Debug\Casa.exe.config
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Casa\Casa\bin\Debug\Casa.exe
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Casa\Casa\bin\Debug\Casa.pdb
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Casa\Casa\obj\Debug\Casa.csproj.AssemblyReference.cache
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Casa\Casa\obj\Debug\Casa.csproj.CoreCompileInputs.cache
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Casa\Casa\obj\Debug\Casa.exe
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Casa\Casa\obj\Debug\Casa.pdb

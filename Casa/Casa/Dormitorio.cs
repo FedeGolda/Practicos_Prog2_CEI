@@ -12,7 +12,7 @@ namespace Casa
         private string cama;
         
         //constructor 
-        public Dormitorio(double ancho, double largo, double alto, string color, string cama):base( ancho,  largo,  alto, color)
+        public Dormitorio(double ancho, double largo, double alto, string color, double alquiler, string cama):base( ancho,  largo,  alto, color, alquiler)
         {
             this.cama = cama;
         } 

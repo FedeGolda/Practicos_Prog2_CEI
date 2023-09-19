@@ -26,14 +26,27 @@ namespace Casa
                 {
                     case '1':
                         Baño miBaño = new Baño();
-                        Dormitorio miDormitorio = new Dormitorio(2, 2, 2, "blanco", "King");
+                        Casa casa1 = new Casa(2, 2, 2, "blanco", 1000.0); // Ejemplo de crear una casa con un alquiler de $1000
+                        Dormitorio miDormitorio = new Dormitorio(2, 2, 2, "blanco", 500, "King");
 
-                        Console.WriteLine("\n\nColor Baño: " + miBaño.getColor() + "");
+                        Comedor miComedor = new Comedor(3, 3, 3, "rojo", 200 ,10);
+
+                        Console.WriteLine("\nCasa");
+                        Console.WriteLine("Ancho: " + casa1.getAncho());
+                        Console.WriteLine("Largo: " + casa1.getLargo());
+                        Console.WriteLine("Alto: " + casa1.getAlto());
+                        Console.WriteLine("Color: " + casa1.getColor());
+                        Console.WriteLine("\nBaño");
+                        Console.WriteLine("Color Baño: " + miBaño.getColor() + "");
                         miBaño.infoPintura();
+                        miBaño.metrosPintura();
+                        Console.WriteLine("\nDormitorio");
                         Console.WriteLine("Color Dormitorio: " + miDormitorio.getColor());
                         Console.WriteLine("Tipo Cama: " + miDormitorio.getCama());
-                        Console.WriteLine("Techo: " + miDormitorio.metrosCuadradosTecho() + "m2");
-                        Console.WriteLine("Pared: " + miDormitorio.metrosCuadradosPared() + "m2");
+                        Console.WriteLine("Techo: " + miDormitorio.metrosCuadradosTecho() + " m2");
+                        Console.WriteLine("Pared: " + miDormitorio.metrosCuadradosPared() + " m2");
+                        Console.WriteLine("\nComedor");
+                        Console.WriteLine("Cantidad: " + miComedor.getCapacidad());
                         break;
 
                     case '2':

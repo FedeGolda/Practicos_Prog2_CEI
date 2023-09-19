@@ -14,6 +14,7 @@ namespace Casa
         protected double largo;
         protected double alto;
         protected string color;
+        protected double alquiler;
 
         //constructor se llaman igual que la clase
         public Casa()
@@ -22,14 +23,16 @@ namespace Casa
             this.largo = 2;
             this.alto = 3;  
             this.color = "blanco";
+            this.alquiler = 3000;
         }
 
-        public Casa(double ancho, double largo, double alto, string color)
+        public Casa(double ancho, double largo, double alto, string color, double alquiler)
         {
             this.ancho = ancho;
             this.largo = largo;
             this.alto = alto;
             this.color = color;
+            this.alquiler = alquiler;
         }
 
         //get y set
@@ -47,6 +50,10 @@ namespace Casa
         {
             return this.color;
         }
+        public double getAlquiler()
+        {
+            return this.alquiler;
+        }
         public void setAncho(double ancho)=>this.ancho = ancho; //expresion lamda
 
         public void setLargo(double largo)
@@ -60,6 +67,10 @@ namespace Casa
         public void setColor(String color)
         {
             this.color = color;
+        }
+        public void setAlquiler(double alquiler)
+        {
+            this.alquiler = alquiler;
         }
 
         //metodo polimorfico
