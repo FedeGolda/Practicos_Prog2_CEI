@@ -1,0 +1,7 @@
+C:\Users\SUKABLYATS\Casa\Casa\bin\Debug\Casa.exe.config
+C:\Users\SUKABLYATS\Casa\Casa\bin\Debug\Casa.exe
+C:\Users\SUKABLYATS\Casa\Casa\bin\Debug\Casa.pdb
+C:\Users\SUKABLYATS\Casa\Casa\obj\Debug\Casa.csproj.AssemblyReference.cache
+C:\Users\SUKABLYATS\Casa\Casa\obj\Debug\Casa.csproj.CoreCompileInputs.cache
+C:\Users\SUKABLYATS\Casa\Casa\obj\Debug\Casa.exe
+C:\Users\SUKABLYATS\Casa\Casa\obj\Debug\Casa.pdb
