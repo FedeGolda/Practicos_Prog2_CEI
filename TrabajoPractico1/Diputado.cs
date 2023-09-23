@@ -26,5 +26,19 @@ namespace TrabajoPractico1
             this.NumAsientoCamaraBaja = numAsientoCamaraBaja;
         }
 
+        // Implementación específica para Diputados
+        public override void PresentarPropuestaLegislativa(string propuesta)
+        {
+            Console.WriteLine($"{Nombre} {Apellido} del partido {PartidoPolitico} (Diputados) ha presentado la propuesta: '{propuesta}'");
+        }
+
+        // Implementación específica para Diputados
+        public override void ParticiparDebate(string temaDebate)
+        {
+            Console.WriteLine($"{Nombre} {Apellido} del partido {PartidoPolitico} (Diputados) ha participado en el debate sobre '{temaDebate}'.");
+        }
+
+
+
     }
 }

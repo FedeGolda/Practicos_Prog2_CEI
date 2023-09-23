@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace TrabajoPractico1
 {
+    public enum Voto
+    {
+        Aprobado,
+        Rechazado,
+        Abstencion
+    }
+
     internal class Legislador
     {
         protected string PartidoPolitico;
@@ -98,10 +105,37 @@ namespace TrabajoPractico1
             this.Casado = casado;
         }
 
-        public void getCamara()
+        public string getCamara()
         {
-            
+            if (Edad > 40)
+            {
+                return "Senado";
+            }
+            else
+            {
+                return "Diputados";
+            }
+        }
+
+        // Método virtual para presentar una propuesta legislativa
+        public virtual void PresentarPropuestaLegislativa(string propuesta)
+        {
+            Console.WriteLine($"{Nombre} {Apellido} del partido {PartidoPolitico} ha presentado la propuesta: '{propuesta}'");
+        }
+
+        // Método virtual para emitir un voto
+        public virtual void Votar(string proyectoDeLey, Voto voto)
+        {
+            Console.WriteLine($"{Nombre} {Apellido} del partido {PartidoPolitico} ha votado '{voto}' en el proyecto de ley '{proyectoDeLey}'.");
+        }
+
+        // Método virtual para participar en un debate legislativo
+        public virtual void ParticiparDebate(string temaDebate)
+        {
+            Console.WriteLine($"{Nombre} {Apellido} del partido {PartidoPolitico} ha participado en el debate sobre '{temaDebate}'.");
         }
 
     }
+
 }
+
