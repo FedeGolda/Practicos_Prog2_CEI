@@ -107,13 +107,13 @@ namespace TrabajoPractico1
 
         public string getCamara()
         {
-            if (Edad > 40)
+            if (Edad > 30)
             {
-                return "Senado";
+                return "Senador";
             }
             else
             {
-                return "Diputados";
+                return "Diputado";
             }
         }
 
