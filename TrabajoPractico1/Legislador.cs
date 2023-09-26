@@ -27,6 +27,8 @@ namespace TrabajoPractico1
         // Lista de votos del legislador
         public List<string> Votos { get; } = new List<string>();
 
+        public List<string> PropuestasLegislativas { get; private set; }
+
         // Constructor
         public Legislador(string partidoPolitico, string departamentoQueRepresenta, int numDespacho, string nombre, string apellido, int edad, bool casado)
         {
@@ -37,6 +39,7 @@ namespace TrabajoPractico1
             Apellido = apellido;
             Edad = edad;
             Casado = casado;
+            PropuestasLegislativas = new List<string>();
         }
 
         public string getPartidoPolitico()
@@ -137,6 +140,7 @@ namespace TrabajoPractico1
                 Console.WriteLine(voto);
             }
         }
+
 
 
         // Método virtual para presentar una propuesta legislativa

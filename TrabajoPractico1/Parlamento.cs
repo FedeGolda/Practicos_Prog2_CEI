@@ -15,26 +15,21 @@ namespace TrabajoPractico1
             Legisladores = new List<Legislador>();
         }
 
-
-        public List<Legislador> getLegisladores()
-        { 
+        public List<Legislador> GetLegisladores()
+        {
             return Legisladores;
         }
 
-        public void setLegisladores(List<Legislador> legisladores)
+        public void SetLegisladores(List<Legislador> legisladores)
         {
             this.Legisladores = legisladores;
         }
 
-        // Este método agrega un nuevo legislador a la lista de los mismos.
         public void RegistrarLegislador(Legislador legislador)
         {
-            Legisladores.Add(legislador); // Agregar el legislador proporcionado a la lista de Legisladores
+            Legisladores.Add(legislador);
         }
 
-
-
-        // Imprime en la consola el número de despacho y la cámara en la que trabaja el legislador (Senadores o Diputados).
         public void ListarCamaras()
         {
             foreach (var legislador in Legisladores)
@@ -46,7 +41,6 @@ namespace TrabajoPractico1
             }
         }
 
-        // Lista la cantidad de senadores y diputados.
         public void ContarLegisladoresPorTipo()
         {
             int cantidadSenadores = 0;
@@ -69,7 +63,30 @@ namespace TrabajoPractico1
         }
 
 
+        public bool BorrarLegislador(string nombre)
+        {
+            // Recorre la lista de legisladores para buscar y borrar al legislador por nombre
+            for (int i = 0; i < Legisladores.Count; i++)
+            {
+                Legislador legislador = Legisladores[i];
+                if (legislador.getNombre().Equals(nombre, StringComparison.OrdinalIgnoreCase))
+                {
+                    // Se encontró el legislador, borrarlo de la lista
+                    Legisladores.RemoveAt(i);
+                    return true; // Indica que se borró el legislador con éxito
+                }
+            }
+
+            return false; // Indica que no se encontró ningún legislador con el nombre proporcionado
+        }
+
+        public bool ExisteLegisladorPorNumeroDespacho(int numeroDespacho)
+        {
+            return Legisladores.Any(legislador => legislador.getNumDespacho() == numeroDespacho);
+        }
+
 
 
     }
 }
+    
