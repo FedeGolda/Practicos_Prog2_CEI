@@ -8,23 +8,23 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\fedeg\\.nuget\\packages\\": {},
+    "C:\\Users\\Fede\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\Federico\\CEI\\PROGRAMACION 2\\Practicos\\Practicos_Prog2_CEI\\TrabajoPractico1\\TrabajoPractico1.csproj",
+      "projectUniqueName": "C:\\Users\\Fede\\Desktop\\CEI\\Practicos\\Practicos_Prog2_CEI\\TrabajoPractico1\\TrabajoPractico1.csproj",
       "projectName": "TrabajoPractico1",
-      "projectPath": "D:\\Documents\\Federico\\CEI\\PROGRAMACION 2\\Practicos\\Practicos_Prog2_CEI\\TrabajoPractico1\\TrabajoPractico1.csproj",
-      "packagesPath": "C:\\Users\\fedeg\\.nuget\\packages\\",
-      "outputPath": "D:\\Documents\\Federico\\CEI\\PROGRAMACION 2\\Practicos\\Practicos_Prog2_CEI\\TrabajoPractico1\\obj\\",
+      "projectPath": "C:\\Users\\Fede\\Desktop\\CEI\\Practicos\\Practicos_Prog2_CEI\\TrabajoPractico1\\TrabajoPractico1.csproj",
+      "packagesPath": "C:\\Users\\Fede\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Fede\\Desktop\\CEI\\Practicos\\Practicos_Prog2_CEI\\TrabajoPractico1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\fedeg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Fede\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -66,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

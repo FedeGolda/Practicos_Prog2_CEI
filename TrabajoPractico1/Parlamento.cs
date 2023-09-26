@@ -27,11 +27,11 @@ namespace TrabajoPractico1
         }
 
         // Este método agrega un nuevo legislador a la lista de los mismos.
-        public void RegistrarLegislador(string partidoPolitico, string departamentoQueRepresenta, int numDespacho, string nombre, string apellido, int edad, bool casado)
+        public void RegistrarLegislador(Legislador legislador)
         {
-            Legislador nuevoLegislador = new Legislador(partidoPolitico, departamentoQueRepresenta, numDespacho, nombre, apellido, edad, casado);
-            Legisladores.Add(nuevoLegislador);
+            Legisladores.Add(legislador); // Agregar el legislador proporcionado a la lista de Legisladores
         }
+
 
 
         // Imprime en la consola el número de despacho y la cámara en la que trabaja el legislador (Senadores o Diputados).
@@ -39,6 +39,7 @@ namespace TrabajoPractico1
         {
             foreach (var legislador in Legisladores)
             {
+                Console.WriteLine($"Nombre: {legislador.getNombre()}");
                 Console.WriteLine($"Número de Despacho: {legislador.getNumDespacho()}");
                 Console.WriteLine($"Cámara: {legislador.getCamara()}");
                 Console.WriteLine();

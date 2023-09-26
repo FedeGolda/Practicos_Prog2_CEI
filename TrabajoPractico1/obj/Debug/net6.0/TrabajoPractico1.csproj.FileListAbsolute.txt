@@ -12,3 +12,17 @@ D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\TrabajoPr
 D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\obj\Debug\net6.0\TrabajoPractico1.pdb
 D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\obj\Debug\net6.0\TrabajoPractico1.genruntimeconfig.cache
 D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\obj\Debug\net6.0\ref\TrabajoPractico1.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\bin\Debug\net6.0\TrabajoPractico1.exe
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\bin\Debug\net6.0\TrabajoPractico1.deps.json
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\bin\Debug\net6.0\TrabajoPractico1.runtimeconfig.json
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\bin\Debug\net6.0\TrabajoPractico1.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\bin\Debug\net6.0\TrabajoPractico1.pdb
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\obj\Debug\net6.0\TrabajoPractico1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\obj\Debug\net6.0\TrabajoPractico1.AssemblyInfoInputs.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\obj\Debug\net6.0\TrabajoPractico1.AssemblyInfo.cs
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\obj\Debug\net6.0\TrabajoPractico1.csproj.CoreCompileInputs.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\obj\Debug\net6.0\TrabajoPractico1.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\obj\Debug\net6.0\refint\TrabajoPractico1.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\obj\Debug\net6.0\TrabajoPractico1.pdb
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\obj\Debug\net6.0\TrabajoPractico1.genruntimeconfig.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\TrabajoPractico1\obj\Debug\net6.0\ref\TrabajoPractico1.dll

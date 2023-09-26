@@ -113,7 +113,7 @@ namespace TrabajoPractico1
             }
             else
             {
-                return "Diputado";
+                return "Diputados";
             }
         }
 
