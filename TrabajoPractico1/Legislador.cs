@@ -23,6 +23,10 @@ namespace TrabajoPractico1
         protected int Edad;
         protected bool Casado;
 
+
+        // Lista de votos del legislador
+        public List<string> Votos { get; } = new List<string>();
+
         // Constructor
         public Legislador(string partidoPolitico, string departamentoQueRepresenta, int numDespacho, string nombre, string apellido, int edad, bool casado)
         {
@@ -116,6 +120,24 @@ namespace TrabajoPractico1
                 return "Diputados";
             }
         }
+
+        // Método para registrar un voto
+        public void RegistrarVoto(string proyectoDeLey, string voto)
+        {
+            string votoRegistrado = $"Proyecto: {proyectoDeLey}, Voto: {voto}";
+            Votos.Add(votoRegistrado);
+        }
+
+        // Método para mostrar la lista de votos
+        public void MostrarVotos()
+        {
+            Console.WriteLine($"Lista de votos de {Nombre} {Apellido}:");
+            foreach (var voto in Votos)
+            {
+                Console.WriteLine(voto);
+            }
+        }
+
 
         // Método virtual para presentar una propuesta legislativa
         public virtual void PresentarPropuestaLegislativa(string propuesta)
