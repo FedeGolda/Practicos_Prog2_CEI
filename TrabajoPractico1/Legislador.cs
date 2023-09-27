@@ -25,9 +25,11 @@ namespace TrabajoPractico1
 
 
         // Lista de votos del legislador
-        public List<string> Votos { get; } = new List<string>();
 
         public List<string> PropuestasLegislativas { get; private set; }
+
+        private List<string> votos = new List<string>(); // Agregar una lista para rastrear los votos
+
 
         // Constructor
         public Legislador(string partidoPolitico, string departamentoQueRepresenta, int numDespacho, string nombre, string apellido, int edad, bool casado)
@@ -75,6 +77,19 @@ namespace TrabajoPractico1
         public bool getCasado()
         {
             return Casado;
+        }
+
+
+        // Método para registrar un voto
+        public void RegistrarVoto(string voto)
+        {
+            votos.Add(voto);
+        }
+
+        // Método para obtener la lista de votos
+        public List<string> ObtenerVotos()
+        {
+            return votos;
         }
 
         public void setPartidoPolitico(string partidoPolitico)
@@ -128,14 +143,14 @@ namespace TrabajoPractico1
         public void RegistrarVoto(string proyectoDeLey, string voto)
         {
             string votoRegistrado = $"Proyecto: {proyectoDeLey}, Voto: {voto}";
-            Votos.Add(votoRegistrado);
+            votos.Add(votoRegistrado);
         }
 
         // Método para mostrar la lista de votos
         public void MostrarVotos()
         {
             Console.WriteLine($"Lista de votos de {Nombre} {Apellido}:");
-            foreach (var voto in Votos)
+            foreach (var voto in votos)
             {
                 Console.WriteLine(voto);
             }

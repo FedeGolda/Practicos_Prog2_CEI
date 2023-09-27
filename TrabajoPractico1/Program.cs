@@ -90,8 +90,15 @@ namespace TrabajoPractico1
                                 Console.Write("Propuesta: ");
                                 string propuesta = Console.ReadLine();
 
+                                // Registro de voto
+                                Console.Write("Voto (Aprobado/Rechazado/Abstencion): ");
+                                string voto = Console.ReadLine();
+                                legisladorSeleccionado.RegistrarVoto(voto);
+
                                 // Llama al método PresentarPropuestaLegislativa en el legislador seleccionado
                                 legisladorSeleccionado.PresentarPropuestaLegislativa(propuesta);
+
+                                Console.WriteLine($"Propuesta presentada y voto registrado con éxito por {legisladorSeleccionado.getNombre()} {legisladorSeleccionado.getApellido()}.");
                             }
                             else
                             {
@@ -104,6 +111,7 @@ namespace TrabajoPractico1
                         }
                         break;
 
+
                     case '4':
                         Console.Clear();
                         // Contadores para contar votos
@@ -114,23 +122,34 @@ namespace TrabajoPractico1
                         // Calcular el total de votos de Aprobados, Rechazados y Abstención
                         foreach (var legislador in miParlamento.GetLegisladores())
                         {
-                            foreach (var votoRegistrado in legislador.Votos)
+                            foreach (var votoRegistrado in legislador.ObtenerVotos())
                             {
-                                if (votoRegistrado == "Aprobado") // Cambiar Voto.Aprobado a "Aprobado"
+                                string[] partesVoto = votoRegistrado.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                                if (partesVoto.Length == 2)
                                 {
-                                    aprobados++;
-                                }
-                                else if (votoRegistrado == "Rechazado") // Cambiar Voto.Rechazado a "Rechazado"
-                                {
-                                    rechazados++;
-                                }
-                                else if (votoRegistrado == "Abstencion") // Cambiar Voto.Abstencion a "Abstencion"
-                                {
-                                    abstencion++;
+                                    string propuesta = partesVoto[0].Trim();
+                                    string voto = partesVoto[1].Trim();
+
+                                    if (voto == "Aprobado")
+                                    {
+                                        aprobados++;
+                                    }
+                                    else if (voto == "Rechazado")
+                                    {
+                                        rechazados++;
+                                    }
+                                    else if (voto == "Abstencion")
+                                    {
+                                        abstencion++;
+                                    }
+
+                                    // Mostrar propuesta y voto
+                                    Console.WriteLine($"Legislador: {legislador.getNombre()} {legislador.getApellido()}");
+                                    Console.WriteLine($"Propuesta: {propuesta}");
+                                    Console.WriteLine($"Voto: {voto}\n");
                                 }
                             }
                         }
-
 
                         // Mostrar el total de votos
                         Console.WriteLine($"Total de Votos:");
@@ -139,6 +158,8 @@ namespace TrabajoPractico1
                         Console.WriteLine($"Abstención: {abstencion}");
                         miParlamento.ContarLegisladoresPorTipo();
                         break;
+
+
 
                     case '5':
                         Console.Clear();
@@ -319,7 +340,6 @@ namespace TrabajoPractico1
                                 // Llama al método ParticiparDebate en el legislador seleccionado
                                 legisladorSeleccionado.ParticiparDebate(temaDebate);
 
-                               // Console.WriteLine($"{legisladorSeleccionado.getNombre()} {legisladorSeleccionado.getApellido()} ha participado en el debate sobre '{temaDebate}'.");
                             }
                             else
                             {
