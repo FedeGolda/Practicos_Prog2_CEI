@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TrabajoPractico1
 {
@@ -15,153 +12,112 @@ namespace TrabajoPractico1
 
     internal class Legislador
     {
-        protected string PartidoPolitico;
-        protected string Departamento;
-        protected int NumDespacho;
-        protected string Nombre;
-        protected string Apellido;
-        protected int Edad;
-        protected bool Casado;
+        private string partidoPolitico;
+        private string departamentoQueRepresenta;
+        private int numeroDespacho;
+        private string nombre;
+        private string apellido;
+        private int edad;
+        private bool casado;
+        private List<string> propuestasLegislativas = new List<string>();
+        private Dictionary<string, List<string>> votosPorPropuesta = new Dictionary<string, List<string>>();
 
-
-        // Lista de votos del legislador
-        public List<string> Votos { get; } = new List<string>();
-
-        public List<string> PropuestasLegislativas { get; private set; }
-
-        // Constructor
-        public Legislador(string partidoPolitico, string departamentoQueRepresenta, int numDespacho, string nombre, string apellido, int edad, bool casado)
+        public Legislador(string partidoPolitico, string departamentoQueRepresenta, int numeroDespacho, string nombre, string apellido, int edad, bool casado)
         {
-            PartidoPolitico = partidoPolitico;
-            Departamento = departamentoQueRepresenta;
-            NumDespacho = numDespacho;
-            Nombre = nombre;
-            Apellido = apellido;
-            Edad = edad;
-            Casado = casado;
-            PropuestasLegislativas = new List<string>();
+            this.partidoPolitico = partidoPolitico;
+            this.departamentoQueRepresenta = departamentoQueRepresenta;
+            this.numeroDespacho = numeroDespacho;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.edad = edad;
+            this.casado = casado;
         }
 
-        public string getPartidoPolitico()
-        { 
-            return PartidoPolitico;
-        }
-
-        public string getDepartamento()
-        {  
-            return Departamento;
-        }
-
-        public int getNumDespacho() 
+        public string GetPartidoPolitico()
         {
-            return NumDespacho;
+            return partidoPolitico;
         }
 
-        public string getNombre()
-        { 
-            return Nombre;
-        }
-
-        public string getApellido()
+        public string GetDepartamento()
         {
-            return Apellido;
+            return departamentoQueRepresenta;
         }
 
-        public int getEdad() 
+        public int GetNumDespacho()
         {
-            return Edad;
+            return numeroDespacho;
         }
 
-        public bool getCasado()
-        { 
-            return Casado;
-        }
-
-        public void setPartidoPolitico(string partidoPolitico)
+        public string GetNombre()
         {
-            this.PartidoPolitico = partidoPolitico;
+            return nombre;
         }
 
-        public void setDepartamento(string departamentoQueRepresenta)
+        public string GetApellido()
         {
-            this.Departamento = departamentoQueRepresenta;
+            return apellido;
         }
 
-        public void setNumDespacho(int numDespacho)
+        public int GetEdad()
         {
-            this.NumDespacho = numDespacho;
+            return edad;
         }
 
-        public void setNombre(string nombre)
+        public bool GetCasado()
         {
-            this.Nombre = nombre;
+            return casado;
         }
 
-        public void setApellido(string apellido)
+        public string GetCamara()
         {
-            this.Apellido = apellido;
+            return (numeroDespacho <= 99) ? "Diputados" : "Senadores";
         }
 
-        public void setEdad(int edad)
+        // Método para registrar un voto y la propuesta
+        public void RegistrarVotoYPropuesta(string propuesta, string voto)
         {
-            this.Edad = edad;
-        }
-
-        public void setCasado(bool casado)
-        { 
-            this.Casado = casado;
-        }
-
-        public string getCamara()
-        {
-            if (Edad > 30)
+            string votoRegistrado = $"Proyecto: {propuesta}, Voto: {voto}";
+            if (!votosPorPropuesta.ContainsKey(propuesta))
             {
-                return "Senador";
+                votosPorPropuesta[propuesta] = new List<string>();
             }
-            else
-            {
-                return "Diputados";
-            }
-        }
+            votosPorPropuesta[propuesta].Add(voto);
 
-        // Método para registrar un voto
-        public void RegistrarVoto(string proyectoDeLey, string voto)
-        {
-            string votoRegistrado = $"Proyecto: {proyectoDeLey}, Voto: {voto}";
-            Votos.Add(votoRegistrado);
+            // Verificar si la propuesta no existe en las propuestas legislativas
+            if (!propuestasLegislativas.Contains(propuesta))
+            {
+                propuestasLegislativas.Add(propuesta);
+            }
         }
 
         // Método para mostrar la lista de votos
         public void MostrarVotos()
         {
-            Console.WriteLine($"Lista de votos de {Nombre} {Apellido}:");
-            foreach (var voto in Votos)
+            Console.WriteLine($"Lista de votos de {nombre} {apellido}:");
+            foreach (var propuesta in votosPorPropuesta)
             {
-                Console.WriteLine(voto);
+                Console.WriteLine($"Propuesta: {propuesta.Key}");
+                foreach (var voto in propuesta.Value)
+                {
+                    Console.WriteLine($"Voto: {voto}");
+                }
             }
         }
 
-
-
-        // Método virtual para presentar una propuesta legislativa
-        public virtual void PresentarPropuestaLegislativa(string propuesta)
+        // En la clase Legislador (y sus subclases Diputado y Senador)
+        public void PresentarPropuestaLegislativa(string propuesta)
         {
-            Console.WriteLine($"{Nombre} {Apellido} del partido {PartidoPolitico} ha presentado la propuesta: '{propuesta}'");
+            propuestasLegislativas.Add(propuesta);
         }
 
-        // Método virtual para emitir un voto
-        public virtual void Votar(string proyectoDeLey, Voto voto)
+        // Método para mostrar las propuestas legislativas
+        public void ListarPropuestasLegislativas()
         {
-            Console.WriteLine($"{Nombre} {Apellido} del partido {PartidoPolitico} ha votado '{voto}' en el proyecto de ley '{proyectoDeLey}'.");
+            Console.WriteLine($"Propuestas legislativas de {nombre} {apellido}:");
+            foreach (var propuesta in propuestasLegislativas)
+            {
+                Console.WriteLine(propuesta);
+            }
         }
-
-        // Método virtual para participar en un debate legislativo
-        public virtual void ParticiparDebate(string temaDebate)
-        {
-            Console.WriteLine($"{Nombre} {Apellido} del partido {PartidoPolitico} ha participado en el debate sobre '{temaDebate}'.");
-        }
-
     }
-
 }
-

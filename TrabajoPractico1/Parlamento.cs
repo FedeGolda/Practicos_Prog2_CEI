@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TrabajoPractico1
 {
@@ -34,9 +31,9 @@ namespace TrabajoPractico1
         {
             foreach (var legislador in Legisladores)
             {
-                Console.WriteLine($"Nombre: {legislador.getNombre()}");
-                Console.WriteLine($"Número de Despacho: {legislador.getNumDespacho()}");
-                Console.WriteLine($"Cámara: {legislador.getCamara()}");
+                Console.WriteLine($"Nombre: {legislador.GetNombre()}");
+                Console.WriteLine($"Número de Despacho: {legislador.GetNumDespacho()}");
+                Console.WriteLine($"Cámara: {legislador.GetCamara()}");
                 Console.WriteLine();
             }
         }
@@ -48,11 +45,11 @@ namespace TrabajoPractico1
 
             foreach (var legislador in Legisladores)
             {
-                if (legislador.getCamara() == "Senado")
+                if (legislador.GetCamara() == "Senadores")
                 {
                     cantidadSenadores++;
                 }
-                else if (legislador.getCamara() == "Diputados")
+                else if (legislador.GetCamara() == "Diputados")
                 {
                     cantidadDiputados++;
                 }
@@ -62,31 +59,24 @@ namespace TrabajoPractico1
             Console.WriteLine($"Cantidad de Diputados: {cantidadDiputados}");
         }
 
-
         public bool BorrarLegislador(string nombre)
         {
-            // Recorre la lista de legisladores para buscar y borrar al legislador por nombre
             for (int i = 0; i < Legisladores.Count; i++)
             {
                 Legislador legislador = Legisladores[i];
-                if (legislador.getNombre().Equals(nombre, StringComparison.OrdinalIgnoreCase))
+                if (legislador.GetNombre().Equals(nombre, StringComparison.OrdinalIgnoreCase))
                 {
-                    // Se encontró el legislador, borrarlo de la lista
                     Legisladores.RemoveAt(i);
-                    return true; // Indica que se borró el legislador con éxito
+                    return true;
                 }
             }
 
-            return false; // Indica que no se encontró ningún legislador con el nombre proporcionado
+            return false;
         }
 
         public bool ExisteLegisladorPorNumeroDespacho(int numeroDespacho)
         {
-            return Legisladores.Any(legislador => legislador.getNumDespacho() == numeroDespacho);
+            return Legisladores.Exists(legislador => legislador.GetNumDespacho() == numeroDespacho);
         }
-
-
-
     }
 }
-    

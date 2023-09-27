@@ -19,9 +19,8 @@ namespace TrabajoPractico1
             // Agregar el legislador a la lista de legisladores del Parlamento
             miParlamento.RegistrarLegislador(legislador1);
             miParlamento.RegistrarLegislador(legislador2);
-            legislador1.RegistrarVoto("Si a la baja", "Aprobado");
-            legislador1.PresentarPropuestaLegislativa("Si a la baja");
-            legislador2.RegistrarVoto("Si a la baja", "Aprobado");
+            legislador1.RegistrarVotoYPropuesta("Si a la baja", "Aprobado");
+            legislador2.RegistrarVotoYPropuesta("Si a la baja", "Aprobado");
             legislador2.PresentarPropuestaLegislativa("Aumento salario");
 
             do
@@ -56,7 +55,7 @@ namespace TrabajoPractico1
                         int contador = 1;
                         foreach (var legislador in miParlamento.GetLegisladores())
                         {
-                            Console.WriteLine($"{contador}. {legislador.getNombre()} {legislador.getApellido()}");
+                            Console.WriteLine($"{contador}. {legislador.GetNombre()} {legislador.GetApellido()}");
                             contador++;
                         }
                         miParlamento.ContarLegisladoresPorTipo();
@@ -71,26 +70,31 @@ namespace TrabajoPractico1
                         Console.Clear();
                         // Mostrar lista de legisladores para que el usuario seleccione uno
                         Console.WriteLine("Lista de Legisladores:");
-                        int contadorPropuesta = 1;
+                        int contadorVotos = 1;
                         foreach (var legislador in miParlamento.GetLegisladores())
                         {
-                            Console.WriteLine($"{contadorPropuesta}. {legislador.getNombre()} {legislador.getApellido()}");
-                            contadorPropuesta++;
+                            Console.WriteLine($"{contadorVotos}. {legislador.GetNombre()} {legislador.GetApellido()}");
+                            contadorVotos++;
                         }
 
-                        Console.Write("Seleccione el número del legislador al que desea presentar la propuesta: ");
-                        if (int.TryParse(Console.ReadLine(), out int seleccionPropuesta))
+                        Console.Write("Seleccione el número del legislador al que desea registrar el voto: ");
+                        if (int.TryParse(Console.ReadLine(), out int seleccionVoto))
                         {
-                            if (seleccionPropuesta >= 1 && seleccionPropuesta <= miParlamento.GetLegisladores().Count)
+                            if (seleccionVoto >= 1 && seleccionVoto <= miParlamento.GetLegisladores().Count)
                             {
                                 // El usuario seleccionó un legislador válido
-                                var legisladorSeleccionado = miParlamento.GetLegisladores()[seleccionPropuesta - 1];
+                                var legisladorSeleccionado = miParlamento.GetLegisladores()[seleccionVoto - 1];
 
-                                Console.Write("Propuesta: ");
-                                string propuesta = Console.ReadLine();
+                                Console.Write("Proyecto de Ley: ");
+                                string proyectoDeLey = Console.ReadLine();
 
-                                // Llama al método PresentarPropuestaLegislativa en el legislador seleccionado
-                                legisladorSeleccionado.PresentarPropuestaLegislativa(propuesta);
+                                Console.Write("Voto (Aprobado/Rechazado/Abstencion): ");
+                                string voto = Console.ReadLine();
+
+                                // Llama al método RegistrarVotoYPropuesta en el legislador seleccionado
+                                legisladorSeleccionado.RegistrarVotoYPropuesta(proyectoDeLey, voto);
+
+                                Console.WriteLine($"Voto registrado por {legisladorSeleccionado.GetNombre()} {legisladorSeleccionado.GetApellido()}.");
                             }
                             else
                             {
@@ -105,37 +109,46 @@ namespace TrabajoPractico1
 
                     case '4':
                         Console.Clear();
-                        // Contadores para contar votos
-                        int aprobados = 0;
-                        int rechazados = 0;
-                        int abstencion = 0;
 
-                        // Calcular el total de votos de Aprobados, Rechazados y Abstención
+                        // Crear un diccionario para rastrear el total de votos por propuesta
+                        Dictionary<string, int> votosPorPropuesta = new Dictionary<string, int>();
+
+                        // Calcular el total de votos por propuesta
                         foreach (var legislador in miParlamento.GetLegisladores())
                         {
-                            foreach (var votoRegistrado in legislador.Votos)
+                            var votosPorPropuestaLegislador = legislador.ObtenerVotosPorPropuesta();
+
+                            foreach (var propuestaVotos in votosPorPropuestaLegislador)
                             {
-                                if (votoRegistrado == "Aprobado") // Cambiar Voto.Aprobado a "Aprobado"
+                                var proyectoDeLey = propuestaVotos.Key;
+                                var votos = propuestaVotos.Value;
+
+                                if (!votosPorPropuesta.ContainsKey(proyectoDeLey))
                                 {
-                                    aprobados++;
+                                    votosPorPropuesta[proyectoDeLey] = 0;
                                 }
-                                else if (votoRegistrado == "Rechazado") // Cambiar Voto.Rechazado a "Rechazado"
+
+                                foreach (var voto in votos)
                                 {
-                                    rechazados++;
-                                }
-                                else if (votoRegistrado == "Abstencion") // Cambiar Voto.Abstencion a "Abstencion"
-                                {
-                                    abstencion++;
+                                    // Puedes manejar otras opciones de voto si es necesario
+                                    if (voto == "Aprobado")
+                                    {
+                                        votosPorPropuesta[proyectoDeLey]++;
+                                    }
+                                    else if (voto == "Rechazado")
+                                    {
+                                        votosPorPropuesta[proyectoDeLey]--;
+                                    }
                                 }
                             }
                         }
 
-
-                        // Mostrar el total de votos
-                        Console.WriteLine($"Total de Votos:");
-                        Console.WriteLine($"Aprobados: {aprobados}");
-                        Console.WriteLine($"Rechazados: {rechazados}");
-                        Console.WriteLine($"Abstención: {abstencion}");
+                        // Mostrar el total de votos por propuesta
+                        Console.WriteLine("Total de Votos por Propuesta:");
+                        foreach (var kvp in votosPorPropuesta)
+                        {
+                            Console.WriteLine($"{kvp.Key}: {kvp.Value}");
+                        }
                         miParlamento.ContarLegisladoresPorTipo();
                         break;
 
@@ -146,7 +159,7 @@ namespace TrabajoPractico1
                         int contPropuesta = 1;
                         foreach (var legislador in miParlamento.GetLegisladores())
                         {
-                            Console.WriteLine($"{contPropuesta}. {legislador.getNombre()} {legislador.getApellido()} ({legislador.getCamara()})");
+                            Console.WriteLine($"{contPropuesta}. {legislador.GetNombre()} {legislador.GetApellido()} ({legislador.GetCamara()})");
                             contPropuesta++;
                         }
 
@@ -156,15 +169,15 @@ namespace TrabajoPractico1
                             if (selecPropuesta >= 1 && selecPropuesta <= miParlamento.GetLegisladores().Count)
                             {
                                 // El usuario seleccionó un legislador válido
-                                var legisladorSeleccionado = miParlamento.GetLegisladores()[selecPropuesta - 1];
+                                var legisladorPropuesta = miParlamento.GetLegisladores()[selecPropuesta - 1];
 
-                                Console.Write("Propuesta: ");
+                                Console.Write("Propuesta Legislativa: ");
                                 string propuesta = Console.ReadLine();
 
                                 // Llama al método PresentarPropuestaLegislativa en el legislador seleccionado
-                                legisladorSeleccionado.PresentarPropuestaLegislativa(propuesta);
+                                legisladorPropuesta.PresentarPropuestaLegislativa(propuesta);
 
-                                Console.WriteLine($"Propuesta presentada por {legisladorSeleccionado.getNombre()} {legisladorSeleccionado.getApellido()} en la cámara de {legisladorSeleccionado.getCamara()}.");
+                                Console.WriteLine($"Propuesta registrada por {legisladorPropuesta.GetNombre()} {legisladorPropuesta.GetApellido()}.");
                             }
                             else
                             {
@@ -177,80 +190,81 @@ namespace TrabajoPractico1
                         }
                         break;
 
-
                     case '6':
                         Console.Clear();
+                        Console.Write("Nombre del legislador: ");
+                        string nombre = Console.ReadLine();
 
-                        Console.WriteLine("Agregar un legislador:");
-                        // Agregar un Diputado
+                        Console.Write("Apellido del legislador: ");
+                        string apellido = Console.ReadLine();
 
-                        Console.WriteLine("Agregando un nuevo Diputado:");
-
-                        // Solicita la información al usuario
-                        Console.Write("Partido Político: ");
-                        string partidoDiputado = Console.ReadLine();
-
-                        Console.Write("Departamento que Representa: ");
-                        string departamentoDiputado = Console.ReadLine();
-
-                        Console.Write("Número de Despacho: ");
-                        if (int.TryParse(Console.ReadLine(), out int numDespachoDiputado))
+                        Console.Write("Edad del legislador: ");
+                        if (int.TryParse(Console.ReadLine(), out int edad))
                         {
-                            if (!miParlamento.ExisteLegisladorPorNumeroDespacho(numDespachoDiputado))
+                            Console.Write("Es presidente (S/N): ");
+                            bool esPresidente = (Console.ReadLine().ToLower() == "s");
+
+                            Console.Write("Partido político: ");
+                            string partido = Console.ReadLine();
+
+                            Console.Write("Camara (Diputado/Senador): ");
+                            string camara = Console.ReadLine();
+
+                            if (camara.ToLower() == "diputado")
                             {
-                                Console.Write("Nombre: ");
-                                string nombreDiputado = Console.ReadLine();
-
-                                Console.Write("Apellido: ");
-                                string apellidoDiputado = Console.ReadLine();
-
-                                Console.Write("Edad: ");
-                                if (int.TryParse(Console.ReadLine(), out int edadDiputado))
-                                {
-                                    Console.Write("Casado (Sí o No): ");
-                                    bool casadoDiputado = Console.ReadLine().Trim().Equals("Sí", StringComparison.OrdinalIgnoreCase);
-
-                                    // Crea un nuevo Diputado con la información proporcionada
-                                    Diputado nuevoDiputado = new Diputado(partidoDiputado, departamentoDiputado, numDespachoDiputado, nombreDiputado, apellidoDiputado, edadDiputado, casadoDiputado, numDespachoDiputado);
-
-                                    // Registra el nuevo Diputado en el parlamento
-                                    miParlamento.RegistrarLegislador(nuevoDiputado);
-
-                                    Console.WriteLine("Diputado registrado con éxito.");
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Edad ingresada no válida.");
-                                }
+                                Diputado diputado = new Diputado(partido, "Diputados", 1, nombre, apellido, edad, esPresidente);
+                                miParlamento.RegistrarLegislador(diputado);
+                                Console.WriteLine("Diputado registrado exitosamente.");
+                            }
+                            else if (camara.ToLower() == "senador")
+                            {
+                                Senador senador = new Senador(partido, "Senadores", 2, nombre, apellido, edad, esPresidente);
+                                miParlamento.RegistrarLegislador(senador);
+                                Console.WriteLine("Senador registrado exitosamente.");
                             }
                             else
                             {
-                                Console.WriteLine($"Ya existe un legislador con el número de despacho {numDespachoDiputado}.");
+                                Console.WriteLine("Cámara no válida.");
                             }
                         }
                         else
                         {
-                            Console.WriteLine("Número de despacho no válido.");
+                            Console.WriteLine("Edad no válida.");
                         }
                         break;
 
-
                     case '7':
                         Console.Clear();
-                        Console.WriteLine("Borrando un legislador:");
-
-                        // Solicita información para identificar al legislador a borrar
-                        Console.Write("Nombre del legislador a borrar: ");
-                        string nombreABorrar = Console.ReadLine();
-
-                        // Llama a un método en la clase Parlamento para borrar un legislador por nombre
-                        if (miParlamento.BorrarLegislador(nombreABorrar))
+                        // Mostrar lista de legisladores para que el usuario seleccione uno
+                        Console.WriteLine("Lista de Legisladores:");
+                        int contadorBorrar = 1;
+                        foreach (var legislador in miParlamento.GetLegisladores())
                         {
-                            Console.WriteLine($"Legislador '{nombreABorrar}' borrado con éxito.");
+                            Console.WriteLine($"{contadorBorrar}. {legislador.GetNombre()} {legislador.GetApellido()} ({legislador.GetCamara()})");
+                            contadorBorrar++;
+                        }
+
+                        Console.Write("Seleccione el número del legislador que desea borrar: ");
+                        if (int.TryParse(Console.ReadLine(), out int selecBorrar))
+                        {
+                            if (selecBorrar >= 1 && selecBorrar <= miParlamento.GetLegisladores().Count)
+                            {
+                                // El usuario seleccionó un legislador válido
+                                var legisladorBorrar = miParlamento.GetLegisladores()[selecBorrar - 1];
+
+                                // Llama al método BorrarLegislador en el Parlamento
+                                miParlamento.BorrarLegislador(legisladorBorrar);
+
+                                Console.WriteLine($"Legislador {legisladorBorrar.GetNombre()} {legisladorBorrar.GetApellido()} borrado.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Número de legislador no válido.");
+                            }
                         }
                         else
                         {
-                            Console.WriteLine($"No se encontró ningún legislador con el nombre '{nombreABorrar}'.");
+                            Console.WriteLine("Número de legislador no válido.");
                         }
                         break;
 
@@ -258,27 +272,26 @@ namespace TrabajoPractico1
                         Console.Clear();
                         // Mostrar lista de legisladores para que el usuario seleccione uno
                         Console.WriteLine("Lista de Legisladores:");
-                        int contadorPropuestas = 1;
+                        int contadorListarPropuestas = 1;
                         foreach (var legislador in miParlamento.GetLegisladores())
                         {
-                            Console.WriteLine($"{contadorPropuestas}. {legislador.getNombre()} {legislador.getApellido()}");
-                            contadorPropuestas++;
+                            Console.WriteLine($"{contadorListarPropuestas}. {legislador.GetNombre()} {legislador.GetApellido()} ({legislador.GetCamara()})");
+                            contadorListarPropuestas++;
                         }
 
-                        Console.Write("Seleccione el número del legislador del que desea listar las propuestas: ");
-                        if (int.TryParse(Console.ReadLine(), out int seleccionLegislador))
+                        Console.Write("Seleccione el número del legislador para listar sus propuestas: ");
+                        if (int.TryParse(Console.ReadLine(), out int selecListarPropuestas))
                         {
-                            if (seleccionLegislador >= 1 && seleccionLegislador <= miParlamento.GetLegisladores().Count)
+                            if (selecListarPropuestas >= 1 && selecListarPropuestas <= miParlamento.GetLegisladores().Count)
                             {
                                 // El usuario seleccionó un legislador válido
-                                var legisladorSeleccionado = miParlamento.GetLegisladores()[seleccionLegislador - 1];
+                                var legisladorListarPropuestas = miParlamento.GetLegisladores()[selecListarPropuestas - 1];
 
-                                Console.WriteLine($"Propuestas legislativas de {legisladorSeleccionado.getNombre()} {legisladorSeleccionado.getApellido()}:");
+                                Console.WriteLine($"Propuestas de {legisladorListarPropuestas.GetNombre()} {legisladorListarPropuestas.GetApellido()}:");
 
-                                // Mostrar las propuestas legislativas del legislador seleccionado
-                                foreach (var propuesta in legisladorSeleccionado.PropuestasLegislativas)
+                                foreach (var propuesta in legisladorListarPropuestas.ListarPropuestasLegislativas())
                                 {
-                                    Console.WriteLine(propuesta);
+                                    Console.WriteLine($"- {propuesta}");
                                 }
                             }
                             else
@@ -291,18 +304,9 @@ namespace TrabajoPractico1
                             Console.WriteLine("Número de legislador no válido.");
                         }
                         break;
-
-
-
-                    case '0':
-                        Console.WriteLine("\nGRACIAS POR USAR EL PROGRAMA! :D");
-                        break;
-
-                    default:
-                        Console.WriteLine("\nOpcion incorrecta!");
-                        break;
                 }
-                Console.WriteLine("\nPresione Enter para volver al menu principal...");
+
+                Console.WriteLine("\nPresione Enter para volver al menú principal...");
                 Console.ReadKey();
             } while (opcion != '0');
         }
