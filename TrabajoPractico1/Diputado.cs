@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace TrabajoPractico1
 {
@@ -12,25 +16,29 @@ namespace TrabajoPractico1
             NumAsientoCamaraBaja = numAsientoCamaraBaja;
         }
 
-        public int GetNumAsientoCamaraBaja()
+        public int getNumAsientoCamaraBaja()
         {
             return NumAsientoCamaraBaja;
         }
 
-        public void SetNumAsientoCamaraBaja(int numAsientoCamaraBaja)
+        public void setNumAsientoCamaraBaja(int numAsientoCamaraBaja)
         {
             this.NumAsientoCamaraBaja = numAsientoCamaraBaja;
         }
 
+        // Implementación específica para Diputados
         public override void PresentarPropuestaLegislativa(string propuesta)
         {
-            base.PresentarPropuestaLegislativa(propuesta);
-            Console.WriteLine($"{GetNombre()} {GetApellido()} del partido {GetPartidoPolitico()} (Diputados) ha presentado la propuesta: '{propuesta}'");
+            Console.WriteLine($"{Nombre} {Apellido} del partido {PartidoPolitico} (Diputados) ha presentado la propuesta: '{propuesta}'");
         }
 
+        // Implementación específica para Diputados
         public override void ParticiparDebate(string temaDebate)
         {
-            Console.WriteLine($"{GetNombre()} {GetApellido()} del partido {GetPartidoPolitico()} (Diputados) ha participado en el debate sobre '{temaDebate}'.");
+            Console.WriteLine($"{Nombre} {Apellido} del partido {PartidoPolitico} (Diputados) ha participado en el debate sobre '{temaDebate}'.");
         }
+
+
+
     }
 }
