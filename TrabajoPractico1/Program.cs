@@ -13,8 +13,8 @@ namespace TrabajoPractico1
             Parlamento miParlamento = new Parlamento();
 
             // Crear un legislador en "modo hardcore"
-            Legislador legislador1 = new Legislador("Colorados", "Defensa", 2, "Guido Manini", "Rios", 65, true);
-            Legislador legislador2 = new Legislador("Blancos", "Vicepresidente", 1, "Beatriz Argimón", "Cedeira", 62, true);
+            Legislador legislador1 = new Legislador("Colorados", "Defensa", 1, "Guido Manini", "Rios", 65, true);
+            Legislador legislador2 = new Legislador("Blancos", "Vicepresidente", 2, "Beatriz Argimón", "Cedeira", 62, true);
 
             // Agregar el legislador a la lista de legisladores del Parlamento
             miParlamento.RegistrarLegislador(legislador1);
@@ -262,19 +262,28 @@ namespace TrabajoPractico1
                         Console.WriteLine("Borrando un legislador:");
 
                         // Solicita información para identificar al legislador a borrar
-                        Console.Write("Nombre del legislador a borrar: ");
-                        string nombreABorrar = Console.ReadLine();
+                        Console.Write("Número del legislador a borrar: ");
+                        int numBorrar;
 
-                        // Llama a un método en la clase Parlamento para borrar un legislador por nombre
-                        if (miParlamento.BorrarLegislador(nombreABorrar))
+                        // Intenta convertir la entrada del usuario a un número entero
+                        if (int.TryParse(Console.ReadLine(), out numBorrar))
                         {
-                            Console.WriteLine($"Legislador '{nombreABorrar}' borrado con éxito.");
+                            // Llama a un método en la clase Parlamento para borrar un legislador por número
+                            if (miParlamento.BorrarLegisladorPorNumero(numBorrar))
+                            {
+                                Console.WriteLine($"Legislador con número '{numBorrar}' borrado con éxito.");
+                            }
+                            else
+                            {
+                                Console.WriteLine($"No se encontró ningún legislador con el número '{numBorrar}'.");
+                            }
                         }
                         else
                         {
-                            Console.WriteLine($"No se encontró ningún legislador con el nombre '{nombreABorrar}'.");
+                            Console.WriteLine("Por favor, ingresa un número válido.");
                         }
                         break;
+
 
                     case '8':
                         Console.Clear();

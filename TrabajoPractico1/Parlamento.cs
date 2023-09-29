@@ -34,7 +34,7 @@ namespace TrabajoPractico1
         {
             foreach (var legislador in Legisladores)
             {
-                Console.WriteLine($"Nombre: {legislador.getNombre()}");
+                Console.WriteLine($"\nNombre: {legislador.getNombre()}");
                 Console.WriteLine($"Número de Despacho: {legislador.getNumDespacho()}");
                 Console.WriteLine($"Cámara: {legislador.getCamara()}");
                 Console.WriteLine();
@@ -58,27 +58,43 @@ namespace TrabajoPractico1
                 }
             }
 
-            Console.WriteLine($"Cantidad de Senadores: {cantidadSenadores}");
+            Console.WriteLine($"\nCantidad de Senadores: {cantidadSenadores}");
             Console.WriteLine($"Cantidad de Diputados: {cantidadDiputados}");
         }
 
 
-        public bool BorrarLegislador(string nombre)
+        public bool BorrarLegisladorPorNumero(int numeroDespacho)
         {
-            // Recorre la lista de legisladores para buscar y borrar al legislador por nombre
-            for (int i = 0; i < Legisladores.Count; i++)
+            // Busca el legislador por número de despacho
+            Legislador legisladorABorrar = null;
+            foreach (Legislador legislador in Legisladores)
             {
-                Legislador legislador = Legisladores[i];
-                if (legislador.getNombre().Equals(nombre, StringComparison.OrdinalIgnoreCase))
+                if (legislador.getNumDespacho() == numeroDespacho)
                 {
-                    // Se encontró el legislador, borrarlo de la lista
-                    Legisladores.RemoveAt(i);
-                    return true; // Indica que se borró el legislador con éxito
+                    legisladorABorrar = legislador;
+                    break; // Se encontró el legislador, sal del bucle
                 }
             }
 
-            return false; // Indica que no se encontró ningún legislador con el nombre proporcionado
+            if (legisladorABorrar != null)
+            {
+                // Borra el legislador de la lista
+                Legisladores.Remove(legisladorABorrar);
+
+                // Ahora, reorganiza los números de despacho de los legisladores restantes
+                for (int i = 0; i < Legisladores.Count; i++)
+                {
+                    Legisladores[i].setNumDespacho(i + 1);
+                }
+
+                return true; // Indica que se borró el legislador con éxito
+            }
+
+            return false; // Indica que no se encontró ningún legislador con el número de despacho proporcionado
         }
+
+
+
 
         public bool ExisteLegisladorPorNumeroDespacho(int numeroDespacho)
         {
