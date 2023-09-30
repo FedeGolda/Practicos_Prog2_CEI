@@ -48,11 +48,11 @@ namespace TrabajoPractico1
 
             foreach (var legislador in Legisladores)
             {
-                if (legislador.getCamara() == "Senado")
+                if (legislador is Senador)
                 {
                     cantidadSenadores++;
                 }
-                else if (legislador.getCamara() == "Diputados")
+                else if (legislador is Diputado)
                 {
                     cantidadDiputados++;
                 }
@@ -61,6 +61,8 @@ namespace TrabajoPractico1
             Console.WriteLine($"\nCantidad de Senadores: {cantidadSenadores}");
             Console.WriteLine($"Cantidad de Diputados: {cantidadDiputados}");
         }
+
+
 
 
         public bool BorrarLegisladorPorNumero(int numeroDespacho)
