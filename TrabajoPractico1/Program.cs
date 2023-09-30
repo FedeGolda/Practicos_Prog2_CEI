@@ -60,13 +60,8 @@ namespace TrabajoPractico1
                             Console.WriteLine($"{contador}. {legislador.getNombre()} {legislador.getApellido()}");
                             contador++;
                         }
-
-                        // Mostrar cantidad de senadores y diputados
                         miParlamento.ContarLegisladoresPorTipo();
-
-                        Console.ReadKey();
                         break;
-
 
                     case '2':
                         Console.Clear();
