@@ -100,8 +100,5 @@ namespace TrabajoPractico1
         {
             return Legisladores.Any(legislador => legislador.getNumDespacho() == numeroDespacho);
         }
-
-
-
     }
 }
