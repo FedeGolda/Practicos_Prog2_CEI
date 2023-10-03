@@ -1,0 +1,14 @@
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\PrimerParcialEj2Simulacro\bin\Debug\net6.0\PrimerParcialEj2Simulacro.exe
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\PrimerParcialEj2Simulacro\bin\Debug\net6.0\PrimerParcialEj2Simulacro.deps.json
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\PrimerParcialEj2Simulacro\bin\Debug\net6.0\PrimerParcialEj2Simulacro.runtimeconfig.json
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\PrimerParcialEj2Simulacro\bin\Debug\net6.0\PrimerParcialEj2Simulacro.dll
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\PrimerParcialEj2Simulacro\bin\Debug\net6.0\PrimerParcialEj2Simulacro.pdb
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\PrimerParcialEj2Simulacro\obj\Debug\net6.0\PrimerParcialEj2Simulacro.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\PrimerParcialEj2Simulacro\obj\Debug\net6.0\PrimerParcialEj2Simulacro.AssemblyInfoInputs.cache
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\PrimerParcialEj2Simulacro\obj\Debug\net6.0\PrimerParcialEj2Simulacro.AssemblyInfo.cs
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\PrimerParcialEj2Simulacro\obj\Debug\net6.0\PrimerParcialEj2Simulacro.csproj.CoreCompileInputs.cache
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\PrimerParcialEj2Simulacro\obj\Debug\net6.0\PrimerParcialEj2Simulacro.dll
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\PrimerParcialEj2Simulacro\obj\Debug\net6.0\refint\PrimerParcialEj2Simulacro.dll
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\PrimerParcialEj2Simulacro\obj\Debug\net6.0\PrimerParcialEj2Simulacro.pdb
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\PrimerParcialEj2Simulacro\obj\Debug\net6.0\PrimerParcialEj2Simulacro.genruntimeconfig.cache
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\PrimerParcialEj2Simulacro\obj\Debug\net6.0\ref\PrimerParcialEj2Simulacro.dll
