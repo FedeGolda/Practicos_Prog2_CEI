@@ -1,0 +1,14 @@
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\PrimerParcialEj1Simulacro\bin\Debug\net6.0\PrimerParcialEj1Simulacro.exe
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\PrimerParcialEj1Simulacro\bin\Debug\net6.0\PrimerParcialEj1Simulacro.deps.json
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\PrimerParcialEj1Simulacro\bin\Debug\net6.0\PrimerParcialEj1Simulacro.runtimeconfig.json
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\PrimerParcialEj1Simulacro\bin\Debug\net6.0\PrimerParcialEj1Simulacro.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\PrimerParcialEj1Simulacro\bin\Debug\net6.0\PrimerParcialEj1Simulacro.pdb
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\PrimerParcialEj1Simulacro\obj\Debug\net6.0\PrimerParcialEj1Simulacro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\PrimerParcialEj1Simulacro\obj\Debug\net6.0\PrimerParcialEj1Simulacro.AssemblyInfoInputs.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\PrimerParcialEj1Simulacro\obj\Debug\net6.0\PrimerParcialEj1Simulacro.AssemblyInfo.cs
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\PrimerParcialEj1Simulacro\obj\Debug\net6.0\PrimerParcialEj1Simulacro.csproj.CoreCompileInputs.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\PrimerParcialEj1Simulacro\obj\Debug\net6.0\PrimerParcialEj1Simulacro.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\PrimerParcialEj1Simulacro\obj\Debug\net6.0\refint\PrimerParcialEj1Simulacro.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\PrimerParcialEj1Simulacro\obj\Debug\net6.0\PrimerParcialEj1Simulacro.pdb
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\PrimerParcialEj1Simulacro\obj\Debug\net6.0\PrimerParcialEj1Simulacro.genruntimeconfig.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\PrimerParcialEj1Simulacro\obj\Debug\net6.0\ref\PrimerParcialEj1Simulacro.dll
