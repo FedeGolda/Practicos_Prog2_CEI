@@ -1,0 +1,8 @@
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\2 ejerciciosCurso\InterfacesEjercicio1\bin\Debug\InterfacesEjercicio1.exe.config
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\2 ejerciciosCurso\InterfacesEjercicio1\bin\Debug\InterfacesEjercicio1.exe
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\2 ejerciciosCurso\InterfacesEjercicio1\bin\Debug\InterfacesEjercicio1.pdb
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\2 ejerciciosCurso\InterfacesEjercicio1\obj\Debug\InterfacesEjercicio1.csproj.AssemblyReference.cache
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\2 ejerciciosCurso\InterfacesEjercicio1\obj\Debug\InterfacesEjercicio1.csproj.SuggestedBindingRedirects.cache
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\2 ejerciciosCurso\InterfacesEjercicio1\obj\Debug\InterfacesEjercicio1.csproj.CoreCompileInputs.cache
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\2 ejerciciosCurso\InterfacesEjercicio1\obj\Debug\InterfacesEjercicio1.exe
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\2 ejerciciosCurso\InterfacesEjercicio1\obj\Debug\InterfacesEjercicio1.pdb
