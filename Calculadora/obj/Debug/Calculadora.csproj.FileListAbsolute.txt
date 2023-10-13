@@ -8,3 +8,13 @@ C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Calculadora\obj\Debug\Ca
 C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Calculadora\obj\Debug\Calculadora.csproj.CoreCompileInputs.cache
 C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Calculadora\obj\Debug\Calculadora.exe
 C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\Calculadora\obj\Debug\Calculadora.pdb
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Calculadora\bin\Debug\Calculadora.exe.config
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Calculadora\bin\Debug\Calculadora.exe
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Calculadora\bin\Debug\Calculadora.pdb
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Calculadora\obj\Debug\Calculadora.csproj.AssemblyReference.cache
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Calculadora\obj\Debug\Calculadora.Form1.resources
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Calculadora\obj\Debug\Calculadora.Properties.Resources.resources
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Calculadora\obj\Debug\Calculadora.csproj.GenerateResource.cache
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Calculadora\obj\Debug\Calculadora.csproj.CoreCompileInputs.cache
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Calculadora\obj\Debug\Calculadora.exe
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\Calculadora\obj\Debug\Calculadora.pdb

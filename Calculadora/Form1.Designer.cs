@@ -45,14 +45,15 @@
             this.btnResta = new System.Windows.Forms.Button();
             this.btnMultiplicacion = new System.Windows.Forms.Button();
             this.btnDivision = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbDisplay
             // 
-            this.tbDisplay.Location = new System.Drawing.Point(12, 3);
+            this.tbDisplay.Location = new System.Drawing.Point(12, 12);
             this.tbDisplay.Multiline = true;
             this.tbDisplay.Name = "tbDisplay";
-            this.tbDisplay.Size = new System.Drawing.Size(236, 40);
+            this.tbDisplay.Size = new System.Drawing.Size(171, 31);
             this.tbDisplay.TabIndex = 0;
             // 
             // btnSuma
@@ -209,11 +210,22 @@
             this.btnDivision.Text = "/";
             this.btnDivision.UseVisualStyleBackColor = true;
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(202, 12);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(46, 36);
+            this.btnLimpiar.TabIndex = 19;
+            this.btnLimpiar.Text = "C";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(260, 357);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnDivision);
             this.Controls.Add(this.btnMultiplicacion);
             this.Controls.Add(this.btnResta);
@@ -257,6 +269,7 @@
         private System.Windows.Forms.Button btnResta;
         private System.Windows.Forms.Button btnMultiplicacion;
         private System.Windows.Forms.Button btnDivision;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }
 
