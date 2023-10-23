@@ -1,6 +1,6 @@
 ﻿namespace RelojDigital
 {
-    partial class Form1
+    partial class RelojDigital
     {
         /// <summary>
         ///  Required designer variable.
@@ -37,22 +37,22 @@
             // labelHora
             // 
             labelHora.AutoSize = true;
-            labelHora.Font = new Font("Segoe UI", 60F, FontStyle.Bold, GraphicsUnit.Point);
+            labelHora.Font = new Font("DS-Digital", 60F, FontStyle.Regular, GraphicsUnit.Point);
             labelHora.ForeColor = SystemColors.MenuHighlight;
-            labelHora.Location = new Point(93, 21);
+            labelHora.Location = new Point(82, 21);
             labelHora.Name = "labelHora";
-            labelHora.Size = new Size(273, 106);
+            labelHora.Size = new Size(250, 79);
             labelHora.TabIndex = 0;
             labelHora.Text = "label1";
             // 
             // labelFecha
             // 
             labelFecha.AutoSize = true;
-            labelFecha.Font = new Font("Segoe UI", 60F, FontStyle.Bold, GraphicsUnit.Point);
+            labelFecha.Font = new Font("DS-Digital", 60F, FontStyle.Regular, GraphicsUnit.Point);
             labelFecha.ForeColor = SystemColors.ControlDarkDark;
-            labelFecha.Location = new Point(83, 136);
+            labelFecha.Location = new Point(93, 100);
             labelFecha.Name = "labelFecha";
-            labelFecha.Size = new Size(273, 106);
+            labelFecha.Size = new Size(250, 79);
             labelFecha.TabIndex = 1;
             labelFecha.Text = "label1";
             // 
@@ -65,7 +65,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(548, 300);
+            BackColor = SystemColors.ActiveCaptionText;
+            ClientSize = new Size(377, 190);
             Controls.Add(labelFecha);
             Controls.Add(labelHora);
             Name = "Form1";

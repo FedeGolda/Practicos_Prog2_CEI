@@ -3,7 +3,6 @@ D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigi
 D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\bin\Debug\net6.0-windows\RelojDigital.runtimeconfig.json
 D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\bin\Debug\net6.0-windows\RelojDigital.dll
 D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\bin\Debug\net6.0-windows\RelojDigital.pdb
-D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\obj\Debug\net6.0-windows\RelojDigital.Form1.resources
 D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\obj\Debug\net6.0-windows\RelojDigital.csproj.GenerateResource.cache
 D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\obj\Debug\net6.0-windows\RelojDigital.GeneratedMSBuildEditorConfig.editorconfig
 D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\obj\Debug\net6.0-windows\RelojDigital.AssemblyInfoInputs.cache
@@ -14,3 +13,4 @@ D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigi
 D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\obj\Debug\net6.0-windows\RelojDigital.pdb
 D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\obj\Debug\net6.0-windows\RelojDigital.genruntimeconfig.cache
 D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\obj\Debug\net6.0-windows\ref\RelojDigital.dll
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\obj\Debug\net6.0-windows\RelojDigital.RelojDigital.resources

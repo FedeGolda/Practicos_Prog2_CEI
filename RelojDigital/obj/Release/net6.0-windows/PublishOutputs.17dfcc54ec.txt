@@ -1,0 +1,5 @@
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\bin\Release\net6.0-windows\publish\RelojDigital.exe
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\bin\Release\net6.0-windows\publish\RelojDigital.dll
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\bin\Release\net6.0-windows\publish\RelojDigital.deps.json
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\bin\Release\net6.0-windows\publish\RelojDigital.runtimeconfig.json
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\bin\Release\net6.0-windows\publish\RelojDigital.pdb
