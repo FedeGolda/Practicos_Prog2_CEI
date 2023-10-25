@@ -47,14 +47,14 @@ namespace UMLEjercicio5
             List<Reserva> reservasPendientes = new List<Reserva>();
             foreach (var reserva in colReservas)
             {
-                // Verificar si la reserva pertenece al cliente y está pendiente
-                if (reserva.getDocumento() == documentoCliente && reserva.getEstado() == "PENDIENTE")
+                if (reserva.getCliente().getDocumento() == documentoCliente.ToString() && reserva.getEstado() == "PENDIENTE")
                 {
                     reservasPendientes.Add(reserva);
                 }
             }
             return reservasPendientes;
         }
+
 
 
     }
