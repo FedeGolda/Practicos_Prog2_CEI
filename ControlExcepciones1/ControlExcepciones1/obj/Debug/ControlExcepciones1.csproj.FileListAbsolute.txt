@@ -1,0 +1,23 @@
+C:\Users\GONZALO\Desktop\OneDrive - Universidad Católica del Uruguay\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\bin\Debug\ControlExcepciones1.exe.config
+C:\Users\GONZALO\Desktop\OneDrive - Universidad Católica del Uruguay\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\bin\Debug\ControlExcepciones1.exe
+C:\Users\GONZALO\Desktop\OneDrive - Universidad Católica del Uruguay\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\bin\Debug\ControlExcepciones1.pdb
+C:\Users\GONZALO\Desktop\OneDrive - Universidad Católica del Uruguay\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\obj\Debug\ControlExcepciones1.csproj.AssemblyReference.cache
+C:\Users\GONZALO\Desktop\OneDrive - Universidad Católica del Uruguay\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\obj\Debug\ControlExcepciones1.csproj.SuggestedBindingRedirects.cache
+C:\Users\GONZALO\Desktop\OneDrive - Universidad Católica del Uruguay\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\obj\Debug\ControlExcepciones1.csproj.CoreCompileInputs.cache
+C:\Users\GONZALO\Desktop\OneDrive - Universidad Católica del Uruguay\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\obj\Debug\ControlExcepciones1.exe
+C:\Users\GONZALO\Desktop\OneDrive - Universidad Católica del Uruguay\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\obj\Debug\ControlExcepciones1.pdb
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\bin\Debug\ControlExcepciones1.exe.config
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\bin\Debug\ControlExcepciones1.exe
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\bin\Debug\ControlExcepciones1.pdb
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\obj\Debug\ControlExcepciones1.csproj.AssemblyReference.cache
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\obj\Debug\ControlExcepciones1.csproj.SuggestedBindingRedirects.cache
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\obj\Debug\ControlExcepciones1.csproj.CoreCompileInputs.cache
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\obj\Debug\ControlExcepciones1.exe
+C:\Users\GONZALO\Desktop\trabajo\1 clases\CEI\programacion 2\2 ejerciciosCurso\ControlExcepciones1\ControlExcepciones1\obj\Debug\ControlExcepciones1.pdb
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\ControlExcepciones1\ControlExcepciones1\bin\Debug\ControlExcepciones1.exe.config
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\ControlExcepciones1\ControlExcepciones1\bin\Debug\ControlExcepciones1.exe
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\ControlExcepciones1\ControlExcepciones1\bin\Debug\ControlExcepciones1.pdb
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\ControlExcepciones1\ControlExcepciones1\obj\Debug\ControlExcepciones1.csproj.AssemblyReference.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\ControlExcepciones1\ControlExcepciones1\obj\Debug\ControlExcepciones1.csproj.CoreCompileInputs.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\ControlExcepciones1\ControlExcepciones1\obj\Debug\ControlExcepciones1.exe
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\ControlExcepciones1\ControlExcepciones1\obj\Debug\ControlExcepciones1.pdb

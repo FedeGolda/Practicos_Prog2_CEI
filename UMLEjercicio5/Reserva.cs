@@ -13,7 +13,7 @@ namespace UMLEjercicio5
         private string fechaSalida;
         private int cantDias;
         private double precioTotal;
-        private List<Habitacion> colHabitaciones; // Relacion de asociacion
+        private Habitacion habitacion; // Relacion de asociacion
         private string estado; // Nueva propiedad para el estado de la reserva
         private Cliente cliente;
         public Reserva()
@@ -27,7 +27,7 @@ namespace UMLEjercicio5
             this.fechaSalida = fechaSalida;
             this.cantDias = cantDias;
             this.precioTotal = precioTotal;
-            this.colHabitaciones = colHabitaciones;
+            this.habitacion = habitacion;
             this.estado = estado;
             this.cliente = cliente;
         }

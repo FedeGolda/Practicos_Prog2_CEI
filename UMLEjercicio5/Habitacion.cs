@@ -11,18 +11,18 @@ namespace UMLEjercicio5
         private int numero;
         private int piso;
         private string descripcion;
-        private List<TipoHabitacion> coltipoHabitacion; // Relacion
+        private TipoHabitacion tipoHabitacion; // Composicion
         public Habitacion() 
         {
             
         }
 
-        public Habitacion(int numero, int piso, string descripcion)
+        public Habitacion(int numero, int piso, string descripcion, int codigo, string nombre, double costo)
         {
             this.numero = numero;
             this.piso = piso;
             this.descripcion = descripcion;
-            this.coltipoHabitacion = new List<TipoHabitacion>(); // Agregacion
+            this.tipoHabitacion = new TipoHabitacion( codigo, nombre, costo); // Composicion
         }
 
         public int getNumero() => this.numero;
@@ -31,7 +31,7 @@ namespace UMLEjercicio5
         public void setPiso(int piso) => this.piso = piso;
         public string getDescripcion() => this.descripcion;
         public void setDescripcion(string descripcion) => this.descripcion = descripcion;
-        public List<TipoHabitacion> GetTipoHabitacions() => this.coltipoHabitacion;
-        public void setTipoHabitacion(List<TipoHabitacion> colTipoHabitacion) => this.coltipoHabitacion = colTipoHabitacion;
+        public TipoHabitacion GetTipoHabitacions() => this.tipoHabitacion;
+        public void setTipoHabitacion(TipoHabitacion tipoHabitacion) => this.tipoHabitacion = tipoHabitacion;
     }
 }
