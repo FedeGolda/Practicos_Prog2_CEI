@@ -10,9 +10,12 @@ namespace TrabajoPractico2
     {
         private int capacidadMaletero;
 
-        public Familiar(int capacidadMaletero) : base()
+        public Familiar(int numero, string matricula, string marca, string color, int capacidadTanque, string estado, double precioDiario, int kmPorLitro, int capacidadMaletero) 
+            : base(numero, matricula, marca, color, capacidadTanque, estado, precioDiario, kmPorLitro)
         {
             this.capacidadMaletero = capacidadMaletero;
         }
+        public int getCapacidadMaletero() => this.capacidadMaletero;
+        public void setCapacidadMaletero(int capacidadMaletero) => this.capacidadMaletero = capacidadMaletero;
     }
 }

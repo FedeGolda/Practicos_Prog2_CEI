@@ -24,6 +24,6 @@ namespace TrabajoPractico2
         public DateTime getFechaRetiro() => this.fechaRetiro;
         public void setFechaRetiro(DateTime fechaRetiro) => this.fechaRetiro = fechaRetiro;
         public int getCantidadDias() => this.cantidadDias;
-        public void setCantidadias(int cantidadDias) => this.cantidadDias = cantidadDias;
+        public void setCantidaDias(int cantidadDias) => this.cantidadDias = cantidadDias;
     }
 }
