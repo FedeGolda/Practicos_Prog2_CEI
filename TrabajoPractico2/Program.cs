@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            char opcion;
             List<Vehiculo> colVehiculos = new List<Vehiculo>();
             List<Alquiler> colAlquileres = new List<Alquiler>();
             List<Detalle> colDetalles = new List<Detalle>();
@@ -40,13 +41,96 @@
             sucursal.RegistrarAlquiler(alquiler2);
             sucursal.RegistrarAlquiler(alquiler3);
 
-            alquiler1.AgregarDetalle(detalle1);
-            alquiler2.AgregarDetalle(detalle2);
-            alquiler3.AgregarDetalle(detalle3);
+            //alquiler1.AgregarDetalle(detalle1);
+            //alquiler2.AgregarDetalle(detalle2);
+            //alquiler3.AgregarDetalle(detalle3);
 
-            // Mostrar vehículos y alquileres
-            sucursal.ListarVehiculos();
-            sucursal.ListarAlquileres();
+            do
+            {
+                Console.Clear(); // Limpia la consola
+
+                // Mostrar el encabezado del menú
+                Console.WriteLine("\t         AUTOMOTORA        ");
+                Console.WriteLine("\n\t*************************************");
+                Console.WriteLine("\t*             MENU                  *");
+                Console.WriteLine("\t*************************************");
+                Console.WriteLine("\t* 1.        REGISTRAR VEHICULO      *");
+                Console.WriteLine("\t* 2.        MOSTRAR VEHICULOS       *");
+                Console.WriteLine("\t* 3.        MOSTRAR ALQUILERES      *");
+                Console.WriteLine("\t* X.        SALIR                   *");
+                Console.WriteLine("\t*************************************");
+                Console.Write("\tSeleccione una opción: ");
+
+                opcion = Console.ReadKey().KeyChar;
+
+                switch (opcion)
+                {
+                    case '1':
+                        Console.Clear();
+                        Console.WriteLine("\n******************************************");
+                        Console.WriteLine("Registrar Vehículo:");
+                        Console.Write("Número: ");
+                        int numero = int.Parse(Console.ReadLine());
+
+                        Console.Write("Matrícula: ");
+                        string matricula = Console.ReadLine();
+
+                        Console.Write("Marca: ");
+                        string marca = Console.ReadLine();
+
+                        Console.Write("Color: ");
+                        string color = Console.ReadLine();
+
+                        Console.Write("Kilometraje: ");
+                        int kilometraje = int.Parse(Console.ReadLine());
+
+                        Console.Write("Estado: ");
+                        string estado = Console.ReadLine();
+
+                        Console.Write("Precio por día: ");
+                        double precioPorDia = double.Parse(Console.ReadLine());
+
+                        Console.Write("Cantidad de puertas: ");
+                        int cantidadPuertas = int.Parse(Console.ReadLine());
+
+                        // Crear instancia de Vehiculo con los detalles proporcionados
+                        Vehiculo nuevoVehiculo = new Vehiculo(numero, matricula, marca, color, kilometraje, estado, precioPorDia, cantidadPuertas);
+
+                        // Registrar el nuevo vehículo en la sucursal
+                        sucursal.RegistrarVehiculo(nuevoVehiculo);
+
+                        Console.WriteLine("Vehículo registrado exitosamente.");
+                        break;
+
+
+                    case '2':
+                        Console.Clear();
+                        Console.WriteLine("\n******************************************");
+                        sucursal.ListarVehiculos();
+                        Console.WriteLine("******************************************");
+                        break;
+
+                    case '3':
+                        Console.Clear();
+                        Console.WriteLine("\n******************************************");
+                        sucursal.ListarAlquileres();
+                        Console.WriteLine("******************************************");
+                        break;
+
+                    case 'x':
+                        // Mostrar un mensaje de despedida y salir del bucle
+                        Console.WriteLine("\n\nGRACIAS POR USAR EL PROGRAMA! :D");
+                        break;
+
+                    default:
+                        // Mostrar un mensaje de error si la opción no es válida
+                        Console.WriteLine("\n\nOpción no válida. Introduce una opción válida entre 1 - 3.");
+                        break;
+                }
+
+                Console.WriteLine("\nPulsa cualquier tecla para continuar...");
+                Console.ReadKey();
+            } while (opcion != 'x');
         }
     }
 }
