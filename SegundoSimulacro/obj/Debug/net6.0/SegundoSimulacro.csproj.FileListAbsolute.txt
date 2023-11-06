@@ -1,0 +1,14 @@
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\SegundoSimulacro\bin\Debug\net6.0\SegundoSimulacro.exe
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\SegundoSimulacro\bin\Debug\net6.0\SegundoSimulacro.deps.json
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\SegundoSimulacro\bin\Debug\net6.0\SegundoSimulacro.runtimeconfig.json
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\SegundoSimulacro\bin\Debug\net6.0\SegundoSimulacro.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\SegundoSimulacro\bin\Debug\net6.0\SegundoSimulacro.pdb
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\SegundoSimulacro\obj\Debug\net6.0\SegundoSimulacro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\SegundoSimulacro\obj\Debug\net6.0\SegundoSimulacro.AssemblyInfoInputs.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\SegundoSimulacro\obj\Debug\net6.0\SegundoSimulacro.AssemblyInfo.cs
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\SegundoSimulacro\obj\Debug\net6.0\SegundoSimulacro.csproj.CoreCompileInputs.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\SegundoSimulacro\obj\Debug\net6.0\SegundoSimulacro.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\SegundoSimulacro\obj\Debug\net6.0\refint\SegundoSimulacro.dll
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\SegundoSimulacro\obj\Debug\net6.0\SegundoSimulacro.pdb
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\SegundoSimulacro\obj\Debug\net6.0\SegundoSimulacro.genruntimeconfig.cache
+C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\SegundoSimulacro\obj\Debug\net6.0\ref\SegundoSimulacro.dll
