@@ -20,9 +20,9 @@
             Vehiculo vehiculo5 = new Vehiculo(5, "MNO345", "Nissan", "Negro", 52, "Disponible", 52.0, 16);
 
             // Crear instancias de Alquiler
-            Alquiler alquiler1 = new Alquiler(1, 200.0, "12345678", "123456789", "Cliente1", "Apellido1");
-            Alquiler alquiler2 = new Alquiler(2, 300.0, "23456789", "234567890", "Cliente2", "Apellido2");
-            Alquiler alquiler3 = new Alquiler(3, 150.0, "34567890", "345678901", "Cliente3", "Apellido3");
+            Alquiler alquiler1 = new Alquiler(1, 200.0, "12345678", "123456789", "Pepe", "Lopez");
+            Alquiler alquiler2 = new Alquiler(2, 300.0, "23456789", "234567890", "Gonzalo", "Sommaruga");
+            Alquiler alquiler3 = new Alquiler(3, 150.0, "34567890", "345678901", "Lola", "Mento");
 
             // Crear instancias de Detalle y asociarlas con Alquiler
             Detalle detalle1 = new Detalle(vehiculo1, DateTime.Now, 3);
@@ -55,7 +55,7 @@
                 Console.WriteLine("\t*             MENU                  *");
                 Console.WriteLine("\t*************************************");
                 Console.WriteLine("\t* 1.        REGISTRAR VEHICULO      *");
-                Console.WriteLine("\t* 2.        MOSTRAR VEHICULOS       *");
+                Console.WriteLine("\t* 2.        REGISTRAR ALQUILER      *");
                 Console.WriteLine("\t* 3.        MOSTRAR ALQUILERES      *");
                 Console.WriteLine("\t* X.        SALIR                   *");
                 Console.WriteLine("\t*************************************");
@@ -69,46 +69,98 @@
                         Console.Clear();
                         Console.WriteLine("\n******************************************");
                         Console.WriteLine("Registrar Vehículo:");
-                        Console.Write("Número: ");
-                        int numero = int.Parse(Console.ReadLine());
 
-                        Console.Write("Matrícula: ");
-                        string matricula = Console.ReadLine();
-
-                        Console.Write("Marca: ");
-                        string marca = Console.ReadLine();
-
-                        Console.Write("Color: ");
-                        string color = Console.ReadLine();
-
-                        Console.Write("Kilometraje: ");
-                        int kilometraje = int.Parse(Console.ReadLine());
-
-                        Console.Write("Estado: ");
-                        string estado = Console.ReadLine();
-
-                        Console.Write("Precio por día: ");
-                        double precioPorDia = double.Parse(Console.ReadLine());
-
-                        Console.Write("Cantidad de puertas: ");
-                        int cantidadPuertas = int.Parse(Console.ReadLine());
-
-                        // Crear instancia de Vehiculo con los detalles proporcionados
-                        Vehiculo nuevoVehiculo = new Vehiculo(numero, matricula, marca, color, kilometraje, estado, precioPorDia, cantidadPuertas);
-
-                        // Registrar el nuevo vehículo en la sucursal
-                        sucursal.RegistrarVehiculo(nuevoVehiculo);
-
-                        Console.WriteLine("Vehículo registrado exitosamente.");
+                        try
+                        {
+                            // ... (mismo código que proporcioné anteriormente)
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Error: Por favor, ingrese un número válido para el número del vehículo.");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error: {ex.Message}");
+                        }
                         break;
-
 
                     case '2':
                         Console.Clear();
                         Console.WriteLine("\n******************************************");
-                        sucursal.ListarVehiculos();
-                        Console.WriteLine("******************************************");
+                        Console.WriteLine("Agregar Alquiler:");
+
+                        try
+                        {
+                            Console.Write("Número de Alquiler: ");
+                            int numeroAlquiler = int.Parse(Console.ReadLine());
+
+                            Console.Write("Precio Total: ");
+                            double precioTotal = double.Parse(Console.ReadLine());
+
+                            Console.Write("Documento: ");
+                            string documento = Console.ReadLine();
+
+                            Console.Write("Teléfono: ");
+                            string telefono = Console.ReadLine();
+
+                            Console.Write("Nombre: ");
+                            string nombre = Console.ReadLine();
+
+                            Console.Write("Apellido: ");
+                            string apellido = Console.ReadLine();
+
+                            // Crear instancia de Alquiler con los detalles proporcionados
+                            Alquiler nuevoAlquiler = new Alquiler(numeroAlquiler, precioTotal, documento, telefono, nombre, apellido);
+
+                            // Agregar vehículos al alquiler
+                            Console.WriteLine("Agregar vehículos al alquiler (presione enter para finalizar):");
+
+                            while (true)
+                            {
+                                Console.Write("Número de Vehículo: ");
+                                int numeroVehiculo = int.Parse(Console.ReadLine());
+
+                                // Encontrar el vehículo en la lista de vehículos de la sucursal
+                                Vehiculo vehiculo = sucursal.BuscarVehiculoPorNumero(numeroVehiculo);
+
+                                if (vehiculo != null)
+                                {
+                                    Console.Write("Fecha de Retiro (yyyy-mm-dd): ");
+                                    DateTime fechaRetiro = DateTime.Parse(Console.ReadLine());
+
+                                    Console.Write("Cantidad de Días: ");
+                                    int cantidadDias = int.Parse(Console.ReadLine());
+
+                                    // Agregar detalle al alquiler
+                                    nuevoAlquiler.AgregarDetalle(vehiculo, fechaRetiro, cantidadDias);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Error: Vehículo no encontrado.");
+                                }
+
+                                Console.Write("¿Desea agregar otro vehículo? (s/n): ");
+                                if (Console.ReadKey().KeyChar.ToString().ToLower() != "s")
+                                {
+                                    break;
+                                }
+                            }
+
+                            // Registrar el nuevo alquiler en la sucursal
+                            sucursal.RegistrarAlquiler(nuevoAlquiler);
+
+                            Console.WriteLine("\nAlquiler registrado exitosamente.");
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Error: Por favor, ingrese un formato válido.");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error: {ex.Message}");
+                        }
                         break;
+
 
                     case '3':
                         Console.Clear();

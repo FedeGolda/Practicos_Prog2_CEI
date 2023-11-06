@@ -64,6 +64,18 @@ namespace TrabajoPractico2
                 }
             }
         }
+
+        public Vehiculo BuscarVehiculoPorNumero(int numero)
+        {
+            foreach (var vehiculo in colVehiculos)
+            {
+                if (vehiculo.getNumero() == numero)
+                {
+                    return vehiculo;
+                }
+            }
+            return null; // Retorna null si el vehículo no se encuentra en la lista
+        }
     }
 }
 
