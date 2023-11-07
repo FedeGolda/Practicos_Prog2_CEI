@@ -50,15 +50,17 @@
                 Console.Clear(); // Limpia la consola
 
                 // Mostrar el encabezado del menú
-                Console.WriteLine("\t         AUTOMOTORA        ");
-                Console.WriteLine("\n\t*************************************");
-                Console.WriteLine("\t*             MENU                  *");
-                Console.WriteLine("\t*************************************");
-                Console.WriteLine("\t* 1.        REGISTRAR VEHICULO      *");
-                Console.WriteLine("\t* 2.        REGISTRAR ALQUILER      *");
-                Console.WriteLine("\t* 3.        MOSTRAR ALQUILERES      *");
-                Console.WriteLine("\t* X.        SALIR                   *");
-                Console.WriteLine("\t*************************************");
+                Console.WriteLine("\t              AUTOMOTORA        ");
+                Console.WriteLine("\n\t****************************************");
+                Console.WriteLine("\t*                MENU                  *");
+                Console.WriteLine("\t****************************************");
+                Console.WriteLine("\t* 1.        REGISTRAR VEHICULO         *");
+                Console.WriteLine("\t* 2.        REGISTRAR ALQUILER         *");
+                Console.WriteLine("\t* 3.        LISTA VEHICULOS            *");
+                Console.WriteLine("\t* 4.        LISTAR ALQUILERES          *");
+                Console.WriteLine("\t* 5.        BUSCAR VEHICULO POR NUMERO *");
+                Console.WriteLine("\t* X.        SALIR                      *");
+                Console.WriteLine("\t****************************************");
                 Console.Write("\tSeleccione una opción: ");
 
                 opcion = Console.ReadKey().KeyChar;
@@ -72,7 +74,37 @@
 
                         try
                         {
-                            // ... (mismo código que proporcioné anteriormente)
+                            Console.Write("Número: ");
+                            int numero = int.Parse(Console.ReadLine());
+
+                            Console.Write("Matrícula: ");
+                            string matricula = Console.ReadLine();
+
+                            Console.Write("Marca: ");
+                            string marca = Console.ReadLine();
+
+                            Console.Write("Color: ");
+                            string color = Console.ReadLine();
+
+                            Console.Write("Kilometraje: ");
+                            int kilometraje = int.Parse(Console.ReadLine());
+
+                            Console.Write("Estado: ");
+                            string estado = Console.ReadLine();
+
+                            Console.Write("Precio por día: ");
+                            double precioPorDia = double.Parse(Console.ReadLine());
+
+                            Console.Write("Cantidad de puertas: ");
+                            int cantidadPuertas = int.Parse(Console.ReadLine());
+
+                            // Crear instancia de Vehiculo con los detalles proporcionados
+                            Vehiculo nuevoVehiculo = new Vehiculo(numero, matricula, marca, color, kilometraje, estado, precioPorDia, cantidadPuertas);
+
+                            // Registrar el nuevo vehículo en la sucursal
+                            sucursal.RegistrarVehiculo(nuevoVehiculo);
+
+                            Console.WriteLine("Vehículo registrado exitosamente.");
                         }
                         catch (FormatException)
                         {
@@ -83,6 +115,7 @@
                             Console.WriteLine($"Error: {ex.Message}");
                         }
                         break;
+
 
                     case '2':
                         Console.Clear();
@@ -161,13 +194,62 @@
                         }
                         break;
 
-
                     case '3':
+                        Console.Clear();
+                        Console.WriteLine("\n******************************************");
+                        Console.WriteLine("Lista de Vehículos Disponibles:");
+                        sucursal.ListarVehiculos();
+                        Console.WriteLine("******************************************");
+                        break;
+
+
+                    case '4':
                         Console.Clear();
                         Console.WriteLine("\n******************************************");
                         sucursal.ListarAlquileres();
                         Console.WriteLine("******************************************");
                         break;
+
+                    case '5':
+                        Console.Clear();
+                        Console.WriteLine("\n******************************************");
+                        Console.WriteLine("Buscar Vehículo por Número:");
+
+                        try
+                        {
+                            Console.Write("Ingrese el número del vehículo: ");
+                            int numeroVehiculo = int.Parse(Console.ReadLine());
+
+                            // Encontrar el vehículo en la lista de vehículos de la sucursal
+                            Vehiculo vehiculoEncontrado = sucursal.BuscarVehiculoPorNumero(numeroVehiculo);
+
+                            if (vehiculoEncontrado != null)
+                            {
+                                Console.WriteLine("\nInformación del Vehículo:");
+                                Console.WriteLine($"Número: {vehiculoEncontrado.getNumero()}");
+                                Console.WriteLine($"Matrícula: {vehiculoEncontrado.getMatricula()}");
+                                Console.WriteLine($"Marca: {vehiculoEncontrado.getMarca()}");
+                                Console.WriteLine($"Color: {vehiculoEncontrado.getColor()}");
+                                Console.WriteLine($"Kilometraje: {vehiculoEncontrado.getKmPorLitro()}");
+                                Console.WriteLine($"Estado: {vehiculoEncontrado.getEstado()}");
+                                Console.WriteLine($"Precio por Día: {vehiculoEncontrado.getPrecioDiario()}");
+                                Console.WriteLine($"Capacidad tanque: {vehiculoEncontrado.getCapacidadTanque()}");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Error: Vehículo no encontrado.");
+                            }
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Error: Por favor, ingrese un número válido para el número del vehículo.");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error: {ex.Message}");
+                        }
+                        break;
+
 
                     case 'x':
                         // Mostrar un mensaje de despedida y salir del bucle
