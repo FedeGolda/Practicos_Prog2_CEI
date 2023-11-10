@@ -1,8 +1,5 @@
 ﻿using Obligatorio2023Prog2.Clases;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -12,74 +9,119 @@ namespace Obligatorio2023Prog2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                CargarGridVehiculos();
+            }
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            Vehiculo vehiculo = new Vehiculo();
-            vehiculo.Matricula = txtMatricula.Text;
-            vehiculo.Marca = txtMarca.Text;
-            vehiculo.Modelo = txtModelo.Text;
+            try
+            {
+                string matricula = txtMatricula.Text.Trim();
+                string marca = txtMarca.Text.Trim();
+                string modelo = txtModelo.Text.Trim();
 
-            BaseDeDatos.listaVehiculos.Add(vehiculo);
+                if (string.IsNullOrEmpty(matricula) || string.IsNullOrEmpty(marca) || string.IsNullOrEmpty(modelo))
+                {
+                    throw new ApplicationException("Todos los campos son obligatorios.");
+                }
 
-            this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
-            this.gvVehiculos.DataBind();
+                Vehiculo vehiculo = new Vehiculo
+                {
+                    Matricula = matricula,
+                    Marca = marca,
+                    Modelo = modelo
+                };
+
+                BaseDeDatos.listaVehiculos.Add(vehiculo);
+
+                CargarGridVehiculos();
+
+                LimpiarCampos();
+            }
+            catch (Exception ex)
+            {
+                MostrarMensajeError("Error al guardar el vehículo: " + ex.Message);
+            }
         }
 
         protected void gvVehiculos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            this.gvVehiculos.EditIndex = -1;
-            this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
-            this.gvVehiculos.DataBind();
+            gvVehiculos.EditIndex = -1;
+            CargarGridVehiculos();
         }
 
         protected void gvVehiculos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            string matricula = this.gvVehiculos.DataKeys[e.RowIndex].Values[0].ToString();
-
-            foreach (var vehiculo in BaseDeDatos.listaVehiculos)
+            try
             {
-                if (vehiculo.Matricula == matricula)
+                string matricula = gvVehiculos.DataKeys[e.RowIndex].Values[0].ToString();
+
+                foreach (var vehiculo in BaseDeDatos.listaVehiculos)
                 {
-                    BaseDeDatos.listaVehiculos.Remove(vehiculo);
-                    break;
+                    if (vehiculo.Matricula == matricula)
+                    {
+                        BaseDeDatos.listaVehiculos.Remove(vehiculo);
+                        break;
+                    }
                 }
+
+                gvVehiculos.EditIndex = -1;
+                CargarGridVehiculos();
             }
-
-            this.gvVehiculos.EditIndex = -1;
-            this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
-            this.gvVehiculos.DataBind();
-
+            catch (Exception ex)
+            {
+                MostrarMensajeError("Error al eliminar el vehículo: " + ex.Message);
+            }
         }
 
         protected void gvVehiculos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            GridViewRow filaSeleccionada = gvVehiculos.Rows[e.RowIndex];
-
-            string matricula = this.gvVehiculos.DataKeys[e.RowIndex].Values[0].ToString();
-            string marca = (filaSeleccionada.FindControl("txtMarcaGrid") as TextBox).Text;
-            string modelo = (filaSeleccionada.FindControl("txtModeloGrid") as TextBox).Text;
-
-            foreach (var vehiculo in BaseDeDatos.listaVehiculos)
+            try
             {
-                if (vehiculo.Matricula == matricula)
+                GridViewRow row = gvVehiculos.Rows[e.RowIndex];
+
+                string matricula = gvVehiculos.DataKeys[e.RowIndex].Values[0].ToString();
+                string marca = (row.FindControl("txtMarcaGrid") as TextBox).Text;
+                string modelo = (row.FindControl("txtModeloGrid") as TextBox).Text;
+
+                foreach (var vehiculo in BaseDeDatos.listaVehiculos)
                 {
-                    vehiculo.Marca = marca;
-                    vehiculo.Modelo = modelo;
+                    if (vehiculo.Matricula == matricula)
+                    {
+                        vehiculo.Marca = marca;
+                        vehiculo.Modelo = modelo;
+                        break;
+                    }
                 }
+
+                gvVehiculos.EditIndex = -1;
+                CargarGridVehiculos();
             }
-            this.gvVehiculos.EditIndex = -1;
-            this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
-            this.gvVehiculos.DataBind();
+            catch (Exception ex)
+            {
+                MostrarMensajeError("Error al actualizar el vehículo: " + ex.Message);
+            }
         }
 
-        protected void gvVehiculos_RowEditing(object sender, GridViewEditEventArgs e)
+        private void CargarGridVehiculos()
         {
-            this.gvVehiculos.EditIndex = e.NewEditIndex;
-            this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
-            this.gvVehiculos.DataBind();
+            gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
+            gvVehiculos.DataBind();
+        }
+
+        private void LimpiarCampos()
+        {
+            txtMatricula.Text = string.Empty;
+            txtMarca.Text = string.Empty;
+            txtModelo.Text = string.Empty;
+        }
+
+        protected void MostrarMensajeError(string mensaje)
+        {
+            lblMensajeError.Text = $"<span style='color:red'>{mensaje}</span>";
         }
     }
 }

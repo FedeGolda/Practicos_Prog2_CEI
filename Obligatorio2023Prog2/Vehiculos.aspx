@@ -6,6 +6,9 @@
             margin-bottom: 8px;
         }
     </style>
+
+    <asp:Literal ID="lblMensajeError" runat="server" EnableViewState="false"></asp:Literal>
+
     <div class="row">
         <div class="col-lg-12">
             <h3>Catalogo de Vehiculos</h3>
@@ -63,7 +66,6 @@
                     </asp:TemplateField>
                     <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
                 </Columns>
-
             </asp:GridView>
         </div>
     </div>
