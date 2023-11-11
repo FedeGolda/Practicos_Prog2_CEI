@@ -1,13 +1,11 @@
 ﻿using Obligatorio2023Prog2.Clases;
 using System;
-using System.Collections.Generic;
 using System.Web.UI.WebControls;
 
 namespace Obligatorio2023Prog2
 {
     public partial class Vehiculos : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -15,11 +13,49 @@ namespace Obligatorio2023Prog2
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-
             Vehiculo vehiculo = new Vehiculo();
-            vehiculo.setMatricula(txtMatricula.Text);
-            vehiculo.setModelo(txtModelo.Text);
             vehiculo.setMarca(txtMarca.Text);
+            vehiculo.setModelo(txtModelo.Text);
+            vehiculo.setMatricula(txtMatricula.Text);
+            vehiculo.setAño(txtAño.Text);
+
+            // Convertir el valor de txtKilometros.Text a un entero antes de asignarlo
+            if (int.TryParse(txtKilometros.Text, out int kilometros))
+            {
+                vehiculo.setKilometros(kilometros);
+            }
+            else
+            {
+                // Manejar el caso en que la conversión falla (puede mostrar un mensaje de error, asignar un valor predeterminado, etc.)
+                // Por ejemplo:
+                // lblMensajeError.Text = "El valor de los kilómetros no es válido.";
+            }
+
+            vehiculo.setColor(txtColor.Text);
+
+            // Convertir el valor de txtPrecioVenta.Text a double antes de asignarlo
+            if (double.TryParse(txtPrecioVenta.Text, out double precioVenta))
+            {
+                vehiculo.setPrecioVenta(precioVenta);
+            }
+            else
+            {
+                // Manejar el caso en que la conversión falla (puede mostrar un mensaje de error, asignar un valor predeterminado, etc.)
+                // Por ejemplo:
+                // lblMensajeError.Text = "El valor de precio de venta no es válido.";
+            }
+
+            // Convertir el valor de txtPrecioAlquiler.Text a double antes de asignarlo
+            if (double.TryParse(txtPrecioAlquiler.Text, out double precioAlquiler))
+            {
+                vehiculo.setPrecioAlquiler(precioAlquiler);
+            }
+            else
+            {
+                // Manejar el caso en que la conversión falla (puede mostrar un mensaje de error, asignar un valor predeterminado, etc.)
+                // Por ejemplo:
+                // lblMensajeError.Text = "El valor de precio de alquiler no es válido.";
+            }
 
             BaseDeDatos.listaVehiculos.Add(vehiculo);
 
@@ -30,27 +66,19 @@ namespace Obligatorio2023Prog2
             this.dgVehiculos.DataBind();
 
         }
+
         protected void gvVehiculos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            GridViewRow row = gvVehiculos.Rows[e.RowIndex];
-            string matricula = ((Label)row.FindControl("lblMatricula")).Text;
-
-            List<Vehiculo> vehiculosAEliminar = new List<Vehiculo>();
+            string matricula = this.gvVehiculos.DataKeys[e.RowIndex].Values[0].ToString();
 
             foreach (var vehiculo in BaseDeDatos.listaVehiculos)
             {
                 if (vehiculo.getMatricula() == matricula)
                 {
-                    vehiculosAEliminar.Add(vehiculo);
+                    BaseDeDatos.listaVehiculos.Remove(vehiculo);
                     break;
                 }
             }
-
-            foreach (var vehiculoAEliminar in vehiculosAEliminar)
-            {
-                BaseDeDatos.listaVehiculos.Remove(vehiculoAEliminar);
-            }
-
             this.gvVehiculos.EditIndex = -1;
             this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
             this.gvVehiculos.DataBind();
@@ -58,7 +86,6 @@ namespace Obligatorio2023Prog2
             this.dgVehiculos.DataSource = BaseDeDatos.listaVehiculos;
             this.dgVehiculos.DataBind();
         }
-
 
         protected void gvVehiculos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
@@ -77,22 +104,27 @@ namespace Obligatorio2023Prog2
         protected void gvVehiculos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             GridViewRow filaSeleccionada = gvVehiculos.Rows[e.RowIndex];
-            string matricula = ((Label)filaSeleccionada.FindControl("lblMatricula")).Text;
+            string matricula = this.gvVehiculos.DataKeys[e.RowIndex].Values[0].ToString();
 
-            string marca = (filaSeleccionada.FindControl("txtMarcaGrid") as TextBox).Text;
-            string modelo = (filaSeleccionada.FindControl("txtModeloGrid") as TextBox).Text;
+            TextBox txtMarcaGrid = filaSeleccionada.FindControl("txtMarcaGrid") as TextBox;
+            TextBox txtModeloGrid = filaSeleccionada.FindControl("txtModeloGrid") as TextBox;
 
-            foreach (var vehiculo in BaseDeDatos.listaVehiculos)
+            if (txtMarcaGrid != null && txtModeloGrid != null)
             {
-                if (vehiculo.getMatricula() == matricula)
+                string marca = txtMarcaGrid.Text;
+                string modelo = txtModeloGrid.Text;
+
+                foreach (var vehiculo in BaseDeDatos.listaVehiculos)
                 {
-                    vehiculo.setMarca(marca);
-                    vehiculo.setModelo(modelo);
-                    break;
+                    if (vehiculo.getMatricula() == matricula)
+                    {
+                        vehiculo.setMarca(marca);
+                        vehiculo.setModelo(modelo);
+                        break;
+                    }
                 }
             }
 
-            // Actualizar las vistas de datos
             this.gvVehiculos.EditIndex = -1;
             this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
             this.gvVehiculos.DataBind();
@@ -100,6 +132,5 @@ namespace Obligatorio2023Prog2
             this.dgVehiculos.DataSource = BaseDeDatos.listaVehiculos;
             this.dgVehiculos.DataBind();
         }
-
     }
 }

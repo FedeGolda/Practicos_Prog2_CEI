@@ -28,6 +28,31 @@
     </div>
     <div class="row">
         <div class="col-lg-5">
+            <asp:TextBox ID="txtAño" runat="server" CssClass="form-control" Text="" placeholder="Años del vehiculo"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <asp:TextBox ID="txtKilometros" runat="server" CssClass="form-control" Text="" placeholder="Kilometros del vehiculo"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <asp:TextBox ID="txtColor" runat="server" CssClass="form-control" Text="" placeholder="Color del vehiculo"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <asp:TextBox ID="txtPrecioVenta" runat="server" CssClass="form-control" Text="" placeholder="Precio Venta del vehiculo"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <asp:TextBox ID="txtPrecioAlquiler" runat="server" CssClass="form-control" Text="" placeholder="Precio Alquiler del vehiculo"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
             <asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-primary" Text="Guardar" OnClick="btnGuardar_Click" />
         </div>
     </div>
@@ -36,24 +61,45 @@
             <asp:GridView ID="gvVehiculos" runat="server" CssClass="table" Width="80%" BorderStyle="Solid" BorderWidth="2px" CellSpacing="5"
                 OnRowCancelingEdit="gvVehiculos_RowCancelingEdit"
                 OnRowDeleting="gvVehiculos_RowDeleting"
-                DataKeyNames="Matricula"
+                DataKeyNames="matricula"
                 AutoGenerateColumns="false"
                 OnRowEditing="gvVehiculos_RowEditing"
                 OnRowUpdating="gvVehiculos_RowUpdating">
 
                 <Columns>
-                    <asp:TemplateField HeaderText="Matricula">
+                    <asp:TemplateField HeaderText="Matricula" SortExpression="matricula">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtMatriculaGrid" runat="server" Text='<%# Bind("matricula") %>'></asp:TextBox>
+                        </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="lblMatricula" runat="server" Text='<%# Eval("Matricula") %>'></asp:Label>
+                            <asp:Label ID="lblMatriculaGrid" runat="server" Text='<%# Eval("matricula") %>'></asp:Label>
+                        </ItemTemplate>
+
+                    </asp:TemplateField>
+
+
+                    <asp:TemplateField HeaderText="Marca">
+                        <ItemTemplate>
+                            <asp:Label ID="lblMarca" runat="server" Text='<%# Bind("Marca") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtMatriculaGrid" runat="server" Text='<%# Bind("Matricula") %>' ReadOnly="true"></asp:TextBox>
+                            <asp:TextBox ID="txtMarcaGrid" runat="server" Text='<%# Bind("Marca") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
-                    
-                </Columns>
-            </asp:GridView>
+                    <asp:TemplateField HeaderText="Modelo">
+                        <ItemTemplate>
+                            <asp:Label ID="lblModelo" runat="server" Text='<%# Bind("Modelo") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtModeloGrid" runat="server" Text='<%# Bind("Modelo") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+                    <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
 
+                </Columns>
+
+
+            </asp:GridView>
         </div>
     </div>
     <br />
