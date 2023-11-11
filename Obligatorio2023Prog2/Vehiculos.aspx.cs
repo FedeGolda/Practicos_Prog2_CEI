@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Obligatorio2023Prog2.Clases;
+using System;
+using System.Collections.Generic;
 using System.Web.UI.WebControls;
-using Obligatorio2023Prog2.Clases;
 
 namespace Obligatorio2023Prog2
 {
-    public partial class VehiculosPage : System.Web.UI.Page
+    public partial class Vehiculos : System.Web.UI.Page
     {
 
         protected void Page_Load(object sender, EventArgs e)
@@ -14,6 +15,7 @@ namespace Obligatorio2023Prog2
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+
             Vehiculo vehiculo = new Vehiculo();
             vehiculo.setMatricula(txtMatricula.Text);
             vehiculo.setModelo(txtModelo.Text);
@@ -21,25 +23,32 @@ namespace Obligatorio2023Prog2
 
             BaseDeDatos.listaVehiculos.Add(vehiculo);
 
-            // Actualizar las vistas de datos
             this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
             this.gvVehiculos.DataBind();
 
             this.dgVehiculos.DataSource = BaseDeDatos.listaVehiculos;
             this.dgVehiculos.DataBind();
-        }
 
+        }
         protected void gvVehiculos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            string matricula = this.gvVehiculos.DataKeys[e.RowIndex].Values[0].ToString();
+            GridViewRow row = gvVehiculos.Rows[e.RowIndex];
+            string matricula = ((Label)row.FindControl("lblMatricula")).Text;
+
+            List<Vehiculo> vehiculosAEliminar = new List<Vehiculo>();
 
             foreach (var vehiculo in BaseDeDatos.listaVehiculos)
             {
                 if (vehiculo.getMatricula() == matricula)
                 {
-                    BaseDeDatos.listaVehiculos.Remove(vehiculo);
+                    vehiculosAEliminar.Add(vehiculo);
                     break;
                 }
+            }
+
+            foreach (var vehiculoAEliminar in vehiculosAEliminar)
+            {
+                BaseDeDatos.listaVehiculos.Remove(vehiculoAEliminar);
             }
 
             this.gvVehiculos.EditIndex = -1;
@@ -49,6 +58,7 @@ namespace Obligatorio2023Prog2
             this.dgVehiculos.DataSource = BaseDeDatos.listaVehiculos;
             this.dgVehiculos.DataBind();
         }
+
 
         protected void gvVehiculos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
@@ -67,7 +77,7 @@ namespace Obligatorio2023Prog2
         protected void gvVehiculos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             GridViewRow filaSeleccionada = gvVehiculos.Rows[e.RowIndex];
-            string matricula = this.gvVehiculos.DataKeys[e.RowIndex].Values[0].ToString();
+            string matricula = ((Label)filaSeleccionada.FindControl("lblMatricula")).Text;
 
             string marca = (filaSeleccionada.FindControl("txtMarcaGrid") as TextBox).Text;
             string modelo = (filaSeleccionada.FindControl("txtModeloGrid") as TextBox).Text;
@@ -90,5 +100,6 @@ namespace Obligatorio2023Prog2
             this.dgVehiculos.DataSource = BaseDeDatos.listaVehiculos;
             this.dgVehiculos.DataBind();
         }
+
     }
 }

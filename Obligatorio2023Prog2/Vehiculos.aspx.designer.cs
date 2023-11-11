@@ -11,7 +11,7 @@ namespace Obligatorio2023Prog2
 {
 
 
-    public partial class VehiculosPage
+    public partial class Vehiculos
     {
 
         /// <summary>

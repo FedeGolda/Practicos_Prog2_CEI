@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Vehiculos.aspx.cs" Inherits="Obligatorio2023Prog2.VehiculosPage" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Vehiculos.aspx.cs" Inherits="Obligatorio2023Prog2.Vehiculos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
@@ -48,32 +47,12 @@
                             <asp:Label ID="lblMatricula" runat="server" Text='<%# Eval("Matricula") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtMatriculaGrid" runat="server" Text='<%# Eval("Matricula") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtMatriculaGrid" runat="server" Text='<%# Bind("Matricula") %>' ReadOnly="true"></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
-
-                    <asp:TemplateField HeaderText="Marca">
-                        <ItemTemplate>
-                            <asp:Label ID="lblMarca" runat="server" Text='<%# Eval("Marca") %>'></asp:Label>
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtMarcaGrid" runat="server" Text='<%# Eval("Marca") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                    </asp:TemplateField>
-
-                    <asp:TemplateField HeaderText="Modelo">
-                        <ItemTemplate>
-                            <asp:Label ID="lblModelo" runat="server" Text='<%# Eval("Modelo") %>'></asp:Label>
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtModeloGrid" runat="server" Text='<%# Eval("Modelo") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                    </asp:TemplateField>
-
-                    <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
+                    
                 </Columns>
             </asp:GridView>
-
 
         </div>
     </div>
