@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Vehiculos.aspx.cs" Inherits="Obligatorio2023Prog2.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Vehiculos.aspx.cs" Inherits="Obligatorio2023Prog2.VehiculosPage" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
@@ -6,27 +7,24 @@
             margin-bottom: 8px;
         }
     </style>
-
-    <asp:Literal ID="lblMensajeError" runat="server" EnableViewState="false"></asp:Literal>
-
     <div class="row">
         <div class="col-lg-12">
-            <h3>Catalogo de Vehiculos</h3>
+            <h3>Catalogo Vehículos</h3>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-5">
-            <asp:TextBox ID="txtMatricula" runat="server" CssClass="form-control" placeholder="Matricula del Vehiculo"></asp:TextBox>
+            <asp:TextBox ID="txtMatricula" runat="server" CssClass="form-control" Text="" placeholder="Matricula del vehiculo"></asp:TextBox>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-5">
-            <asp:TextBox ID="txtMarca" runat="server" CssClass="form-control" placeholder="Marca del Vehiculo"></asp:TextBox>
+            <asp:TextBox ID="txtMarca" runat="server" CssClass="form-control" Text="" placeholder="Marca del vehiculo"></asp:TextBox>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-5">
-            <asp:TextBox ID="txtModelo" runat="server" CssClass="form-control" placeholder="Modelo del Vehiculo"></asp:TextBox>
+            <asp:TextBox ID="txtModelo" runat="server" CssClass="form-control" Text="" placeholder="Modelo del vehiculo"></asp:TextBox>
         </div>
     </div>
     <div class="row">
@@ -36,37 +34,55 @@
     </div>
     <div class="row">
         <div class="col-lg-8">
-            <asp:GridView ID="gvVehiculos" CssClass="table" runat="server" Width="80%" BorderWidth="2px" CellSpacing="5" OnRowCancelingEdit="gvVehiculos_RowCancelingEdit" OnRowDeleting="gvVehiculos_RowDeleting" OnRowEditing="gvVehiculos_RowEditing" OnRowUpdating="gvVehiculos_RowUpdating" AutoGenerateColumns="false" DataKeyNames="Matricula">
+            <asp:GridView ID="gvVehiculos" runat="server" CssClass="table" Width="80%" BorderStyle="Solid" BorderWidth="2px" CellSpacing="5"
+                OnRowCancelingEdit="gvVehiculos_RowCancelingEdit"
+                OnRowDeleting="gvVehiculos_RowDeleting"
+                DataKeyNames="Matricula"
+                AutoGenerateColumns="false"
+                OnRowEditing="gvVehiculos_RowEditing"
+                OnRowUpdating="gvVehiculos_RowUpdating">
+
                 <Columns>
                     <asp:TemplateField HeaderText="Matricula">
                         <ItemTemplate>
-                            <asp:Label ID="label1" runat="server" Text='<%# Bind("Matricula") %>'></asp:Label>
+                            <asp:Label ID="lblMatricula" runat="server" Text='<%# Eval("Matricula") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:Label ID="lblMatricula" runat="server" Text='<%# Bind("Matricula") %>'></asp:Label>
+                            <asp:TextBox ID="txtMatriculaGrid" runat="server" Text='<%# Eval("Matricula") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Marca">
                         <ItemTemplate>
-                            <asp:Label ID="label2" runat="server" Text='<%# Bind("Marca") %>'></asp:Label>
+                            <asp:Label ID="lblMarca" runat="server" Text='<%# Eval("Marca") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtMarcaGrid" runat="server" Text='<%# Bind("Marca") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtMarcaGrid" runat="server" Text='<%# Eval("Marca") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Modelo">
                         <ItemTemplate>
-                            <asp:Label ID="label3" runat="server" Text='<%# Bind("Modelo") %>'></asp:Label>
+                            <asp:Label ID="lblModelo" runat="server" Text='<%# Eval("Modelo") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtModeloGrid" runat="server" Text='<%# Bind("Modelo") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtModeloGrid" runat="server" Text='<%# Eval("Modelo") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
+
                     <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
                 </Columns>
             </asp:GridView>
+
+
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-lg-8">
+            <asp:DataGrid ID="dgVehiculos" runat="server" CssClass="table" Width="80%" BorderStyle="Solid" BorderWidth="2px" CellSpacing="5">
+            </asp:DataGrid>
         </div>
     </div>
 </asp:Content>
