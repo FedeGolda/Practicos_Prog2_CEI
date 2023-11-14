@@ -19,7 +19,6 @@ namespace TrabajoPractico2
             this.colVehiculos = colVehiculos;
             this.colAlquileres = colAlquileres;
         }
-
         public int getNumero() => this.numero;
         public void setNumero(int numero) => this.numero = numero;
         public string getDireccion() => this.direccion;
@@ -28,19 +27,16 @@ namespace TrabajoPractico2
         public void setColVehiculos(List<Vehiculo> colVehiculos) => this.colVehiculos = colVehiculos;
         public List<Alquiler> GetAlquileres() => this.colAlquileres;
         public void setColAlquileres(List<Alquiler> colAlquileres) => this.colAlquileres = colAlquileres;
-
         public void RegistrarVehiculo(Vehiculo vehiculo)
         {
             colVehiculos.Add(vehiculo);
             //Console.WriteLine("Vehículo registrado en la sucursal exitosamente.");
         }
-
         public void RegistrarAlquiler(Alquiler alquiler)
         {
             colAlquileres.Add(alquiler);
             //Console.WriteLine("Alquiler registrado en la sucursal exitosamente.");
         }
-
         public void ListarVehiculos()
         {
             Console.WriteLine("Vehículos en la sucursal:");

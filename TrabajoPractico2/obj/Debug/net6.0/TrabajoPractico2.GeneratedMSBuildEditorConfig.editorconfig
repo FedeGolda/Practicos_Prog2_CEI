@@ -9,3 +9,5 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TrabajoPractico2
 build_property.ProjectDir = D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\TrabajoPractico2\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
