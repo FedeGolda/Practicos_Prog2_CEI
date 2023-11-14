@@ -80,18 +80,18 @@
 
                     <asp:TemplateField HeaderText="Marca">
                         <ItemTemplate>
-                            <asp:Label ID="lblMarca" runat="server" Text='<%# Bind("Marca") %>'></asp:Label>
+                            <asp:Label ID="lblMarca" runat="server" Text='<%# Bind("marca") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtMarcaGrid" runat="server" Text='<%# Bind("Marca") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtMarcaGrid" runat="server" Text='<%# Bind("marca") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Modelo">
                         <ItemTemplate>
-                            <asp:Label ID="lblModelo" runat="server" Text='<%# Bind("Modelo") %>'></asp:Label>
+                            <asp:Label ID="lblModelo" runat="server" Text='<%# Bind("modelo") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtModeloGrid" runat="server" Text='<%# Bind("Modelo") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtModeloGrid" runat="server" Text='<%# Bind("modelo") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
                     <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
