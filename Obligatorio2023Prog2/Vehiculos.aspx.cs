@@ -18,6 +18,10 @@ namespace Obligatorio2023Prog2
             vehiculo.setModelo(txtModelo.Text);
             vehiculo.setMatricula(txtMatricula.Text);
             vehiculo.setAño(txtAño.Text);
+            vehiculo.setKilometros(txtKilometros.Text);
+            vehiculo.setColor(txtColor.Text);
+            vehiculo.setPrecioVenta(txtPrecioVenta.Text);
+            vehiculo.setPrecioAlquiler(txtPrecioAlquiler.Text);
 
             // Convertir el valor de txtKilometros.Text a un entero antes de asignarlo
             if (int.TryParse(txtKilometros.Text, out int kilometros))
@@ -120,6 +124,7 @@ namespace Obligatorio2023Prog2
                     {
                         vehiculo.setMarca(marca);
                         vehiculo.setModelo(modelo);
+                        vehiculo.setAño(año);
                         break;
                     }
                 }
