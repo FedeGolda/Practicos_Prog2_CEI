@@ -30,3 +30,4 @@ C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\RelojDigital\obj\Debug\n
 C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\RelojDigital\obj\Debug\net6.0-windows\RelojDigital.pdb
 C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\RelojDigital\obj\Debug\net6.0-windows\RelojDigital.genruntimeconfig.cache
 C:\Users\Fede\Desktop\CEI\Practicos\Practicos_Prog2_CEI\RelojDigital\obj\Debug\net6.0-windows\ref\RelojDigital.dll
+D:\Documents\Federico\CEI\PROGRAMACION 2\Practicos\Practicos_Prog2_CEI\RelojDigital\obj\Debug\net6.0-windows\RelojDigital.sourcelink.json

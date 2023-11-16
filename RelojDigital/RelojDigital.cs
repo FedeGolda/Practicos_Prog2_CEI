@@ -34,7 +34,5 @@ namespace RelojDigital
                 MessageBox.Show("Error al obtener la hora y la fecha: " + ex.Message);
             }
         }
-
-
     }
 }
