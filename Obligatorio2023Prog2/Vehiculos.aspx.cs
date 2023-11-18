@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 namespace Obligatorio2023Prog2
 {
     public partial class Vehiculos : System.Web.UI.Page
-    {
+    {/*
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -14,14 +14,20 @@ namespace Obligatorio2023Prog2
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            Vehiculo vehiculo = new Vehiculo();
-            vehiculo.setMarca(txtMarca.Text);
-            vehiculo.setModelo(txtModelo.Text);
-            vehiculo.setMatricula(txtMatricula.Text);
-            vehiculo.setAño(txtAño.Text);
-            vehiculo.setColor(txtColor.Text);
-            //vehiculo.setPrecioVenta(txtPrecioVenta.Text);
-            //vehiculo.setPrecioAlquiler(txtPrecioAlquiler.Text);
+            // Crear una instancia de Auto (puedes cambiarlo por Moto o Camion según sea necesario)
+            Auto vehiculo = new Auto(
+                txtMarca.Text,
+                txtModelo.Text,
+                txtMatricula.Text,
+                txtAño.Text,
+                int.Parse(txtKilometros.Text), // Asumimos que los kilómetros son un valor entero
+                txtColor.Text,
+                double.Parse(txtPrecioVenta.Text), // Asumimos que el precio de venta es un valor double
+                double.Parse(txtPrecioAlquiler.Text), // Asumimos que el precio de alquiler es un valor double
+                int.Parse(txtPasajeros.Text) // Asumimos que los pasajeros son un valor entero
+            );
+
+
 
             // Convertir el valor de txtKilometros.Text a un entero antes de asignarlo
             if (int.TryParse(txtKilometros.Text, out int kilometros))
@@ -70,7 +76,7 @@ namespace Obligatorio2023Prog2
             this.dgVehiculos.DataBind();
 
         }
-
+        */
         protected void gvVehiculos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string matricula = this.gvVehiculos.DataKeys[e.RowIndex].Values[0].ToString();

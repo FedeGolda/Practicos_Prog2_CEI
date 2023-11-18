@@ -33,6 +33,15 @@ namespace Obligatorio2023Prog2.Clases
             this.precioAlquiler = precioAlquiler;
         }
 
+        protected Vehiculo(string marca, string modelo, string matricula, string año, string color)
+        {
+            this.marca = marca;
+            this.modelo = modelo;
+            this.matricula = matricula;
+            this.año = año;
+            this.color = color;
+        }
+
         public string getMarca() { return marca; }
         public string getModelo() { return modelo; }
         public string getMatricula() { return matricula; }

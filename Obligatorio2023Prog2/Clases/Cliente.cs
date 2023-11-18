@@ -24,8 +24,9 @@ namespace Obligatorio2023Prog2
         public string getNombre() { return nombre; }
         public string getApellido() { return apellido; }
         public string getCedula() { return cedula; }
-        public void 
-
+        public void setId(int id) { this.id = id; }
+        public void setNombre(string nombre) { this.nombre = nombre; }
+        public void setApellido(string apellido) { this.apellido = apellido; }
+        public void setCedula(string cedula) { this.cedula = cedula; }
     }
-
 }
