@@ -1,4 +1,5 @@
-﻿using Obligatorio2023Prog2.Clases;
+﻿using Microsoft.Ajax.Utilities;
+using Obligatorio2023Prog2.Clases;
 using System;
 using System.Web.UI.WebControls;
 
@@ -18,10 +19,9 @@ namespace Obligatorio2023Prog2
             vehiculo.setModelo(txtModelo.Text);
             vehiculo.setMatricula(txtMatricula.Text);
             vehiculo.setAño(txtAño.Text);
-            vehiculo.setKilometros(txtKilometros.Text);
             vehiculo.setColor(txtColor.Text);
-            vehiculo.setPrecioVenta(txtPrecioVenta.Text);
-            vehiculo.setPrecioAlquiler(txtPrecioAlquiler.Text);
+            //vehiculo.setPrecioVenta(txtPrecioVenta.Text);
+            //vehiculo.setPrecioAlquiler(txtPrecioAlquiler.Text);
 
             // Convertir el valor de txtKilometros.Text a un entero antes de asignarlo
             if (int.TryParse(txtKilometros.Text, out int kilometros))
@@ -32,7 +32,7 @@ namespace Obligatorio2023Prog2
             {
                 // Manejar el caso en que la conversión falla (puede mostrar un mensaje de error, asignar un valor predeterminado, etc.)
                 // Por ejemplo:
-                // lblMensajeError.Text = "El valor de los kilómetros no es válido.";
+                //lblMensajeError.Text = "El valor de los kilómetros no es válido.";
             }
 
             vehiculo.setColor(txtColor.Text);
@@ -124,7 +124,7 @@ namespace Obligatorio2023Prog2
                     {
                         vehiculo.setMarca(marca);
                         vehiculo.setModelo(modelo);
-                        vehiculo.setAño(año);
+                        //vehiculo.setAño(año);
                         break;
                     }
                 }

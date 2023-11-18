@@ -34,6 +34,12 @@
     <div class="row">
         <div class="col-lg-5">
             <asp:TextBox ID="txtKilometros" runat="server" CssClass="form-control" Text="" placeholder="Kilometros del vehiculo"></asp:TextBox>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
+                ControlToValidate="txtKilometros" runat="server"
+                ErrorMessage="Kilometros debe ser numerico"
+                ForeColor="Red"
+                ValidationExpression="\d+">
+            </asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="row">
@@ -44,11 +50,23 @@
     <div class="row">
         <div class="col-lg-5">
             <asp:TextBox ID="txtPrecioVenta" runat="server" CssClass="form-control" Text="" placeholder="Precio Venta del vehiculo"></asp:TextBox>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
+                ControlToValidate="txtKilometros" runat="server"
+                ErrorMessage="PrecioVenta debe ser numerico"
+                ForeColor="Red"
+                ValidationExpression="\d+">
+                </asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-5">
             <asp:TextBox ID="txtPrecioAlquiler" runat="server" CssClass="form-control" Text="" placeholder="Precio Alquiler del vehiculo"></asp:TextBox>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3"
+                ControlToValidate="txtKilometros" runat="server"
+                ErrorMessage="PrecioVenta debe ser numerico"
+                ForeColor="Red"
+                ValidationExpression="\d+">
+                </asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="row">

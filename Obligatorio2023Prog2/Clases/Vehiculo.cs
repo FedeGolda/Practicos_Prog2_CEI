@@ -6,24 +6,16 @@ using System.Web;
 
 namespace Obligatorio2023Prog2.Clases
 {
-    public class Vehiculo
+    public abstract class Vehiculo
     {
-        /*
         public string matricula { get; set; }
         public string modelo { get; set; }
         public string marca { get; set; }
         public string año { get; set; }
-        */
-
-
-        private string marca;
-        private string modelo;
-        private string matricula;
-        private string año;
-        private int kilometros;
-        private string color;
-        private double precioVenta;
-        private double precioAlquiler;
+        public int kilometros { get; set; }
+        public string color { get; set; }
+        public double precioVenta { get; set; }
+        public double precioAlquiler { get; set; }
 
         public Vehiculo()
         {
