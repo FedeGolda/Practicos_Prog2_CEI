@@ -6,12 +6,12 @@ using System.Web.UI.WebControls;
 namespace Obligatorio2023Prog2
 {
     public partial class Vehiculos : System.Web.UI.Page
-    {/*
+    {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
-
+        /*
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             // Crear una instancia de Auto (puedes cambiarlo por Moto o Camion según sea necesario)

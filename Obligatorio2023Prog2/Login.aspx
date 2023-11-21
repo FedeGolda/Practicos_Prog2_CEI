@@ -8,26 +8,19 @@
         }
     </style>
 
+    <div>
+        <h2>Login</h2>
         <div>
-            <h2>Login</h2>
-            <div>
-                <label for="txtUsuario">Usuario:</label>
-                <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox>
-            </div>
-            <div>
-                <label for="txtContraseña">Contraseña:</label>
-                <asp:TextBox ID="txtContraseña" TextMode="Password" runat="server"></asp:TextBox>
-            </div>
-            <div>
-                <asp:Button ID="btnLogin" Text="Iniciar Sesión" OnClick="btnLogin_Click" runat="server" />
-            </div>
-            <br />
-            <asp:GridView ID="gvUsuarios" runat="server" CssClass="table" Width="80%" BorderStyle="Solid" BorderWidth="2px" CellSpacing="5"
-                AutoGenerateColumns="False">
-                <Columns>
-                    <asp:BoundField DataField="nombre" HeaderText="Nombre de Usuario" />
-                    <asp:BoundField DataField="contraseña" HeaderText="Contraseña" />
-                </Columns>
-            </asp:GridView>
+            <label for="txtUsuario">Usuario:</label>
+            <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox>
         </div>
+        <div>
+            <label for="txtContraseña">Contraseña:</label>
+            <asp:TextBox ID="txtContraseña" TextMode="Password" runat="server"></asp:TextBox>
+        </div>
+        <div>
+            <asp:Button ID="btnLogin" Text="Iniciar Sesión" OnClick="btnLogin_Click" runat="server" />
+        </div>
+
+    </div>
 </asp:Content>
