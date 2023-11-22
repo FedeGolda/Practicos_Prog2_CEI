@@ -9,7 +9,11 @@ namespace Obligatorio2023Prog2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Master.FindControl("lnkClientes").Visible = BaseDeDatos.usuarioLogeado.getVerClientes();
+            Master.FindControl("lnkVehiculos").Visible = BaseDeDatos.usuarioLogeado.getVerVehiculos();
+            Master.FindControl("lnkVentas").Visible = BaseDeDatos.usuarioLogeado.getVerVentas();
+            Master.FindControl("lnkAlquileres").Visible = BaseDeDatos.usuarioLogeado.getVerAlquileres();
+            Master.FindControl("lnkUsuarios").Visible = BaseDeDatos.usuarioLogeado.getVerUsuarios();
         }
         /*
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -142,6 +146,11 @@ namespace Obligatorio2023Prog2
 
             this.dgVehiculos.DataSource = BaseDeDatos.listaVehiculos;
             this.dgVehiculos.DataBind();
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

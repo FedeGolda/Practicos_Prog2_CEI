@@ -15,8 +15,8 @@ namespace Obligatorio2023Prog2.Clases
         public static void CargarDatosIniciales()
         {
             Usuario usuario = new Usuario();
-            usuario.setNombre("Admin");
-            usuario.setContraseña("Admin");
+            usuario.setNombreUsuario("Admin");
+            usuario.setContrasena("Admin");
             usuario.setVerAlquileres(true);
             usuario.setVerVentas(true);
             usuario.setVerClientes(true);

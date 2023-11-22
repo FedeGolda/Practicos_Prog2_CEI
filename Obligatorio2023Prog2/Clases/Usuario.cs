@@ -7,41 +7,76 @@ namespace Obligatorio2023Prog2
 {
     public class Usuario
     {
-        public string nombre { get; set; }
-        public string contraseña { get; set; }
-        public bool verClientes { get; set; }
-        public bool verUsuario { get; set; }
-        public bool verVentas { get; set; }
-        public bool verVehiculos { get; set; }
-        public bool verAlquileres { get; set; }
+        public string NombreUsuario { get; set; }
+        public string Contrasena { get; set; }
+        public bool VerClientes { get; set; }
+        public bool VerUsuarios { get; set; }
+        public bool VerVentas { get; set; }
+        public bool VerVehiculos { get; set; }
+        public bool VerAlquileres { get; set; }
 
-        public Usuario()
+        public string getNombreUsuario()
         {
-            
+            return NombreUsuario;
         }
-        public Usuario(string nombre, string contraseña, bool verClientes, bool verUsuario, bool verVentas, bool verVehiculos, bool verAlquileres)
+        public void setNombreUsuario(string nombreUsuario)
         {
-            this.nombre = nombre;
-            this.contraseña = contraseña;
-            this.verClientes = verClientes;
-            this.verUsuario = verUsuario;
-            this.verVentas = verVentas;
-            this.verVehiculos = verVehiculos;
-            this.verAlquileres = verAlquileres;
+            NombreUsuario = nombreUsuario;
         }
-        public string getNombre() { return nombre; }
-        public string getContraseña() { return contraseña; }
-        public bool getVerClientes() { return verClientes; }
-        public bool getVerVentas() { return verVentas; }
-        public bool getVerAlquileres() { return verAlquileres; }
-        public bool getVerUsuarios() { return verUsuario; }
-        public bool getVerVehiculos() { return verVehiculos; }
-        public void setNombre(string nombre) { this.nombre = nombre; }
-        public void setContraseña(string contraseña) { this.contraseña = contraseña; }
-        public void setVerClientes(bool verClientes) { this.verClientes = verClientes; }
-        public void setVerVentas(bool verVentas) { this.verVentas = verVentas; }
-        public void setVerAlquileres(bool verAlquileres) { this.verAlquileres = verAlquileres; }
-        public void setVerUsuarios(bool verUsuario) { this.verUsuario = verUsuario; }
-        public void setVerVehiculos(bool verVehiculos) { this.verVehiculos = verVehiculos; }
+        public string getContrasena()
+        {
+            return Contrasena;
+        }
+        public void setContrasena(string cont)
+        {
+            Contrasena = cont;
+        }
+
+        public bool getVerClientes()
+        {
+            return VerClientes;
+        }
+        public bool getVerUsuarios()
+        {
+            return VerUsuarios;
+        }
+        public bool getVerVehiculos()
+        {
+            return VerVehiculos;
+        }
+        public bool getVerVentas()
+        {
+            return VerVentas;
+        }
+        public bool getVerAlquileres()
+        {
+            return VerAlquileres;
+        }
+
+
+        public void setVerClientes(bool verClientes)
+        {
+            VerClientes = verClientes;
+        }
+
+        public void setVerUsuarios(bool verUsuarios)
+        {
+            VerUsuarios = verUsuarios;
+        }
+
+        public void setVerVentas(bool verVentas)
+        {
+            VerVentas = verVentas;
+        }
+
+        public void setVerAlquileres(bool verAlquileres)
+        {
+            VerAlquileres = verAlquileres;
+        }
+
+        public void setVerVehiculos(bool verVehiculos)
+        {
+            VerVehiculos = verVehiculos;
+        }
     }
 }
