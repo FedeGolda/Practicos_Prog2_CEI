@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Obligatorio2023Prog2.Clases
 {
@@ -31,23 +32,33 @@ namespace Obligatorio2023Prog2.Clases
         protected void gvClientes_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             GridViewRow row = gvClientes.Rows[e.RowIndex];
-            int id = Convert.ToInt32(gvClientes.DataKeys[e.RowIndex].Value);
-            string nombre = ((TextBox)row.FindControl("txtNombre")).Text;
-            string apellido = ((TextBox)row.FindControl("txtApellido")).Text;
-            string cedula = ((TextBox)row.FindControl("txtCedula")).Text;
 
-            // Actualizar el cliente en la lista
-            Cliente cliente = BaseDeDatos.listaClientes.Find(c => c.getId() == id);
-            if (cliente != null)
+            // Obtener el valor del TextBox y convertirlo a entero
+            if (int.TryParse(((TextBox)row.FindControl("txtId")).Text, out int id))
             {
-                cliente.setNombre(nombre);
-                cliente.setApellido(apellido);
-                cliente.setCedula(cedula);
-            }
+                string nombre = ((TextBox)row.FindControl("Nombre")).Text;
+                string apellido = ((TextBox)row.FindControl("Apellido")).Text;
+                string cedula = ((TextBox)row.FindControl("Cedula")).Text;
 
-            gvClientes.EditIndex = -1;
-            CargarDatos();
+                // Actualizar el cliente en la lista
+                Cliente cliente = BaseDeDatos.listaClientes.Find(c => c.getId() == id);
+                if (cliente != null)
+                {
+                    cliente.setNombre(nombre);
+                    cliente.setApellido(apellido);
+                    cliente.setCedula(cedula);
+                }
+
+                gvClientes.EditIndex = -1;
+                CargarDatos();
+            }
+            else
+            {
+                // Manejar el caso en que la conversión falla (el texto no es un número válido)
+                Console.WriteLine("No se pudo convertir el texto a un número válido para el ID.");
+            }
         }
+
 
         protected void gvClientes_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
@@ -70,6 +81,13 @@ namespace Obligatorio2023Prog2.Clases
         protected void gvClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Manejar la selección si es necesario
+        }
+
+        protected void gvClientes_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            // Lógica para el evento RowDataBound
+            // Por ejemplo, puedes realizar alguna acción cuando se enlace una fila, como cambiar el color de fondo
+            // o realizar alguna acción específica dependiendo de los datos de la fila.
         }
     }
 }
