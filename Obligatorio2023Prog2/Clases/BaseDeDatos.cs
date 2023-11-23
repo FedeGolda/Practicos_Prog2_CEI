@@ -26,6 +26,17 @@ namespace Obligatorio2023Prog2.Clases
             listaUsuarios.Add(usuario);
         }
 
+        public static void ListarClientes()
+        {
+            Cliente cliente = new Cliente();
+            cliente.setId(1);
+            cliente.setNombre("Pepe");
+            cliente.setApellido("Gonzalez");
+            cliente.setCedula("1.111.111-1");
+
+            listaClientes.Add(cliente);
+        }
+
         public static void GuardarUsuarioLogeado(Usuario usuario)
         {
             usuarioLogeado = usuario;

@@ -12,6 +12,10 @@ namespace Obligatorio2023Prog2
         public string apellido { get; set; }
         public string cedula { get; set; }
 
+        public Cliente()
+        {
+        
+        }
         public Cliente(int id, string nombre, string apellido, string cedula)
         {
             this.id = id;

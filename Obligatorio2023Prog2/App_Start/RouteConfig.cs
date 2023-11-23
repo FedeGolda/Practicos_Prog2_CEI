@@ -13,6 +13,7 @@ namespace Obligatorio2023Prog2
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
+            routes.MapPageRoute("Clientes", "Clientes", "~/Clases/Clientes.aspx");
         }
     }
 }
