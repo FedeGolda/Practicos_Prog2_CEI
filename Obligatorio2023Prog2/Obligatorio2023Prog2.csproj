@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Clases\Clientes.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -201,6 +202,13 @@
     <Compile Include="Clases\Auto.cs" />
     <Compile Include="Clases\Camion.cs" />
     <Compile Include="Clases\BaseDeDatos.cs" />
+    <Compile Include="Clases\Clientes.aspx.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clases\Clientes.aspx.designer.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Clases\Vehiculo.cs" />
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Contact.aspx.cs">

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Obligatorio2023Prog2.Clases
 {
-    public abstract class Vehiculo
+    public class Vehiculo
     {
         public string matricula { get; set; }
         public string modelo { get; set; }
