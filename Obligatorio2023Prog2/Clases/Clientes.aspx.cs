@@ -1,93 +1,52 @@
-﻿using System;
+﻿using Obligatorio2023Prog2.Clases;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using static System.Net.Mime.MediaTypeNames;
 
-namespace Obligatorio2023Prog2.Clases
+namespace Obligatorio2023Prog2
 {
     public partial class Clientes : System.Web.UI.Page
     {
+        // Lista para almacenar los clientes registrados
+        private List<Cliente> listaClientes = new List<Cliente>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-                CargarDatos();
+            if (!IsPostBack)
+            {
+                // Configuración inicial de la página
+                CargarClientes();
+            }
         }
 
-        private void CargarDatos()
+        protected void btnGuardarCliente_Click(object sender, EventArgs e)
         {
-            BaseDeDatos.CargarDatosIniciales();
-            gvClientes.DataSource = BaseDeDatos.listaClientes;
+            // Crear un nuevo cliente y asignar los valores
+            Cliente nuevoCliente = new Cliente();
+            nuevoCliente.setCedula(txtCedula.Text);
+            nuevoCliente.setNombre(txtNombre.Text);
+            nuevoCliente.setApellido(txtApellido.Text);
+            nuevoCliente.setDireccion(txtDireccion.Text);
+
+            // Agregar el cliente a la lista
+            listaClientes.Add(nuevoCliente);
+
+            // Actualizar la GridView
+            BindGridView();
+        }
+
+        // Función para enlazar la lista de clientes a la GridView
+        private void BindGridView()
+        {
+            gvClientes.DataSource = listaClientes;
             gvClientes.DataBind();
         }
 
-        protected void gvClientes_RowEditing(object sender, GridViewEditEventArgs e)
+        private void CargarClientes()
         {
-            gvClientes.EditIndex = e.NewEditIndex;
-            CargarDatos();
-        }
-
-        protected void gvClientes_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            GridViewRow row = gvClientes.Rows[e.RowIndex];
-
-            // Obtener el valor del TextBox y convertirlo a entero
-            if (int.TryParse(((TextBox)row.FindControl("txtId")).Text, out int id))
-            {
-                string nombre = ((TextBox)row.FindControl("Nombre")).Text;
-                string apellido = ((TextBox)row.FindControl("Apellido")).Text;
-                string cedula = ((TextBox)row.FindControl("Cedula")).Text;
-
-                // Actualizar el cliente en la lista
-                Cliente cliente = BaseDeDatos.listaClientes.Find(c => c.getId() == id);
-                if (cliente != null)
-                {
-                    cliente.setNombre(nombre);
-                    cliente.setApellido(apellido);
-                    cliente.setCedula(cedula);
-                }
-
-                gvClientes.EditIndex = -1;
-                CargarDatos();
-            }
-            else
-            {
-                // Manejar el caso en que la conversión falla (el texto no es un número válido)
-                Console.WriteLine("No se pudo convertir el texto a un número válido para el ID.");
-            }
-        }
-
-
-        protected void gvClientes_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            gvClientes.EditIndex = -1;
-            CargarDatos();
-        }
-
-        protected void gvClientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            int id = Convert.ToInt32(gvClientes.DataKeys[e.RowIndex].Value);
-
-            // Eliminar el cliente de la lista
-            Cliente cliente = BaseDeDatos.listaClientes.Find(c => c.getId() == id);
-            if (cliente != null)
-                BaseDeDatos.listaClientes.Remove(cliente);
-
-            CargarDatos();
-        }
-
-        protected void gvClientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Manejar la selección si es necesario
-        }
-
-        protected void gvClientes_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            // Lógica para el evento RowDataBound
-            // Por ejemplo, puedes realizar alguna acción cuando se enlace una fila, como cambiar el color de fondo
-            // o realizar alguna acción específica dependiendo de los datos de la fila.
+            gvClientes.DataSource = BaseDeDatos.listaClientes;
+            gvClientes.DataBind();
         }
     }
 }
+

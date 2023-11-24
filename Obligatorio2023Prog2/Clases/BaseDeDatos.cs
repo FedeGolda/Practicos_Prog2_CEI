@@ -26,12 +26,12 @@ namespace Obligatorio2023Prog2.Clases
             listaUsuarios.Add(usuario);
 
             // Agregar clientes
-            Cliente cliente1 = new Cliente();
-            cliente1.setId(1);
-            cliente1.setNombre("Pepe");
-            cliente1.setApellido("Gonzalez");
-            cliente1.setCedula("1.111.111-1");
-            listaClientes.Add(cliente1);
+            Cliente cliente = new Cliente { Apellido = "Perez", Cedula = "4586658-0", Direccion = "dr Edye 3456", Nombre = "Juan" };
+            Cliente cliente2 = new Cliente { Apellido = "Lopez", Cedula = "4589998-9", Direccion = "dr Edye 5585", Nombre = "Javier" };
+            Cliente cliente3 = new Cliente { Apellido = "Gomez", Cedula = "3785468-2", Direccion = "Aigua 3588", Nombre = "Luis" };
+            listaClientes.Add(cliente);
+            listaClientes.Add(cliente2);
+            listaClientes.Add(cliente3);
 
             // Agregar vehículos
             Vehiculo vehiculo1 = new Vehiculo("Toyota", "Corolla", "ABC123", "2022", 5000, "Rojo", 25000, 100);

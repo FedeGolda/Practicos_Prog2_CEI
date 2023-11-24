@@ -7,30 +7,49 @@ namespace Obligatorio2023Prog2
 {
     public class Cliente
     {
-        public int id { get; set; }
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public string cedula { get; set; }
+        public string Cedula { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Direccion { get; set; }
 
-        public Cliente()
+        public string getCecula()
         {
-        
-        }
-        public Cliente(int id, string nombre, string apellido, string cedula)
-        {
-            this.id = id;
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.cedula = cedula;
+            return Cedula;
         }
 
-        public int getId() { return id; }
-        public string getNombre() { return nombre; }
-        public string getApellido() { return apellido; }
-        public string getCedula() { return cedula; }
-        public void setId(int id) { this.id = id; }
-        public void setNombre(string nombre) { this.nombre = nombre; }
-        public void setApellido(string apellido) { this.apellido = apellido; }
-        public void setCedula(string cedula) { this.cedula = cedula; }
+        public string getNombre()
+        {
+            return Nombre;
+        }
+
+        public string getApellido()
+        {
+            return Apellido;
+        }
+
+        public string getDireccion()
+        {
+            return Direccion;
+        }
+
+        public void setCedula(string cedula)
+        {
+            Cedula = cedula;
+        }
+        public void setNombre(string nombre)
+        {
+            Nombre = nombre;
+        }
+
+        public void setApellido(string apellido)
+        {
+            Apellido = apellido;
+        }
+
+        public void setDireccion(string direccion)
+        {
+            Direccion = direccion;
+        }
+
     }
 }

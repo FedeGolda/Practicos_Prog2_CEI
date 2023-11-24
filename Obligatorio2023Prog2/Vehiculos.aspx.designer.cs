@@ -60,15 +60,6 @@ namespace Obligatorio2023Prog2
         protected global::System.Web.UI.WebControls.TextBox txtKilometros;
 
         /// <summary>
-        /// Control RegularExpressionValidator1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
-
-        /// <summary>
         /// Control txtColor.
         /// </summary>
         /// <remarks>
@@ -87,15 +78,6 @@ namespace Obligatorio2023Prog2
         protected global::System.Web.UI.WebControls.TextBox txtPrecioVenta;
 
         /// <summary>
-        /// Control RegularExpressionValidator2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
-
-        /// <summary>
         /// Control txtPrecioAlquiler.
         /// </summary>
         /// <remarks>
@@ -103,15 +85,6 @@ namespace Obligatorio2023Prog2
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrecioAlquiler;
-
-        /// <summary>
-        /// Control RegularExpressionValidator3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
 
         /// <summary>
         /// Control btnGuardar.

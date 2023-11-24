@@ -12,24 +12,42 @@ namespace Obligatorio2023Prog2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-  
+
+            if (!Page.IsPostBack)
+            {
+                cboVehiculos.DataSource = BaseDeDatos.listaVehiculos;
+                cboVehiculos.DataTextField = "Matricula";
+                cboVehiculos.DataBind();
+
+                cboCleintes.DataSource = BaseDeDatos.listaClientes;
+                cboCleintes.DataTextField = "Cedula";
+                cboCleintes.DataBind();
+            }
+
         }
 
-
-
-        protected void lvVehiculos_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            // Obtén la matrícula seleccionada
-            string matriculaSeleccionada = lvVehiculos.SelectedDataKey.Value.ToString();
+            string Cedula = cboCleintes.SelectedItem.Value;
 
-            // Buscar el vehículo correspondiente en tu lista de vehículos
-            Vehiculo vehiculoSeleccionado = BaseDeDatos.listaVehiculos.Find(v => v.getMatricula() == matriculaSeleccionada);
+            string Matricula = cboVehiculos.SelectedValue;
 
-            // Ahora puedes hacer lo que necesites con el vehículo seleccionado
-            // Por ejemplo, mostrar sus detalles en la página o realizar alguna operación de venta
         }
 
+        protected void cboVehiculos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string Matricula = cboVehiculos.SelectedItem.Value;
 
+            foreach (var vehiculo in BaseDeDatos.listaVehiculos)
+            {
+                if (vehiculo.getMatricula() == Matricula)
+                {
+                    lblPrecio.Text = vehiculo.getPrecioVenta().ToString();
+                    lblPrecio.Visible = true;
+                    lblPrecioSimbolo.Visible = true;
+                }
+            }
 
+        }
     }
 }
