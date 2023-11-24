@@ -14,6 +14,9 @@ namespace Obligatorio2023Prog2
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
             routes.MapPageRoute("Clientes", "Clientes", "~/Clases/Clientes.aspx");
+            routes.MapPageRoute("Vehiculos", "Vehiculos", "~/Vehiculos.aspx");
+            routes.MapPageRoute("Alquileres", "Alquileres", "~/Alquileres.aspx");
+            routes.MapPageRoute("Ventas", "Ventas", "~/Ventas.aspx");
         }
     }
 }

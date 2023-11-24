@@ -18,7 +18,7 @@ namespace Obligatorio2023Prog2.Clases
 
         private void CargarDatos()
         {
-            BaseDeDatos.ListarClientes();
+            BaseDeDatos.CargarDatosIniciales();
             gvClientes.DataSource = BaseDeDatos.listaClientes;
             gvClientes.DataBind();
         }
