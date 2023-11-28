@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-lg-5">
             <asp:Label Text="Clientes: " runat="server"></asp:Label>
-            <asp:DropDownList ID="cboCleintes" runat="server" CssClass="form-control" OnSelectedIndexChanged="cboCleintes_SelectedIndexChanged"></asp:DropDownList>
+            <asp:DropDownList ID="cboClientes" runat="server" OnSelectedIndexChanged="cboClientes_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
         </div>
     </div>
     <div class="row">
@@ -26,8 +26,8 @@
     </div>
     <div class="row">
         <div class="col-lg-5">
-            Fecha:
-            <asp:TextBox ID="txtFecha" runat="server" Text="Dias" TextMode="Number" CssClass="form-control"></asp:TextBox>
+            <asp:Label Text="Dias: " runat="server"></asp:Label>
+            <asp:TextBox ID="txtAlquilerDia" TextMode="Number" runat="server" CssClass="form-control" Text="" placeholder="Dias de alquler" OnTextChanged="txtAlquilerDia_TextChanged"></asp:TextBox>
         </div>
     </div>
     <div class="row">

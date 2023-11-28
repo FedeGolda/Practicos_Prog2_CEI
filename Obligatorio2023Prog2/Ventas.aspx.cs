@@ -1,10 +1,6 @@
 ﻿using Obligatorio2023Prog2.Clases;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Obligatorio2023Prog2
 {
@@ -12,7 +8,6 @@ namespace Obligatorio2023Prog2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!Page.IsPostBack)
             {
                 cboVehiculos.DataSource = BaseDeDatos.ListadoVehiculosActivos();

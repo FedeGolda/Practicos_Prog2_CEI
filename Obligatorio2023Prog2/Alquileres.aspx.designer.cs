@@ -15,13 +15,13 @@ namespace Obligatorio2023Prog2
     {
 
         /// <summary>
-        /// Control cboCleintes.
+        /// Control cboClientes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboCleintes;
+        protected global::System.Web.UI.WebControls.DropDownList cboClientes;
 
         /// <summary>
         /// Control cboVehiculos.
@@ -33,13 +33,13 @@ namespace Obligatorio2023Prog2
         protected global::System.Web.UI.WebControls.DropDownList cboVehiculos;
 
         /// <summary>
-        /// Control txtFecha.
+        /// Control txtAlquilerDia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFecha;
+        protected global::System.Web.UI.WebControls.TextBox txtAlquilerDia;
 
         /// <summary>
         /// Control btnGuardar.

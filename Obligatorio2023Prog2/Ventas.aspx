@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-lg-5">
             <asp:Label Text="Clientes: " runat="server" ></asp:Label>
-            <asp:DropDownList ID="cboCleintes" runat="server" CssClass="form-control" OnSelectedIndexChanged="cboCleintes_SelectedIndexChanged"></asp:DropDownList>
+            <asp:DropDownList ID="cboCleintes" runat="server" OnSelectedIndexChanged="cboCleintes_SelectedIndexChanged"></asp:DropDownList>
         </div>
     </div>
     <div class="row">

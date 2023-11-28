@@ -1,10 +1,6 @@
 ﻿using Obligatorio2023Prog2.Clases;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Obligatorio2023Prog2
 {
@@ -18,16 +14,16 @@ namespace Obligatorio2023Prog2
                 cboVehiculos.DataTextField = "Matricula";
                 cboVehiculos.DataBind();
 
-                cboCleintes.DataSource = BaseDeDatos.listaClientes;
-                cboCleintes.DataTextField = "Cedula";
-                cboCleintes.DataBind();
+                cboClientes.DataSource = BaseDeDatos.listaClientes;
+                cboClientes.DataTextField = "Cedula";
+                cboClientes.DataBind();
             }
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             Alquiler alquiler = new Alquiler();
-            alquiler.setCedula(cboCleintes.SelectedItem.Value);
+            alquiler.setCedula(cboClientes.SelectedItem.Value);
             alquiler.setMatricula(cboVehiculos.SelectedItem.Value);
             alquiler.setFechaAlquiler(DateTime.Now);
             alquiler.setPrecio(Convert.ToInt32(lblPrecio.Text));
@@ -49,6 +45,33 @@ namespace Obligatorio2023Prog2
             cboVehiculos.DataBind();
 
             Response.Write("<script>alert('Venta ingresada correctamente')</script>");
+        }
+
+        protected void txtAlquilerDia_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtAlquilerDia.Text))
+            {
+                int dias = Convert.ToInt32(txtAlquilerDia.Text);
+
+                // Obtén el precio por día directamente desde el DropDownList cboVehiculos
+                double precioAlquilerDia = Convert.ToDouble(cboVehiculos.SelectedItem.Text);
+
+                // Calcula el precio total multiplicando el número de días por el precio por día del vehículo
+                double precioTotal = dias * precioAlquilerDia;
+
+                // Muestra el precio total en el Label correspondiente
+                lblPrecio.Text = precioTotal.ToString();
+
+                // Haz visible el Label que muestra el precio
+                lblPrecioSimbolo.Visible = true;
+                lblPrecio.Visible = true;
+            }
+            else
+            {
+                // Si el TextBox está vacío, oculta los Labels
+                lblPrecioSimbolo.Visible = false;
+                lblPrecio.Visible = false;
+            }
         }
     }
 }
