@@ -72,6 +72,17 @@ namespace Obligatorio2023Prog2
                 lblPrecioSimbolo.Visible = false;
                 lblPrecio.Visible = false;
             }
+
+        }
+
+        protected void cboClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void cboVehiculos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

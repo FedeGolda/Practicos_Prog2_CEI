@@ -14,9 +14,9 @@ namespace Obligatorio2023Prog2
                 cboVehiculos.DataTextField = "Matricula";
                 cboVehiculos.DataBind();
 
-                cboCleintes.DataSource = BaseDeDatos.listaClientes;
-                cboCleintes.DataTextField = "Cedula";
-                cboCleintes.DataBind();
+                cboClientes.DataSource = BaseDeDatos.listaClientes;
+                cboClientes.DataTextField = "Cedula";
+                cboClientes.DataBind();
             }
 
         }
@@ -24,7 +24,7 @@ namespace Obligatorio2023Prog2
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             Venta venta = new Venta();
-            venta.setCedula(cboCleintes.SelectedItem.Value);
+            venta.setCedula(cboClientes.SelectedItem.Value);
             venta.setMatricula(cboVehiculos.SelectedItem.Value);
             venta.setFechaVenta(DateTime.Now);
             venta.setPrecio(Convert.ToInt32(lblPrecio.Text));
