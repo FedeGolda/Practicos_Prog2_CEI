@@ -10,6 +10,8 @@ namespace Obligatorio2023Prog2.Clases
         public static List<Vehiculo> listaVehiculos = new List<Vehiculo>();
         public static List<Cliente> listaClientes = new List<Cliente>();
         public static List<Usuario> listaUsuarios = new List<Usuario>();
+        public static List<Venta> listaVentas = new List<Venta>();
+        public static List<Alquiler> listaAlquileres = new List<Alquiler>();
         public static Usuario usuarioLogeado;
 
         public static void CargarDatosIniciales()
@@ -34,11 +36,11 @@ namespace Obligatorio2023Prog2.Clases
             listaClientes.Add(cliente3);
 
             // Agregar vehículos
-            Vehiculo vehiculo1 = new Vehiculo("Toyota", "Corolla", "ABC123", "2022", 5000, "Rojo", 25000, 100);
-            Vehiculo vehiculo2 = new Vehiculo("Ford", "Focus", "DEF456", "2021", 8000, "Azul", 22000, 80);
-            Vehiculo vehiculo3 = new Vehiculo("Honda", "Civic", "GHI789", "2020", 10000, "Negro", 20000, 90);
-            Vehiculo vehiculo4 = new Vehiculo("Chevrolet", "Cruze", "JKL012", "2022", 6000, "Blanco", 23000, 95);
-            Vehiculo vehiculo5 = new Vehiculo("Nissan", "Sentra", "MNO345", "2023", 3000, "Gris", 27000, 110);
+            Vehiculo vehiculo1 = new Vehiculo("Toyota", "Corolla", "ABC123", "2022", 5000, "Rojo", 25000, 100, true);
+            Vehiculo vehiculo2 = new Vehiculo("Ford", "Focus", "DEF456", "2021", 8000, "Azul", 22000, 80, true);
+            Vehiculo vehiculo3 = new Vehiculo("Honda", "Civic", "GHI789", "2020", 10000, "Negro", 20000, 90, true);
+            Vehiculo vehiculo4 = new Vehiculo("Chevrolet", "Cruze", "JKL012", "2022", 6000, "Blanco", 23000, 95, true);
+            Vehiculo vehiculo5 = new Vehiculo("Nissan", "Sentra", "MNO345", "2023", 3000, "Gris", 27000, 110, true);
 
             listaVehiculos.Add(vehiculo1);
             listaVehiculos.Add(vehiculo2);
@@ -47,6 +49,18 @@ namespace Obligatorio2023Prog2.Clases
             listaVehiculos.Add(vehiculo5);
         }
 
+        public static List<Vehiculo> ListadoVehiculosActivos()
+        {
+            List<Vehiculo> vehiculosActivos = new List<Vehiculo>();
+            foreach(var vehiculo in listaVehiculos)
+            {
+                if(vehiculo.Activo)
+                {
+                    vehiculosActivos.Add(vehiculo);
+                }
+            }
+            return vehiculosActivos;
+        }
 
         public static void GuardarUsuarioLogeado(Usuario usuario)
         {

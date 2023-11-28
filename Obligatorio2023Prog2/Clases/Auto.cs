@@ -9,8 +9,8 @@ namespace Obligatorio2023Prog2
     public class Auto : Vehiculo
     {
         public int pasajeros { get; set; }
-        public Auto(string marca, string modelo, string matricula, string año, int kilometros, string color, double precioVenta, double precioAlquiler, int pasajeros)
-            : base(marca, modelo, matricula, año, kilometros, color, precioVenta, precioAlquiler)
+        public Auto(string marca, string modelo, string matricula, string año, int kilometros, string color, double precioVenta, double precioAlquiler, bool activo, int pasajeros)
+            : base(marca, modelo, matricula, año, kilometros, color, precioVenta, precioAlquiler, activo)
         {
             this.pasajeros = pasajeros;
         }

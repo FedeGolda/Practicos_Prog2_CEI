@@ -15,13 +15,14 @@ namespace Obligatorio2023Prog2.Clases
         public int kilometros { get; set; }
         public string color { get; set; }
         public double precioVenta { get; set; }
-        public double precioAlquiler { get; set; }
+        public double precioAlquilerDia { get; set; }
+        public bool Activo { get; set; }
 
         public Vehiculo()
         {
 
         }
-        public Vehiculo(string marca, string modelo, string matricula, string año, int kilometros, string color, double precioVenta, double precioAlquiler)
+        public Vehiculo(string marca, string modelo, string matricula, string año, int kilometros, string color, double precioVenta, double precioAlquilerDia, bool Activo)
         {
             this.marca = marca;
             this.modelo = modelo;
@@ -30,7 +31,8 @@ namespace Obligatorio2023Prog2.Clases
             this.kilometros = kilometros;
             this.color = color;
             this.precioVenta = precioVenta;
-            this.precioAlquiler = precioAlquiler;
+            this.precioAlquilerDia = precioAlquilerDia;
+            this.Activo = Activo;
         }
 
         protected Vehiculo(string marca, string modelo, string matricula, string año, string color)
@@ -49,7 +51,7 @@ namespace Obligatorio2023Prog2.Clases
         public int getKilometros() { return kilometros; }
         public string getColor() { return color; }
         public double getPrecioVenta() { return precioVenta; }
-        public double getPrecioAlquiler() { return precioAlquiler; }
+        public double getPrecioAlquilerDia() { return precioAlquilerDia; }
         public void setMarca(string marca) { this.marca = marca; }
         public void setModelo(string modelo) { this.modelo = modelo; }
         public void setMatricula(string matricula) { this.matricula = matricula; }
@@ -57,7 +59,7 @@ namespace Obligatorio2023Prog2.Clases
         public void setKilometros(int kilometros) { this.kilometros = kilometros; }
         public void setColor(string color) { this.color = color; }
         public void setPrecioVenta(double precioVenta) { this.precioVenta = precioVenta; }
-        public void setPrecioAlquiler(double precioAlquiler) { this.precioAlquiler = precioAlquiler; }
+        public void setPrecioAlquilerDia(double precioAlquilerDia) { this.precioAlquilerDia = precioAlquilerDia; }
 
     }
 }

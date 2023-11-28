@@ -7,9 +7,6 @@ namespace Obligatorio2023Prog2
 {
     public partial class Clientes : System.Web.UI.Page
     {
-        // Lista para almacenar los clientes registrados
-        private List<Cliente> listaClientes = new List<Cliente>();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -29,7 +26,7 @@ namespace Obligatorio2023Prog2
             nuevoCliente.setDireccion(txtDireccion.Text);
 
             // Agregar el cliente a la lista
-            listaClientes.Add(nuevoCliente);
+            BaseDeDatos.listaClientes.Add(nuevoCliente);
 
             // Actualizar la GridView
             BindGridView();
@@ -38,7 +35,7 @@ namespace Obligatorio2023Prog2
         // Función para enlazar la lista de clientes a la GridView
         private void BindGridView()
         {
-            gvClientes.DataSource = listaClientes;
+            gvClientes.DataSource = BaseDeDatos.listaClientes;
             gvClientes.DataBind();
         }
 

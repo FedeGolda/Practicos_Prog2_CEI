@@ -103,7 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Clases\Clientes.aspx" />
+    <Content Include="Alquileres.aspx" />
+    <Content Include="Clientes.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -190,6 +191,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alquileres.aspx.cs">
+      <DependentUpon>Alquileres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alquileres.aspx.designer.cs">
+      <DependentUpon>Alquileres.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Clases\Alquiler.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -203,11 +211,11 @@
     <Compile Include="Clases\Auto.cs" />
     <Compile Include="Clases\Camion.cs" />
     <Compile Include="Clases\BaseDeDatos.cs" />
-    <Compile Include="Clases\Clientes.aspx.cs">
+    <Compile Include="Clientes.aspx.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Clases\Clientes.aspx.designer.cs">
+    <Compile Include="Clientes.aspx.designer.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clases\Vehiculo.cs" />

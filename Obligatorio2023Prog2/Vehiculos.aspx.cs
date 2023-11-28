@@ -36,9 +36,9 @@ namespace Obligatorio2023Prog2
                 vehiculo.setPrecioVenta(precioVenta);
             }
 
-            if (double.TryParse(txtPrecioAlquiler.Text, out double precioAlquiler))
+            if (double.TryParse(txtPrecioAlquiler.Text, out double precioAlquilerDia))
             {
-                vehiculo.setPrecioAlquiler(precioAlquiler);
+                vehiculo.setPrecioAlquilerDia(precioAlquilerDia);
             }
 
             BaseDeDatos.listaVehiculos.Add(vehiculo);
