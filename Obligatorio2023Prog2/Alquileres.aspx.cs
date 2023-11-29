@@ -74,15 +74,5 @@ namespace Obligatorio2023Prog2
             }
 
         }
-
-        protected void cboClientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void cboVehiculos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

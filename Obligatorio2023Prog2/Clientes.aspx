@@ -38,6 +38,8 @@
     <div class="row">
         <div class="col-lg-8">
             <h4>Clientes Registrados</h4>
+            <!-- Etiqueta Label para mostrar mensajes de error -->
+            <asp:Label ID="lblMensajeError" runat="server" ForeColor="Red"></asp:Label>
             <asp:GridView ID="gvClientes" runat="server" CssClass="table" Width="80%" BorderStyle="Solid" BorderWidth="2px" CellSpacing="5"
                 AutoGenerateColumns="false">
                 <Columns>

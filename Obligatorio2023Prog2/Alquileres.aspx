@@ -15,13 +15,13 @@
     <div class="row">
         <div class="col-lg-5">
             <asp:Label Text="Clientes: " runat="server"></asp:Label>
-            <asp:DropDownList ID="cboClientes" runat="server" OnSelectedIndexChanged="cboClientes_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+            <asp:DropDownList ID="cboClientes" runat="server" CssClass="form-control"></asp:DropDownList>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-5">
             <asp:Label Text="Vehiculos: " runat="server"></asp:Label>
-            <asp:DropDownList ID="cboVehiculos" runat="server" OnSelectedIndexChanged="cboVehiculos_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+            <asp:DropDownList ID="cboVehiculos" runat="server" CssClass="form-control"></asp:DropDownList>
         </div>
     </div>
     <div class="row">

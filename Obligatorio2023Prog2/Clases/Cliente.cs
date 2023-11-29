@@ -12,7 +12,7 @@ namespace Obligatorio2023Prog2
         public string Apellido { get; set; }
         public string Direccion { get; set; }
 
-        public string getCecula()
+        public string getCedula()
         {
             return Cedula;
         }
@@ -49,6 +49,40 @@ namespace Obligatorio2023Prog2
         public void setDireccion(string direccion)
         {
             Direccion = direccion;
+        }
+
+
+        // Función para verificar el último dígito de la cédula uruguaya
+        public bool ValidarCedulaUruguaya()
+        {
+            // Verificar si la cédula tiene al menos 8 dígitos
+            if (Cedula.Length != 8)
+            {
+                // Mensaje de depuración
+                Console.WriteLine("Longitud de cédula incorrecta.");
+                return false;
+            }
+
+            // Obtener los primeros 7 dígitos de la cédula
+            string digitos = Cedula.Substring(0, 7);
+
+            // Obtener el último dígito de la cédula
+            int ultimoDigito = int.Parse(Cedula.Substring(7, 1));
+
+            // Calcular el dígito verificador esperado
+            int suma = digitos.Reverse()
+                               .Select((c, i) => (c - '0') * (i % 2 == 0 ? 1 : 2))
+                               .Sum(n => n / 10 + n % 10);
+
+            int digitoVerificadorEsperado = (10 - (suma % 10)) % 10;
+
+            // Mensajes de depuración
+            Console.WriteLine("Último dígito: " + ultimoDigito);
+            Console.WriteLine("Suma: " + suma);
+            Console.WriteLine("Dígito verificador esperado: " + digitoVerificadorEsperado);
+
+            // Verificar si el último dígito coincide con el esperado
+            return ultimoDigito == digitoVerificadorEsperado;
         }
 
     }
