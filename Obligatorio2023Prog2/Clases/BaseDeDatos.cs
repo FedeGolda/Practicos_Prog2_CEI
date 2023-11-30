@@ -28,9 +28,9 @@ namespace Obligatorio2023Prog2.Clases
             listaUsuarios.Add(usuario);
 
             // Agregar clientes
-            Cliente cliente = new Cliente { Apellido = "Perez", Cedula = "4586658-0", Direccion = "dr Edye 3456", Nombre = "Juan" };
-            Cliente cliente2 = new Cliente { Apellido = "Lopez", Cedula = "4589998-9", Direccion = "dr Edye 5585", Nombre = "Javier" };
-            Cliente cliente3 = new Cliente { Apellido = "Gomez", Cedula = "3785468-2", Direccion = "Aigua 3588", Nombre = "Luis" };
+            Cliente cliente = new Cliente { Apellido = "Perez", Cedula = "45866580", Direccion = "dr Edye 3456", Nombre = "Juan" };
+            Cliente cliente2 = new Cliente { Apellido = "Lopez", Cedula = "45899989", Direccion = "dr Edye 5585", Nombre = "Javier" };
+            Cliente cliente3 = new Cliente { Apellido = "Gomez", Cedula = "37854682", Direccion = "Aigua 3588", Nombre = "Luis" };
             listaClientes.Add(cliente);
             listaClientes.Add(cliente2);
             listaClientes.Add(cliente3);

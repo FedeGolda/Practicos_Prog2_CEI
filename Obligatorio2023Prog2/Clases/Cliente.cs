@@ -53,37 +53,40 @@ namespace Obligatorio2023Prog2
 
 
         // Función para verificar el último dígito de la cédula uruguaya
-        public bool ValidarCedulaUruguaya()
+        private static int validation_digit(string ci)
         {
-            // Verificar si la cédula tiene al menos 8 dígitos
-            if (Cedula.Length != 8)
+            var a = 0;
+            var i = 0;
+            if (ci.Length <= 6)
             {
-                // Mensaje de depuración
-                Console.WriteLine("Longitud de cédula incorrecta.");
-                return false;
+                for (i = ci.Length; i < 7; i++)
+                {
+                    ci = '0' + ci;
+                }
             }
-
-            // Obtener los primeros 7 dígitos de la cédula
-            string digitos = Cedula.Substring(0, 7);
-
-            // Obtener el último dígito de la cédula
-            int ultimoDigito = int.Parse(Cedula.Substring(7, 1));
-
-            // Calcular el dígito verificador esperado
-            int suma = digitos.Reverse()
-                               .Select((c, i) => (c - '0') * (i % 2 == 0 ? 1 : 2))
-                               .Sum(n => n / 10 + n % 10);
-
-            int digitoVerificadorEsperado = (10 - (suma % 10)) % 10;
-
-            // Mensajes de depuración
-            Console.WriteLine("Último dígito: " + ultimoDigito);
-            Console.WriteLine("Suma: " + suma);
-            Console.WriteLine("Dígito verificador esperado: " + digitoVerificadorEsperado);
-
-            // Verificar si el último dígito coincide con el esperado
-            return ultimoDigito == digitoVerificadorEsperado;
+            for (i = 0; i < 7; i++)
+            {
+                a += (Int32.Parse("2987634"[i].ToString()) * Int32.Parse(ci[i].ToString())) % 10;
+            }
+            if (a % 10 == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return 10 - a % 10;
+            }
         }
+
+        public static bool Validate(string ci)
+        {
+            var dig = ci[ci.Length - 1];
+            ci = ci.Substring(0, ci.Length - 1);
+
+            int validDigitCalculated = validation_digit(ci);
+            return (Int32.Parse(dig.ToString()) == validDigitCalculated);
+        }
+
 
     }
 }
