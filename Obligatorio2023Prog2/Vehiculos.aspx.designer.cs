@@ -42,49 +42,31 @@ namespace Obligatorio2023Prog2
         protected global::System.Web.UI.WebControls.TextBox txtModelo;
 
         /// <summary>
-        /// Control txtAño.
+        /// Control txtImagen1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAño;
+        protected global::System.Web.UI.WebControls.TextBox txtImagen1;
 
         /// <summary>
-        /// Control txtKilometros.
+        /// Control txtImagen2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtKilometros;
+        protected global::System.Web.UI.WebControls.TextBox txtImagen2;
 
         /// <summary>
-        /// Control txtColor.
+        /// Control txtImagen3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtColor;
-
-        /// <summary>
-        /// Control txtPrecioVenta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrecioVenta;
-
-        /// <summary>
-        /// Control txtPrecioAlquiler.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrecioAlquiler;
+        protected global::System.Web.UI.WebControls.TextBox txtImagen3;
 
         /// <summary>
         /// Control btnGuardar.
@@ -103,14 +85,5 @@ namespace Obligatorio2023Prog2
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvVehiculos;
-
-        /// <summary>
-        /// Control dgVehiculos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid dgVehiculos;
     }
 }
