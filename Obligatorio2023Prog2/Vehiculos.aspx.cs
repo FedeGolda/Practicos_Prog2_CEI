@@ -104,5 +104,10 @@ namespace Obligatorio2023Prog2
             this.gvVehiculos.DataBind();
 
         }
+
+        protected void txtAuto_TextChanged(object sender, EventArgs e)
+        {
+                txtAuto.Visible = true;
+        }
     }
 }
