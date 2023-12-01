@@ -66,6 +66,8 @@ namespace Obligatorio2023Prog2
                 // Agregar el cliente a la lista
                 BaseDeDatos.listaClientes.Add(nuevoCliente);
 
+                lblMensajeError.Visible = false;
+
                 // Actualizar la GridView
                 BindGridView();
             }

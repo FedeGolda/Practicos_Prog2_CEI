@@ -13,6 +13,19 @@
     </div>
     <div class="row">
         <div class="col-lg-5">
+            <asp:CheckBox ID="chkAuto" runat="server" Text="Auto" OnClientClick="showTextBox('txtAuto');" />
+            <asp:TextBox ID="txtAuto" runat="server" CssClass="form-control" placeholder="Número de Pasajeros" Visible="false" OnTextChanged="txtAuto_TextChanged"></asp:TextBox>
+
+            <asp:CheckBox ID="chkMoto" runat="server" Text="Moto" OnClientClick="showTextBox('txtMoto');" />
+            <asp:TextBox ID="txtMoto" runat="server" CssClass="form-control" placeholder="Cilindradas" Visible="false"></asp:TextBox>
+
+            <asp:CheckBox ID="chkCamion" runat="server" Text="Camión" OnClientClick="showTextBox('txtCamion');" />
+            <asp:TextBox ID="txtCamion" runat="server" CssClass="form-control" placeholder="Carga" Visible="false"></asp:TextBox>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-5">
             <asp:TextBox ID="txtMatricula" runat="server" CssClass="form-control" Text="" placeholder="Matricula del vehiculo"></asp:TextBox>
         </div>
     </div>

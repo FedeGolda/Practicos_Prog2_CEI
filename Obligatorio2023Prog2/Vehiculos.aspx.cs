@@ -16,6 +16,7 @@ namespace Obligatorio2023Prog2
             Master.FindControl("lnkUsuarios").Visible = BaseDeDatos.usuarioLogeado.getVerUsuarios();
         }
 
+
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             Vehiculo vehiculo = new Vehiculo();
@@ -116,6 +117,11 @@ namespace Obligatorio2023Prog2
 
             this.dgVehiculos.DataSource = BaseDeDatos.listaVehiculos;
             this.dgVehiculos.DataBind();
+        }
+
+        protected void txtAuto_TextChanged(object sender, EventArgs e)
+        {
+                txtAuto.Visible = true;
         }
     }
 }
