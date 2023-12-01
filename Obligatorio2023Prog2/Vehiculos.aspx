@@ -13,26 +13,10 @@
             <h3>Catalogo de Vehiculos</h3>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-5">
-<<<<<<< HEAD
-            <asp:TextBox ID="txtMatricula" runat="server" CssClass="form-control" placeholder="Matricula del Vehiculo"></asp:TextBox>
-=======
-            <asp:CheckBox ID="chkAuto" runat="server" Text="Auto" OnClientClick="showTextBox('txtAuto');" />
-            <asp:TextBox ID="txtAuto" runat="server" CssClass="form-control" placeholder="Número de Pasajeros" Visible="false" OnTextChanged="txtAuto_TextChanged"></asp:TextBox>
-
-            <asp:CheckBox ID="chkMoto" runat="server" Text="Moto" OnClientClick="showTextBox('txtMoto');" />
-            <asp:TextBox ID="txtMoto" runat="server" CssClass="form-control" placeholder="Cilindradas" Visible="false"></asp:TextBox>
-
-            <asp:CheckBox ID="chkCamion" runat="server" Text="Camión" OnClientClick="showTextBox('txtCamion');" />
-            <asp:TextBox ID="txtCamion" runat="server" CssClass="form-control" placeholder="Carga" Visible="false"></asp:TextBox>
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-lg-5">
             <asp:TextBox ID="txtMatricula" runat="server" CssClass="form-control" Text="" placeholder="Matricula del vehiculo"></asp:TextBox>
->>>>>>> 57801f354c859f24180fc8d8c943226af7926ffc
         </div>
     </div>
     <div class="row">
@@ -43,6 +27,31 @@
     <div class="row">
         <div class="col-lg-5">
             <asp:TextBox ID="txtModelo" runat="server" CssClass="form-control" placeholder="Modelo del Vehiculo"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <asp:TextBox ID="txtAño" runat="server" TextMode="Number" CssClass="form-control" placeholder="Año del Vehiculo"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <asp:TextBox ID="txtKilometros" runat="server" TextMode="Number" CssClass="form-control" placeholder="Kilometros del Vehiculo"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <asp:TextBox ID="txtColor" runat="server" CssClass="form-control" placeholder="Color del Vehiculo"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <asp:TextBox ID="txtPrecioVenta" runat="server" TextMode="Number" CssClass="form-control" placeholder="Precio venta del Vehiculo"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <asp:TextBox ID="txtPrecioAlquiler" runat="server" TextMode="Number" CssClass="form-control" placeholder="Precio alquiler del Vehiculo"></asp:TextBox>
         </div>
     </div>
     <div class="row">
@@ -102,6 +111,35 @@
                             <asp:TextBox ID="txtModeloGrid" runat="server" Text='<%# Bind("Modelo") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
+
+
+                    <asp:TemplateField HeaderText="Año">
+                        <ItemTemplate>
+                            <asp:Label ID="lblAño" runat="server" Text='<%# Bind("Año") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtAñoGrid" runat="server" Text='<%# Bind("Año") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Kilometros">
+                        <ItemTemplate>
+                            <asp:Label ID="lblKilometros" runat="server" Text='<%# Bind("Kilometros") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtKilometrosGrid" runat="server" Text='<%# Bind("Kilometros") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Color">
+                        <ItemTemplate>
+                            <asp:Label ID="lblColor" runat="server" Text='<%# Bind("Color") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtColorGrid" runat="server" Text='<%# Bind("Color") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
                     <asp:TemplateField HeaderText="Imagen1">
                         <ItemTemplate>
                             <asp:Image ID="imgImagen1" runat="server" ImageUrl='<%# Bind("Imagen1") %>' Height="200" Width="200"></asp:Image>
@@ -110,6 +148,7 @@
                             <asp:TextBox ID="txtImagen1Grid" runat="server" Text='<%# Bind("Imagen1") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
+
                     <asp:TemplateField HeaderText="Imagen2">
                         <ItemTemplate>
                             <asp:Image ID="imgImagen2" runat="server" ImageUrl='<%# Bind("Imagen2") %>' Height="200" Width="200"></asp:Image>
@@ -118,6 +157,7 @@
                             <asp:TextBox ID="txtImagen2Grid" runat="server" Text='<%# Bind("Imagen2") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
+
                     <asp:TemplateField HeaderText="Imagen3">
                         <ItemTemplate>
                             <asp:Image ID="imgImagen3" runat="server" ImageUrl='<%# Bind("Imagen3") %>' Height="200" Width="200"></asp:Image>
@@ -126,9 +166,29 @@
                             <asp:TextBox ID="txtImagen3Grid" runat="server" Text='<%# Bind("Imagen3") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Precio Venta">
+                        <ItemTemplate>
+                            <asp:Label ID="lblPrecioVenta" runat="server" Text='<%# Bind("PrecioVenta") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtPrecioVentaGrid" runat="server" Text='<%# Bind("PrecioVenta") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Precio Alquiler">
+                        <ItemTemplate>
+                            <asp:Label ID="lblPrecioAlquiler" runat="server" Text='<%# Bind("PrecioAlquilerDia") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtPrecioAlquilerGrid" runat="server" Text='<%# Bind("PrecioAlquilerDia") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
                     <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
                 </Columns>
             </asp:GridView>
+
         </div>
     </div>
 </asp:Content>

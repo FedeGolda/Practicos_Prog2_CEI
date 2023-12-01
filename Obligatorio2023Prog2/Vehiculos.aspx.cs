@@ -14,6 +14,17 @@ namespace Obligatorio2023Prog2
             Master.FindControl("lnkVentas").Visible = BaseDeDatos.usuarioLogeado.getVerVentas();
             Master.FindControl("lnkAlquileres").Visible = BaseDeDatos.usuarioLogeado.getVerAlquileres();
             Master.FindControl("lnkUsuarios").Visible = BaseDeDatos.usuarioLogeado.getVerUsuarios();
+
+            if (!IsPostBack)
+            {
+                // Verificar si hay vehículos en la lista
+                if (BaseDeDatos.listaVehiculos.Count > 0)
+                {
+                    // Asignar la lista de vehículos como origen de datos para el GridView
+                    gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
+                    gvVehiculos.DataBind();
+                }
+            }
         }
 
 
@@ -23,6 +34,22 @@ namespace Obligatorio2023Prog2
             vehiculo.setMatricula(txtMatricula.Text);
             vehiculo.setModelo(txtModelo.Text);
             vehiculo.setMarca(txtMarca.Text);
+            vehiculo.setModelo(txtModelo.Text);
+            vehiculo.setAño(txtAño.Text);
+            vehiculo.setColor(txtColor.Text);
+
+            if (int.TryParse(txtKilometros.Text, out int kilometros))
+            {
+                vehiculo.setKilometros(kilometros);
+            }
+            if (int.TryParse(txtPrecioVenta.Text, out int PrecioVenta))
+            {
+                vehiculo.setPrecioVenta(PrecioVenta);
+            }
+            if (int.TryParse(txtPrecioAlquiler.Text, out int PrecioAlquiler))
+            {
+                vehiculo.setPrecioAlquilerDia(PrecioAlquiler);
+            }
 
             // Validar y convertir los valores a los tipos adecuados
             if (string.IsNullOrEmpty(txtImagen1.Text) || string.IsNullOrEmpty(txtImagen2.Text) || string.IsNullOrEmpty(txtImagen3.Text))
@@ -103,11 +130,6 @@ namespace Obligatorio2023Prog2
             this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
             this.gvVehiculos.DataBind();
 
-        }
-
-        protected void txtAuto_TextChanged(object sender, EventArgs e)
-        {
-                txtAuto.Visible = true;
         }
     }
 }
