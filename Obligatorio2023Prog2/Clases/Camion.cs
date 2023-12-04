@@ -10,8 +10,8 @@ namespace Obligatorio2023Prog2
     {
         public double carga { get; set; }
 
-        public Camion(string marca, string modelo, string matricula, string año, int kilometros, string color, double precioVenta, double precioAlquiler, bool activo, double carga)
-            : base(marca, modelo, matricula, año, kilometros, color, precioVenta, precioAlquiler, activo)
+        public Camion(string marca, string modelo, string matricula, string año, int kilometros, string color, double precioVenta, double precioAlquiler, bool activo, string Imagen1, string Imagen2, string Imagen3, double carga)
+            : base(marca, modelo, matricula, año, kilometros, color, precioVenta, precioAlquiler, activo, Imagen1, Imagen2, Imagen3)
         {
             this.carga = carga;
         }

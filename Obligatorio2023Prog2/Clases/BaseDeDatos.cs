@@ -27,6 +27,17 @@ namespace Obligatorio2023Prog2.Clases
             usuario.setVerVehiculos(true);
             listaUsuarios.Add(usuario);
 
+            // Agregar un usuario normal
+            Usuario usuario1 = new Usuario();
+            usuario1.setNombreUsuario("Vendedor");
+            usuario1.setContrasena("Vendedor");
+            usuario1.setVerAlquileres(true);
+            usuario1.setVerVentas(true);
+            usuario1.setVerClientes(true);
+            usuario1.setVerUsuarios(false);
+            usuario1.setVerVehiculos(true);
+            listaUsuarios.Add(usuario1);
+
             // Agregar clientes
             Cliente cliente = new Cliente { Apellido = "Perez", Cedula = "45866580", Direccion = "dr Edye 3456", Nombre = "Juan" };
             Cliente cliente2 = new Cliente { Apellido = "Lopez", Cedula = "45899989", Direccion = "dr Edye 5585", Nombre = "Javier" };
@@ -36,11 +47,11 @@ namespace Obligatorio2023Prog2.Clases
             listaClientes.Add(cliente3);
 
             // Agregar vehículos
-            Vehiculo vehiculo1 = new Vehiculo("Toyota", "Corolla", "ABC123", "2022", 5000, "Rojo", 25000, 100, true);
-            Vehiculo vehiculo2 = new Vehiculo("Ford", "Focus", "DEF456", "2021", 8000, "Azul", 22000, 80, true);
-            Vehiculo vehiculo3 = new Vehiculo("Honda", "Civic", "GHI789", "2020", 10000, "Negro", 20000, 90, true);
-            Vehiculo vehiculo4 = new Vehiculo("Chevrolet", "Cruze", "JKL012", "2022", 6000, "Blanco", 23000, 95, true);
-            Vehiculo vehiculo5 = new Vehiculo("Nissan", "Sentra", "MNO345", "2023", 3000, "Gris", 27000, 110, true);
+            Vehiculo vehiculo1 = new Vehiculo("Toyota", "Corolla", "ABC123", "2022", 5000, "Rojo", 25000, 100, true, "https://phantom-expansion.unidadeditorial.es/1f59a66b768009525bd78ad642177e2c/crop/55x0/770x477/resize/414/f/jpg/assets/multimedia/imagenes/2022/09/15/16632231996207.jpg", "https://phantom-expansion.unidadeditorial.es/1f59a66b768009525bd78ad642177e2c/crop/55x0/770x477/resize/414/f/jpg/assets/multimedia/imagenes/2022/09/15/16632231996207.jpg", "https://phantom-expansion.unidadeditorial.es/1f59a66b768009525bd78ad642177e2c/crop/55x0/770x477/resize/414/f/jpg/assets/multimedia/imagenes/2022/09/15/16632231996207.jpg");
+            Vehiculo vehiculo2 = new Vehiculo("Ford", "Focus", "DEF456", "2021", 8000, "Azul", 22000, 80, true, "https://phantom-expansion.unidadeditorial.es/1f59a66b768009525bd78ad642177e2c/crop/55x0/770x477/resize/414/f/jpg/assets/multimedia/imagenes/2022/09/15/16632231996207.jpg", "https://phantom-expansion.unidadeditorial.es/1f59a66b768009525bd78ad642177e2c/crop/55x0/770x477/resize/414/f/jpg/assets/multimedia/imagenes/2022/09/15/16632231996207.jpg", "https://phantom-expansion.unidadeditorial.es/1f59a66b768009525bd78ad642177e2c/crop/55x0/770x477/resize/414/f/jpg/assets/multimedia/imagenes/2022/09/15/16632231996207.jpg");
+            Vehiculo vehiculo3 = new Vehiculo("Honda", "Civic", "GHI789", "2020", 10000, "Negro", 20000, 90, true, "https://phantom-expansion.unidadeditorial.es/1f59a66b768009525bd78ad642177e2c/crop/55x0/770x477/resize/414/f/jpg/assets/multimedia/imagenes/2022/09/15/16632231996207.jpg", "https://phantom-expansion.unidadeditorial.es/1f59a66b768009525bd78ad642177e2c/crop/55x0/770x477/resize/414/f/jpg/assets/multimedia/imagenes/2022/09/15/16632231996207.jpg", "https://phantom-expansion.unidadeditorial.es/1f59a66b768009525bd78ad642177e2c/crop/55x0/770x477/resize/414/f/jpg/assets/multimedia/imagenes/2022/09/15/16632231996207.jpg");
+            Vehiculo vehiculo4 = new Vehiculo("Chevrolet", "Cruze", "JKL012", "2022", 6000, "Blanco", 23000, 95, true, "https://phantom-expansion.unidadeditorial.es/1f59a66b768009525bd78ad642177e2c/crop/55x0/770x477/resize/414/f/jpg/assets/multimedia/imagenes/2022/09/15/16632231996207.jpg", "https://phantom-expansion.unidadeditorial.es/1f59a66b768009525bd78ad642177e2c/crop/55x0/770x477/resize/414/f/jpg/assets/multimedia/imagenes/2022/09/15/16632231996207.jpg", "https://phantom-expansion.unidadeditorial.es/1f59a66b768009525bd78ad642177e2c/crop/55x0/770x477/resize/414/f/jpg/assets/multimedia/imagenes/2022/09/15/16632231996207.jpg");
+            Vehiculo vehiculo5 = new Vehiculo("Nissan", "Sentra", "MNO345", "2023", 3000, "Gris", 27000, 110, true, "https://phantom-expansion.unidadeditorial.es/1f59a66b768009525bd78ad642177e2c/crop/55x0/770x477/resize/414/f/jpg/assets/multimedia/imagenes/2022/09/15/16632231996207.jpg", "https://phantom-expansion.unidadeditorial.es/1f59a66b768009525bd78ad642177e2c/crop/55x0/770x477/resize/414/f/jpg/assets/multimedia/imagenes/2022/09/15/16632231996207.jpg", "https://phantom-expansion.unidadeditorial.es/1f59a66b768009525bd78ad642177e2c/crop/55x0/770x477/resize/414/f/jpg/assets/multimedia/imagenes/2022/09/15/16632231996207.jpg");
 
             listaVehiculos.Add(vehiculo1);
             listaVehiculos.Add(vehiculo2);
@@ -49,22 +60,22 @@ namespace Obligatorio2023Prog2.Clases
             listaVehiculos.Add(vehiculo5);
         }
 
-        public static List<Vehiculo> ListadoVehiculosActivos()
+    public static List<Vehiculo> ListadoVehiculosActivos()
+    {
+        List<Vehiculo> vehiculosActivos = new List<Vehiculo>();
+        foreach (var vehiculo in listaVehiculos)
         {
-            List<Vehiculo> vehiculosActivos = new List<Vehiculo>();
-            foreach(var vehiculo in listaVehiculos)
+            if (vehiculo.Activo)
             {
-                if(vehiculo.Activo)
-                {
-                    vehiculosActivos.Add(vehiculo);
-                }
+                vehiculosActivos.Add(vehiculo);
             }
-            return vehiculosActivos;
         }
-
-        public static void GuardarUsuarioLogeado(Usuario usuario)
-        {
-            usuarioLogeado = usuario;
-        }
+        return vehiculosActivos;
     }
+
+    public static void GuardarUsuarioLogeado(Usuario usuario)
+    {
+        usuarioLogeado = usuario;
+    }
+}
 }

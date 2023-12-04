@@ -17,12 +17,15 @@ namespace Obligatorio2023Prog2.Clases
         public double precioVenta { get; set; }
         public double precioAlquilerDia { get; set; }
         public bool Activo { get; set; }
+        public string Imagen1 { get; set; }
+        public string Imagen2 { get; set; }
+        public string Imagen3 { get; set; }
 
         public Vehiculo()
         {
 
         }
-        public Vehiculo(string marca, string modelo, string matricula, string año, int kilometros, string color, double precioVenta, double precioAlquilerDia, bool Activo)
+        public Vehiculo(string marca, string modelo, string matricula, string año, int kilometros, string color, double precioVenta, double precioAlquilerDia, bool Activo, string Imagen1, string Imagen2, string Imagen3)
         {
             this.marca = marca;
             this.modelo = modelo;
@@ -33,16 +36,11 @@ namespace Obligatorio2023Prog2.Clases
             this.precioVenta = precioVenta;
             this.precioAlquilerDia = precioAlquilerDia;
             this.Activo = Activo;
+            this.Imagen1 = Imagen1;
+            this.Imagen2 = Imagen2;
+            this.Imagen3 = Imagen3;
         }
 
-        protected Vehiculo(string marca, string modelo, string matricula, string año, string color)
-        {
-            this.marca = marca;
-            this.modelo = modelo;
-            this.matricula = matricula;
-            this.año = año;
-            this.color = color;
-        }
 
         public string getMarca() { return marca; }
         public string getModelo() { return modelo; }
@@ -52,6 +50,10 @@ namespace Obligatorio2023Prog2.Clases
         public string getColor() { return color; }
         public double getPrecioVenta() { return precioVenta; }
         public double getPrecioAlquilerDia() { return precioAlquilerDia; }
+        public bool getActivo() { return Activo; }
+        public string getImagen1() { return Imagen1; }
+        public string getImagen2() { return Imagen2; }
+        public string getImagen3() {  return Imagen3; }
         public void setMarca(string marca) { this.marca = marca; }
         public void setModelo(string modelo) { this.modelo = modelo; }
         public void setMatricula(string matricula) { this.matricula = matricula; }
@@ -60,6 +62,10 @@ namespace Obligatorio2023Prog2.Clases
         public void setColor(string color) { this.color = color; }
         public void setPrecioVenta(double precioVenta) { this.precioVenta = precioVenta; }
         public void setPrecioAlquilerDia(double precioAlquilerDia) { this.precioAlquilerDia = precioAlquilerDia; }
+        public void setActivo(bool Activo) { this.Activo = Activo; }
+        public void setImagen1(string Imagen1) { this.Imagen1 = Imagen1; }
+        public void setImagen2(string Imagen2) { this.Imagen2 = Imagen2; }
+        public void setImagen3(string Imagen3) { this.Imagen3 = Imagen3; }
 
     }
 }
