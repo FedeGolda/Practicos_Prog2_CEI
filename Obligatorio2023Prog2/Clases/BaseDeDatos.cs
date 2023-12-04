@@ -27,6 +27,17 @@ namespace Obligatorio2023Prog2.Clases
             usuario.setVerVehiculos(true);
             listaUsuarios.Add(usuario);
 
+            // Agregar un usuario normal
+            Usuario usuario1 = new Usuario();
+            usuario1.setNombreUsuario("Vendedor");
+            usuario1.setContrasena("Vendedor");
+            usuario1.setVerAlquileres(true);
+            usuario1.setVerVentas(true);
+            usuario1.setVerClientes(true);
+            usuario1.setVerUsuarios(false);
+            usuario1.setVerVehiculos(true);
+            listaUsuarios.Add(usuario1);
+
             // Agregar clientes
             Cliente cliente = new Cliente { Apellido = "Perez", Cedula = "45866580", Direccion = "dr Edye 3456", Nombre = "Juan" };
             Cliente cliente2 = new Cliente { Apellido = "Lopez", Cedula = "45899989", Direccion = "dr Edye 5585", Nombre = "Javier" };
