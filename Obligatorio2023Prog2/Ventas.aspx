@@ -20,7 +20,7 @@
     <div class="row">
         <div class="col-lg-5">
             <asp:Label Text="Vehiculos: " runat="server" ></asp:Label>
-           <asp:DropDownList ID="cboVehiculos" runat="server" CssClass="form-control"></asp:DropDownList>
+           <asp:DropDownList ID="cboVehiculos" runat="server" CssClass="form-control" OnSelectedIndexChanged="cboVehiculos_SelectedIndexChanged1" AutoPostBack="true"></asp:DropDownList>
         </div>
     </div>
     <div class="row">

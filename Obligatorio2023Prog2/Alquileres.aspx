@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h3>Venta</h3>
+            <h3>Alquiler</h3>
         </div>
     </div>
     <div class="row">
@@ -27,7 +27,7 @@
     <div class="row">
         <div class="col-lg-5">
             <asp:Label Text="Dias: " runat="server"></asp:Label>
-            <asp:TextBox ID="txtAlquilerDia" TextMode="Number" runat="server" CssClass="form-control" Text="" placeholder="Dias de alquler" OnTextChanged="txtAlquilerDia_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="txtAlquilerDia" TextMode="Number" runat="server" CssClass="form-control" Text="" placeholder="Dias de alquiler" OnTextChanged="txtAlquilerDia_TextChanged"></asp:TextBox>
         </div>
     </div>
     <div class="row">

@@ -10,15 +10,16 @@ namespace Obligatorio2023Prog2
         {
             if (!Page.IsPostBack)
             {
+                cboClientes.DataSource = BaseDeDatos.listaClientes;
+                cboClientes.DataTextField = "DatosMostrar";
+                cboClientes.DataValueField = "Cedula";
+                cboClientes.DataBind();
+
                 cboVehiculos.DataSource = BaseDeDatos.ListadoVehiculosActivos();
+                cboVehiculos.DataTextField = "DatosMostrar";
                 cboVehiculos.DataTextField = "Matricula";
                 cboVehiculos.DataBind();
-
-                cboClientes.DataSource = BaseDeDatos.listaClientes;
-                cboClientes.DataTextField = "Cedula";
-                cboClientes.DataBind();
             }
-
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -48,7 +49,8 @@ namespace Obligatorio2023Prog2
             Response.Write("<script>alert('Venta ingresada correctamente')</script>");
         }
 
-        protected void cboVehiculos_SelectedIndexChanged(object sender, EventArgs e)
+
+        protected void cboVehiculos_SelectedIndexChanged1(object sender, EventArgs e)
         {
             string Matricula = cboVehiculos.SelectedItem.Value;
 

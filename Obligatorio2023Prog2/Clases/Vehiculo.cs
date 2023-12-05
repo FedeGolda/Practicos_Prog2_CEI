@@ -20,6 +20,7 @@ namespace Obligatorio2023Prog2.Clases
         public string Imagen1 { get; set; }
         public string Imagen2 { get; set; }
         public string Imagen3 { get; set; }
+        public string campoEspecial { get; set; }
 
         public Vehiculo()
         {
@@ -66,6 +67,14 @@ namespace Obligatorio2023Prog2.Clases
         public void setImagen1(string Imagen1) { this.Imagen1 = Imagen1; }
         public void setImagen2(string Imagen2) { this.Imagen2 = Imagen2; }
         public void setImagen3(string Imagen3) { this.Imagen3 = Imagen3; }
+
+        public string DatosMostrar
+        {
+            get
+            {
+                return "Matricula: " + matricula + "Marca" + marca + "Modelo:" + modelo;
+            }
+        }
 
     }
 }

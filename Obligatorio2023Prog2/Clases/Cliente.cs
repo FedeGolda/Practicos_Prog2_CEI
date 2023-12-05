@@ -87,6 +87,12 @@ namespace Obligatorio2023Prog2
             return (Int32.Parse(dig.ToString()) == validDigitCalculated);
         }
 
-
+        public string DatosMostrar
+        {
+            get
+            {
+                return Cedula + "- Nombre: " + Nombre + " " + Apellido;
+            }
+        }
     }
 }
