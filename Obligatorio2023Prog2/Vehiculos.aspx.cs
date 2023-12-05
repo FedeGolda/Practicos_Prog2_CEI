@@ -1,5 +1,4 @@
-﻿using Microsoft.Ajax.Utilities;
-using Obligatorio2023Prog2.Clases;
+﻿using Obligatorio2023Prog2.Clases;
 using System;
 using System.Web.UI.WebControls;
 
@@ -27,85 +26,72 @@ namespace Obligatorio2023Prog2
             }
         }
 
-
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            Vehiculo vehiculo = new Vehiculo();
-            vehiculo.setMatricula(txtMatricula.Text);
-            vehiculo.setModelo(txtModelo.Text);
-            vehiculo.setMarca(txtMarca.Text);
-            vehiculo.setModelo(txtModelo.Text);
-            vehiculo.setAño(txtAño.Text);
-            vehiculo.setColor(txtColor.Text);
 
-            if (int.TryParse(txtKilometros.Text, out int kilometros))
-            {
-                vehiculo.setKilometros(kilometros);
-            }
-            if (int.TryParse(txtPrecioVenta.Text, out int PrecioVenta))
-            {
-                vehiculo.setPrecioVenta(PrecioVenta);
-            }
-            if (int.TryParse(txtPrecioAlquiler.Text, out int PrecioAlquiler))
-            {
-                vehiculo.setPrecioAlquilerDia(PrecioAlquiler);
-            }
-
-            // Validar y convertir los valores a los tipos adecuados
-            if (string.IsNullOrEmpty(txtImagen1.Text) || string.IsNullOrEmpty(txtImagen2.Text) || string.IsNullOrEmpty(txtImagen3.Text))
-            {
-                Response.Write("<script>alert('Debe ingresar las 3 imágenes')</script>");
-            }
-            else
-            {
-                vehiculo.setImagen1(txtImagen1.Text);
-                vehiculo.setImagen2(txtImagen2.Text);
-                vehiculo.setImagen3(txtImagen3.Text);
-
-                BaseDeDatos.listaVehiculos.Add(vehiculo);
-
-                this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
-                this.gvVehiculos.DataBind();
-            }
             if (rblTipoVehiculo.SelectedItem.Value == "Moto")
             {
                 Moto moto = new Moto();
                 moto.setMatricula(txtMatricula.Text);
                 moto.setModelo(txtModelo.Text);
                 moto.setMarca(txtMarca.Text);
-                moto.CampoEspecial = "Cilindradas:" + txtCilindradas.Text;
-                moto.getCilindradas(txtCilindradas.Text);
+                moto.setAño(txtAño.Text);
+                moto.setKilometros(txtKilometros.Text);
+                moto.setColor(txtColor.Text);
+                moto.setPrecioVenta(txtPrecioVenta.Text);
+                moto.setPrecioAlquilerDia(txtPrecioAlquiler.Text);
+                moto.setImagen1(txtImagen1.Text);
+                moto.setImagen2(txtImagen2.Text);
+                moto.setImagen3(txtImagen3.Text);
+                moto.setCampoEspecial("Cilindradas: " + txtCilindradas.Text);
+                moto.setCilindradas(Convert.ToInt32(txtCilindradas.Text));
 
                 BaseDeDatos.listaVehiculos.Add(moto);
             }
-            if (rblTipoVehiculo.SelectedItem.Value == "Auto")
+            else if (rblTipoVehiculo.SelectedItem.Value == "Auto")
             {
                 Auto auto = new Auto();
                 auto.setMatricula(txtMatricula.Text);
                 auto.setModelo(txtModelo.Text);
                 auto.setMarca(txtMarca.Text);
-                auto.setModelo(txtModelo.Text);
                 auto.setAño(txtAño.Text);
+                auto.setKilometros(txtKilometros.Text);
                 auto.setColor(txtColor.Text);
-                auto.CampoEspecial = "Cant. Pasajeros:" + txtCantPasajeros.Text;
-                auto.getPasajeros(Convert.ToInt32(txtCantPasajeros.Text));
+                auto.setPrecioVenta(txtPrecioVenta.Text);
+                auto.setPrecioAlquilerDia(txtPrecioAlquiler.Text);
+                auto.setImagen1(txtImagen1.Text);
+                auto.setImagen2(txtImagen2.Text);
+                auto.setImagen3(txtImagen3.Text);
+                auto.setCampoEspecial("Cilindradas: " + txtCilindradas.Text);
+                auto.setPasajeros(Convert.ToInt32(txtCantPasajeros.Text));
 
                 BaseDeDatos.listaVehiculos.Add(auto);
             }
-
-            if (rblTipoVehiculo.SelectedItem.Value == "Camion")
+            else if (rblTipoVehiculo.SelectedItem.Value == "Camion")
             {
                 Camion camion = new Camion();
                 camion.setMatricula(txtMatricula.Text);
                 camion.setModelo(txtModelo.Text);
                 camion.setMarca(txtMarca.Text);
-                camion.setModelo(txtModelo.Text);
                 camion.setAño(txtAño.Text);
+                camion.setKilometros(txtKilometros.Text);
                 camion.setColor(txtColor.Text);
-                camion.CampoEspecial = "Toneladas: " + txtToneladas.Text;
-                camion.Toneladas = Convert.ToInt32(txtToneladas.Text);
+                camion.setPrecioVenta(txtPrecioVenta.Text);
+                camion.setPrecioAlquilerDia(txtPrecioAlquiler.Text);
+                camion.setImagen1(txtImagen1.Text);
+                camion.setImagen2(txtImagen2.Text);
+                camion.setImagen3(txtImagen3.Text);
+                camion.setCampoEspecial("Cilindradas: " + txtCilindradas.Text);
+                camion.setCarga(Convert.ToInt32(txtToneladas.Text));
 
                 BaseDeDatos.listaVehiculos.Add(camion);
+            }
+
+            else
+            {
+                // Tipo de vehículo no reconocido
+                Response.Write("<script>alert('Tipo de vehículo no reconocido')</script>");
+                return;
             }
 
             this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
@@ -115,11 +101,9 @@ namespace Obligatorio2023Prog2
             this.dgVehiculos.DataBind();
         }
 
-
-
         protected void gvVehiculos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            string matricula = this.gvVehiculos.DataKeys[e.RowIndex].Values[0].ToString();
+            string matricula = gvVehiculos.DataKeys[e.RowIndex].Values[0].ToString();
 
             foreach (var vehiculo in BaseDeDatos.listaVehiculos)
             {
@@ -132,50 +116,77 @@ namespace Obligatorio2023Prog2
             this.gvVehiculos.EditIndex = -1;
             this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
             this.gvVehiculos.DataBind();
+
+            this.dgVehiculos.DataSource = BaseDeDatos.listaVehiculos;
+            this.dgVehiculos.DataBind();
         }
 
         protected void gvVehiculos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            this.gvVehiculos.EditIndex = -1;
-            this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
-            this.gvVehiculos.DataBind();
+            gvVehiculos.EditIndex = -1;
+            gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
+            gvVehiculos.DataBind();
         }
 
         protected void gvVehiculos_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            this.gvVehiculos.EditIndex = e.NewEditIndex;
-            this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
-            this.gvVehiculos.DataBind();
+            gvVehiculos.EditIndex = e.NewEditIndex;
+            gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
+            gvVehiculos.DataBind();
         }
 
         protected void gvVehiculos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             GridViewRow filaSeleccionada = gvVehiculos.Rows[e.RowIndex];
-            string matricula = this.gvVehiculos.DataKeys[e.RowIndex].Values[0].ToString();
+            string matricula = gvVehiculos.DataKeys[e.RowIndex].Values[0].ToString();
 
             string marca = (filaSeleccionada.FindControl("txtMarcaGrid") as TextBox).Text;
             string modelo = (filaSeleccionada.FindControl("txtModeloGrid") as TextBox).Text;
-
             string imagen1 = (filaSeleccionada.FindControl("txtImagen1Grid") as TextBox).Text;
             string imagen2 = (filaSeleccionada.FindControl("txtImagen2Grid") as TextBox).Text;
             string imagen3 = (filaSeleccionada.FindControl("txtImagen3Grid") as TextBox).Text;
 
-            foreach (var vehiculo in BaseDeDatos.listaVehiculos)
+            Vehiculo vehiculoToUpdate = BaseDeDatos.listaVehiculos.Find(v => v.getMatricula() == matricula);
+
+            if (vehiculoToUpdate != null)
             {
-                if (vehiculo.getMatricula() == matricula)
-                {
-                    vehiculo.setMarca(marca);
-                    vehiculo.setModelo(modelo);
-                    vehiculo.setImagen1(imagen1);
-                    vehiculo.setImagen2(imagen2);
-                    vehiculo.setImagen3(imagen3);
-                }
+                vehiculoToUpdate.setMarca(marca);
+                vehiculoToUpdate.setModelo(modelo);
+                vehiculoToUpdate.setAño((filaSeleccionada.FindControl("txtAñoGrid") as TextBox).Text);
+                vehiculoToUpdate.setColor((filaSeleccionada.FindControl("txtColorGrid") as TextBox).Text);
+                vehiculoToUpdate.setImagen1(imagen1);
+                vehiculoToUpdate.setImagen2(imagen2);
+                vehiculoToUpdate.setImagen3(imagen3);
+
+                this.gvVehiculos.EditIndex = -1;
+                this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
+                this.gvVehiculos.DataBind();
+
+                this.dgVehiculos.DataSource = BaseDeDatos.listaVehiculos;
+                this.dgVehiculos.DataBind();
             }
+        }
 
-            this.gvVehiculos.EditIndex = -1;
-            this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
-            this.gvVehiculos.DataBind();
-
+        protected void rblTipoVehiculo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblTipoVehiculo.SelectedItem.Value == "Moto")
+            {
+                txtCilindradas.Visible = true;
+                txtCantPasajeros.Visible = false;
+                txtToneladas.Visible = false;
+            }
+            if (rblTipoVehiculo.SelectedItem.Value == "Auto")
+            {
+                txtCilindradas.Visible = false;
+                txtCantPasajeros.Visible = true;
+                txtToneladas.Visible = false;
+            }
+            if (rblTipoVehiculo.SelectedItem.Value == "Camion")
+            {
+                txtCilindradas.Visible = false;
+                txtCantPasajeros.Visible = false;
+                txtToneladas.Visible = true;
+            }
         }
     }
 }

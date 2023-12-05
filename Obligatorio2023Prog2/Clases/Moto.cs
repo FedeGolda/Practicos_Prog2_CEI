@@ -10,8 +10,8 @@ namespace Obligatorio2023Prog2
     {
         public int cilindradas { get; set; }
 
-        public Moto(string marca, string modelo, string matricula, string año, int kilometros, string color, double precioVenta, double precioAlquiler, bool activo, string Imagen1, string Imagen2, string Imagen3, int cilindradas)
-            : base(marca, modelo, matricula, año, kilometros, color, precioVenta, precioAlquiler, activo, Imagen1, Imagen2, Imagen3)
+        public Moto(string marca, string modelo, string matricula, string año, int kilometros, string color, double precioVenta, double precioAlquiler, bool activo, string Imagen1, string Imagen2, string Imagen3, string CampoEspecial, int cilindradas)
+            : base(marca, modelo, matricula, año, kilometros, color, precioVenta, precioAlquiler, activo, Imagen1, Imagen2, Imagen3, CampoEspecial)
         {
             this.cilindradas = cilindradas;
         }

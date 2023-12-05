@@ -27,6 +27,58 @@
 
     <div class="row">
         <div class="col-lg-5">
+            <asp:RadioButtonList ID="rblPermisos" runat="server" AutoPostBack="true" OnSelectedIndexChanged="rblPermisos_SelectedIndexChanged">
+                <asp:ListItem Value="VerClientes" Selected="True">Clientes</asp:ListItem>
+                <asp:ListItem Value="VerUsuarios">Usuarios</asp:ListItem>
+                <asp:ListItem Value="VerVentas">Ventas</asp:ListItem>
+                <asp:ListItem Value="VerVehiculos">Vehiculos</asp:ListItem>
+                <asp:ListItem Value="VerAlquileres">Alquileres</asp:ListItem>
+            </asp:RadioButtonList>
+        </div>
+    </div>
+
+
+    <div runat="server" id="VerUsuarios">
+        <h4>Permisos de Usuarios</h4>
+        <ul>
+            <li>Permiso 1</li>
+            <li>Permiso 2</li>
+        </ul>
+    </div>
+    <div runat="server" id="VerClientes">
+        <h4>Permisos de Clientes</h4>
+        <ul>
+            <li>Permiso 1</li>
+            <li>Permiso 2</li>
+        </ul>
+    </div>
+    <div runat="server" id="VerVentas">
+        <h4>Permisos de Ventas</h4>
+        <ul>
+            <li>Permiso 1</li>
+            <li>Permiso 2</li>
+        </ul>
+    </div>
+    <div runat="server" id="VerAlquileres">
+        <h4>Permisos de Alquileres</h4>
+        <ul>
+            <li>Permiso 1</li>
+            <li>Permiso 2</li>
+        </ul>
+    </div>
+    <div runat="server" id="VerVehiculos">
+        <h4>Permisos de Vehículos</h4>
+        <ul>
+            <li>Permiso 1</li>
+            <li>Permiso 2</li>
+        </ul>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col-lg-5">
             <asp:Button ID="btnGuardarUsuario" runat="server" CssClass="btn btn-primary" Text="Guardar" OnClick="btnGuardarUsuario_Click" />
         </div>
     </div>

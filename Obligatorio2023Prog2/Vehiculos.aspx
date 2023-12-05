@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Vehiculos.aspx.cs" Inherits="Obligatorio2023Prog2.Vehiculos" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <style>
@@ -165,6 +166,25 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
 
+                    <asp:TemplateField HeaderText="PrecioVenta">
+                        <ItemTemplate>
+                            <asp:Label ID="lblPrecioVenta" runat="server" Text='<%# Bind("PrecioVenta") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtPrecioVentaGrid" runat="server" Text='<%# Bind("PrecioVenta") %>'></asp:TextBox>
+
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="PrecioAlquiler">
+                        <ItemTemplate>
+                            <asp:Label ID="lblPrecioAlquilerDia" runat="server" Text='<%# Bind("PrecioAlquiler") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtPrecioAlquilerDiaGrid" runat="server" Text='<%# Bind("PrecioAlquiler") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
                     <asp:TemplateField HeaderText="CampoEspecial">
                         <ItemTemplate>
                             <asp:Label ID="lblCampoEspecial" runat="server" Text='<%# Bind("CampoEspecial") %>'></asp:Label>
@@ -198,7 +218,7 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Precio Venta">
+                    <asp:TemplateField HeaderText="PrecioVenta">
                         <ItemTemplate>
                             <asp:Label ID="lblPrecioVenta" runat="server" Text='<%# Bind("PrecioVenta") %>'></asp:Label>
                         </ItemTemplate>
@@ -207,7 +227,7 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Precio Alquiler">
+                    <asp:TemplateField HeaderText="PrecioAlquilerDia">
                         <ItemTemplate>
                             <asp:Label ID="lblPrecioAlquiler" runat="server" Text='<%# Bind("PrecioAlquilerDia") %>'></asp:Label>
                         </ItemTemplate>
@@ -219,7 +239,18 @@
                     <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
                 </Columns>
             </asp:GridView>
-
         </div>
     </div>
+
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-lg-8">
+            <asp:DataGrid ID="dgVehiculos" runat="server" CssClass="table" Width="80%" BorderStyle="Solid" BorderWidth="2px" CellSpacing="5">
+            </asp:DataGrid>
+        </div>
+    </div>
+
+
+
 </asp:Content>

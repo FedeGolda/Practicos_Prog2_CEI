@@ -1,6 +1,5 @@
 ﻿using Obligatorio2023Prog2.Clases;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
 
@@ -75,14 +74,12 @@ namespace Obligatorio2023Prog2
             }
         }
 
-
         protected void gvUsuarios_RowEditing(object sender, GridViewEditEventArgs e)
         {
             // Establece el índice de edición y vuelve a cargar los usuarios
             gvUsuarios.EditIndex = e.NewEditIndex;
             CargarUsuarios();
         }
-
 
         protected void gvUsuarios_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
@@ -99,8 +96,8 @@ namespace Obligatorio2023Prog2
                 if (usuarioAActualizar != null)
                 {
                     // Actualiza los datos del usuario
-                    usuarioAActualizar.setNombreUsuario(nuevoNombreUsuario);
-                    usuarioAActualizar.setContrasena(nuevaContrasena);
+                    usuarioAActualizar.NombreUsuario = nuevoNombreUsuario;
+                    usuarioAActualizar.Contrasena = nuevaContrasena;
                     // Actualiza otros campos según sea necesario
 
                     // Desactiva el modo de edición y vuelve a cargar los usuarios
@@ -114,5 +111,18 @@ namespace Obligatorio2023Prog2
                 Response.Write($"Error al actualizar el usuario: {ex.Message}");
             }
         }
+
+        protected void rblPermisos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblPermisos.SelectedItem.Value == "VerUsuarios")
+            {
+                VerUsuarios.Visible = false;
+                VerClientes.Visible = true;
+                VerVentas.Visible = true;
+                VerAlquileres.Visible = true;
+                VerVehiculos.Visible = true;
+            }
+        }
+
     }
 }
