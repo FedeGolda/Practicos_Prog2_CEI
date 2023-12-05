@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-lg-5">
             <asp:TextBox ID="txtCedula" runat="server" CssClass="form-control" Text="" placeholder="Cédula del cliente" MaxLength="8"></asp:TextBox>
-            <asp:RegularExpressionValidator ID="revCedula" runat="server" ControlToValidate="txtCedula" ErrorMessage="Ingrese solo números" BackColor="Red" ValidationExpression="^\d{1,8}$" Display="Dynamic"></asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="revCedula" runat="server" ControlToValidate="txtCedula" ErrorMessage="Ingrese solo números" ForeColor="Red" ValidationExpression="^\d{1,8}$" Display="Dynamic"></asp:RegularExpressionValidator>
         </div>
     </div>
     <div class="row">

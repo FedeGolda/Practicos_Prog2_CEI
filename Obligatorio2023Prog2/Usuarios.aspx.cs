@@ -7,8 +7,15 @@ namespace Obligatorio2023Prog2
 {
     public partial class Usuarios : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            Master.FindControl("lnkClientes").Visible = BaseDeDatos.usuarioLogeado.getVerClientes();
+            Master.FindControl("lnkVehiculos").Visible = BaseDeDatos.usuarioLogeado.getVerVehiculos();
+            Master.FindControl("lnkVentas").Visible = BaseDeDatos.usuarioLogeado.getVerVentas();
+            Master.FindControl("lnkAlquileres").Visible = BaseDeDatos.usuarioLogeado.getVerAlquileres();
+            Master.FindControl("lnkUsuarios").Visible = BaseDeDatos.usuarioLogeado.getVerUsuarios();
+
             if (!IsPostBack)
             {
                 CargarUsuarios();
