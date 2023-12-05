@@ -16,6 +16,16 @@
 
     <div class="row">
         <div class="col-lg-5">
+            <asp:RadioButtonList ID="rblTipoVehiculo" runat="server" AutoPostBack="true" OnSelectedIndexChanged="rblTipoVehiculo_SelectedIndexChanged">
+                <asp:ListItem Value="Moto" Selected="True">Moto</asp:ListItem>
+                <asp:ListItem Value="Auto">Auto</asp:ListItem>
+                <asp:ListItem Value="Camion">Camion</asp:ListItem>
+            </asp:RadioButtonList>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-5">
             <asp:TextBox ID="txtMatricula" runat="server" CssClass="form-control" Text="" placeholder="Matricula del vehiculo"></asp:TextBox>
         </div>
     </div>
@@ -52,6 +62,21 @@
     <div class="row">
         <div class="col-lg-5">
             <asp:TextBox ID="txtPrecioAlquiler" runat="server" TextMode="Number" CssClass="form-control" placeholder="Precio alquiler del Vehiculo"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <asp:TextBox ID="txtCilindradas" runat="server" TextMode="Number" CssClass="form-control" Text="" placeholder="Cilindradas del vehiculo"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <asp:TextBox ID="txtCantPasajeros" Visible="false" TextMode="Number" runat="server" CssClass="form-control" Text="" placeholder="Cantidad de Pasajeros del vehiculo"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <asp:TextBox ID="txtToneladas" runat="server" TextMode="Number" Visible="false" CssClass="form-control" Text="" placeholder="Toneladas del vehiculo"></asp:TextBox>
         </div>
     </div>
     <div class="row">
@@ -138,6 +163,12 @@
                         <EditItemTemplate>
                             <asp:TextBox ID="txtColorGrid" runat="server" Text='<%# Bind("Color") %>'></asp:TextBox>
                         </EditItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="CampoEspecial">
+                        <ItemTemplate>
+                            <asp:Label ID="lblCampoEspecial" runat="server" Text='<%# Bind("CampoEspecial") %>'></asp:Label>
+                        </ItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Imagen1">

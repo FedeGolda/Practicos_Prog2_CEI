@@ -67,6 +67,52 @@ namespace Obligatorio2023Prog2
                 this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
                 this.gvVehiculos.DataBind();
             }
+            if (rblTipoVehiculo.SelectedItem.Value == "Moto")
+            {
+                Moto moto = new Moto();
+                moto.setMatricula(txtMatricula.Text);
+                moto.setModelo(txtModelo.Text);
+                moto.setMarca(txtMarca.Text);
+                moto.CampoEspecial = "Cilindradas:" + txtCilindradas.Text;
+                moto.getCilindradas() = Convert.ToInt32(txtCilindradas.Text);
+
+                BaseDeDatos.listaVehiculos.Add(moto);
+            }
+            if (rblTipoVehiculo.SelectedItem.Value == "Auto")
+            {
+                Auto auto = new Auto();
+                auto.setMatricula(txtMatricula.Text);
+                auto.setModelo(txtModelo.Text);
+                auto.setMarca(txtMarca.Text);
+                auto.setModelo(txtModelo.Text);
+                auto.setAño(txtAño.Text);
+                auto.setColor(txtColor.Text);
+                auto.CampoEspecial = "Cant. Pasajeros:" + txtPasajeros.Text;
+                auto.getPasajeros(Convert.ToInt32(txtPasajeros.Text));
+
+                BaseDeDatos.listaVehiculos.Add(auto);
+            }
+
+            if (rblTipoVehiculo.SelectedItem.Value == "Camion")
+            {
+                Camion camion = new Camion();
+                camion.setMatricula(txtMatricula.Text);
+                camion.setModelo(txtModelo.Text);
+                camion.setMarca(txtMarca.Text);
+                camion.setModelo(txtModelo.Text);
+                camion.setAño(txtAño.Text);
+                camion.setColor(txtColor.Text);
+                camion.CampoEspecial = "Toneladas: " + txtToneladas.Text;
+                camion.Toneladas = Convert.ToInt32(txtToneladas.Text);
+
+                BaseDeDatos.listaVehiculos.Add(camion);
+            }
+
+            this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
+            this.gvVehiculos.DataBind();
+
+            this.dgVehiculos.DataSource = BaseDeDatos.listaVehiculos;
+            this.dgVehiculos.DataBind();
         }
 
 

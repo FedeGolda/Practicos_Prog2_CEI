@@ -15,6 +15,15 @@ namespace Obligatorio2023Prog2
     {
 
         /// <summary>
+        /// Control rblTipoVehiculo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblTipoVehiculo;
+
+        /// <summary>
         /// Control txtMatricula.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,33 @@ namespace Obligatorio2023Prog2
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrecioAlquiler;
+
+        /// <summary>
+        /// Control txtCilindradas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCilindradas;
+
+        /// <summary>
+        /// Control txtCantPasajeros.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCantPasajeros;
+
+        /// <summary>
+        /// Control txtToneladas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtToneladas;
 
         /// <summary>
         /// Control txtImagen1.
