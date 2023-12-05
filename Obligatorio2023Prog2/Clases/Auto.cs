@@ -9,6 +9,10 @@ namespace Obligatorio2023Prog2
     public class Auto : Vehiculo
     {
         public int pasajeros { get; set; }
+        public Auto()
+        {
+        }
+
         public Auto(string marca, string modelo, string matricula, string año, int kilometros, string color, double precioVenta, double precioAlquiler, bool activo, string Imagen1, string Imagen2, string Imagen3, string CampoEspecial, int pasajeros)
             : base(marca, modelo, matricula, año, kilometros, color, precioVenta, precioAlquiler, activo, Imagen1, Imagen2, Imagen3, CampoEspecial)
         {

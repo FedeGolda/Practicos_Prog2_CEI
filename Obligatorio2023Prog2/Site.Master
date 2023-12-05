@@ -13,7 +13,8 @@
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <link href="~/Iconshow-Transport-Sportscar-car-2.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
 <body>
@@ -50,6 +51,7 @@
                 </div>
             </div>
         </nav>
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>

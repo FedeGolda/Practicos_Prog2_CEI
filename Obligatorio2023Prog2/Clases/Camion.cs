@@ -15,6 +15,11 @@ namespace Obligatorio2023Prog2
         {
             this.carga = carga;
         }
+
+        public Camion()
+        {
+        }
+
         public double getCarga() { return carga; }
         public void setCarga(double carga) { this.carga = carga; }
     }

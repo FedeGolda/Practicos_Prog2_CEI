@@ -100,5 +100,10 @@ namespace Obligatorio2023Prog2
             this.gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
             this.gvAlquileres.DataBind();
         }
+
+        protected void txtAlquilerDia_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -176,12 +176,12 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="PrecioAlquiler">
+                    <asp:TemplateField HeaderText="PrecioAlquilerDia">
                         <ItemTemplate>
-                            <asp:Label ID="lblPrecioAlquilerDia" runat="server" Text='<%# Bind("PrecioAlquiler") %>'></asp:Label>
+                            <asp:Label ID="lblPrecioAlquilerDia" runat="server" Text='<%# Bind("PrecioAlquilerDia") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtPrecioAlquilerDiaGrid" runat="server" Text='<%# Bind("PrecioAlquiler") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtPrecioAlquilerDiaGrid" runat="server" Text='<%# Bind("PrecioAlquilerDia") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
 
