@@ -20,11 +20,7 @@ namespace Obligatorio2023Prog2.Clases
         public string Imagen1 { get; set; }
         public string Imagen2 { get; set; }
         public string Imagen3 { get; set; }
-<<<<<<< HEAD
         public string CampoEspecial { get; set; }
-=======
-        public string campoEspecial { get; set; }
->>>>>>> 9b2327c01a20c3a5dc87ac94eb1aa9bafc4d21d2
 
         public Vehiculo()
         {
@@ -73,9 +69,7 @@ namespace Obligatorio2023Prog2.Clases
         public void setImagen1(string Imagen1) { this.Imagen1 = Imagen1; }
         public void setImagen2(string Imagen2) { this.Imagen2 = Imagen2; }
         public void setImagen3(string Imagen3) { this.Imagen3 = Imagen3; }
-<<<<<<< HEAD
         public void setCampoEspecial(string CampoEspecial) { this.CampoEspecial = CampoEspecial; }
-=======
 
         public string DatosMostrar
         {
@@ -84,7 +78,5 @@ namespace Obligatorio2023Prog2.Clases
                 return "Matricula: " + matricula + "Marca" + marca + "Modelo:" + modelo;
             }
         }
-
->>>>>>> 9b2327c01a20c3a5dc87ac94eb1aa9bafc4d21d2
     }
 }

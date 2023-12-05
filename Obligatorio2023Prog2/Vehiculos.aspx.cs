@@ -74,7 +74,7 @@ namespace Obligatorio2023Prog2
                 moto.setModelo(txtModelo.Text);
                 moto.setMarca(txtMarca.Text);
                 moto.CampoEspecial = "Cilindradas:" + txtCilindradas.Text;
-                moto.getCilindradas() = Convert.ToInt32(txtCilindradas.Text);
+                moto.getCilindradas(txtCilindradas.Text);
 
                 BaseDeDatos.listaVehiculos.Add(moto);
             }
@@ -87,8 +87,8 @@ namespace Obligatorio2023Prog2
                 auto.setModelo(txtModelo.Text);
                 auto.setAño(txtAño.Text);
                 auto.setColor(txtColor.Text);
-                auto.CampoEspecial = "Cant. Pasajeros:" + txtPasajeros.Text;
-                auto.getPasajeros(Convert.ToInt32(txtPasajeros.Text));
+                auto.CampoEspecial = "Cant. Pasajeros:" + txtCantPasajeros.Text;
+                auto.getPasajeros(Convert.ToInt32(txtCantPasajeros.Text));
 
                 BaseDeDatos.listaVehiculos.Add(auto);
             }
