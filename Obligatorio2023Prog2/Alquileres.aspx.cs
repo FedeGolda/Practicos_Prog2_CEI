@@ -1,6 +1,7 @@
 ﻿using Obligatorio2023Prog2.Clases;
 using System;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace Obligatorio2023Prog2
 {
@@ -10,13 +11,11 @@ namespace Obligatorio2023Prog2
         {
             if (!Page.IsPostBack)
             {
-                cboVehiculos.DataSource = BaseDeDatos.ListadoVehiculosActivos();
-                cboVehiculos.DataTextField = "Matricula";
-                cboVehiculos.DataBind();
-
-                cboClientes.DataSource = BaseDeDatos.listaClientes;
-                cboClientes.DataTextField = "Cedula";
-                cboClientes.DataBind();
+                if (!Page.IsPostBack)
+                {
+                    gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
+                    gvAlquileres.DataBind();
+                }
             }
         }
 
@@ -47,32 +46,59 @@ namespace Obligatorio2023Prog2
             Response.Write("<script>alert('Venta ingresada correctamente')</script>");
         }
 
-        protected void txtAlquilerDia_TextChanged(object sender, EventArgs e)
+        protected void grdAlquileres_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtAlquilerDia.Text))
+
+
+
+        }
+
+        protected void grdAlquileres_EntrgarClick(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+        protected void gvVehiculos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            this.gvAlquileres.EditIndex = -1;
+            this.gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
+            this.gvAlquileres.DataBind();
+        }
+
+        protected void gvVehiculos_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+
+
+        }
+
+        protected void gvVehiculos_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            this.gvAlquileres.EditIndex = e.NewEditIndex;
+            this.gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
+            this.gvAlquileres.DataBind();
+        }
+
+        protected void gvVehiculos_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            GridViewRow filaSeleccionada = gvAlquileres.Rows[e.RowIndex];
+            string matricula = this.gvAlquileres.DataKeys[e.RowIndex].Values[0].ToString();
+
+            bool devuelto = (filaSeleccionada.FindControl("chkDevueltoGrid") as CheckBox).Checked;
+
+            foreach (var alquiler in BaseDeDatos.listaAlquileres)
             {
-                int dias = Convert.ToInt32(txtAlquilerDia.Text);
-
-                // Obtén el precio por día directamente desde el DropDownList cboVehiculos
-                double precioAlquilerDia = Convert.ToDouble(cboVehiculos.SelectedItem.Text);
-
-                // Calcula el precio total multiplicando el número de días por el precio por día del vehículo
-                double precioTotal = dias * precioAlquilerDia;
-
-                // Muestra el precio total en el Label correspondiente
-                lblPrecio.Text = precioTotal.ToString();
-
-                // Haz visible el Label que muestra el precio
-                lblPrecioSimbolo.Visible = true;
-                lblPrecio.Visible = true;
-            }
-            else
-            {
-                // Si el TextBox está vacío, oculta los Labels
-                lblPrecioSimbolo.Visible = false;
-                lblPrecio.Visible = false;
+                if (alquiler.Matricula == matricula)
+                {
+                    alquiler.AutoDevuelto = devuelto;
+                }
             }
 
+            this.gvAlquileres.EditIndex = -1;
+            this.gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
+            this.gvAlquileres.DataBind();
         }
     }
 }

@@ -41,4 +41,86 @@
             <asp:Label ID="lblPrecio" runat="server" Visible="false" CssClass="form-control" ForeColor="Red"></asp:Label>
         </div>
     </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-8">
+            <asp:GridView ID="gvAlquileres" runat="server" Width="80%" BorderWidth="2px" CellSpacing="5"
+                AutoGenerateColumns="false"
+                OnRowCancelingEdit="gvVehiculos_RowCancelingEdit"
+                OnRowDeleting="gvVehiculos_RowDeleting"
+                OnRowEditing="gvVehiculos_RowEditing"
+                OnRowUpdating="gvVehiculos_RowUpdating"
+                DataKeyNames="Matricula" OnSelectedIndexChanged="gvAlquileres_SelectedIndexChanged">
+
+
+
+                <Columns>
+                    <asp:TemplateField HeaderText="Matricula">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl1" runat="server" Text='<%# Bind("Matricula") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:Label ID="lbl2" runat="server" Text='<%# Bind("Matricula") %>'></asp:Label>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Cedula">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl3" runat="server" Text='<%# Bind("Cedula") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:Label ID="txtMarcaGrid" runat="server" Text='<%# Bind("Cedula") %>'></asp:Label>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="FechaAlquiler">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl4" runat="server" Text='<%# Bind("FechaAlquiler") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Dias">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl7" runat="server" Text='<%# Bind("Dias") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtDiasGrid" runat="server" Text='<%# Bind("Dias") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Precio">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl8" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtPrecioGrid" runat="server" Text='<%# Bind("Precio") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Devuelto">
+                        <ItemTemplate>
+                            <asp:CheckBox ID="lbl9" runat="server" Checked='<%# Bind("AutoDevuelto") %>'></asp:CheckBox>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:CheckBox ID="chkDevueltoGrid" runat="server" Checked='<%# Bind("AutoDevuelto") %>'></asp:CheckBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Estado">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl10" runat="server" Text='<%# Bind("Estado") %>' ForeColor="Red" Font-Bold="true"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
+
+                </Columns>
+
+
+            </asp:GridView>
+        </div>
+    </div>
+
+
+
+
+
+
 </asp:Content>

@@ -29,5 +29,24 @@ namespace Obligatorio2023Prog2
         public void setDias(int Dias) { this.Dias = Dias; }
         public void setPrecio(int Precio) { this.Precio = Precio;}
 
+        public string Estado
+        {
+            get
+            {
+                if (!AutoDevuelto && DateTime.Now > FechaAlquiler.AddDays(Dias))
+                {
+                    return "Atrasado";
+                }
+                else if (!AutoDevuelto)
+                {
+                    return "Al día";
+                }
+                else
+                {
+                    return "Vehículo devuelto";
+                }
+            }
+        }
+
     }
 }
