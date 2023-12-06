@@ -92,7 +92,6 @@ namespace Obligatorio2023Prog2
             {
                 // Manejar la excepción
                 Console.WriteLine("Excepción: " + ex.Message);
-                // Puedes agregar más lógica de manejo de errores si es necesario.
             }
         }
 
@@ -109,6 +108,69 @@ namespace Obligatorio2023Prog2
         {
             gvClientes.DataSource = BaseDeDatos.listaClientes;
             gvClientes.DataBind();
+        }
+
+
+
+        protected void gvClientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            string cedula = gvClientes.DataKeys[e.RowIndex].Values[0].ToString();
+
+            foreach (var cliente in BaseDeDatos.listaClientes)
+            {
+                if (cliente.getCedula() == cedula)
+                {
+                    BaseDeDatos.listaClientes.Remove(cliente);
+                    break;
+                }
+            }
+            this.gvClientes.EditIndex = -1;
+            this.gvClientes.DataSource = BaseDeDatos.listaClientes;
+            this.gvClientes.DataBind();
+        }
+
+        protected void gvClientes_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvClientes.EditIndex = -1;
+            gvClientes.DataSource = BaseDeDatos.listaClientes;
+            gvClientes.DataBind();
+        }
+
+        protected void gvClientes_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvClientes.EditIndex = e.NewEditIndex;
+            gvClientes.DataSource = BaseDeDatos.listaClientes;
+            gvClientes.DataBind();
+        }
+
+        protected void gvClientes_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            GridViewRow filaSeleccionada = gvClientes.Rows[e.RowIndex];
+            string cedula = gvClientes.DataKeys[e.RowIndex].Values[0].ToString();
+
+            string nombre = (filaSeleccionada.FindControl("txtNombreGrid") as TextBox).Text;
+            string apellido = (filaSeleccionada.FindControl("txtApellidoGrid") as TextBox).Text;
+            string direccion = (filaSeleccionada.FindControl("txtDireccionGrid") as TextBox).Text;
+
+            // Buscar el cliente a actualizar por la cédula original
+            Cliente clienteToUpdate = BaseDeDatos.listaClientes.Find(v => v.getCedula() == cedula);
+
+            if (clienteToUpdate != null)
+            {
+                clienteToUpdate.setCedula(cedula);
+                clienteToUpdate.setNombre(nombre);
+                clienteToUpdate.setApellido(apellido);
+                clienteToUpdate.setDireccion(direccion);
+
+                this.gvClientes.EditIndex = -1;
+                this.gvClientes.DataSource = BaseDeDatos.listaClientes;
+                this.gvClientes.DataBind();
+            }
+        }
+
+        protected void gvClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="Obligatorio2023Prog2.Clientes" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         .row {
@@ -41,12 +42,53 @@
             <h4>Clientes Registrados</h4>
             <asp:Label ID="lblMensajeError" runat="server" ForeColor="Red"></asp:Label>
             <asp:GridView ID="gvClientes" runat="server" CssClass="table" Width="80%" BorderStyle="Solid" BorderWidth="2px" CellSpacing="5"
-                AutoGenerateColumns="false">
+                AutoGenerateColumns="false"
+                OnRowCancelingEdit="gvClientes_RowCancelingEdit"
+                OnRowDeleting="gvClientes_RowDeleting"
+                OnRowEditing="gvClientes_RowEditing"
+                OnRowUpdating="gvClientes_RowUpdating"
+                DataKeyNames="Cedula" OnSelectedIndexChanged="gvClientes_SelectedIndexChanged">
                 <Columns>
-                    <asp:BoundField DataField="Cedula" HeaderText="Cédula" />
-                    <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                    <asp:BoundField DataField="Apellido" HeaderText="Apellido" />
-                    <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
+                    <asp:TemplateField HeaderText="Cedula">
+                        <ItemTemplate>
+                            <asp:Label ID="lblCedula" runat="server" Text='<%# Bind("Cedula") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:Label ID="txtCedulaGrid" runat="server" Text='<%# Bind("Cedula") %>'></asp:Label>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+
+
+                    <asp:TemplateField HeaderText="Nombre">
+                        <ItemTemplate>
+                            <asp:Label ID="lblNombre" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtNombreGrid" runat="server" Text='<%# Bind("Nombre") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Apellido">
+                        <ItemTemplate>
+                            <asp:Label ID="lblApellido" runat="server" Text='<%# Bind("Apellido") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtApellidoGrid" runat="server" Text='<%# Bind("Apellido") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+
+                    <asp:TemplateField HeaderText="Direccion">
+                        <ItemTemplate>
+                            <asp:Label ID="lblDireccion" runat="server" Text='<%# Bind("Direccion") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtDireccionGrid" runat="server" Text='<%# Bind("Direccion") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
                 </Columns>
             </asp:GridView>
         </div>

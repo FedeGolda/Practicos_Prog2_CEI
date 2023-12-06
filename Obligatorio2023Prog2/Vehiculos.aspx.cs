@@ -28,6 +28,25 @@ namespace Obligatorio2023Prog2
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            // Verificar si los TextBox están vacíos
+            if (string.IsNullOrWhiteSpace(txtMatricula.Text) ||
+                string.IsNullOrWhiteSpace(txtMarca.Text) ||
+                string.IsNullOrWhiteSpace(txtModelo.Text) ||
+                string.IsNullOrWhiteSpace(txtAño.Text) ||
+                string.IsNullOrWhiteSpace(txtKilometros.Text) ||
+                string.IsNullOrWhiteSpace(txtColor.Text) ||
+                string.IsNullOrWhiteSpace(txtPrecioVenta.Text) ||
+                string.IsNullOrWhiteSpace(txtPrecioAlquiler.Text) ||
+                string.IsNullOrWhiteSpace(txtCilindradas.Text) ||
+                string.IsNullOrWhiteSpace(txtCantPasajeros.Text) ||
+                string.IsNullOrWhiteSpace(txtToneladas.Text) ||
+                string.IsNullOrWhiteSpace(txtImagen1.Text) ||
+                string.IsNullOrWhiteSpace(txtImagen2.Text) ||
+                string.IsNullOrWhiteSpace(txtImagen3.Text))
+            {
+                lblMensajeError.Text = "Todos los campos son obligatorios. Complete la información.";
+                return;
+            }
 
             if (rblTipoVehiculo.SelectedItem.Value == "Moto")
             {
@@ -37,13 +56,44 @@ namespace Obligatorio2023Prog2
                 moto.setMarca(txtMarca.Text);
                 moto.setAño(txtAño.Text);
                 moto.setColor(txtColor.Text);
-                moto.setPrecioVenta(Convert.ToInt32(txtPrecioVenta.Text));
-                moto.setPrecioAlquilerDia(Convert.ToInt32(txtPrecioAlquiler.Text));
+
+                // Validar y convertir la entrada de txtPrecioVenta.Text
+                if (int.TryParse(txtPrecioVenta.Text, out int precioVenta))
+                {
+                    moto.setPrecioVenta(precioVenta);
+                }
+                else
+                {
+                    // Manejar la entrada no válida, mostrar un mensaje de error, etc.
+                    Response.Write("<script>alert('Precio de venta no válido')</script>");
+                    return;
+                }
+
+                // Repetir el mismo proceso para txtPrecioAlquiler.Text
+                if (int.TryParse(txtPrecioAlquiler.Text, out int precioAlquiler))
+                {
+                    moto.setPrecioAlquilerDia(precioAlquiler);
+                }
+                else
+                {
+                    Response.Write("<script>alert('Precio de alquiler no válido')</script>");
+                    return;
+                }
+
                 moto.setImagen1(txtImagen1.Text);
                 moto.setImagen2(txtImagen2.Text);
                 moto.setImagen3(txtImagen3.Text);
-                moto.setCampoEspecial("Cilindradas: " + txtCilindradas.Text);
-                moto.setCilindradas(Convert.ToInt32(txtCilindradas.Text));
+
+                // Validar y convertir la entrada de txtCilindradas.Text
+                if (int.TryParse(txtCilindradas.Text, out int cilindradas))
+                {
+                    moto.setCilindradas(cilindradas);
+                }
+                else
+                {
+                    Response.Write("<script>alert('Cilindradas no válidas')</script>");
+                    return;
+                }
 
                 BaseDeDatos.listaVehiculos.Add(moto);
             }
@@ -61,7 +111,7 @@ namespace Obligatorio2023Prog2
                 auto.setImagen1(txtImagen1.Text);
                 auto.setImagen2(txtImagen2.Text);
                 auto.setImagen3(txtImagen3.Text);
-                auto.setCampoEspecial("Cilindradas: " + txtCilindradas.Text);
+                auto.setCampoEspecial("Pasajeros: " + txtCantPasajeros.Text);
                 auto.setPasajeros(Convert.ToInt32(txtCantPasajeros.Text));
 
                 BaseDeDatos.listaVehiculos.Add(auto);
@@ -80,7 +130,7 @@ namespace Obligatorio2023Prog2
                 camion.setImagen1(txtImagen1.Text);
                 camion.setImagen2(txtImagen2.Text);
                 camion.setImagen3(txtImagen3.Text);
-                camion.setCampoEspecial("Cilindradas: " + txtCilindradas.Text);
+                camion.setCampoEspecial("Toneladas: " + txtToneladas.Text);
                 camion.setCarga(Convert.ToInt32(txtToneladas.Text));
 
                 BaseDeDatos.listaVehiculos.Add(camion);
@@ -95,9 +145,6 @@ namespace Obligatorio2023Prog2
 
             this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
             this.gvVehiculos.DataBind();
-
-            this.dgVehiculos.DataSource = BaseDeDatos.listaVehiculos;
-            this.dgVehiculos.DataBind();
         }
 
         protected void gvVehiculos_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -115,9 +162,6 @@ namespace Obligatorio2023Prog2
             this.gvVehiculos.EditIndex = -1;
             this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
             this.gvVehiculos.DataBind();
-
-            this.dgVehiculos.DataSource = BaseDeDatos.listaVehiculos;
-            this.dgVehiculos.DataBind();
         }
 
         protected void gvVehiculos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -160,9 +204,6 @@ namespace Obligatorio2023Prog2
                 this.gvVehiculos.EditIndex = -1;
                 this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
                 this.gvVehiculos.DataBind();
-
-                this.dgVehiculos.DataSource = BaseDeDatos.listaVehiculos;
-                this.dgVehiculos.DataBind();
             }
         }
 
@@ -186,6 +227,11 @@ namespace Obligatorio2023Prog2
                 txtCantPasajeros.Visible = false;
                 txtToneladas.Visible = true;
             }
+        }
+
+        protected void gvVehiculos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

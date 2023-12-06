@@ -103,13 +103,15 @@
     </div>
     <div class="row">
         <div class="col-lg-8">
+            <h4>Vehiculos registrados</h4>
+            <asp:Label ID="lblMensajeError" runat="server" ForeColor="Red"></asp:Label>
             <asp:GridView ID="gvVehiculos" runat="server" Width="80%" BorderWidth="2px" CellSpacing="5"
                 OnRowCancelingEdit="gvVehiculos_RowCancelingEdit"
                 OnRowDeleting="gvVehiculos_RowDeleting"
                 OnRowEditing="gvVehiculos_RowEditing"
                 OnRowUpdating="gvVehiculos_RowUpdating"
                 AutoGenerateColumns="false"
-                DataKeyNames="Matricula">
+                DataKeyNames="Matricula" OnSelectedIndexChanged="gvVehiculos_SelectedIndexChanged">
                 <Columns>
                     <asp:TemplateField HeaderText="Matricula">
                         <ItemTemplate>
@@ -193,7 +195,7 @@
 
                     <asp:TemplateField HeaderText="Imagen1">
                         <ItemTemplate>
-                            <asp:Image ID="imgImagen1" runat="server" ImageUrl='<%# Bind("Imagen1") %>' Height="200" Width="200"></asp:Image>
+                            <asp:Image ID="imgImagen1" runat="server" ImageUrl='<%# Bind("Imagen1") %>' Height="100" Width="100"></asp:Image>
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtImagen1Grid" runat="server" Text='<%# Bind("Imagen1") %>'></asp:TextBox>
@@ -202,7 +204,7 @@
 
                     <asp:TemplateField HeaderText="Imagen2">
                         <ItemTemplate>
-                            <asp:Image ID="imgImagen2" runat="server" ImageUrl='<%# Bind("Imagen2") %>' Height="200" Width="200"></asp:Image>
+                            <asp:Image ID="imgImagen2" runat="server" ImageUrl='<%# Bind("Imagen2") %>' Height="100" Width="100"></asp:Image>
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtImagen2Grid" runat="server" Text='<%# Bind("Imagen2") %>'></asp:TextBox>
@@ -211,7 +213,7 @@
 
                     <asp:TemplateField HeaderText="Imagen3">
                         <ItemTemplate>
-                            <asp:Image ID="imgImagen3" runat="server" ImageUrl='<%# Bind("Imagen3") %>' Height="200" Width="200"></asp:Image>
+                            <asp:Image ID="imgImagen3" runat="server" ImageUrl='<%# Bind("Imagen3") %>' Height="100" Width="100"></asp:Image>
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtImagen3Grid" runat="server" Text='<%# Bind("Imagen3") %>'></asp:TextBox>
@@ -242,14 +244,6 @@
         </div>
     </div>
 
-    <br />
-    <br />
-    <div class="row">
-        <div class="col-lg-8">
-            <asp:DataGrid ID="dgVehiculos" runat="server" CssClass="table" Width="80%" BorderStyle="Solid" BorderWidth="2px" CellSpacing="5">
-            </asp:DataGrid>
-        </div>
-    </div>
 
 
 

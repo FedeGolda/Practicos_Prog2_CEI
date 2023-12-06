@@ -118,8 +118,17 @@ namespace Obligatorio2023Prog2
 
         protected void txtAlquilerDia_TextChanged(object sender, EventArgs e)
         {
-            // Lógica que deseas ejecutar cuando el texto en el TextBox cambia
-            // Puedes acceder al valor actual del TextBox con txtAlquilerDia.Text
+            calcularPrecioAlquiler();
+        }
+
+        public int calcularPrecioAlquiler()
+        {
+            if (!string.IsNullOrEmpty(txtAlquilerDia.Text))
+            {
+                //hago las cuentas
+            }
+
+            return 100;
         }
 
     }
