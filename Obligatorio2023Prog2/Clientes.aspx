@@ -41,7 +41,13 @@
         <div class="col-lg-8">
             <h4>Clientes Registrados</h4>
             <asp:Label ID="lblMensajeError" runat="server" ForeColor="Red"></asp:Label>
-            <asp:GridView ID="gvClientes" runat="server" AutoGenerateColumns="False" OnRowEditing="gvClientes_RowEditing" OnRowCancelingEdit="gvClientes_RowCancelingEdit" OnRowUpdating="gvClientes_RowUpdating" OnRowDeleting="gvClientes_RowDeleting">
+            <asp:GridView ID="gvClientes" runat="server" 
+                AutoGenerateColumns="False" 
+                OnRowEditing="gvClientes_RowEditing" 
+                OnRowCancelingEdit="gvClientes_RowCancelingEdit" 
+                OnRowUpdating="gvClientes_RowUpdating" 
+                OnRowDeleting="gvClientes_RowDeleting"
+                DataKeyNames="Cedula">
                 <Columns>
                     <asp:BoundField DataField="Cedula" HeaderText="Cedula" SortExpression="Cedula" ReadOnly="True" />
                     <asp:TemplateField HeaderText="Nombre" SortExpression="Nombre">

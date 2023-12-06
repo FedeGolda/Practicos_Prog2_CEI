@@ -38,6 +38,7 @@ namespace Obligatorio2023Prog2
                     string.IsNullOrWhiteSpace(txtDireccion.Text))
                 {
                     lblMensajeError.Text = "Todos los campos son obligatorios. Complete la información.";
+                    lblMensajeError.Visible = true;  // Mostrar el mensaje de error
                     return;
                 }
 
@@ -46,6 +47,7 @@ namespace Obligatorio2023Prog2
                 {
                     // Mostrar un mensaje de error
                     lblMensajeError.Text = "Ya existe un cliente con esa cédula.";
+                    lblMensajeError.Visible = true;  // Mostrar el mensaje de error
                     return;
                 }
 
@@ -61,6 +63,7 @@ namespace Obligatorio2023Prog2
                 {
                     // Mostrar un mensaje de error
                     lblMensajeError.Text = "La cédula no es válida. Por favor, ingrese una cédula uruguaya válida.";
+                    lblMensajeError.Visible = true;  // Mostrar el mensaje de error
                     return;
                 }
 
@@ -74,10 +77,10 @@ namespace Obligatorio2023Prog2
                 txtDireccion.Text = "";
 
                 // Actualizar la GridView
-                gvClientes.EditIndex = -1;
                 gvClientes.DataSource = BaseDeDatos.listaClientes;
                 gvClientes.DataBind();
 
+                // Ocultar el mensaje de error después de una operación exitosa
                 lblMensajeError.Visible = false;
             }
             catch (Exception ex)
@@ -86,7 +89,6 @@ namespace Obligatorio2023Prog2
                 Console.WriteLine("Excepción: " + ex.Message);
             }
         }
-
 
 
 
@@ -146,11 +148,6 @@ namespace Obligatorio2023Prog2
                 this.gvClientes.DataSource = BaseDeDatos.listaClientes;
                 this.gvClientes.DataBind();
             }
-        }
-
-        protected void gvClientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

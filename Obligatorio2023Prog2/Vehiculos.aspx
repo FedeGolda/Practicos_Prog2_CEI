@@ -111,7 +111,7 @@
                 OnRowEditing="gvVehiculos_RowEditing"
                 OnRowUpdating="gvVehiculos_RowUpdating"
                 AutoGenerateColumns="false"
-                DataKeyNames="Matricula" OnSelectedIndexChanged="gvVehiculos_SelectedIndexChanged">
+                DataKeyNames="Matricula">
                 <Columns>
                     <asp:TemplateField HeaderText="Matricula">
                         <ItemTemplate>
