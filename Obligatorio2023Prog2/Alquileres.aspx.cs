@@ -17,13 +17,12 @@ namespace Obligatorio2023Prog2
 
             if (!Page.IsPostBack)
             {
-                if (!Page.IsPostBack)
-                {
-                    gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
-                    gvAlquileres.DataBind();
-                }
+                gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
+                gvAlquileres.DataBind();
             }
         }
+
+
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -52,64 +51,76 @@ namespace Obligatorio2023Prog2
             Response.Write("<script>alert('Venta ingresada correctamente')</script>");
         }
 
-        protected void grdAlquileres_SelectedIndexChanged(object sender, EventArgs e)
+        protected void gvAlquileres_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Lógica para manejar el evento SelectedIndexChanged
+            // Puedes acceder a la fila seleccionada utilizando gvAlquileres.SelectedRow
+            // y obtener los valores de las celdas según tus necesidades
 
+            GridViewRow selectedRow = gvAlquileres.SelectedRow;
 
+            // Ejemplo de cómo obtener el valor de una celda en la fila seleccionada
+            string matricula = selectedRow.Cells[0].Text;
 
+            // Puedes continuar con la lógica según tus necesidades
+            // ...
         }
 
-        protected void grdAlquileres_EntrgarClick(object sender, EventArgs e)
+
+        protected void gvAlquileres_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-
-
-
+            gvAlquileres.EditIndex = -1;
+            gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
+            gvAlquileres.DataBind();
         }
 
-        protected void gvVehiculos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+
+        protected void gvAlquileres_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            this.gvAlquileres.EditIndex = -1;
-            this.gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
-            this.gvAlquileres.DataBind();
+            gvAlquileres.EditIndex = e.NewEditIndex;
+            gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
+            gvAlquileres.DataBind();
         }
 
-        protected void gvVehiculos_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void gvAlquileres_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            // Lógica para actualizar una fila en la lista de alquileres
+            // Puedes acceder a los controles de edición de la fila utilizando e.RowIndex y encontrar los valores necesarios
 
+            GridViewRow row = gvAlquileres.Rows[e.RowIndex];
+            string matricula = gvAlquileres.DataKeys[e.RowIndex].Values["Matricula"].ToString();
+            string nuevosDias = (row.FindControl("txtDiasGrid") as TextBox).Text;
+            string nuevoPrecio = (row.FindControl("txtPrecioGrid") as TextBox).Text;
 
+            // Actualizar la lista o la base de datos con los nuevos valores
+            // ...
 
+            gvAlquileres.EditIndex = -1;
+            gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
+            gvAlquileres.DataBind();
         }
 
-        protected void gvVehiculos_RowEditing(object sender, GridViewEditEventArgs e)
+        protected void gvAlquileres_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            this.gvAlquileres.EditIndex = e.NewEditIndex;
-            this.gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
-            this.gvAlquileres.DataBind();
+            // Lógica para eliminar una fila en la lista de alquileres
+            // Puedes acceder a los valores de la fila que se está eliminando utilizando e.RowIndex
+
+            GridViewRow row = gvAlquileres.Rows[e.RowIndex];
+            string matricula = gvAlquileres.DataKeys[e.RowIndex].Values["Matricula"].ToString();
+
+            // Eliminar la fila de la lista o de la base de datos
+            // ...
+
+            gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
+            gvAlquileres.DataBind();
         }
 
-        protected void gvVehiculos_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            GridViewRow filaSeleccionada = gvAlquileres.Rows[e.RowIndex];
-            string matricula = this.gvAlquileres.DataKeys[e.RowIndex].Values[0].ToString();
-
-            bool devuelto = (filaSeleccionada.FindControl("chkDevueltoGrid") as CheckBox).Checked;
-
-            foreach (var alquiler in BaseDeDatos.listaAlquileres)
-            {
-                if (alquiler.Matricula == matricula)
-                {
-                    alquiler.AutoDevuelto = devuelto;
-                }
-            }
-
-            this.gvAlquileres.EditIndex = -1;
-            this.gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
-            this.gvAlquileres.DataBind();
-        }
 
         protected void txtAlquilerDia_TextChanged(object sender, EventArgs e)
         {
-
+            // Lógica que deseas ejecutar cuando el texto en el TextBox cambia
+            // Puedes acceder al valor actual del TextBox con txtAlquilerDia.Text
         }
+
     }
 }

@@ -40,6 +40,17 @@ namespace Obligatorio2023Prog2
                 nuevoCliente.setApellido(txtApellido.Text);
                 nuevoCliente.setDireccion(txtDireccion.Text);
 
+
+                // Verificar si los TextBox están vacíos
+                if (string.IsNullOrWhiteSpace(txtCedula.Text) ||
+                    string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                    string.IsNullOrWhiteSpace(txtApellido.Text) ||
+                    string.IsNullOrWhiteSpace(txtDireccion.Text))
+                {
+                    lblMensajeError.Text = "Todos los campos son obligatorios. Complete la información.";
+                    return;
+                }
+
                 // Mostrar la cédula en la consola o en un mensaje de alerta
                 Console.WriteLine("Cédula ingresada: " + nuevoCliente.getCedula());
 
