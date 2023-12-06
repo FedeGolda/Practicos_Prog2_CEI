@@ -29,9 +29,10 @@ namespace Obligatorio2023Prog2
             Alquiler alquiler = new Alquiler();
             alquiler.setCedula(cboClientes.SelectedItem.Value);
             alquiler.setMatricula(cboVehiculos.SelectedItem.Value);
-            alquiler.setFechaAlquiler(DateTime.Now);
-            alquiler.setPrecio(Convert.ToInt32(lblPrecio.Text));
             alquiler.setNombreUsuario(BaseDeDatos.usuarioLogeado.NombreUsuario);
+            alquiler.setFechaAlquiler(DateTime.Now);
+            //alquiler.setDias(Convert.ToInt32(txtDiasGrid.Text));
+            alquiler.setPrecio(Convert.ToInt32(lblPrecio.Text));
 
             BaseDeDatos.listaAlquileres.Add(alquiler);
 
@@ -84,21 +85,23 @@ namespace Obligatorio2023Prog2
 
         protected void gvAlquileres_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            // Lógica para actualizar una fila en la lista de alquileres
-            // Puedes acceder a los controles de edición de la fila utilizando e.RowIndex y encontrar los valores necesarios
+            // ...
 
             GridViewRow row = gvAlquileres.Rows[e.RowIndex];
             string matricula = gvAlquileres.DataKeys[e.RowIndex].Values["Matricula"].ToString();
-            string nuevosDias = (row.FindControl("txtDiasGrid") as TextBox).Text;
-            string nuevoPrecio = (row.FindControl("txtPrecioGrid") as TextBox).Text;
 
-            // Actualizar la lista o la base de datos con los nuevos valores
+            // Actualiza los valores según tus necesidades
+            string nuevosDias = (row.FindControl("txtDiasGrid") as TextBox)?.Text;
+            string nuevoPrecio = (row.FindControl("txtPrecioGrid") as TextBox)?.Text;
+
             // ...
 
+            // Limpia el índice de edición después de la actualización
             gvAlquileres.EditIndex = -1;
             gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
             gvAlquileres.DataBind();
         }
+
 
         protected void gvAlquileres_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -130,6 +133,17 @@ namespace Obligatorio2023Prog2
 
             return 100;
         }
+
+        protected void chkDevueltoGrid_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox chkDevueltoGrid = sender as CheckBox;
+            GridViewRow row = chkDevueltoGrid.NamingContainer as GridViewRow;
+            int rowIndex = row.RowIndex;
+
+            // Accede al alquiler correspondiente en la lista y actualiza el estado AutoDevuelto
+            BaseDeDatos.listaAlquileres[rowIndex].AutoDevuelto = chkDevueltoGrid.Checked;
+        }
+
 
     }
 }

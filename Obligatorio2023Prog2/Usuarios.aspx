@@ -27,55 +27,15 @@
 
     <div class="row">
         <div class="col-lg-5">
-            <asp:RadioButtonList ID="rblPermisos" runat="server" AutoPostBack="true" OnSelectedIndexChanged="rblPermisos_SelectedIndexChanged">
-                <asp:ListItem Value="VerClientes" Selected="True">Clientes</asp:ListItem>
+            <asp:CheckBoxList ID="cblPermisos" runat="server" CssClass="form-control">
+                <asp:ListItem Value="VerClientes">Clientes</asp:ListItem>
                 <asp:ListItem Value="VerUsuarios">Usuarios</asp:ListItem>
                 <asp:ListItem Value="VerVentas">Ventas</asp:ListItem>
                 <asp:ListItem Value="VerVehiculos">Vehiculos</asp:ListItem>
                 <asp:ListItem Value="VerAlquileres">Alquileres</asp:ListItem>
-            </asp:RadioButtonList>
+            </asp:CheckBoxList>
         </div>
     </div>
-
-
-    <div runat="server" id="VerUsuarios">
-        <h4>Permisos de Usuarios</h4>
-        <ul>
-            <li>Permiso 1</li>
-            <li>Permiso 2</li>
-        </ul>
-    </div>
-    <div runat="server" id="VerClientes">
-        <h4>Permisos de Clientes</h4>
-        <ul>
-            <li>Permiso 1</li>
-            <li>Permiso 2</li>
-        </ul>
-    </div>
-    <div runat="server" id="VerVentas">
-        <h4>Permisos de Ventas</h4>
-        <ul>
-            <li>Permiso 1</li>
-            <li>Permiso 2</li>
-        </ul>
-    </div>
-    <div runat="server" id="VerAlquileres">
-        <h4>Permisos de Alquileres</h4>
-        <ul>
-            <li>Permiso 1</li>
-            <li>Permiso 2</li>
-        </ul>
-    </div>
-    <div runat="server" id="VerVehiculos">
-        <h4>Permisos de Vehículos</h4>
-        <ul>
-            <li>Permiso 1</li>
-            <li>Permiso 2</li>
-        </ul>
-    </div>
-
-
-
 
     <div class="row">
         <div class="col-lg-5">
@@ -84,6 +44,7 @@
     </div>
     <div class="row">
         <div class="col-lg-8">
+            <asp:Label ID="lblMensajeError" runat="server" ForeColor="Red"></asp:Label>
             <asp:GridView ID="gvUsuarios" runat="server" Width="80%" BorderWidth="2px" CellSpacing="5"
                 OnRowCancelingEdit="gvUsuarios_RowCancelingEdit"
                 OnRowDeleting="gvUsuarios_RowDeleting"
@@ -110,9 +71,56 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
 
+                    <asp:TemplateField HeaderText="VerClientes">
+                        <ItemTemplate>
+                            <asp:Label ID="lblVerClientes" runat="server" Text='<%# Bind("VerClientes") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:CheckBox ID="chkVerClientesGrid" runat="server" Checked='<%# Bind("VerClientes") %>' />
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="VerUsuarios">
+                        <ItemTemplate>
+                            <asp:Label ID="lblVerUsuarios" runat="server" Text='<%# Bind("VerUsuarios") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:CheckBox ID="chkVerUsuariosGrid" runat="server" Checked='<%# Bind("VerUsuarios") %>' />
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="VerVehiculos">
+                        <ItemTemplate>
+                            <asp:Label ID="lblVerVehiculos" runat="server" Text='<%# Bind("VerVehiculos") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:CheckBox ID="chkVerVehiculosGrid" runat="server" Checked='<%# Bind("VerVehiculos") %>' />
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="VerAlquileres">
+                        <ItemTemplate>
+                            <asp:Label ID="lblVerAlquileres" runat="server" Text='<%# Bind("VerAlquileres") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:CheckBox ID="chkVerAlquileresGrid" runat="server" Checked='<%# Bind("VerAlquileres") %>' />
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="VerVentas">
+                        <ItemTemplate>
+                            <asp:Label ID="lblVerVentas" runat="server" Text='<%# Bind("VerVentas") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:CheckBox ID="chkVerVentasGrid" runat="server" Checked='<%# Bind("VerVentas") %>' />
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+
                     <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
                 </Columns>
             </asp:GridView>
+
 
         </div>
     </div>

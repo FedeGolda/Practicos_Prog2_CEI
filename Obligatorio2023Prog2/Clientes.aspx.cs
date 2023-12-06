@@ -17,30 +17,20 @@ namespace Obligatorio2023Prog2
 
             if (!IsPostBack)
             {
-                // Configuración inicial de la página
-                CargarClientes();
+                // Verificar si hay vehículos en la lista
+                if (BaseDeDatos.listaClientes.Count > 0)
+                {
+                    // Asignar la lista de vehículos como origen de datos para el GridView
+                    gvClientes.DataSource = BaseDeDatos.listaClientes;
+                    gvClientes.DataBind();
+                }
             }
-        }
-
-        // Función para verificar si ya existe un cliente con la misma cédula
-        private bool ClienteExistente(string cedula)
-        {
-            // Utiliza LINQ para verificar si hay un cliente con la misma cédula en la lista
-            return BaseDeDatos.listaClientes.Any(cliente => cliente.getCedula() == cedula);
         }
 
         protected void btnGuardarCliente_Click(object sender, EventArgs e)
         {
             try
             {
-                // Crear un nuevo cliente y asignar los valores
-                Cliente nuevoCliente = new Cliente();
-                nuevoCliente.setCedula(txtCedula.Text);
-                nuevoCliente.setNombre(txtNombre.Text);
-                nuevoCliente.setApellido(txtApellido.Text);
-                nuevoCliente.setDireccion(txtDireccion.Text);
-
-
                 // Verificar si los TextBox están vacíos
                 if (string.IsNullOrWhiteSpace(txtCedula.Text) ||
                     string.IsNullOrWhiteSpace(txtNombre.Text) ||
@@ -51,42 +41,44 @@ namespace Obligatorio2023Prog2
                     return;
                 }
 
-                // Mostrar la cédula en la consola o en un mensaje de alerta
-                Console.WriteLine("Cédula ingresada: " + nuevoCliente.getCedula());
-
                 // Verificar si ya existe un cliente con la misma cédula
-                if (ClienteExistente(nuevoCliente.getCedula()))
+                if (BaseDeDatos.listaClientes.Any(cliente => cliente.getCedula() == txtCedula.Text))
                 {
                     // Mostrar un mensaje de error
                     lblMensajeError.Text = "Ya existe un cliente con esa cédula.";
-
-                    // Mostrar la cédula y el mensaje de error en la consola o en un mensaje de alerta
-                    Console.WriteLine("Cédula duplicada: " + nuevoCliente.getCedula());
-                    Console.WriteLine("Mensaje de error: " + lblMensajeError.Text);
-
                     return;
                 }
+
+                // Crear un nuevo cliente y asignar los valores
+                Cliente nuevoCliente = new Cliente();
+                nuevoCliente.setCedula(txtCedula.Text);
+                nuevoCliente.setNombre(txtNombre.Text);
+                nuevoCliente.setApellido(txtApellido.Text);
+                nuevoCliente.setDireccion(txtDireccion.Text);
 
                 // Verificar la validez de la cédula uruguaya utilizando la nueva función Validate
                 if (!Cliente.Validate(nuevoCliente.getCedula()))
                 {
                     // Mostrar un mensaje de error
                     lblMensajeError.Text = "La cédula no es válida. Por favor, ingrese una cédula uruguaya válida.";
-
-                    // Mostrar la cédula y el mensaje de error en la consola o en un mensaje de alerta
-                    Console.WriteLine("Cédula no válida: " + nuevoCliente.getCedula());
-                    Console.WriteLine("Mensaje de error: " + lblMensajeError.Text);
-
                     return;
                 }
 
                 // Agregar el cliente a la lista
                 BaseDeDatos.listaClientes.Add(nuevoCliente);
 
-                lblMensajeError.Visible = false;
+                // Limpiar los campos
+                txtCedula.Text = "";
+                txtNombre.Text = "";
+                txtApellido.Text = "";
+                txtDireccion.Text = "";
 
                 // Actualizar la GridView
-                BindGridView();
+                gvClientes.EditIndex = -1;
+                gvClientes.DataSource = BaseDeDatos.listaClientes;
+                gvClientes.DataBind();
+
+                lblMensajeError.Visible = false;
             }
             catch (Exception ex)
             {
@@ -95,20 +87,6 @@ namespace Obligatorio2023Prog2
             }
         }
 
-
-
-        // Función para enlazar la lista de clientes a la GridView
-        private void BindGridView()
-        {
-            gvClientes.DataSource = BaseDeDatos.listaClientes;
-            gvClientes.DataBind();
-        }
-
-        private void CargarClientes()
-        {
-            gvClientes.DataSource = BaseDeDatos.listaClientes;
-            gvClientes.DataBind();
-        }
 
 
 
@@ -128,6 +106,8 @@ namespace Obligatorio2023Prog2
             this.gvClientes.DataSource = BaseDeDatos.listaClientes;
             this.gvClientes.DataBind();
         }
+
+
 
         protected void gvClientes_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {

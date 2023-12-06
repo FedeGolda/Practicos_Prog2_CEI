@@ -37,9 +37,9 @@ namespace Obligatorio2023Prog2
                 string.IsNullOrWhiteSpace(txtColor.Text) ||
                 string.IsNullOrWhiteSpace(txtPrecioVenta.Text) ||
                 string.IsNullOrWhiteSpace(txtPrecioAlquiler.Text) ||
-                string.IsNullOrWhiteSpace(txtCilindradas.Text) ||
-                string.IsNullOrWhiteSpace(txtCantPasajeros.Text) ||
-                string.IsNullOrWhiteSpace(txtToneladas.Text) ||
+                (rblTipoVehiculo.SelectedItem.Value == "Moto" && string.IsNullOrWhiteSpace(txtCilindradas.Text)) ||
+                (rblTipoVehiculo.SelectedItem.Value == "Auto" && string.IsNullOrWhiteSpace(txtCantPasajeros.Text)) ||
+                (rblTipoVehiculo.SelectedItem.Value == "Camion" && string.IsNullOrWhiteSpace(txtToneladas.Text)) ||
                 string.IsNullOrWhiteSpace(txtImagen1.Text) ||
                 string.IsNullOrWhiteSpace(txtImagen2.Text) ||
                 string.IsNullOrWhiteSpace(txtImagen3.Text))
@@ -55,45 +55,15 @@ namespace Obligatorio2023Prog2
                 moto.setModelo(txtModelo.Text);
                 moto.setMarca(txtMarca.Text);
                 moto.setAño(txtAño.Text);
+                moto.setKilometros(Convert.ToInt32(txtKilometros.Text));
                 moto.setColor(txtColor.Text);
-
-                // Validar y convertir la entrada de txtPrecioVenta.Text
-                if (int.TryParse(txtPrecioVenta.Text, out int precioVenta))
-                {
-                    moto.setPrecioVenta(precioVenta);
-                }
-                else
-                {
-                    // Manejar la entrada no válida, mostrar un mensaje de error, etc.
-                    Response.Write("<script>alert('Precio de venta no válido')</script>");
-                    return;
-                }
-
-                // Repetir el mismo proceso para txtPrecioAlquiler.Text
-                if (int.TryParse(txtPrecioAlquiler.Text, out int precioAlquiler))
-                {
-                    moto.setPrecioAlquilerDia(precioAlquiler);
-                }
-                else
-                {
-                    Response.Write("<script>alert('Precio de alquiler no válido')</script>");
-                    return;
-                }
-
+                moto.setPrecioVenta(Convert.ToInt32(txtPrecioVenta.Text));
+                moto.setPrecioAlquilerDia(Convert.ToInt32(txtPrecioAlquiler.Text));
                 moto.setImagen1(txtImagen1.Text);
                 moto.setImagen2(txtImagen2.Text);
                 moto.setImagen3(txtImagen3.Text);
-
-                // Validar y convertir la entrada de txtCilindradas.Text
-                if (int.TryParse(txtCilindradas.Text, out int cilindradas))
-                {
-                    moto.setCilindradas(cilindradas);
-                }
-                else
-                {
-                    Response.Write("<script>alert('Cilindradas no válidas')</script>");
-                    return;
-                }
+                moto.setCampoEspecial("Cilindradas: " + txtCilindradas.Text);
+                moto.setCilindradas(Convert.ToInt32(txtCilindradas.Text));
 
                 BaseDeDatos.listaVehiculos.Add(moto);
             }
@@ -139,12 +109,16 @@ namespace Obligatorio2023Prog2
             else
             {
                 // Tipo de vehículo no reconocido
-                Response.Write("<script>alert('Tipo de vehículo no reconocido')</script>");
+                lblMensajeError.Text = "Tipo de vehículo no reconocido";
                 return;
             }
 
-            this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
-            this.gvVehiculos.DataBind();
+            // Limpiar mensaje de error si no hay problemas
+            lblMensajeError.Text = "";
+
+            // Actualizar el origen de datos del GridView
+            gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
+            gvVehiculos.DataBind();
         }
 
         protected void gvVehiculos_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -185,6 +159,10 @@ namespace Obligatorio2023Prog2
 
             string marca = (filaSeleccionada.FindControl("txtMarcaGrid") as TextBox).Text;
             string modelo = (filaSeleccionada.FindControl("txtModeloGrid") as TextBox).Text;
+            string kilometros = (filaSeleccionada.FindControl("txtKilometrosGrid") as TextBox).Text;
+            string precioVenta = (filaSeleccionada.FindControl("txtPrecioVentaGrid") as TextBox).Text;
+            string precioAlquilerDia = (filaSeleccionada.FindControl("txtPrecioAlquilerDiaGrid") as TextBox).Text;
+            string campoEspecial = (filaSeleccionada.FindControl("txtCampoEspecialGrid") as TextBox).Text;
             string imagen1 = (filaSeleccionada.FindControl("txtImagen1Grid") as TextBox).Text;
             string imagen2 = (filaSeleccionada.FindControl("txtImagen2Grid") as TextBox).Text;
             string imagen3 = (filaSeleccionada.FindControl("txtImagen3Grid") as TextBox).Text;
@@ -197,9 +175,14 @@ namespace Obligatorio2023Prog2
                 vehiculoToUpdate.setModelo(modelo);
                 vehiculoToUpdate.setAño((filaSeleccionada.FindControl("txtAñoGrid") as TextBox).Text);
                 vehiculoToUpdate.setColor((filaSeleccionada.FindControl("txtColorGrid") as TextBox).Text);
+                vehiculoToUpdate.setKilometros(Convert.ToInt32((filaSeleccionada.FindControl("txtKilometrosGrid") as TextBox).Text));
+                vehiculoToUpdate.setPrecioVenta(Convert.ToInt32((filaSeleccionada.FindControl("txtPrecioVentaGrid") as TextBox).Text));
+                vehiculoToUpdate.setPrecioAlquilerDia(Convert.ToInt32((filaSeleccionada.FindControl("txtPrecioAlquilerDiaGrid") as TextBox).Text));
+                vehiculoToUpdate.setCampoEspecial(campoEspecial);
                 vehiculoToUpdate.setImagen1(imagen1);
                 vehiculoToUpdate.setImagen2(imagen2);
                 vehiculoToUpdate.setImagen3(imagen3);
+
 
                 this.gvVehiculos.EditIndex = -1;
                 this.gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;

@@ -34,7 +34,12 @@ namespace Obligatorio2023Prog2
             venta.setCedula(cboClientes.SelectedItem.Value);
             venta.setMatricula(cboVehiculos.SelectedItem.Value);
             venta.setFechaVenta(DateTime.Now);
-            venta.setPrecio(Convert.ToInt32(lblPrecio.Text));
+
+            int precio;
+            if (int.TryParse(lblPrecio.Text, out precio))
+            {
+                venta.setPrecio(precio);
+            }
             venta.setNombreUsuario(BaseDeDatos.usuarioLogeado.NombreUsuario);
 
             BaseDeDatos.listaVentas.Add(venta);

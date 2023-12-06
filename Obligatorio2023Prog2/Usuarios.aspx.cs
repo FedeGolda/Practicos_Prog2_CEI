@@ -30,18 +30,60 @@ namespace Obligatorio2023Prog2
 
         protected void btnGuardarUsuario_Click(object sender, EventArgs e)
         {
-            Usuario nuevoUsuario = new Usuario
+            try
             {
-                NombreUsuario = txtNombreUsuario.Text,
-                Contrasena = txtContrasena.Text
-            };
+                // Crear un nuevo usuario y asignar los valores
+                Usuario nuevoUsuario = new Usuario();
+                nuevoUsuario.setNombreUsuario(txtNombreUsuario.Text);
+                nuevoUsuario.setContrasena(txtContrasena.Text);
 
-            BaseDeDatos.listaUsuarios.Add(nuevoUsuario);
+                // Obtener los valores seleccionados del CheckBoxList
+                foreach (ListItem item in cblPermisos.Items)
+                {
+                    if (item.Selected)
+                    {
+                        switch (item.Value)
+                        {
+                            case "VerClientes":
+                                nuevoUsuario.setVerClientes(true);
+                                break;
+                            case "VerUsuarios":
+                                nuevoUsuario.setVerUsuarios(true);
+                                break;
+                            case "VerVentas":
+                                nuevoUsuario.setVerVentas(true);
+                                break;
+                            case "VerVehiculos":
+                                nuevoUsuario.setVerVehiculos(true);
+                                break;
+                            case "VerAlquileres":
+                                nuevoUsuario.setVerAlquileres(true);
+                                break;
+                        }
+                    }
+                }
 
-            CargarUsuarios();
+                // Verificar si los TextBox están vacíos
+                if (string.IsNullOrWhiteSpace(txtNombreUsuario.Text) || string.IsNullOrWhiteSpace(txtContrasena.Text))
+                {
+                    lblMensajeError.Text = "Todos los campos son obligatorios. Complete la información.";
+                    return;
+                }
 
-            LimpiarCampos();
+                // Agregar el usuario a la lista
+                BaseDeDatos.listaUsuarios.Add(nuevoUsuario);
+
+                // Limpiar campos y recargar la GridView
+                LimpiarCampos();
+                CargarUsuarios();
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción
+                Response.Write($"Error al guardar el usuario: {ex.Message}");
+            }
         }
+
 
         private void LimpiarCampos()
         {
@@ -93,21 +135,28 @@ namespace Obligatorio2023Prog2
             try
             {
                 // Obtén los nuevos valores desde los controles de edición
-                string nuevoNombreUsuario = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtNombreUsuarioGrid")).Text;
-                string nuevaContrasena = ((TextBox)gvUsuarios.Rows[e.RowIndex].FindControl("txtContrasenaGrid")).Text;
+                bool nuevaVerClientes = ((CheckBox)gvUsuarios.Rows[e.RowIndex].FindControl("chkVerClientesGrid")).Checked;
+                bool nuevaVerVentas = ((CheckBox)gvUsuarios.Rows[e.RowIndex].FindControl("chkVerVentasGrid")).Checked;
+                bool nuevaVerVehiculos = ((CheckBox)gvUsuarios.Rows[e.RowIndex].FindControl("chkVerVehiculosGrid")).Checked;
+                bool nuevaVerAlquileres = ((CheckBox)gvUsuarios.Rows[e.RowIndex].FindControl("chkVerAlquileresGrid")).Checked;
+                bool nuevaVerUsuarios = ((CheckBox)gvUsuarios.Rows[e.RowIndex].FindControl("chkVerUsuariosGrid")).Checked;
+
+
+
 
                 // Busca el usuario en la lista de usuarios y actualiza sus datos
                 string nombreUsuarioOriginal = gvUsuarios.DataKeys[e.RowIndex].Values["NombreUsuario"].ToString();
-                Usuario usuarioAActualizar = BaseDeDatos.listaUsuarios.FirstOrDefault(u => u.NombreUsuario == nombreUsuarioOriginal);
+                Usuario usuarioActualizar = BaseDeDatos.listaUsuarios.FirstOrDefault(u => u.NombreUsuario == nombreUsuarioOriginal);
 
-                if (usuarioAActualizar != null)
+                if (usuarioActualizar != null)
                 {
                     // Actualiza los datos del usuario
-                    usuarioAActualizar.NombreUsuario = nuevoNombreUsuario;
-                    usuarioAActualizar.Contrasena = nuevaContrasena;
-                    // Actualiza otros campos según sea necesario
+                    usuarioActualizar.VerClientes = nuevaVerClientes;
+                    usuarioActualizar.VerVentas = nuevaVerVentas;
+                    usuarioActualizar.VerVehiculos = nuevaVerVehiculos;
+                    usuarioActualizar.VerAlquileres = nuevaVerAlquileres;
+                    usuarioActualizar.VerUsuarios = nuevaVerUsuarios;
 
-                    // Desactiva el modo de edición y vuelve a cargar los usuarios
                     gvUsuarios.EditIndex = -1;
                     CargarUsuarios();
                 }
@@ -119,17 +168,6 @@ namespace Obligatorio2023Prog2
             }
         }
 
-        protected void rblPermisos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (rblPermisos.SelectedItem.Value == "VerUsuarios")
-            {
-                VerUsuarios.Visible = false;
-                VerClientes.Visible = true;
-                VerVentas.Visible = true;
-                VerAlquileres.Visible = true;
-                VerVehiculos.Visible = true;
-            }
-        }
 
     }
 }

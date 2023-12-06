@@ -191,6 +191,9 @@
                         <ItemTemplate>
                             <asp:Label ID="lblCampoEspecial" runat="server" Text='<%# Bind("CampoEspecial") %>'></asp:Label>
                         </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtCampoEspecialGrid" runat="server" Text='<%# Bind("CampoEspecial") %>'></asp:TextBox>
+                        </EditItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Imagen1">
@@ -217,24 +220,6 @@
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtImagen3Grid" runat="server" Text='<%# Bind("Imagen3") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                    </asp:TemplateField>
-
-                    <asp:TemplateField HeaderText="PrecioVenta">
-                        <ItemTemplate>
-                            <asp:Label ID="lblPrecioVenta" runat="server" Text='<%# Bind("PrecioVenta") %>'></asp:Label>
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtPrecioVentaGrid" runat="server" Text='<%# Bind("PrecioVenta") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                    </asp:TemplateField>
-
-                    <asp:TemplateField HeaderText="PrecioAlquilerDia">
-                        <ItemTemplate>
-                            <asp:Label ID="lblPrecioAlquiler" runat="server" Text='<%# Bind("PrecioAlquilerDia") %>'></asp:Label>
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtPrecioAlquilerGrid" runat="server" Text='<%# Bind("PrecioAlquilerDia") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
 
