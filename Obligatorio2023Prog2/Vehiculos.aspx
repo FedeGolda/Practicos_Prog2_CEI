@@ -110,7 +110,7 @@
         <div class="col-lg-8">
             <h4>Vehiculos registrados</h4>
             <asp:Label ID="lblMensajeError" runat="server" ForeColor="Red"></asp:Label>
-            <asp:GridView ID="gvVehiculos" runat="server" Width="80%" BorderWidth="2px" CellSpacing="5"
+            <asp:GridView ID="gvVehiculos" runat="server" Width="80%" BorderWidth="2px" CellPadding="10"
                 OnRowCancelingEdit="gvVehiculos_RowCancelingEdit"
                 OnRowDeleting="gvVehiculos_RowDeleting"
                 OnRowEditing="gvVehiculos_RowEditing"

@@ -41,7 +41,7 @@
         <div class="col-lg-8">
             <h4>Clientes Registrados</h4>
             <asp:Label ID="lblMensajeError" runat="server" ForeColor="Red"></asp:Label>
-            <asp:GridView ID="gvClientes" runat="server" 
+            <asp:GridView ID="gvClientes" runat="server" Width="80%" BorderWidth="2px" CellPadding="10" 
                 AutoGenerateColumns="False" 
                 OnRowEditing="gvClientes_RowEditing" 
                 OnRowCancelingEdit="gvClientes_RowCancelingEdit" 
