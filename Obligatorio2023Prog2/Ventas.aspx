@@ -53,8 +53,10 @@
 
     <div class="row">
         <div class="col-lg-8">
+            <h4>Vehiculos vendidos registrados</h4>
             <asp:GridView ID="gridVentas" runat="server" Width="80%" BorderWidth="2px" CellSpacing="5"
                 AutoGenerateColumns="false">
+
 
 
                 <Columns>
@@ -67,8 +69,6 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
 
-
-
                     <asp:TemplateField HeaderText="Cedula">
                         <ItemTemplate>
                             <asp:Label ID="lblCedula" runat="server" Text='<%# Bind("Cedula") %>'></asp:Label>
@@ -77,7 +77,6 @@
                             <asp:TextBox ID="txtCedulaGrid" runat="server" Text='<%# Bind("Cedula") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
-
 
                     <asp:TemplateField HeaderText="Matricula">
                         <ItemTemplate>
@@ -88,7 +87,6 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
 
-
                     <asp:TemplateField HeaderText="FechaVenta">
                         <ItemTemplate>
                             <asp:Label ID="txtFechaVenta" runat="server" Text='<%# Bind("FechaVenta") %>'></asp:Label>
@@ -97,10 +95,8 @@
                             <asp:TextBox ID="txtFechaVentaGrid" runat="server" Text='<%# Bind("FechaVenta") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
-
                 </Columns>
             </asp:GridView>
         </div>
     </div>
-
 </asp:Content>
