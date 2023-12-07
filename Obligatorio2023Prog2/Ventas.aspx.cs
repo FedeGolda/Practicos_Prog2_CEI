@@ -1,6 +1,7 @@
 ﻿using Obligatorio2023Prog2.Clases;
 using System;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace Obligatorio2023Prog2
 {
@@ -16,6 +17,9 @@ namespace Obligatorio2023Prog2
 
             if (!Page.IsPostBack)
             {
+                // Mostrar el nombre de usuario
+                lblNombreUsuario.Text = "Usuario: " + BaseDeDatos.usuarioLogeado.NombreUsuario;
+
                 cboClientes.DataSource = BaseDeDatos.listaClientes;
                 cboClientes.DataTextField = "DatosMostrar";
                 cboClientes.DataValueField = "Cedula";
@@ -25,6 +29,9 @@ namespace Obligatorio2023Prog2
                 cboVehiculos.DataTextField = "DatosMostrar";
                 cboVehiculos.DataTextField = "Matricula";
                 cboVehiculos.DataBind();
+
+                gridVentas.DataSource = BaseDeDatos.listaVentas;
+                gridVentas.DataBind();
             }
         }
 
@@ -34,6 +41,7 @@ namespace Obligatorio2023Prog2
             venta.setCedula(cboClientes.SelectedItem.Value);
             venta.setMatricula(cboVehiculos.SelectedItem.Value);
             venta.setFechaVenta(DateTime.Now);
+            venta.setNombreUsuario(BaseDeDatos.usuarioLogeado.NombreUsuario);
 
             int precio;
             if (int.TryParse(lblPrecio.Text, out precio))
@@ -53,13 +61,13 @@ namespace Obligatorio2023Prog2
                 }
             }
 
+            // Vuelve a enlazar el GridView después de agregar la venta
             cboVehiculos.DataSource = BaseDeDatos.ListadoVehiculosActivos();
             cboVehiculos.DataTextField = "Matricula";
             cboVehiculos.DataBind();
 
             Response.Write("<script>alert('Venta ingresada correctamente')</script>");
         }
-
 
         protected void cboVehiculos_SelectedIndexChanged1(object sender, EventArgs e)
         {
@@ -74,7 +82,6 @@ namespace Obligatorio2023Prog2
                     lblPrecioSimbolo.Visible = true;
                 }
             }
-
         }
 
     }

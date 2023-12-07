@@ -44,7 +44,7 @@
     </div>
     <div class="row">
         <div class="col-lg-5">
-            <asp:CheckBox ID="chkAutoDevuelto" runat="server" Text="Auto Devuelto" />
+            <asp:CheckBox ID="chkDevuelto" runat="server" Text="Auto Devuelto" />
         </div>
     </div>
     <div class="row">
@@ -76,19 +76,19 @@
             <Columns>
                 <asp:TemplateField HeaderText="Matricula">
                     <ItemTemplate>
-                        <asp:Label ID="lbl1" runat="server" Text='<%# Bind("Matricula") %>'></asp:Label>
+                        <asp:Label ID="txtMatricula" runat="server" Text='<%# Bind("Matricula") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:Label ID="lbl2" runat="server" Text='<%# Bind("Matricula") %>'></asp:Label>
+                        <asp:Label ID="txtMatriculaGrid" runat="server" Text='<%# Bind("Matricula") %>'></asp:Label>
                     </EditItemTemplate>
                 </asp:TemplateField>
 
                 <asp:TemplateField HeaderText="Cedula">
                     <ItemTemplate>
-                        <asp:Label ID="lbl3" runat="server" Text='<%# Bind("Cedula") %>'></asp:Label>
+                        <asp:Label ID="Cedula" runat="server" Text='<%# Bind("Cedula") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:Label ID="txtMarcaGrid" runat="server" Text='<%# Bind("Cedula") %>'></asp:Label>
+                        <asp:Label ID="txtCedulaGrid" runat="server" Text='<%# Bind("Cedula") %>'></asp:Label>
                     </EditItemTemplate>
                 </asp:TemplateField>
 
@@ -108,7 +108,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Precio">
                     <ItemTemplate>
-                        <asp:Label ID="lbl8" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
+                        <asp:Label ID="txtPrecio" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtPrecioGrid" runat="server" Text='<%# Bind("Precio") %>'></asp:TextBox>
@@ -116,7 +116,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Devuelto">
                     <ItemTemplate>
-                        <asp:CheckBox ID="txtAutoDevuelto" runat="server" Checked='<%# Bind("AutoDevuelto") %>'></asp:CheckBox>
+                        <asp:CheckBox ID="chkDevuelto" runat="server" Checked='<%# Bind("AutoDevuelto") %>'></asp:CheckBox>
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:CheckBox ID="chkDevueltoGrid" runat="server" Checked='<%# Bind("AutoDevuelto") %>' OnCheckedChanged="chkDevueltoGrid_CheckedChanged"></asp:CheckBox>

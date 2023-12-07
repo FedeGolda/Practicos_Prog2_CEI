@@ -42,14 +42,8 @@ namespace Obligatorio2023Prog2
             alquiler.setNombreUsuario(BaseDeDatos.usuarioLogeado.NombreUsuario);
             alquiler.setFechaAlquiler(DateTime.Now);
             alquiler.setDias(Convert.ToInt32(txtDias.Text));
-            alquiler.setAutoDevuelto(chkAutoDevuelto.Checked);
-
-
-            int precio;
-            if (int.TryParse(lblPrecio.Text, out precio))
-            {
-                alquiler.setPrecio(precio);
-            }
+            alquiler.setPrecio(Convert.ToInt32(txtPrecio.Text));
+            alquiler.setAutoDevuelto(chkDevuelto.Checked);
             alquiler.setNombreUsuario(BaseDeDatos.usuarioLogeado.NombreUsuario);
 
 
@@ -104,7 +98,6 @@ namespace Obligatorio2023Prog2
 
         protected void gvAlquileres_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            // ...
 
             GridViewRow row = gvAlquileres.Rows[e.RowIndex];
             string matricula = gvAlquileres.DataKeys[e.RowIndex].Values["Matricula"].ToString();
@@ -113,7 +106,6 @@ namespace Obligatorio2023Prog2
             string nuevosDias = (row.FindControl("txtDiasGrid") as TextBox)?.Text;
             string nuevoPrecio = (row.FindControl("txtPrecioGrid") as TextBox)?.Text;
 
-            // ...
 
             // Limpia el índice de edición después de la actualización
             gvAlquileres.EditIndex = -1;
