@@ -96,6 +96,15 @@ namespace Obligatorio2023Prog2
         protected global::System.Web.UI.WebControls.TextBox txtPrecioAlquiler;
 
         /// <summary>
+        /// Control chkActivo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkActivo;
+
+        /// <summary>
         /// Control txtCilindradas.
         /// </summary>
         /// <remarks>

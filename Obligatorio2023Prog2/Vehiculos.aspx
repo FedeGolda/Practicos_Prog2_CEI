@@ -67,6 +67,11 @@
     </div>
     <div class="row">
         <div class="col-lg-5">
+            <asp:CheckBox ID="chkActivo" runat="server" Text="Activo" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
             <asp:TextBox ID="txtCilindradas" runat="server" TextMode="Number" CssClass="form-control" Text="" placeholder="Cilindradas del vehiculo"></asp:TextBox>
         </div>
     </div>
@@ -184,6 +189,15 @@
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtPrecioAlquilerDiaGrid" runat="server" Text='<%# Bind("PrecioAlquilerDia") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Activo">
+                        <ItemTemplate>
+                            <asp:Label ID="lblActivo" runat="server" Text='<%# Bind("Activo") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:CheckBox ID="chkActivoGrid" runat="server" Checked='<%# Convert.ToBoolean(Eval("Activo")) %>' />
                         </EditItemTemplate>
                     </asp:TemplateField>
 
