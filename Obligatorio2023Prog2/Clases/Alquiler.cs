@@ -22,12 +22,14 @@ namespace Obligatorio2023Prog2
         public DateTime getFechaAlquiler() { return FechaAlquiler; }
         public int getDias() { return Dias; }
         public int getPrecio() { return Precio; }
+        public bool getAutoDevuelto() { return AutoDevuelto; }
         public void setCedula(string Cedula) { this.Cedula = Cedula; }
         public void setMatricula(string Matricula) { this.Matricula = Matricula; }
         public void setNombreUsuario(string NombreUsuario) { this.NombreUsuario = NombreUsuario; }
         public void setFechaAlquiler(DateTime FechaAlquiler) { this.FechaAlquiler = FechaAlquiler; }
         public void setDias(int Dias) { this.Dias = Dias; }
         public void setPrecio(int Precio) { this.Precio = Precio;}
+        public void setAutoDevuelto(bool AutoDevuelto) { this.AutoDevuelto = AutoDevuelto; }
 
         public string Estado
         {

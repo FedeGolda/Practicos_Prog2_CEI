@@ -17,11 +17,21 @@ namespace Obligatorio2023Prog2
 
             if (!Page.IsPostBack)
             {
+                cboClientes.DataSource = BaseDeDatos.listaClientes;
+                cboClientes.DataTextField = "DatosMostrar";
+                cboClientes.DataValueField = "Cedula";
+                cboClientes.DataBind();
+
+                cboVehiculos.DataSource = BaseDeDatos.ListadoVehiculosActivos();
+                cboVehiculos.DataTextField = "DatosMostrar";
+                cboVehiculos.DataValueField = "Matricula";
+                cboVehiculos.DataBind();
+
+                // Configura el DataSource y DataBind para gvAlquileres
                 gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
                 gvAlquileres.DataBind();
             }
         }
-
 
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -31,8 +41,17 @@ namespace Obligatorio2023Prog2
             alquiler.setMatricula(cboVehiculos.SelectedItem.Value);
             alquiler.setNombreUsuario(BaseDeDatos.usuarioLogeado.NombreUsuario);
             alquiler.setFechaAlquiler(DateTime.Now);
-            //alquiler.setDias(Convert.ToInt32(txtDiasGrid.Text));
-            alquiler.setPrecio(Convert.ToInt32(lblPrecio.Text));
+            alquiler.setDias(Convert.ToInt32(txtDias.Text));
+            alquiler.setAutoDevuelto(chkAutoDevuelto.Checked);
+
+
+            int precio;
+            if (int.TryParse(lblPrecio.Text, out precio))
+            {
+                alquiler.setPrecio(precio);
+            }
+            alquiler.setNombreUsuario(BaseDeDatos.usuarioLogeado.NombreUsuario);
+
 
             BaseDeDatos.listaAlquileres.Add(alquiler);
 
@@ -49,22 +68,22 @@ namespace Obligatorio2023Prog2
             cboVehiculos.DataTextField = "Matricula";
             cboVehiculos.DataBind();
 
-            Response.Write("<script>alert('Venta ingresada correctamente')</script>");
+            Response.Write("<script>alert('Alquiler ingresada correctamente')</script>");
         }
 
         protected void gvAlquileres_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Lógica para manejar el evento SelectedIndexChanged
-            // Puedes acceder a la fila seleccionada utilizando gvAlquileres.SelectedRow
-            // y obtener los valores de las celdas según tus necesidades
+            string Matricula = cboVehiculos.SelectedItem.Value;
 
-            GridViewRow selectedRow = gvAlquileres.SelectedRow;
-
-            // Ejemplo de cómo obtener el valor de una celda en la fila seleccionada
-            string matricula = selectedRow.Cells[0].Text;
-
-            // Puedes continuar con la lógica según tus necesidades
-            // ...
+            foreach (var vehiculo in BaseDeDatos.listaVehiculos)
+            {
+                if (vehiculo.getMatricula() == Matricula)
+                {
+                    lblPrecio.Text = vehiculo.getPrecioAlquilerDia().ToString();
+                    lblPrecio.Visible = true;
+                    lblPrecioSimbolo.Visible = true;
+                }
+            }
         }
 
 
