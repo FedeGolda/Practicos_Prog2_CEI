@@ -50,5 +50,11 @@ namespace Obligatorio2023Prog2
             }
         }
 
+        public void ActualizarEstado()
+        {
+            // Llamada directa a Estado para reflejar los cambios
+            string estado = Estado;
+        }
+
     }
 }

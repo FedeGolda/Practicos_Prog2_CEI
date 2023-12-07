@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-lg-5">
             <asp:Label Text="Vehiculos: " runat="server"></asp:Label>
-            <asp:DropDownList ID="cboVehiculos" runat="server" CssClass="form-control"></asp:DropDownList>
+            <asp:DropDownList ID="cboVehiculos" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="cboVehiculos_SelectedIndexChanged"></asp:DropDownList>
         </div>
     </div>
     <div class="row">
@@ -34,12 +34,6 @@
         <div class="col-lg-5">
             <asp:Label Text="Dias: " runat="server"></asp:Label>
             <asp:TextBox ID="txtDias" TextMode="Number" runat="server" CssClass="form-control" Text="" placeholder="Dias de Alquiler"></asp:TextBox>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-5">
-            <asp:Label Text="Precio: " runat="server"></asp:Label>
-            <asp:TextBox ID="txtPrecio" TextMode="DateTime" runat="server" CssClass="form-control" Text="" placeholder="Precio"></asp:TextBox>
         </div>
     </div>
     <div class="row">
@@ -124,7 +118,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Estado">
                     <ItemTemplate>
-                        <asp:Label ID="lbl10" runat="server" Text='<%# Bind("Estado") %>' ForeColor="Red" Font-Bold="true"></asp:Label>
+                        <asp:Label ID="txtEstado" runat="server" Text='<%# Bind("Estado") %>' ForeColor="Red" Font-Bold="true"></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />

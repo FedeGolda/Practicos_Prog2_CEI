@@ -36,19 +36,27 @@ namespace Obligatorio2023Prog2
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            // Crear una instancia de Alquiler
             Alquiler alquiler = new Alquiler();
             alquiler.setCedula(cboClientes.SelectedItem.Value);
             alquiler.setMatricula(cboVehiculos.SelectedItem.Value);
             alquiler.setNombreUsuario(BaseDeDatos.usuarioLogeado.NombreUsuario);
             alquiler.setFechaAlquiler(DateTime.Now);
             alquiler.setDias(Convert.ToInt32(txtDias.Text));
-            alquiler.setPrecio(Convert.ToInt32(txtPrecio.Text));
             alquiler.setAutoDevuelto(chkDevuelto.Checked);
             alquiler.setNombreUsuario(BaseDeDatos.usuarioLogeado.NombreUsuario);
 
+            // Obtén el precio total utilizando el método calcularPrecioAlquiler
+            int precioTotal = calcularPrecioAlquiler();
+            alquiler.setPrecio(precioTotal);
 
+            // Actualiza el estado antes de agregar el alquiler a la lista
+            alquiler.ActualizarEstado();
+
+            // Agrega el alquiler a la lista
             BaseDeDatos.listaAlquileres.Add(alquiler);
 
+            // Desactiva el vehículo en la lista de vehículos
             foreach (var vehiculo in BaseDeDatos.listaVehiculos)
             {
                 if (vehiculo.getMatricula() == cboVehiculos.SelectedItem.Value)
@@ -58,12 +66,23 @@ namespace Obligatorio2023Prog2
                 }
             }
 
+            // Actualiza el origen de datos del DropDownList de vehículos activos
             cboVehiculos.DataSource = BaseDeDatos.ListadoVehiculosActivos();
             cboVehiculos.DataTextField = "Matricula";
             cboVehiculos.DataBind();
 
-            Response.Write("<script>alert('Alquiler ingresada correctamente')</script>");
+            // Asigna el origen de datos y vuelve a llamar a DataBind para actualizar el GridView
+            gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
+            gvAlquileres.DataBind();
+
+            // Muestra un mensaje con el precio guardado
+            Response.Write($"<script>alert('Alquiler ingresado correctamente. Precio: {alquiler.getPrecio()}')</script>");
         }
+
+
+
+
+
 
         protected void gvAlquileres_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -102,10 +121,17 @@ namespace Obligatorio2023Prog2
             GridViewRow row = gvAlquileres.Rows[e.RowIndex];
             string matricula = gvAlquileres.DataKeys[e.RowIndex].Values["Matricula"].ToString();
 
-            // Actualiza los valores según tus necesidades
+            // Encuentra el alquiler en la lista
+            Alquiler alquiler = BaseDeDatos.listaAlquileres.Find(a => a.Matricula == matricula);
+
+            // Actualiza las propiedades
             string nuevosDias = (row.FindControl("txtDiasGrid") as TextBox)?.Text;
             string nuevoPrecio = (row.FindControl("txtPrecioGrid") as TextBox)?.Text;
+            alquiler.Dias = Convert.ToInt32(nuevosDias);
+            alquiler.Precio = Convert.ToInt32(nuevoPrecio);
 
+            // Actualiza el estado directamente
+            alquiler.ActualizarEstado();
 
             // Limpia el índice de edición después de la actualización
             gvAlquileres.EditIndex = -1;
@@ -137,13 +163,21 @@ namespace Obligatorio2023Prog2
 
         public int calcularPrecioAlquiler()
         {
-            if (!string.IsNullOrEmpty(txtAlquilerDia.Text))
+            if (!string.IsNullOrEmpty(txtAlquilerDia.Text) && !string.IsNullOrEmpty(lblPrecio.Text))
             {
-                //hago las cuentas
+                // Obtiene la cantidad de días y el precio por día
+                int dias = Convert.ToInt32(txtDias.Text);
+                int precioPorDia = Convert.ToInt32(lblPrecio.Text);
+
+                // Realiza el cálculo del precio total
+                int precioTotal = dias * precioPorDia;
+
+                return precioTotal;
             }
 
-            return 100;
+            return 0; // Otra opción sería lanzar una excepción si no se cumplen las condiciones necesarias.
         }
+
 
         protected void chkDevueltoGrid_CheckedChanged(object sender, EventArgs e)
         {
@@ -153,6 +187,28 @@ namespace Obligatorio2023Prog2
 
             // Accede al alquiler correspondiente en la lista y actualiza el estado AutoDevuelto
             BaseDeDatos.listaAlquileres[rowIndex].AutoDevuelto = chkDevueltoGrid.Checked;
+        }
+
+
+        protected void cboVehiculos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string matricula = cboVehiculos.SelectedValue;
+
+            // Busca el vehículo en la lista y muestra el precio del alquiler
+            Vehiculo vehiculo = BaseDeDatos.listaVehiculos.Find(v => v.getMatricula() == matricula);
+
+            if (vehiculo != null)
+            {
+                lblPrecio.Text = vehiculo.getPrecioAlquilerDia().ToString();
+                lblPrecio.Visible = true;
+                lblPrecioSimbolo.Visible = true;
+            }
+            else
+            {
+                lblPrecio.Text = string.Empty;
+                lblPrecio.Visible = false;
+                lblPrecioSimbolo.Visible = false;
+            }
         }
 
 
