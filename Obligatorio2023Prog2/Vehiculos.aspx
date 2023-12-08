@@ -87,17 +87,17 @@
     </div>
     <div class="row">
         <div class="col-lg-5">
-            <asp:TextBox ID="txtImagen1" runat="server" CssClass="form-control" placeholder="imagen 1 del Vehiculo"></asp:TextBox>
+            <asp:TextBox ID="txtImagen1" runat="server" CssClass="form-control" placeholder="Direccion URL Imagen 1 del Vehiculo"></asp:TextBox>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-5">
-            <asp:TextBox ID="txtImagen2" runat="server" CssClass="form-control" placeholder="imagen 2 del Vehiculo"></asp:TextBox>
+            <asp:TextBox ID="txtImagen2" runat="server" CssClass="form-control" placeholder="Direccion URL Imagen 2 del Vehiculo"></asp:TextBox>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-5">
-            <asp:TextBox ID="txtImagen3" runat="server" CssClass="form-control" placeholder="imagen 3 del Vehiculo"></asp:TextBox>
+            <asp:TextBox ID="txtImagen3" runat="server" CssClass="form-control" placeholder="Direccion URL Imagen 3 del Vehiculo"></asp:TextBox>
         </div>
     </div>
 
@@ -109,7 +109,7 @@
     <div class="row">
         <div class="col-lg-8">
             <h4>Vehiculos registrados</h4>
-            <asp:Label ID="lblMensajeError" runat="server" ForeColor="Red"></asp:Label>
+            <asp:Label ID="lblMensaje" runat="server" ForeColor="Red"></asp:Label>
             <asp:GridView ID="gvVehiculos" runat="server" Width="80%" BorderWidth="2px" CellPadding="10"
                 OnRowCancelingEdit="gvVehiculos_RowCancelingEdit"
                 OnRowDeleting="gvVehiculos_RowDeleting"

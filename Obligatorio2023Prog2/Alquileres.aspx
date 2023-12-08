@@ -47,21 +47,17 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-8">
-            <asp:Label ID="lblMensaje" runat="server" Visible="false" ForeColor="Red"></asp:Label>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-lg-5">
             <asp:Label ID="lblPrecioSimbolo" runat="server" Visible="false" CssClass="form-control" ForeColor="Red">$ </asp:Label>
             <asp:Label ID="lblPrecio" runat="server" Visible="false" CssClass="form-control" ForeColor="Red"></asp:Label>
         </div>
     </div>
 
-
     <div class="row">
         <div class="col-lg-8">
-            <asp:GridView ID="gvAlquileres" runat="server" Width="80%" BorderWidth="2px" CellSpacing="5"
+            <asp:Label ID="lblMensaje" runat="server" Visible="false" ForeColor="Red"></asp:Label>
+            <h4>Vehiculos alquilados registrados</h4>
+            <asp:GridView ID="gvAlquileres" runat="server" Width="80%" BorderWidth="2px" CellPadding="10" CellSpacing="5"
                 AutoGenerateColumns="false"
                 OnRowCancelingEdit="gvAlquileres_RowCancelingEdit"
                 OnRowDeleting="gvAlquileres_RowDeleting"

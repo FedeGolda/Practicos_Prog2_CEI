@@ -45,7 +45,9 @@ namespace Obligatorio2023Prog2
                 string.IsNullOrWhiteSpace(txtImagen2.Text) ||
                 string.IsNullOrWhiteSpace(txtImagen3.Text))
             {
-                lblMensajeError.Text = "Todos los campos son obligatorios. Complete la información.";
+                lblMensaje.Text = "Todos los campos son obligatorios. Complete la información.";
+                lblMensaje.ForeColor = System.Drawing.Color.Red;
+                lblMensaje.Visible = true;
                 return;
             }
 
@@ -57,7 +59,9 @@ namespace Obligatorio2023Prog2
             // Verificar si la matrícula ya existe en el GridView
             if (ExisteMatriculaEnGridView(nuevaMatricula))
             {
-                lblMensajeError.Text = "Ya existe un vehículo con la misma matrícula. No se puede duplicar.";
+                lblMensaje.Text = "Ya existe un vehículo con la misma matrícula. No se puede duplicar.";
+                lblMensaje.ForeColor = System.Drawing.Color.Red;
+                lblMensaje.Visible = true;
                 return;
             }
 
@@ -81,6 +85,10 @@ namespace Obligatorio2023Prog2
                 moto.setCilindradas(Convert.ToInt32(txtCilindradas.Text));
 
                 BaseDeDatos.listaVehiculos.Add(moto);
+
+                lblMensaje.Text = "Moto ingresado correctamente";
+                lblMensaje.ForeColor = System.Drawing.Color.Green;
+                lblMensaje.Visible = true;
             }
             else if (rblTipoVehiculo.SelectedItem.Value == "Auto")
             {
@@ -101,6 +109,10 @@ namespace Obligatorio2023Prog2
                 auto.setPasajeros(Convert.ToInt32(txtCantPasajeros.Text));
 
                 BaseDeDatos.listaVehiculos.Add(auto);
+
+                lblMensaje.Text = "Auto ingresado correctamente";
+                lblMensaje.ForeColor = System.Drawing.Color.Green;
+                lblMensaje.Visible = true;
             }
             else if (rblTipoVehiculo.SelectedItem.Value == "Camion")
             {
@@ -121,21 +133,30 @@ namespace Obligatorio2023Prog2
                 camion.setCarga(Convert.ToInt32(txtToneladas.Text));
 
                 BaseDeDatos.listaVehiculos.Add(camion);
+
+                lblMensaje.Text = "Camion ingresado correctamente";
+                lblMensaje.ForeColor = System.Drawing.Color.Green;
+                lblMensaje.Visible = true;
             }
 
             else
             {
                 // Tipo de vehículo no reconocido
-                lblMensajeError.Text = "Tipo de vehículo no reconocido";
+
+                lblMensaje.Text = "Tipo de vehículo no reconocido";
                 return;
             }
 
             // Limpiar mensaje de error si no hay problemas
-            lblMensajeError.Text = "";
+            lblMensaje.Text = "";
 
             // Actualizar el origen de datos del GridView
             gvVehiculos.DataSource = BaseDeDatos.listaVehiculos;
             gvVehiculos.DataBind();
+
+            lblMensaje.Text = "Vehiculo ingresado correctamente";
+            lblMensaje.ForeColor = System.Drawing.Color.Green;
+            lblMensaje.Visible = true;
         }
 
         protected void gvVehiculos_RowDeleting(object sender, GridViewDeleteEventArgs e)

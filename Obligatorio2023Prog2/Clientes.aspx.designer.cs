@@ -69,13 +69,13 @@ namespace Obligatorio2023Prog2
         protected global::System.Web.UI.WebControls.Button btnGuardarCliente;
 
         /// <summary>
-        /// Control lblMensajeError.
+        /// Control lblMensajeCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMensajeError;
+        protected global::System.Web.UI.WebControls.Label lblMensajeCliente;
 
         /// <summary>
         /// Control gvClientes.

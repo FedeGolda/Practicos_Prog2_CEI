@@ -37,8 +37,9 @@ namespace Obligatorio2023Prog2
                     string.IsNullOrWhiteSpace(txtApellido.Text) ||
                     string.IsNullOrWhiteSpace(txtDireccion.Text))
                 {
-                    lblMensajeError.Text = "Todos los campos son obligatorios. Complete la información.";
-                    lblMensajeError.Visible = true;  // Mostrar el mensaje de error
+                    lblMensajeCliente.Text = "Todos los campos son obligatorios. Complete la información.";
+                    lblMensajeCliente.ForeColor = System.Drawing.Color.Red;
+                    lblMensajeCliente.Visible = true;  // Mostrar el mensaje de error
                     return;
                 }
 
@@ -46,8 +47,9 @@ namespace Obligatorio2023Prog2
                 if (BaseDeDatos.listaClientes.Any(cliente => cliente.getCedula() == txtCedula.Text))
                 {
                     // Mostrar un mensaje de error
-                    lblMensajeError.Text = "Ya existe un cliente con esa cédula.";
-                    lblMensajeError.Visible = true;  // Mostrar el mensaje de error
+                    lblMensajeCliente.Text = "Ya existe un cliente con esa cédula.";
+                    lblMensajeCliente.ForeColor = System.Drawing.Color.Red;
+                    lblMensajeCliente.Visible = true;  // Mostrar el mensaje de error
                     return;
                 }
 
@@ -62,8 +64,9 @@ namespace Obligatorio2023Prog2
                 if (!Cliente.Validate(nuevoCliente.getCedula()))
                 {
                     // Mostrar un mensaje de error
-                    lblMensajeError.Text = "La cédula no es válida. Por favor, ingrese una cédula uruguaya válida.";
-                    lblMensajeError.Visible = true;  // Mostrar el mensaje de error
+                    lblMensajeCliente.Text = "La cédula no es válida. Por favor, ingrese una cédula uruguaya válida.";
+                    lblMensajeCliente.ForeColor = System.Drawing.Color.Red;
+                    lblMensajeCliente.Visible = true;  // Mostrar el mensaje de error
                     return;
                 }
 
@@ -80,8 +83,9 @@ namespace Obligatorio2023Prog2
                 gvClientes.DataSource = BaseDeDatos.listaClientes;
                 gvClientes.DataBind();
 
-                // Ocultar el mensaje de error después de una operación exitosa
-                lblMensajeError.Visible = false;
+                lblMensajeCliente.Text = "Cliente ingresado correctamente";
+                lblMensajeCliente.ForeColor = System.Drawing.Color.Green;
+                lblMensajeCliente.Visible = true;
             }
             catch (Exception ex)
             {

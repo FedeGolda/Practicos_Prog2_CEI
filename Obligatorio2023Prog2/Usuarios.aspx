@@ -45,6 +45,7 @@
     <div class="row">
         <div class="col-lg-8">
             <asp:Label ID="lblMensajeError" runat="server" ForeColor="Red"></asp:Label>
+            <h4>Usuarios registrados</h4>
             <asp:GridView ID="gvUsuarios" runat="server" Width="80%" BorderWidth="2px" CellPadding="10"
                 OnRowCancelingEdit="gvUsuarios_RowCancelingEdit"
                 OnRowDeleting="gvUsuarios_RowDeleting"
@@ -52,6 +53,7 @@
                 OnRowUpdating="gvUsuarios_RowUpdating"
                 AutoGenerateColumns="false"
                 DataKeyNames="NombreUsuario">
+
                 <Columns>
                     <asp:TemplateField HeaderText="Nombre Usuario">
                         <ItemTemplate>

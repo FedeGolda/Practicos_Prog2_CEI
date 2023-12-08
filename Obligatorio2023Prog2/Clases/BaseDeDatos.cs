@@ -56,13 +56,6 @@ namespace Obligatorio2023Prog2.Clases
             listaVehiculos.Add(vehiculo2);
             listaVehiculos.Add(vehiculo3);
 
-
-            Alquiler alquiler1 = new Alquiler { AutoDevuelto = false, Cedula = "45809059", Matricula = "MA125865", Dias = 3, FechaAlquiler = DateTime.Now.AddDays(-5), NombreUsuario = "Admin", Precio = 10000 };
-            Alquiler alquiler2 = new Alquiler { AutoDevuelto = false, Cedula = "25688549", Matricula = "SG321555", Dias = 3, FechaAlquiler = DateTime.Now, NombreUsuario = "Admin", Precio = 12000 };
-            Alquiler alquiler3 = new Alquiler { AutoDevuelto = true, Cedula = "45826584", Matricula = "RT9875578", Dias = 8, FechaAlquiler = DateTime.Now.AddDays(-12), NombreUsuario = "Vendedor", Precio = 20000 };
-            listaAlquileres.Add(alquiler1);
-            listaAlquileres.Add(alquiler2);
-            listaAlquileres.Add(alquiler3);
         }
 
     public static List<Vehiculo> ListadoVehiculosActivos()

@@ -61,7 +61,7 @@
     <div class="row">
         <div class="col-lg-8">
             <h4>Vehiculos vendidos registrados</h4>
-            <asp:GridView ID="gridVentas" runat="server" Width="80%" BorderWidth="2px" CellSpacing="5"
+            <asp:GridView ID="gridVentas" runat="server" Width="80%" BorderWidth="2px" CellPadding="10" CellSpacing="5"
                 AutoGenerateColumns="false">
 
 

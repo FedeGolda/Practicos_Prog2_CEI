@@ -37,10 +37,11 @@
             <asp:Button ID="btnGuardarCliente" runat="server" CssClass="btn btn-primary" Text="Guardar Cliente" OnClick="btnGuardarCliente_Click" />
         </div>
     </div>
+
     <div class="row">
         <div class="col-lg-8">
             <h4>Clientes Registrados</h4>
-            <asp:Label ID="lblMensajeError" runat="server" ForeColor="Red"></asp:Label>
+            <asp:Label ID="lblMensajeCliente" runat="server" Visible="false" ForeColor="Red"></asp:Label>
             <asp:GridView ID="gvClientes" runat="server" Width="80%" BorderWidth="2px" CellPadding="10" 
                 AutoGenerateColumns="False" 
                 OnRowEditing="gvClientes_RowEditing" 

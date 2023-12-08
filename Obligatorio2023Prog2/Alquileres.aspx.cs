@@ -90,6 +90,13 @@ namespace Obligatorio2023Prog2
 
                             gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
                             gvAlquileres.DataBind();
+
+                            // Actualizar cboVehiculos después de agregar el alquiler
+                            cboVehiculos.DataSource = BaseDeDatos.ListadoVehiculosActivos();
+                            cboVehiculos.DataTextField = "DatosMostrar";
+                            cboVehiculos.DataValueField = "Matricula";
+                            cboVehiculos.DataBind();
+
                         }
                         else
                         {
@@ -119,6 +126,7 @@ namespace Obligatorio2023Prog2
                 lblMensaje.Visible = true;
             }
         }
+
 
         protected void gvAlquileres_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -166,9 +174,9 @@ namespace Obligatorio2023Prog2
 
             alquiler.ActualizarEstado();
 
-            gvAlquileres.EditIndex = -1;
-            gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
-            gvAlquileres.DataBind();
+            this.gvAlquileres.EditIndex = -1;
+            this.gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
+            this.gvAlquileres.DataBind();
         }
 
         protected void gvAlquileres_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -211,21 +219,16 @@ namespace Obligatorio2023Prog2
 
         protected void cboVehiculos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string matricula = cboVehiculos.SelectedValue;
+            string Matricula = cboVehiculos.SelectedItem.Value;
 
-            Vehiculo vehiculo = BaseDeDatos.listaVehiculos.Find(v => v.getMatricula() == matricula);
-
-            if (vehiculo != null)
+            foreach (var vehiculo in BaseDeDatos.listaVehiculos)
             {
-                lblPrecio.Text = vehiculo.getPrecioAlquilerDia().ToString();
-                lblPrecio.Visible = true;
-                lblPrecioSimbolo.Visible = true;
-            }
-            else
-            {
-                lblPrecio.Text = string.Empty;
-                lblPrecio.Visible = false;
-                lblPrecioSimbolo.Visible = false;
+                if (vehiculo.getMatricula() == Matricula)
+                {
+                    lblPrecio.Text = vehiculo.getPrecioVenta().ToString();
+                    lblPrecio.Visible = true;
+                    lblPrecioSimbolo.Visible = true;
+                }
             }
         }
     }
