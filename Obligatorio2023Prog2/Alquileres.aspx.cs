@@ -27,6 +27,18 @@ namespace Obligatorio2023Prog2
                 cboVehiculos.DataValueField = "Matricula";
                 cboVehiculos.DataBind();
 
+                string Matricula = cboVehiculos.SelectedItem.Value;
+
+                foreach (var vehiculo in BaseDeDatos.listaVehiculos)
+                {
+                    if (vehiculo.getMatricula() == Matricula)
+                    {
+                        lblPrecio.Text = vehiculo.getPrecioAlquilerDia().ToString();
+                        lblPrecio.Visible = true;
+                        lblPrecioSimbolo.Visible = true;
+                    }
+                }
+
                 // Configura el DataSource y DataBind para gvAlquileres
                 gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
                 gvAlquileres.DataBind();
@@ -41,7 +53,7 @@ namespace Obligatorio2023Prog2
             alquiler.setCedula(cboClientes.SelectedItem.Value);
             alquiler.setMatricula(cboVehiculos.SelectedItem.Value);
             alquiler.setNombreUsuario(BaseDeDatos.usuarioLogeado.NombreUsuario);
-            alquiler.setFechaAlquiler(DateTime.Now);
+            alquiler.setFechaAlquiler(Convert.ToDateTime(txtFechaAlquiler.Text));
             alquiler.setDias(Convert.ToInt32(txtDias.Text));
             alquiler.setAutoDevuelto(chkDevuelto.Checked);
             alquiler.setNombreUsuario(BaseDeDatos.usuarioLogeado.NombreUsuario);
@@ -123,6 +135,9 @@ namespace Obligatorio2023Prog2
 
             // Encuentra el alquiler en la lista
             Alquiler alquiler = BaseDeDatos.listaAlquileres.Find(a => a.Matricula == matricula);
+            Vehiculo vehiculo = BaseDeDatos.listaVehiculos.Find(a => a.matricula == matricula);
+            bool devuelto = (row.FindControl("chkDevueltoGrid") as CheckBox).Checked;
+            vehiculo.setActivo(devuelto);
 
             // Actualiza las propiedades
             string nuevosDias = (row.FindControl("txtDiasGrid") as TextBox)?.Text;
@@ -163,7 +178,7 @@ namespace Obligatorio2023Prog2
 
         public int calcularPrecioAlquiler()
         {
-            if (!string.IsNullOrEmpty(txtAlquilerDia.Text) && !string.IsNullOrEmpty(lblPrecio.Text))
+            if (!string.IsNullOrEmpty(txtFechaAlquiler.Text) && !string.IsNullOrEmpty(lblPrecio.Text))
             {
                 // Obtiene la cantidad de días y el precio por día
                 int dias = Convert.ToInt32(txtDias.Text);

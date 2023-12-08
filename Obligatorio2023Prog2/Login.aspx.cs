@@ -14,9 +14,13 @@ namespace Obligatorio2023Prog2
             Master.FindControl("lnkVentas").Visible = false;
             Master.FindControl("lnkAlquileres").Visible = false;
             Master.FindControl("lnkUsuarios").Visible = false;
+            Master.FindControl("lnkSalir").Visible = false;
 
             if (!Page.IsPostBack)
-                BaseDeDatos.CargarDatosIniciales();
+            {
+                if (BaseDeDatos.listaUsuarios.Count == 0)
+                    BaseDeDatos.CargarDatosIniciales();
+            }
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)

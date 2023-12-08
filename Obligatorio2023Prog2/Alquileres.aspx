@@ -26,8 +26,8 @@
     </div>
     <div class="row">
         <div class="col-lg-5">
-            <asp:Label Text="Dias: " runat="server"></asp:Label>
-            <asp:TextBox ID="txtAlquilerDia" TextMode="Date" runat="server" CssClass="form-control" Text="" placeholder="Fecha Alquiler"></asp:TextBox>
+            <asp:Label Text="Fecha: " runat="server"></asp:Label>
+            <asp:TextBox ID="txtFechaAlquiler" TextMode="Date" runat="server" CssClass="form-control" Text="" placeholder="Fecha Alquiler"></asp:TextBox>
         </div>
     </div>
     <div class="row">

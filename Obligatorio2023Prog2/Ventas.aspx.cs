@@ -66,6 +66,9 @@ namespace Obligatorio2023Prog2
             cboVehiculos.DataTextField = "Matricula";
             cboVehiculos.DataBind();
 
+            gridVentas.DataSource = BaseDeDatos.listaVentas;
+            gridVentas.DataBind();
+
             Response.Write("<script>alert('Venta ingresada correctamente')</script>");
         }
 

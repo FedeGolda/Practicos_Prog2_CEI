@@ -17,7 +17,7 @@ namespace Obligatorio2023Prog2
 
             if (!IsPostBack)
             {
-                // Verificar si hay vehículos en la lista
+                // Verificar si hay clientes en la lista
                 if (BaseDeDatos.listaClientes.Count > 0)
                 {
                     // Asignar la lista de vehículos como origen de datos para el GridView
