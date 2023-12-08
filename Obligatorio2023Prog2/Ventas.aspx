@@ -35,8 +35,8 @@
 
     <div class="row">
         <div class="col-lg-5">
-            Fecha:
-            <asp:TextBox ID="txtFecha" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
+            <asp:Label Text="Fecha: " runat="server"></asp:Label>
+            <asp:TextBox ID="txtFecha" TextMode="Date" runat="server" CssClass="form-control" Text="" placeholder="Fecha Venta"></asp:TextBox>
         </div>
     </div>
     <div class="row">
@@ -44,6 +44,13 @@
             <asp:Button ID="btnGuardar" CausesValidation="false" runat="server" CssClass="btn btn-primary" Text="Vender" OnClick="btnGuardar_Click" />
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <asp:Label ID="lblMensaje" runat="server" Visible="false" ForeColor="Red"></asp:Label>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-lg-5">
             <asp:Label ID="lblPrecioSimbolo" runat="server" Visible="false" CssClass="form-control" ForeColor="Red">$ </asp:Label>

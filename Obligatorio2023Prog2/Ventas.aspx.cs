@@ -30,6 +30,23 @@ namespace Obligatorio2023Prog2
                 cboVehiculos.DataTextField = "Matricula";
                 cboVehiculos.DataBind();
 
+                // Verifica si esta vacio cboVehiculos, que muestre
+                if (cboVehiculos.SelectedItem != null)
+                {
+                    string Matricula = cboVehiculos.SelectedItem.Value;
+               
+                    foreach (var vehiculo in BaseDeDatos.listaVehiculos)
+                    {
+                        if (vehiculo.getMatricula() == Matricula)
+                        {
+                            lblPrecio.Text = vehiculo.getPrecioVenta().ToString();
+                            lblPrecio.Visible = true;
+                            lblPrecioSimbolo.Visible = true;
+                        }
+                    }
+                }
+
+                // Configura el DataSource y DataBind para gvAlquileres
                 gridVentas.DataSource = BaseDeDatos.listaVentas;
                 gridVentas.DataBind();
             }
@@ -40,37 +57,52 @@ namespace Obligatorio2023Prog2
             Venta venta = new Venta();
             venta.setCedula(cboClientes.SelectedItem.Value);
             venta.setMatricula(cboVehiculos.SelectedItem.Value);
-            venta.setFechaVenta(DateTime.Now);
             venta.setNombreUsuario(BaseDeDatos.usuarioLogeado.NombreUsuario);
 
-            int precio;
-            if (int.TryParse(lblPrecio.Text, out precio))
+            // Verificar si la fecha es válida antes de intentar convertirla
+            DateTime fechaVenta;
+            if (DateTime.TryParse(txtFecha.Text, out fechaVenta))
             {
-                venta.setPrecio(precio);
-            }
-            venta.setNombreUsuario(BaseDeDatos.usuarioLogeado.NombreUsuario);
+                venta.setFechaVenta(fechaVenta);
 
-            BaseDeDatos.listaVentas.Add(venta);
-
-            foreach (var vehiculo in BaseDeDatos.listaVehiculos)
-            {
-                if (vehiculo.getMatricula() == cboVehiculos.SelectedItem.Value)
+                int precio;
+                if (int.TryParse(lblPrecio.Text, out precio))
                 {
-                    vehiculo.Activo = false;
-                    break;
+                    venta.setPrecio(precio);
                 }
+
+                BaseDeDatos.listaVentas.Add(venta);
+
+                foreach (var vehiculo in BaseDeDatos.listaVehiculos)
+                {
+                    if (vehiculo.getMatricula() == cboVehiculos.SelectedItem.Value)
+                    {
+                        vehiculo.Activo = false;
+                        break;
+                    }
+                }
+
+                // Vuelve a enlazar el GridView después de agregar la venta
+                cboVehiculos.DataSource = BaseDeDatos.ListadoVehiculosActivos();
+                cboVehiculos.DataTextField = "Matricula";
+                cboVehiculos.DataBind();
+
+                gridVentas.DataSource = BaseDeDatos.listaVentas;
+                gridVentas.DataBind();
+
+                lblMensaje.Text = "Venta ingresada correctamente";
+                lblMensaje.ForeColor = System.Drawing.Color.Green;
+                lblMensaje.Visible = true;
             }
-
-            // Vuelve a enlazar el GridView después de agregar la venta
-            cboVehiculos.DataSource = BaseDeDatos.ListadoVehiculosActivos();
-            cboVehiculos.DataTextField = "Matricula";
-            cboVehiculos.DataBind();
-
-            gridVentas.DataSource = BaseDeDatos.listaVentas;
-            gridVentas.DataBind();
-
-            Response.Write("<script>alert('Venta ingresada correctamente')</script>");
+            else
+            {
+                // Manejar el caso en el que la fecha no es válida
+                lblMensaje.Text = "Fecha de venta no válida";
+                lblMensaje.ForeColor = System.Drawing.Color.Red;
+                lblMensaje.Visible = true;
+            }
         }
+
 
         protected void cboVehiculos_SelectedIndexChanged1(object sender, EventArgs e)
         {

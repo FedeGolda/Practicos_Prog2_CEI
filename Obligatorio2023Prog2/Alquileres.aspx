@@ -47,6 +47,11 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-lg-8">
+            <asp:Label ID="lblMensaje" runat="server" Visible="false" ForeColor="Red"></asp:Label>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-lg-5">
             <asp:Label ID="lblPrecioSimbolo" runat="server" Visible="false" CssClass="form-control" ForeColor="Red">$ </asp:Label>
             <asp:Label ID="lblPrecio" runat="server" Visible="false" CssClass="form-control" ForeColor="Red"></asp:Label>
@@ -54,81 +59,81 @@
     </div>
 
 
-<div class="row">
-    <div class="col-lg-8">
-        <asp:GridView ID="gvAlquileres" runat="server" Width="80%" BorderWidth="2px" CellSpacing="5"
-            AutoGenerateColumns="false"
-            OnRowCancelingEdit="gvAlquileres_RowCancelingEdit"
-            OnRowDeleting="gvAlquileres_RowDeleting"
-            OnRowEditing="gvAlquileres_RowEditing"
-            OnRowUpdating="gvAlquileres_RowUpdating"
-            DataKeyNames="Matricula" OnSelectedIndexChanged="gvAlquileres_SelectedIndexChanged">
+    <div class="row">
+        <div class="col-lg-8">
+            <asp:GridView ID="gvAlquileres" runat="server" Width="80%" BorderWidth="2px" CellSpacing="5"
+                AutoGenerateColumns="false"
+                OnRowCancelingEdit="gvAlquileres_RowCancelingEdit"
+                OnRowDeleting="gvAlquileres_RowDeleting"
+                OnRowEditing="gvAlquileres_RowEditing"
+                OnRowUpdating="gvAlquileres_RowUpdating"
+                DataKeyNames="Matricula" OnSelectedIndexChanged="gvAlquileres_SelectedIndexChanged">
 
 
 
 
-            <Columns>
-                <asp:TemplateField HeaderText="Matricula">
-                    <ItemTemplate>
-                        <asp:Label ID="txtMatricula" runat="server" Text='<%# Bind("Matricula") %>'></asp:Label>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:Label ID="txtMatriculaGrid" runat="server" Text='<%# Bind("Matricula") %>'></asp:Label>
-                    </EditItemTemplate>
-                </asp:TemplateField>
+                <Columns>
+                    <asp:TemplateField HeaderText="Matricula">
+                        <ItemTemplate>
+                            <asp:Label ID="txtMatricula" runat="server" Text='<%# Bind("Matricula") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:Label ID="txtMatriculaGrid" runat="server" Text='<%# Bind("Matricula") %>'></asp:Label>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Cedula">
-                    <ItemTemplate>
-                        <asp:Label ID="Cedula" runat="server" Text='<%# Bind("Cedula") %>'></asp:Label>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:Label ID="txtCedulaGrid" runat="server" Text='<%# Bind("Cedula") %>'></asp:Label>
-                    </EditItemTemplate>
-                </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Cedula">
+                        <ItemTemplate>
+                            <asp:Label ID="Cedula" runat="server" Text='<%# Bind("Cedula") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:Label ID="txtCedulaGrid" runat="server" Text='<%# Bind("Cedula") %>'></asp:Label>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="FechaAlquiler">
-                    <ItemTemplate>
-                        <asp:Label ID="txtFechaAlquiler" runat="server" Text='<%# Bind("FechaAlquiler") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Dias">
-                    <ItemTemplate>
-                        <asp:Label ID="txtDias" runat="server" Text='<%# Bind("Dias") %>'></asp:Label>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtDiasGrid" runat="server" Text='<%# Bind("Dias") %>'></asp:TextBox>
-                    </EditItemTemplate>
+                    <asp:TemplateField HeaderText="FechaAlquiler">
+                        <ItemTemplate>
+                            <asp:Label ID="txtFechaAlquiler" runat="server" Text='<%# Bind("FechaAlquiler") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Dias">
+                        <ItemTemplate>
+                            <asp:Label ID="txtDias" runat="server" Text='<%# Bind("Dias") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtDiasGrid" runat="server" Text='<%# Bind("Dias") %>'></asp:TextBox>
+                        </EditItemTemplate>
 
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Precio">
-                    <ItemTemplate>
-                        <asp:Label ID="txtPrecio" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtPrecioGrid" runat="server" Text='<%# Bind("Precio") %>'></asp:TextBox>
-                    </EditItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Devuelto">
-                    <ItemTemplate>
-                        <asp:CheckBox ID="chkDevuelto" runat="server" Checked='<%# Bind("AutoDevuelto") %>'></asp:CheckBox>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:CheckBox ID="chkDevueltoGrid" runat="server" Checked='<%# Bind("AutoDevuelto") %>' OnCheckedChanged="chkDevueltoGrid_CheckedChanged"></asp:CheckBox>
-                    </EditItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Estado">
-                    <ItemTemplate>
-                        <asp:Label ID="txtEstado" runat="server" Text='<%# Bind("Estado") %>' ForeColor="Red" Font-Bold="true"></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Precio">
+                        <ItemTemplate>
+                            <asp:Label ID="txtPrecio" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtPrecioGrid" runat="server" Text='<%# Bind("Precio") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Devuelto">
+                        <ItemTemplate>
+                            <asp:CheckBox ID="chkDevuelto" runat="server" Checked='<%# Bind("AutoDevuelto") %>'></asp:CheckBox>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:CheckBox ID="chkDevueltoGrid" runat="server" Checked='<%# Bind("AutoDevuelto") %>' OnCheckedChanged="chkDevueltoGrid_CheckedChanged"></asp:CheckBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Estado">
+                        <ItemTemplate>
+                            <asp:Label ID="txtEstado" runat="server" Text='<%# Bind("Estado") %>' ForeColor="Red" Font-Bold="true"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
 
-            </Columns>
+                </Columns>
 
-        </asp:GridView>
+            </asp:GridView>
 
+        </div>
     </div>
-</div>
 
 
 
