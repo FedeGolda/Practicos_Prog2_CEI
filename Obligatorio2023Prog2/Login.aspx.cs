@@ -31,30 +31,37 @@ namespace Obligatorio2023Prog2
                 if (usuario.getNombreUsuario() == txtUsuario.Text && usuario.getContrasena() == txtContrasena.Text)
                 {
                     BaseDeDatos.GuardarUsuarioLogeado(usuario);
-                    if (BaseDeDatos.usuarioLogeado.getVerVehiculos())
-                        Response.Redirect("Vehiculos.aspx");
 
-                    if (BaseDeDatos.usuarioLogeado.getVerUsuarios())
-                        Response.Redirect("Usuarios.aspx");
-
-                    if (BaseDeDatos.usuarioLogeado.getVerClientes())
-                        Response.Redirect("Clientes.aspx");
-
-                    if (BaseDeDatos.usuarioLogeado.getVerVentas())
-                        Response.Redirect("Ventas.aspx");
-
-                    if (BaseDeDatos.usuarioLogeado.getVerAlquileres())
-                        Response.Redirect("Alquileres.aspx");
+                    if (usuario.TieneAlgunPermiso())
+                    {
+                        // Redirige a la página según los permisos del usuario
+                        if (usuario.getVerVehiculos())
+                            Response.Redirect("Vehiculos.aspx");
+                        else if (usuario.getVerUsuarios())
+                            Response.Redirect("Usuarios.aspx");
+                        else if (usuario.getVerClientes())
+                            Response.Redirect("Clientes.aspx");
+                        else if (usuario.getVerVentas())
+                            Response.Redirect("Ventas.aspx");
+                        else if (usuario.getVerAlquileres())
+                            Response.Redirect("Alquileres.aspx");
+                    }
+                    else
+                    {
+                        // El usuario no tiene ningún permiso, muestra un mensaje de error
+                        lblError.Text = "El usuario no tiene permisos para acceder al sistema.";
+                        lblError.Visible = true;
+                    }
 
                     loginCorrecto = true;
                 }
             }
             if (!loginCorrecto)
             {
+                lblError.Text = "Credenciales incorrectas. Inténtelo de nuevo.";
                 lblError.Visible = true;
-                Response.Write("<script>alert('usuario y/o contraseña incorrectos')</script>");
             }
-
         }
+
     }
 }

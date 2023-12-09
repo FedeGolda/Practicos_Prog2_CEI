@@ -17,20 +17,24 @@ namespace Obligatorio2023Prog2
 
             if (!Page.IsPostBack)
             {
+                // Data binding for cboClientes
                 cboClientes.DataSource = BaseDeDatos.listaClientes;
                 cboClientes.DataTextField = "DatosMostrar";
                 cboClientes.DataValueField = "Cedula";
                 cboClientes.DataBind();
 
+                // Data binding for cboVehiculos
                 cboVehiculos.DataSource = BaseDeDatos.ListadoVehiculosActivos();
                 cboVehiculos.DataTextField = "DatosMostrar";
                 cboVehiculos.DataValueField = "Matricula";
                 cboVehiculos.DataBind();
 
+                // Check if there is a selected item in cboVehiculos
                 if (cboVehiculos.SelectedItem != null)
                 {
                     string Matricula = cboVehiculos.SelectedItem.Value;
 
+                    // Find the vehicle and update lblPrecio
                     foreach (var vehiculo in BaseDeDatos.listaVehiculos)
                     {
                         if (vehiculo.getMatricula() == Matricula)
@@ -42,6 +46,7 @@ namespace Obligatorio2023Prog2
                     }
                 }
 
+                // Data binding for gvAlquileres
                 gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
                 gvAlquileres.DataBind();
             }
@@ -75,21 +80,21 @@ namespace Obligatorio2023Prog2
                         {
                             if (vehiculo.getMatricula() == cboVehiculos.SelectedItem.Value)
                             {
+                                // Actualizar el estado antes de obtener la lista activa
                                 vehiculo.Activo = false;
                                 break;
                             }
                         }
 
+                        // Obtener la lista de vehículos activos después de la actualización
+                        cboVehiculos.DataSource = BaseDeDatos.ListadoVehiculosActivos();
+                        cboVehiculos.DataTextField = "DatosMostrar";
+                        cboVehiculos.DataValueField = "Matricula";
+                        cboVehiculos.DataBind();
+
                         if (fechaAlquiler != DateTime.MinValue)
                         {
                             BaseDeDatos.listaAlquileres.Add(alquiler);
-
-                            lblMensaje.Text = "Alquiler ingresado correctamente";
-                            lblMensaje.ForeColor = System.Drawing.Color.Green;
-                            lblMensaje.Visible = true;
-
-                            gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
-                            gvAlquileres.DataBind();
 
                             // Actualizar cboVehiculos después de agregar el alquiler
                             cboVehiculos.DataSource = BaseDeDatos.ListadoVehiculosActivos();
@@ -97,6 +102,12 @@ namespace Obligatorio2023Prog2
                             cboVehiculos.DataValueField = "Matricula";
                             cboVehiculos.DataBind();
 
+                            gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
+                            gvAlquileres.DataBind();
+
+                            lblMensaje.Text = "Alquiler ingresado correctamente";
+                            lblMensaje.ForeColor = System.Drawing.Color.Green;
+                            lblMensaje.Visible = true;
                         }
                         else
                         {
@@ -181,12 +192,37 @@ namespace Obligatorio2023Prog2
 
         protected void gvAlquileres_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            GridViewRow row = gvAlquileres.Rows[e.RowIndex];
+            // Obtén la Matricula de la fila que se va a eliminar
             string matricula = gvAlquileres.DataKeys[e.RowIndex].Values["Matricula"].ToString();
 
-            gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
-            gvAlquileres.DataBind();
+            // Encuentra el alquiler que corresponde a la Matricula
+            Alquiler alquiler = BaseDeDatos.listaAlquileres.Find(a => a.Matricula == matricula);
+
+            // Asegúrate de que se encontró el alquiler antes de intentar eliminar
+            if (alquiler != null)
+            {
+                // Elimina el alquiler de la lista
+                BaseDeDatos.listaAlquileres.Remove(alquiler);
+                /*
+                // Encuentra el vehículo asociado y márcalo como activo
+                Vehiculo vehiculoAsociado = BaseDeDatos.listaVehiculos.Find(v => v.getMatricula() == matricula);
+                if (vehiculoAsociado != null)
+                {
+                    vehiculoAsociado.Activo = true;
+                }
+                */
+
+                // Actualiza la lista de vehículos activos y la vista del GridView
+                cboVehiculos.DataSource = BaseDeDatos.ListadoVehiculosActivos();
+                cboVehiculos.DataTextField = "DatosMostrar";
+                cboVehiculos.DataValueField = "Matricula";
+                cboVehiculos.DataBind();
+
+                gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
+                gvAlquileres.DataBind();
+            }
         }
+
 
         protected void txtAlquilerDia_TextChanged(object sender, EventArgs e)
         {
@@ -219,16 +255,22 @@ namespace Obligatorio2023Prog2
 
         protected void cboVehiculos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string Matricula = cboVehiculos.SelectedItem.Value;
+            string matricula = cboVehiculos.SelectedValue;
 
-            foreach (var vehiculo in BaseDeDatos.listaVehiculos)
+            // Busca el vehículo en la lista y muestra el precio del alquiler
+            Vehiculo vehiculo = BaseDeDatos.listaVehiculos.Find(v => v.getMatricula() == matricula);
+
+            if (vehiculo != null)
             {
-                if (vehiculo.getMatricula() == Matricula)
-                {
-                    lblPrecio.Text = vehiculo.getPrecioVenta().ToString();
-                    lblPrecio.Visible = true;
-                    lblPrecioSimbolo.Visible = true;
-                }
+                lblPrecio.Text = vehiculo.getPrecioAlquilerDia().ToString();
+                lblPrecio.Visible = true;
+                lblPrecioSimbolo.Visible = true;
+            }
+            else
+            {
+                lblPrecio.Text = string.Empty;
+                lblPrecio.Visible = false;
+                lblPrecioSimbolo.Visible = false;
             }
         }
     }

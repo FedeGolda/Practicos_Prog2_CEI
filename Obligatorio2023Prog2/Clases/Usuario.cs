@@ -78,5 +78,12 @@ namespace Obligatorio2023Prog2
         {
             VerVehiculos = verVehiculos;
         }
+
+        public bool TieneAlgunPermiso()
+        {
+            // Verifica si al menos un permiso está activado
+            return getVerClientes() || getVerUsuarios() || getVerVentas() || getVerVehiculos() || getVerAlquileres();
+        }
+
     }
 }
