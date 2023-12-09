@@ -25,6 +25,7 @@
         </div>
     </div>
 
+    <h3>Permisos</h3>
     <div class="row">
         <div class="col-lg-5">
             <asp:CheckBoxList ID="cblPermisos" runat="server" CssClass="form-control">

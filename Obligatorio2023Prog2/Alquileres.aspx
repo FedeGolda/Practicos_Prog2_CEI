@@ -103,12 +103,12 @@
 
                     <asp:TemplateField HeaderText="FechaAlquiler">
                         <ItemTemplate>
-                            <asp:Label ID="txtFechaAlquiler" runat="server" Text='<%# Bind("FechaAlquiler") %>'></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("FechaAlquiler") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Dias">
                         <ItemTemplate>
-                            <asp:Label ID="txtDias" runat="server" Text='<%# Bind("Dias") %>'></asp:Label>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Dias") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtDiasGrid" runat="server" Text='<%# Bind("Dias") %>'></asp:TextBox>
@@ -125,7 +125,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Devuelto">
                         <ItemTemplate>
-                            <asp:CheckBox ID="chkDevuelto" runat="server" Checked='<%# Bind("AutoDevuelto") %>'></asp:CheckBox>
+                            <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("AutoDevuelto") %>'></asp:CheckBox>
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:CheckBox ID="chkDevueltoGrid" runat="server" Checked='<%# Bind("AutoDevuelto") %>' OnCheckedChanged="chkDevueltoGrid_CheckedChanged"></asp:CheckBox>
@@ -137,6 +137,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
+
 
                 </Columns>
 
