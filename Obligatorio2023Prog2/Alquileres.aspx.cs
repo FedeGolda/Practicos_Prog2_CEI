@@ -1,5 +1,6 @@
 ﻿using Obligatorio2023Prog2.Clases;
 using System;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -76,6 +77,15 @@ namespace Obligatorio2023Prog2
                     {
                         alquiler.setFechaAlquiler(fechaAlquiler);
 
+                        // Validar si ya existe un alquiler con la misma combinación de cliente y vehículo
+                        if (ExisteAlquiler(alquiler))
+                        {
+                            lblMensaje.Text = "Ya existe un alquiler registrado para este cliente y vehículo.";
+                            lblMensaje.ForeColor = System.Drawing.Color.Red;
+                            lblMensaje.Visible = true;
+                            return;
+                        }
+
                         foreach (var vehiculo in BaseDeDatos.listaVehiculos)
                         {
                             if (vehiculo.getMatricula() == cboVehiculos.SelectedItem.Value)
@@ -139,6 +149,7 @@ namespace Obligatorio2023Prog2
         }
 
 
+
         protected void gvAlquileres_SelectedIndexChanged(object sender, EventArgs e)
         {
             string Matricula = cboVehiculos.SelectedItem.Value;
@@ -188,6 +199,9 @@ namespace Obligatorio2023Prog2
             this.gvAlquileres.EditIndex = -1;
             this.gvAlquileres.DataSource = BaseDeDatos.listaAlquileres;
             this.gvAlquileres.DataBind();
+
+            // Redirigir para refrescar la página
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void gvAlquileres_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -272,6 +286,12 @@ namespace Obligatorio2023Prog2
                 lblPrecio.Visible = false;
                 lblPrecioSimbolo.Visible = false;
             }
+        }
+
+        private bool ExisteAlquiler(Alquiler nuevoAlquiler)
+        {
+            // Verificar si ya existe un alquiler con la misma combinación de cliente y vehículo
+            return BaseDeDatos.listaAlquileres.Any(a => a.getCedula() == nuevoAlquiler.getCedula() && a.getMatricula() == nuevoAlquiler.getMatricula());
         }
     }
 }

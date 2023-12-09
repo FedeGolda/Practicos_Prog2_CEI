@@ -27,6 +27,8 @@ namespace Obligatorio2023Prog2
             }
         }
 
+        // ...
+
         protected void btnGuardarCliente_Click(object sender, EventArgs e)
         {
             try
@@ -73,11 +75,7 @@ namespace Obligatorio2023Prog2
                 // Agregar el cliente a la lista
                 BaseDeDatos.listaClientes.Add(nuevoCliente);
 
-                // Limpiar los campos
-                txtCedula.Text = "";
-                txtNombre.Text = "";
-                txtApellido.Text = "";
-                txtDireccion.Text = "";
+                LimpiarCampos();
 
                 // Actualizar la GridView
                 gvClientes.DataSource = BaseDeDatos.listaClientes;
@@ -86,6 +84,75 @@ namespace Obligatorio2023Prog2
                 lblMensajeCliente.Text = "Cliente ingresado correctamente";
                 lblMensajeCliente.ForeColor = System.Drawing.Color.Green;
                 lblMensajeCliente.Visible = true;
+
+                // Redirigir para refrescar la página
+                Response.Redirect(Request.RawUrl);
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción
+                Console.WriteLine("Excepción: " + ex.Message);
+            }
+        }
+
+        protected void gvClientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                string cedula = gvClientes.DataKeys[e.RowIndex].Values[0].ToString();
+
+                foreach (var cliente in BaseDeDatos.listaClientes)
+                {
+                    if (cliente.getCedula() == cedula)
+                    {
+                        BaseDeDatos.listaClientes.Remove(cliente);
+                        break;
+                    }
+                }
+
+                this.gvClientes.EditIndex = -1;
+                this.gvClientes.DataSource = BaseDeDatos.listaClientes;
+                this.gvClientes.DataBind();
+
+                // Redirigir para refrescar la página
+                Response.Redirect(Request.RawUrl);
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción
+                Console.WriteLine("Excepción: " + ex.Message);
+            }
+        }
+
+        protected void gvClientes_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            try
+            {
+                GridViewRow filaSeleccionada = gvClientes.Rows[e.RowIndex];
+                string cedula = gvClientes.DataKeys[e.RowIndex].Values[0].ToString();
+
+                string nombre = (filaSeleccionada.FindControl("txtNombreGrid") as TextBox).Text;
+                string apellido = (filaSeleccionada.FindControl("txtApellidoGrid") as TextBox).Text;
+                string direccion = (filaSeleccionada.FindControl("txtDireccionGrid") as TextBox).Text;
+
+                // Buscar el cliente a actualizar por la cédula original
+                Cliente clienteToUpdate = BaseDeDatos.listaClientes.Find(v => v.getCedula() == cedula);
+
+                if (clienteToUpdate != null)
+                {
+                    clienteToUpdate.setCedula(cedula);
+                    clienteToUpdate.setNombre(nombre);
+                    clienteToUpdate.setApellido(apellido);
+                    clienteToUpdate.setDireccion(direccion);
+
+                    gvClientes.EditIndex = -1;
+                    BindData(); // Método para actualizar la GridView
+
+                    // Mostrar mensaje de actualización
+                    lblMensajeCliente.Text = "Cliente actualizado correctamente";
+                    lblMensajeCliente.ForeColor = System.Drawing.Color.Green;
+                    lblMensajeCliente.Visible = true;
+                }
             }
             catch (Exception ex)
             {
@@ -96,22 +163,6 @@ namespace Obligatorio2023Prog2
 
 
 
-        protected void gvClientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            string cedula = gvClientes.DataKeys[e.RowIndex].Values[0].ToString();
-
-            foreach (var cliente in BaseDeDatos.listaClientes)
-            {
-                if (cliente.getCedula() == cedula)
-                {
-                    BaseDeDatos.listaClientes.Remove(cliente);
-                    break;
-                }
-            }
-            this.gvClientes.EditIndex = -1;
-            this.gvClientes.DataSource = BaseDeDatos.listaClientes;
-            this.gvClientes.DataBind();
-        }
 
 
 
@@ -125,33 +176,22 @@ namespace Obligatorio2023Prog2
         protected void gvClientes_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvClientes.EditIndex = e.NewEditIndex;
-            gvClientes.DataSource = BaseDeDatos.listaClientes;
-            gvClientes.DataBind();
+            BindData(); // Método para actualizar la GridView
         }
 
-        protected void gvClientes_RowUpdating(object sender, GridViewUpdateEventArgs e)
+
+        private void LimpiarCampos()
         {
-            GridViewRow filaSeleccionada = gvClientes.Rows[e.RowIndex];
-            string cedula = gvClientes.DataKeys[e.RowIndex].Values[0].ToString();
+            txtCedula.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtDireccion.Text = "";
+        }
 
-            string nombre = (filaSeleccionada.FindControl("txtNombreGrid") as TextBox).Text;
-            string apellido = (filaSeleccionada.FindControl("txtApellidoGrid") as TextBox).Text;
-            string direccion = (filaSeleccionada.FindControl("txtDireccionGrid") as TextBox).Text;
-
-            // Buscar el cliente a actualizar por la cédula original
-            Cliente clienteToUpdate = BaseDeDatos.listaClientes.Find(v => v.getCedula() == cedula);
-
-            if (clienteToUpdate != null)
-            {
-                clienteToUpdate.setCedula(cedula);
-                clienteToUpdate.setNombre(nombre);
-                clienteToUpdate.setApellido(apellido);
-                clienteToUpdate.setDireccion(direccion);
-
-                this.gvClientes.EditIndex = -1;
-                this.gvClientes.DataSource = BaseDeDatos.listaClientes;
-                this.gvClientes.DataBind();
-            }
+        private void BindData()
+        {
+            gvClientes.DataSource = BaseDeDatos.listaClientes;
+            gvClientes.DataBind();
         }
     }
 }

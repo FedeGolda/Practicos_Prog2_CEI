@@ -113,6 +113,7 @@ namespace Obligatorio2023Prog2
             lblMensaje.Text = "";
             gvUsuarios.EditIndex = -1;
             CargarUsuarios();  // Vuelve a cargar los datos después de cancelar la edición
+            LimpiarCampos();
         }
 
         protected void gvUsuarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -131,6 +132,7 @@ namespace Obligatorio2023Prog2
 
                     // Vuelve a cargar los usuarios después de la eliminación
                     CargarUsuarios();
+                    LimpiarCampos();
                 }
             }
             catch (Exception ex)
@@ -148,6 +150,7 @@ namespace Obligatorio2023Prog2
             gvUsuarios.EditIndex = e.NewEditIndex;
             gvUsuarios.DataSource = BaseDeDatos.listaUsuarios;
             CargarUsuarios();
+            LimpiarCampos();
         }
 
         protected void gvUsuarios_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -198,7 +201,7 @@ namespace Obligatorio2023Prog2
 
                     gvUsuarios.EditIndex = -1;
                     CargarUsuarios();
-                    lblMensaje.Text = "";  // Limpiar el mensaje al cargar la página
+                    LimpiarCampos();
                 }
             }
             catch (Exception ex)
