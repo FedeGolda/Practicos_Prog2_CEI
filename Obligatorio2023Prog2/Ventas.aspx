@@ -15,7 +15,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h3>Usuario:</h3>
+            <asp:Label Text="Usuario: " runat="server"></asp:Label>
             <asp:Label ID="lblNombreUsuario" runat="server" CssClass="form-control"></asp:Label>
         </div>
     </div>
@@ -102,6 +102,16 @@
                             <asp:TextBox ID="txtFechaVentaGrid" runat="server" Text='<%# Bind("FechaVenta") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Precio">
+                        <ItemTemplate>
+                            <asp:Label ID="txtPrecio" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtPrecioGrid" runat="server" Text='<%# Bind("Precio") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
                 </Columns>
             </asp:GridView>
         </div>

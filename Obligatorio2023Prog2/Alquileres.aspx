@@ -13,6 +13,12 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-lg-12">
+            <asp:Label Text="Usuario: " runat="server"></asp:Label>
+            <asp:Label ID="lblNombreUsuario" runat="server" CssClass="form-control"></asp:Label>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-lg-5">
             <asp:Label Text="Clientes: " runat="server"></asp:Label>
             <asp:DropDownList ID="cboClientes" runat="server" CssClass="form-control"></asp:DropDownList>
@@ -69,6 +75,14 @@
 
 
                 <Columns>
+                    <asp:TemplateField HeaderText="Nombre Usuario">
+                        <ItemTemplate>
+                            <asp:Label ID="lblUsuario" runat="server" Text='<%# Bind("NombreUsuario") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtUsuarioGrid" runat="server" Text='<%# Bind("NombreUsuario") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Matricula">
                         <ItemTemplate>
                             <asp:Label ID="txtMatricula" runat="server" Text='<%# Bind("Matricula") %>'></asp:Label>

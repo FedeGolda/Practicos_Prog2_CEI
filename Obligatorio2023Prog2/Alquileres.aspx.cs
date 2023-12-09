@@ -18,6 +18,9 @@ namespace Obligatorio2023Prog2
 
             if (!Page.IsPostBack)
             {
+                // Mostrar el nombre de usuario
+                lblNombreUsuario.Text = BaseDeDatos.usuarioLogeado.NombreUsuario;
+
                 // Data binding for cboClientes
                 cboClientes.DataSource = BaseDeDatos.listaClientes;
                 cboClientes.DataTextField = "DatosMostrar";

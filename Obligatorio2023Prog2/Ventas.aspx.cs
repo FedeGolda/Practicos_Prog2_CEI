@@ -18,7 +18,7 @@ namespace Obligatorio2023Prog2
             if (!Page.IsPostBack)
             {
                 // Mostrar el nombre de usuario
-                lblNombreUsuario.Text = "Usuario: " + BaseDeDatos.usuarioLogeado.NombreUsuario;
+                lblNombreUsuario.Text = BaseDeDatos.usuarioLogeado.NombreUsuario;
 
                 cboClientes.DataSource = BaseDeDatos.listaClientes;
                 cboClientes.DataTextField = "DatosMostrar";
@@ -34,7 +34,7 @@ namespace Obligatorio2023Prog2
                 if (cboVehiculos.SelectedItem != null)
                 {
                     string Matricula = cboVehiculos.SelectedItem.Value;
-               
+
                     foreach (var vehiculo in BaseDeDatos.listaVehiculos)
                     {
                         if (vehiculo.getMatricula() == Matricula)
