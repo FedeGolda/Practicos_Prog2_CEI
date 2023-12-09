@@ -54,6 +54,25 @@ namespace Obligatorio2023Prog2
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+
+            // Verificar si cboClientes es nulo
+            if (cboClientes.SelectedItem == null)
+            {
+                lblMensaje.Text = "No hay clientes seleccionados para vender";
+                lblMensaje.ForeColor = System.Drawing.Color.Red;
+                lblMensaje.Visible = true;
+                return; // Sale del método para evitar procesamiento adicional
+            }
+
+            // Verificar si cboVehiculos es nulo
+            if (cboVehiculos.SelectedItem == null)
+            {
+                lblMensaje.Text = "No hay vehículos seleccionados para vender";
+                lblMensaje.ForeColor = System.Drawing.Color.Red;
+                lblMensaje.Visible = true;
+                return; // Sale del método para evitar procesamiento adicional
+            }
+
             Venta venta = new Venta();
             venta.setCedula(cboClientes.SelectedItem.Value);
             venta.setMatricula(cboVehiculos.SelectedItem.Value);
